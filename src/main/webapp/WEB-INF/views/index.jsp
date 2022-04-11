@@ -12,6 +12,7 @@
 메인 입니다
 테스트 입니다
 
+djlsjlkfjlskdf
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
