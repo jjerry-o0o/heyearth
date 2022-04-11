@@ -14,6 +14,8 @@
 
 희영입니다
 
+희영입니다2222
+
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
