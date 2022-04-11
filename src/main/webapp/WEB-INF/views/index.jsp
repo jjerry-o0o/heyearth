@@ -11,9 +11,7 @@
 
 메인 입니다
 테스트 입니다
-테스트 한줄 추가
-테스트테스트
-
+미래입니다
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
