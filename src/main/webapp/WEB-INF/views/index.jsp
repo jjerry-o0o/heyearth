@@ -12,10 +12,7 @@
 메인 입니다
 테스트 입니다
 
-희영입니다
-
-희영입니다2222
-
+잘할 수 있을까요 ? 추가추가 ㅇㅇㅇㅇ
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
