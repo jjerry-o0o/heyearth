@@ -11,7 +11,9 @@
 
 메인 입니다
 테스트 입니다
-미래가 아닙니다
+
+희영입니다
+
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
