@@ -12,7 +12,7 @@
 메인 입니다
 테스트 입니다
 
-헤이얼스에 오신걸 환영합니다~~
+희영입니다
 
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
