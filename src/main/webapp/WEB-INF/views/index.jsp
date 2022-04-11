@@ -10,6 +10,7 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 메인 입니다
+test
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
