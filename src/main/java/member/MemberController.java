@@ -1,5 +1,8 @@
 package member;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -33,14 +36,10 @@ public class MemberController {
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public ModelAndView joinmember(MemberDTO dto) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(dto.getId());
-		
 		int result = service.joinmember(dto);
-		System.out.println(dto.getId());
-		
 		mv.addObject("userdto", dto);
 		mv.addObject("result", result);
-		mv.setViewName("/member/joinresult");
+		mv.setViewName("member/joinresult");
 		return mv;
 	}
 	
@@ -51,5 +50,31 @@ public class MemberController {
 	}
 	
 	//로그인 기능 구현 컨트롤러
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public ModelAndView loginmember(String id, String pw, HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		MemberDTO userdto = service.loginmember(id, pw);
+		if(userdto == null) { //로그인 실패인 경우
+			mv.addObject("msg", "일치하는 정보가 없습니다");
+			mv.setViewName("member/login");
+		}else { //로그인 성공인 경우
+			HttpSession session = request.getSession();
+			session.setAttribute("session_id", userdto.getId());
+			System.out.println(userdto.getId());
+			mv.setViewName("mission/mission");
+		}
+		return mv;
+	}
+	
+	//로그아웃 기능 구현 컨트롤러
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+		return "member/logout";
+	}
+	
 	
 }
