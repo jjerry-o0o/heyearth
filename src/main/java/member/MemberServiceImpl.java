@@ -18,4 +18,9 @@ public class MemberServiceImpl implements MemberService{
 	public int nicknameCheck(String id) {
 		return memberdao.nicknameCheck(id);
 	}
+
+	@Override
+	public MemberDTO loginmember(String id, String pw) {
+		return memberdao.loginmember(id, pw);
+	}
 }
