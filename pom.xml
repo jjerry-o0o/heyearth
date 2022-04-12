@@ -387,135 +387,21 @@
         </dependency>
                                 		
 		
-        
-        
-        
-        <!--for tomcat restart -->
-                                		
-        
-        
-        
-        <dependency>
-                                                			
-            
-            
-            
-            <groupId>org.springframework.boot</groupId>
-                                                			
-            
-            
-            
-            <artifactId>spring-boot-devtools</artifactId>
-                                                			
-            
-            
-            
-            <optional>true</optional>
-                                                		
-        
-        
-        
-        </dependency>
-                                	
-        
-        
-        
-                        
-        
-        
-                        
-        
-        
-                    
-    
-    
-    </dependencies>
-                	
-    
-    
-    
-    <build>
-                                		
-        
-        
-        
-        <plugins>
-                                                			
-            
-            
-            
-            <plugin>
-                                                                				
-                
-                
-                
-                <groupId>org.springframework.boot</groupId>
-                                                                				
-                
-                
-                
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                                                                			
-            
-            
-            
-            </plugin>
-                                                		
-        
-        
-        
-        </plugins>
-                                	
-    
-    
-    
-    </build>
-                
-    
-    
-    
-    <dependencyManagement>
-                                
-        
-        
-        <dependencies>
-                                                
-            
-            
-            <dependency>
-                                                                
-                
-                
-                <groupId>com.google.cloud</groupId>
-                                                                
-                
-                
-                <artifactId>libraries-bom</artifactId>
-                                                                
-                
-                
-                <type>pom</type>
-                                                                
-                
-                
-                <scope>import</scope>
-                                                                
-                
-                
-                <version>25.1.0</version>
-                                                            
-            
-            
-            </dependency>
-                                            
-        
-        
-        </dependencies>
-                            
-    
-    
-    </dependencyManagement>
-            
+		<!--for tomcat restart -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+		 	<!-- json parsing -->
+	 	<dependency>           
+	 		<groupId>org.json</groupId>
+	   		<artifactId>json</artifactId>
+	   		<version>20201115</version>
+	 	</dependency>
+		
+	</dependencies>
 
 
 </project>

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+h1 {
+	margin-bottom: 10px;
+}
+
+#joinform {
+	text-align: center;
+}
+
+input {
+	width: 200px;
+	height: 30px;
+}
+
+#nickname {
+	width: 125px;
+	height: 30px;
+}
+
+#nicknamebtn {
+	width: 70px;
+	height: 30px;	
+}
+
+div {
+	margin-bottom: 10px;
+}
