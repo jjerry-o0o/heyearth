@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import member.MemberController;
 import member.MemberDAO;
+import mission.MissionController;
 
 
 @SpringBootApplication

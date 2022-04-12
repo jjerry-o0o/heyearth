@@ -29,7 +29,7 @@ public class MemberController {
 		return service.nicknameCheck(id);
 	}
 	
-	//회원가입 컨트롤러
+	//회원가입 기능 구현 컨트롤러
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public ModelAndView joinmember(MemberDTO dto) {
 		ModelAndView mv = new ModelAndView();
@@ -49,5 +49,7 @@ public class MemberController {
 	public String loginform() {
 		return "member/login";
 	}
+	
+	//로그인 기능 구현 컨트롤러
 	
 }
