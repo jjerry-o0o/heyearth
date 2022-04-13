@@ -1,5 +1,76 @@
 @charset "UTF-8";
-#header {
-	color: red;
-	background-color: green;
+
+
+
+
+h1{
+	font-size:70px;  
+	color:#395DFF; 
+	background-color:#FFDDD0; 
+	margin-top:5px;
+	margin-bottom:10px; 
+	height:100px; 
+	padding-top:20px;  
+	padding-bottom:10px;  
+	font-weight:700; 
+	font-style:italic; 
+	text-align:center;
 }
+.JoinLogin
+{
+	text-align: right;
+	margin-right:10px;
+	margin-top:0;
+	margin-bottom:5px;
+	font-family:양진체;
+}
+
+
+/* * {
+	font-family:'Righteous', 'Josefin Sans','양진체','Noto Sans KR' , sans-serif;
+
+} */
+@font-face {
+    font-family: '양진체';
+    src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+ul, li {
+	list-style: none;
+	text-align: center;
+	font-family:양진체;
+	color:black;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	
+}
+
+/*  상단 메뉴바 */
+nav
+{
+	margin-top: 10px;
+	margin-left: 100px;
+	margin-right:100px;
+	margin-bottom: 20px;
+	align-self: center;
+}
+
+nav .list>li {
+	display: inline-block;
+	width: 160px;
+	vertical-align: top;
+	text-align: center;
+	background: #fff;
+	font-size: 15px;
+}
+span{
+	color:#395DFF;
+}
+
+

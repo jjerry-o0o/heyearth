@@ -7,8 +7,8 @@
 
 <!-- 1.sql 실행시 결과를 xxxDTO 매핑 -->
 <typeAliases>
-	
-	
+	<typeAlias type="member.MemberDTO" alias="memberdto"/>
+	<typeAlias type="zeroshop.LocationDTO" alias="locationdto"/>
 </typeAliases>
 
 </configuration>

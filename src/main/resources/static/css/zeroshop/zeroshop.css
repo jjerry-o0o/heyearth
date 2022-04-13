@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.zero_search{
+
+	width : 300px;
+}
+
+#search1, #search2{
+	background-color : #FFDDD0;
+	color : blue;
+	border : 0;
+	outline : 0;
+	font-size: 16px;
+}
