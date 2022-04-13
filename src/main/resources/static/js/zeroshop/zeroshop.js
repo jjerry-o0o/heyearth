@@ -45,4 +45,8 @@ $(document).ready(function(){
 		
 	});  // smallloc button click end
 	
+	$("#locbtn").on("click",function(){
+		
+	});
+	
 }); // document ready end
