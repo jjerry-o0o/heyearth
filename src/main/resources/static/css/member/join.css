@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
-
-h1 {
+#jointitle {
 	margin-bottom: 10px;
 }
 
@@ -12,6 +11,7 @@ h1 {
 input {
 	width: 200px;
 	height: 30px;
+	margin-bottom: 10px;
 }
 
 #nickname {
@@ -21,9 +21,5 @@ input {
 
 #nicknamebtn {
 	width: 70px;
-	height: 30px;	
-}
-
-div {
-	margin-bottom: 10px;
+	height: 30px;
 }

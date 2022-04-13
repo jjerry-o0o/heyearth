@@ -15,7 +15,13 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 	<div id=loginform>
-		<h1>로그인</h1>
+		<p id=logintitle>로그인</p>
+			<!-- 사용자 여부 체크 -->
+			<c:if test="${msg != null}">
+				<div>
+					<span id= loginresult>${msg}</span>
+				</div>
+			</c:if>
 		<form action="login" method="post">
 			<input id="nickname" type="text" name="id" placeholder=" 닉네임">
 				<div id=nicknameerror></div>

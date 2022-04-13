@@ -16,13 +16,13 @@
 <header>
 
 <!-- 로그인 전 오른쪽 상단 메뉴-->
-		<c:if test="${empty id }">
+		<c:if test="${sessionScope.session_id == null }">
 		<div class="JoinLogin"  style="font-size: 15px"><a href="join">회원가입</a>&nbsp;/
 		<a href="${pageContext.request.contextPath}/login">로그인</a></div>
 		</c:if>
 
 <!-- 로그인 후 오른쪽 상단 메뉴-->
-		<c:if test="${!empty id }">
+		<c:if test="${sessionScope.session_id != null }">
 		    <div align="right" class="JoinLogin"  style="font-size: 15px">
 		    <a style="margin-right:30px;" href="${pageContext.request.contextPath}/mypagemain">What's Up, <span>${id}</span> !</a>
 			<a href="${pageContext.request.contextPath}/mypagemain">마이페이지</a>&nbsp;/
