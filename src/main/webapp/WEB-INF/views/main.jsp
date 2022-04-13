@@ -30,9 +30,7 @@ https://templatemo.com/tm-559-zay-shop
 </head>
 
 <body>
- 
-    <!-- Header -->
-    <!-- Close Header -->
+
 
     <!-- Start Banner Hero -->
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
