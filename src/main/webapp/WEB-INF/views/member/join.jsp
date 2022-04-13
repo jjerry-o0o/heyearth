@@ -15,7 +15,7 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 	<div id=joinform>
-		<h1>회원가입</h1>
+		<p id=jointitle>회원가입</p>
 		<form action="join" method="post">
 			<input id="nickname" type="text" name="id" placeholder=" 닉네임">
 			<input id="nicknamebtn" type="button" value="중복확인"><br>
