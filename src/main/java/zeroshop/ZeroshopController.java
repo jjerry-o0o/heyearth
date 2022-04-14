@@ -3,8 +3,7 @@ package zeroshop;
 import java.util.Iterator;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,6 +18,10 @@ public class ZeroshopController {
 	@Autowired
 	@Qualifier("locationservice")
 	LocationService loc_service = new LocationServiceImpl();
+	
+	@Autowired
+	@Qualifier("zeroshopservice")
+	ZeroshopService zero_service = new ZeroshopServiceImpl();
 	
 	@GetMapping("/zeroshop")
 	public String zeroshoplist() {
@@ -39,5 +42,20 @@ public class ZeroshopController {
 		return result;
 	}
 	
+	@RequestMapping("/loczeroshop")
+	@ResponseBody
+	public List<ZeroshopDTO> loczeroshop(String bigloc,String smallloc){
+		System.out.println(bigloc+smallloc);
+		int l_code = zero_service.locid(bigloc, smallloc);
+		List<ZeroshopDTO> dto = zero_service.loczero(l_code);
+		System.out.println(dto);
+		if(dto.isEmpty()) {
+			ZeroshopDTO tmpdto = new ZeroshopDTO();
+			tmpdto.setS_name("none");
+			dto.add(tmpdto);
+		}
+		
+		return dto;
+	}
 	
 }

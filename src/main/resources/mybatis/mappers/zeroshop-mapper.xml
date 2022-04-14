@@ -2,13 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="zeroshop.LocationDAO">
+<mapper namespace="zeroshop.ZeroshopDAO">
 
-	<select id="biglocation" resultType="String">
-		select distinct big_loc from location;
+	<select id="locid" resultType="int" parameterType="locationdto">
+		select l_code from location where big_loc=#{big_loc} and small_loc=#{small_loc};
 	</select>
 	
-	<select id="smalllocation" resultType="String" parameterType="String">
-		select small_loc from location where big_loc = #{big_loc};
+	<select id="loczero" resultType="zeroshopdto" parameterType="int">
+		select * from zeroshop where l_code = #{l_code};
 	</select>
+	
 </mapper>
