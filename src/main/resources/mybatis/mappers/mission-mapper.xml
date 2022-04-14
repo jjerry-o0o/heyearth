@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mission.MissionDAO">
+
+	<select id="missionlist"  resultType = "missiondto">
+		select * from mission
+		order by m_code;
+	</select>	
+	
+	 <select id = "missiongroup" resultType = "missiondto">
+    select * from mission
+    where m_code = #{m_code};  
+    </select>   
+	
+</mapper>

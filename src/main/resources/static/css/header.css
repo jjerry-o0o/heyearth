@@ -3,18 +3,19 @@
 
 
 
-.hey{
+.header_h1{
 	font-size:70px;  
 	color:#395DFF; 
 	background-color:#FFDDD0; 
 	margin-top:5px;
-	margin-bottom:10px; 
-	height:100px; 
+	margin-bottom:0; 
+	height:90px; 
 	padding-top:20px;  
-	padding-bottom:10px;  
+	padding-bottom:0;  
 	font-weight:700; 
 	font-style:italic; 
 	text-align:center;
+		font-family:Righteous;
 }
 .JoinLogin
 {
@@ -23,6 +24,7 @@
 	margin-top:0;
 	margin-bottom:5px;
 	font-family:양진체;
+	font-size: 15px;
 }
 
 
@@ -38,14 +40,14 @@
 }
 
 
-ul, li {
+.header_ul, .header_li {
 	list-style: none;
 	text-align: center;
 	font-family:양진체;
 	color:black;
 }
 
-a {
+.header_a {
 	text-decoration: none;
 	color: inherit;
 	
@@ -54,14 +56,15 @@ a {
 /*  상단 메뉴바 */
 nav
 {
-	margin-top: 10px;
-	margin-left: 100px;
-	margin-right:100px;
-	margin-bottom: 20px;
+	  margin-top: 10px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 20px;
+	width:90%;
 	align-self: center;
 }
 
-nav .list>li {
+nav .header_ul>li {
 	display: inline-block;
 	width: 160px;
 	vertical-align: top;
@@ -69,7 +72,7 @@ nav .list>li {
 	background: #fff;
 	font-size: 15px;
 }
-span{
+.whatsup_id{
 	color:#395DFF;
 }
 

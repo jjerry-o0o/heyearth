@@ -17,40 +17,41 @@
 
 <!-- 로그인 전 오른쪽 상단 메뉴-->
 		<c:if test="${sessionScope.session_id == null }">
-		<div class="JoinLogin"  style="font-size: 15px"><a href="join">회원가입</a>&nbsp;/
-		<a href="${pageContext.request.contextPath}/login">로그인</a></div>
+		<div class="JoinLogin" ><a class="header_a" href="/join">회원가입</a>&nbsp;/
+		<a class="header_a" href="${pageContext.request.contextPath}/login">로그인</a></div>
 		</c:if>
 
 <!-- 로그인 후 오른쪽 상단 메뉴-->
 		<c:if test="${sessionScope.session_id != null }">
-		    <div align="right" class="JoinLogin"  style="font-size: 15px">
-		    <a style="margin-right:30px;" href="${pageContext.request.contextPath}/mypagemain">What's Up, <span>${id}</span> !</a>
-			<a href="${pageContext.request.contextPath}/mypagemain">마이페이지</a>&nbsp;/
-			<a href="${pageContext.request.contextPath}/logout">로그아웃</a>
+		    <div  class="JoinLogin">
+		    <a class="header_a" style="margin-right:30px;" href="${pageContext.request.contextPath}/mypagemain">What's Up, <span class="whatsup_id">${sessionScope.session_id}</span> !</a>
+			<a class="header_a" href="${pageContext.request.contextPath}/mypagemain">마이페이지</a>&nbsp;/
+			<a class="header_a" href="${pageContext.request.contextPath}/logout">로그아웃</a>
 			</div>
 		 </c:if>	 
 
 <!-- Hey, Earth 메인 로고 -->
-		<h1 class="hey"><a style="font-family:Righteous" href="${pageContext.request.contextPath}/main"><ins>Hey, Earth</ins></a></h1>
+		<h1 class="header_h1"><a class="header_a" href="${pageContext.request.contextPath}/"><ins>Hey, Earth</ins></a></h1>
 		
 <!-- 메뉴바 목록 -->
 	<nav>
 		<div style="background-color: white">
-		 <HR>
-			<ul class="list">
+		 <hr color= #EEEEEE>
 
-				<li><a href="${pageContext.request.contextPath}/about">헤이얼스란?</a></li>
+			<ul class="header_ul">
+
+				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/about">헤이얼스란?</a></li>
 	
-				<li><a href="${pageContext.request.contextPath}/zeroshop">지구를 돕는 가게 찾기</a></li>
+				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/zeroshop">지구를 돕는 가게 찾기</a></li>
 	
-				<li><a href="${pageContext.request.contextPath}/mission">환경 지킴이 모집중</a></li>
+				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/mission">환경 지킴이 모집중</a></li>
 				
-				<li><a href="${pageContext.request.contextPath}/recycling">이건 어떻게 버릴까?</a></li>
+				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/recycling">이건 어떻게 버릴까?</a></li>
 				
-				<li><a href="${pageContext.request.contextPath}/boardlist">게시판</a></li>
+				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/boardlist">게시판</a></li>
 			
 		   </ul>
-		 <HR>
+		  <hr color= #EEEEEE>
 		</div>
 	</nav>
 </header>
