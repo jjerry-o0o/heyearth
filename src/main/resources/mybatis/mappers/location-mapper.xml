@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="zeroshop.LocationDAO">
+
+	<select id="biglocation" resultType="String">
+		select distinct big_loc from location;
+	</select>
+	
+	<select id="smalllocation" resultType="String" parameterType="String">
+		select small_loc from location where big_loc = #{big_loc};
+	</select>
+	
+</mapper>

@@ -12,6 +12,7 @@ import board.BoardController;
 import mission.MissionController;
 import zeroshop.LocationDAO;
 import zeroshop.ZeroshopController;
+import zeroshop.ZeroshopDAO;
 
 @SpringBootApplication
 @Component
@@ -21,6 +22,7 @@ import zeroshop.ZeroshopController;
 @ComponentScan(basePackageClasses = BoardController.class)
 @ComponentScan(basePackageClasses = ZeroshopController.class)
 @MapperScan(basePackageClasses = LocationDAO.class)
+@MapperScan(basePackageClasses = ZeroshopDAO.class)
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

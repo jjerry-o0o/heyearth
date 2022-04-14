@@ -12,23 +12,26 @@
 </head>
 <body>
 <div class="zero_search">
-		<input type="button" id="search1" name="findid" value = "지역으로 검색"onclick="search(1)" checked="checked">
-		 | 
-		<input type="button" id="search2" name="findid" value = "내 주변에서 검색" onclick="search(2)">
+		<input type="button" id="zerosearch1" name="findid" value = "지역으로 검색"onclick="search(1)" checked="checked" autofocus>
+		  
+		<input type="button" id="zerosearch2" name="findid" value = "내 주변에서 검색" onclick="search(2)">
 </div>
 <br>
 <br>
 <div class="zero_body">
 	<div id="searchLoc">
-		<div id="Loc_menu">
-			<label for="location" class="menu">지역 선택</label>
+		<div id="loc_menu">
+			<label for="location" class="Locmenu">지역 선택</label>
 			<select name="bigloc" id="bigloc">
-				<option value="none" selected disabled hidden>광역시/도</option>
+				<option class="Locopt" value="none" selected disabled hidden>광역시/도</option>
 			</select>
 			<select name="smallloc" id="smallloc">
-				<option value="none" selected disabled hidden>시/군/구</option>
+				<option class="Locopt" value="none" selected disabled hidden>시/군/구</option>
 			</select>
 			<input type="button" value="검색" id="locbtn">
+		</div>
+		<div id="loc_context">
+			
 		</div>
 	</div>
 	
