@@ -56,12 +56,12 @@
 /*  상단 메뉴바 */
 nav
 {
-	  margin-top: 10px;
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: 20px;
-	width:90%;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
 	align-self: center;
+	width : 90%;
 }
 
 nav .header_ul>li {

@@ -9,8 +9,10 @@ import org.springframework.stereotype.Component;
 import member.MemberController;
 import member.MemberDAO;
 import board.BoardController;
+import carbon.CarbonController;
 import mission.MissionController;
 import mission.MissionDAO;
+import mypage.MypageController;
 import zeroshop.LocationDAO;
 import zeroshop.ZeroshopController;
 import zeroshop.ZeroshopDAO;
@@ -22,6 +24,8 @@ import zeroshop.ZeroshopDAO;
 @ComponentScan(basePackageClasses = MissionController.class)
 @ComponentScan(basePackageClasses = BoardController.class)
 @ComponentScan(basePackageClasses = ZeroshopController.class)
+@ComponentScan(basePackageClasses = CarbonController.class)
+@ComponentScan(basePackageClasses = MypageController.class)
 @MapperScan(basePackageClasses = LocationDAO.class)
 @MapperScan(basePackageClasses = ZeroshopDAO.class)
 @MapperScan(basePackageClasses = MissionDAO.class)
