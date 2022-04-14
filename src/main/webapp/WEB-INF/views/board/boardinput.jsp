@@ -134,6 +134,10 @@
 			<th>내용</th>
 			<td><textarea id="view_textarea" rows="20" placeholder="게시물 내용을 입력해주세요."></textarea></td>
 		</tr>
+		<tr>
+			<th>첨부파일</th>
+			<td></td>
+		</tr>
 	</table>
 	
 	<div id="btn_div">

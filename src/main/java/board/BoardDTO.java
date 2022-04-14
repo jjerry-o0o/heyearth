@@ -1,5 +1,98 @@
 package board;
 
-public class BoardDTO {
+import java.time.LocalDateTime;
 
+public class BoardDTO {
+	
+	
+	
+	//게시물번호
+	private int b_no;
+	
+	//작성자
+	private String id;
+	
+	//게시물 제목
+	private String b_title;
+	
+	//게시물내용
+	private String b_content;
+	
+	//작성일
+	private LocalDateTime b_regdate;
+	
+	//조회수
+	private int b_view;
+	
+	//게시물종류
+	private String b_type;
+	
+	//첨부파일
+	private String b_img;
+
+	public int getB_no() {
+		return b_no;
+	}
+
+	public void setB_no(int b_no) {
+		this.b_no = b_no;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getB_title() {
+		return b_title;
+	}
+
+	public void setB_title(String b_title) {
+		this.b_title = b_title;
+	}
+
+	public String getB_content() {
+		return b_content;
+	}
+
+	public void setB_content(String b_content) {
+		this.b_content = b_content;
+	}
+
+	public LocalDateTime getB_regdate() {
+		return b_regdate;
+	}
+
+	public void setB_regdate(LocalDateTime b_regdate) {
+		this.b_regdate = b_regdate;
+	}
+
+	public int getB_view() {
+		return b_view;
+	}
+
+	public void setB_view(int b_view) {
+		this.b_view = b_view;
+	}
+
+	public String getB_type() {
+		return b_type;
+	}
+
+	public void setB_type(String b_type) {
+		this.b_type = b_type;
+	}
+
+	public String getB_img() {
+		return b_img;
+	}
+
+	public void setB_img(String b_img) {
+		this.b_img = b_img;
+	}
+	
+	
 }

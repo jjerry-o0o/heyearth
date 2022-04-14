@@ -25,7 +25,7 @@
 		<c:if test="${sessionScope.session_id != null }">
 		    <div  class="JoinLogin">
 		    <a class="header_a" style="margin-right:30px;" href="${pageContext.request.contextPath}/mypagemain">What's Up, <span class="whatsup_id">${sessionScope.session_id}</span> !</a>
-			<a class="header_a" href="${pageContext.request.contextPath}/mypagemain">마이페이지</a>&nbsp;/
+			<a class="header_a" href="${pageContext.request.contextPath}/mypage">마이페이지</a>&nbsp;/
 			<a class="header_a" href="${pageContext.request.contextPath}/logout">로그아웃</a>
 			</div>
 		 </c:if>	 
