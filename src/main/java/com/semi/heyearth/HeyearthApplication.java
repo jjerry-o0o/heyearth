@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 import member.MemberController;
 import member.MemberDAO;
 import board.BoardController;
+import carbon.CarbonController;
 import mission.MissionController;
+import mypage.MypageController;
 import zeroshop.LocationDAO;
 import zeroshop.ZeroshopController;
 
@@ -20,6 +22,8 @@ import zeroshop.ZeroshopController;
 @ComponentScan(basePackageClasses = MissionController.class)
 @ComponentScan(basePackageClasses = BoardController.class)
 @ComponentScan(basePackageClasses = ZeroshopController.class)
+@ComponentScan(basePackageClasses = CarbonController.class)
+@ComponentScan(basePackageClasses = MypageController.class)
 @MapperScan(basePackageClasses = LocationDAO.class)
 public class HeyearthApplication {
 

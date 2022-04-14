@@ -1,15 +1,13 @@
-package com.semi.heyearth;
+package carbon;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class IndexController {
-	
-	@RequestMapping("/main")
-	public void main() {
-		
-		return "main";
+public class CarbonController {
+
+	@RequestMapping("/carbon")
+	public String carbon() {
+		return "carbon/carbon";
 	}
-	
 }

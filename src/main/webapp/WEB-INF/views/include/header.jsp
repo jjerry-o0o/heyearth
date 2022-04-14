@@ -31,7 +31,7 @@
 		 </c:if>	 
 
 <!-- Hey, Earth 메인 로고 -->
-		<h1 class="hey"><a style="font-family:Righteous" href="${pageContext.request.contextPath}/main"><ins>Hey, Earth</ins></a></h1>
+		<h1 class="hey"><a style="font-family:Righteous" href="${pageContext.request.contextPath}/"><ins>Hey, Earth</ins></a></h1>
 		
 <!-- 메뉴바 목록 -->
 	<nav>
