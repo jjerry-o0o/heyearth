@@ -16,4 +16,14 @@ public class BoardController {
 		return "board/boardview";
 	}
 	
+	@RequestMapping("/boardinput")
+	public String boardinput() {
+		return "board/boardinput";
+	}
+	
+	@RequestMapping("/boardalter")
+	public String boardalter() {
+		return "board/boardalter";
+	}
+	
 }

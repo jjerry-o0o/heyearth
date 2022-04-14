@@ -10,8 +10,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="bootstrap/img/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="bootstrap/img/favicon.ico">
+	<link rel="apple-touch-icon" href="bootstrap/img/apple-icon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="bootstrap/img/favicon.ico">
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap/css/templatemo.css">
@@ -30,6 +30,9 @@ https://templatemo.com/tm-559-zay-shop
 </head>
 
 <body>
+	<!-- header import -->
+	<%@ include file="/WEB-INF/views/include/header.jsp" %>
+	<!-- end of header import -->
 
 
     <!-- Start Banner Hero -->
@@ -242,6 +245,10 @@ https://templatemo.com/tm-559-zay-shop
     <script src="bootstrap/js/templatemo.js"></script>
     <script src="bootstrap/js/custom.js"></script>
     <!-- End Script -->
+    
+    	<!-- footer import -->
+	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+	<!-- end of footer import -->
 </body>
 
 </html>

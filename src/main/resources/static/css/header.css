@@ -55,10 +55,11 @@ a {
 nav
 {
 	margin-top: 10px;
-	margin-left: 100px;
-	margin-right:100px;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 20px;
 	align-self: center;
+	width : 90%;
 }
 
 nav .list>li {

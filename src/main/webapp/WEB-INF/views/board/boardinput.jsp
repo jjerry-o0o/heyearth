@@ -4,16 +4,148 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>게시물 작성 | heyEarth</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/board/boardinput.css" />
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+
+<!-- js -->
+<script type="text/javascript" src="/js/board/boardinput.js"></script>
+
 <script src="jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function () {
-		
+		$("#listbtn").on("click", function(){
+			location.href="/boardlist";
+		});
+		$("#inputbtn").on("click", function(){
+			
+		});
 	});
 </script>
-<meta charset="UTF-8">
-<title>게시물 작성 | heyEarth</title>
+<style>
+	#view_table{
+		width : 90%;
+		border-top: 1px solid gray;
+		border-bottom: 1px solid gray;
+		border-collapse: collapse;
+		margin : 30px auto;
+	}
+	tr{
+		border-bottom: 1px dashed gray;
+	}
+	td{
+		padding-left : 20px;
+	}
+	th{
+		width : 20%;
+		border-right: 1px solid gray;
+		padding : 20px;
+	}
+	tr:last-child{
+		vertical-align: top;
+	}
+	#btn_div{
+		text-align: center;
+		margin : 30px auto;
+	}
+	#inputbtn{
+		padding : 10px 20px;
+		margin-right : 10px;
+		background-color: #FFDDD0;
+		border: 2px solid pink;
+		border-radius: 5px;
+	}
+	#inputbtn:hover{
+		background-color: gray;
+	}
+	#listbtn{
+		padding : 10px 20px;
+		background-color: #FFDDD0;
+		border: 2px solid pink;
+		border-radius: 5px;
+	}
+	#listbtn:hover{
+		background-color: gray;
+	}
+	#view_textarea{
+		border-style: none;
+		resize: none;
+		width: 100%;
+		overflow: auto;
+		margin : 20px auto;
+	}
+	.type_radio input{
+		accent-color : black;
+	}
+	label{
+		margin-right : 20px;
+	}
+	#title_input{
+		border-style: none;
+		height : 30px;
+		width : 100%;
+		font-size: medium;
+		font-weight: bold;
+	}
+	
+</style>
+
 </head>
 <body>
 
+	<!-- header import -->
+	<%@ include file="/WEB-INF/views/include/header.jsp" %>
+	<!-- end of header import -->
+	
+<section class="viewSection">
+	<table id="view_table">
+		<tr>
+			<th>분류</th>
+			<td>
+				<div class="type_radio">
+					<label for="que">
+						<input type="radio" id="que" name="type" value="que" checked> 
+						질문
+					</label>
+					<label for="req">
+						<input type="radio" id="req" name="type" value="req"> 
+						요청
+					</label>
+					<label for="not">
+						<input type="radio" id="not" name="type" value="not"> 
+						공지
+					</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td id="title_td"><input type="text" id="title_input" name="title" autofocus="autofocus" placeholder="제목을 입력해주세요"></td>
+		</tr>
+		<tr>
+			<th>작성자</th>
+			<td>writer</td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><textarea id="view_textarea" rows="20" placeholder="게시물 내용을 입력해주세요."></textarea></td>
+		</tr>
+	</table>
+	
+	<div id="btn_div">
+		<input type="button" id="inputbtn" value="등록">
+		<input type="button" id="listbtn" value="목록으로">
+	</div>
+
+</section>
+
+	<!-- footer import -->
+	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+	<!-- end of footer import -->
+	
 </body>
 </html>
