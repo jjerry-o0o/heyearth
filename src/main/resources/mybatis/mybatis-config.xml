@@ -10,6 +10,7 @@
 	<typeAlias type="member.MemberDTO" alias="memberdto"/>
 	<typeAlias type="zeroshop.LocationDTO" alias="locationdto"/>
 	<typeAlias type="zeroshop.ZeroshopDTO" alias="zeroshopdto"/>
+	<typeAlias type="mission.MissionDTO" alias="missiondto"/>
 </typeAliases>
 
 </configuration>

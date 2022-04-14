@@ -1,4 +1,4 @@
-package mission;
+package particapation;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class MissionController {
+public class ParticapationController {
 	
 	@Autowired
 	@Qualifier("missionservice")
-	MissionService missionservice = new MissionServiceImpl();
+	ParticipationService missionservice = new ParticipationServiceImpl();
 	
 	 @RequestMapping("/mission") 
 	 public ModelAndView missionlist(ModelAndView mav) {
