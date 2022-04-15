@@ -15,9 +15,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
-	box-sizing: border-box
-}
+
 
 body {
 	font-family: Verdana, sans-serif;
@@ -151,18 +149,15 @@ to {
 </style>
 </head>
 <body>
-	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/header.jsp" %>
-	<!-- end of header import -->
 
 	<div class="slideshow-container">
 
 		<div class="mySlides fade">
 			<img src="img/main-polarbear.jpg" style="width: 100%">
 			<div class="slide-text">
-				<p>Let's Together</p>
-				헤이얼스와 줄인 탄소배출량
-				<p>The amount of carbon emissions we've reduced</p>
+<!-- 				<p>Let's Together</p> -->
+<!-- 				헤이얼스와 줄인 탄소배출량 -->
+<!-- 				<p>The amount of carbon emissions we've reduced</p> -->
 				<button type="button" onclick="location.href='/carbon'">자세히보기</button>
 
 			</div>
