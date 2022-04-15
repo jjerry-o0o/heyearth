@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Hey,earth</title>
 <link href="<%=request.getContextPath()%>/css/footer.css" rel="stylesheet">
+<meta name="viewport" content="width=100% height=100%">
 </head>
 <body>
 

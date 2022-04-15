@@ -10,6 +10,11 @@ public class MainController {
 		public String main() {
 			return "main";
 		}
+		@RequestMapping("/about")
+		public String about() {
+			return "about";
+		}
+		
 		
 		@RequestMapping("/about")
 	      public String about() {

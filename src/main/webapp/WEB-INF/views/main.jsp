@@ -6,7 +6,8 @@
 <html>
 <head>
 <title>Main | Hey, Earth</title>
- <!-- header import -->
+
+    <!-- header import -->
    <%@ include file="/WEB-INF/views/include/header.jsp" %>
    <!-- end of header import -->
 <!-- <link href="main.css" rel="stylesheet"> -->
@@ -16,12 +17,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
-
-body {
+/* body {
 	font-family: Verdana, sans-serif;
 	margin: 0
 }
-
+ */
 .mySlides {
 	display: none
 }
