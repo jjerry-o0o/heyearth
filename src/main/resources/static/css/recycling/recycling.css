@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+#recyclingbtn {
+	text-align: center;
+}
+
+#search1, #search2 {
+	font-size: 15px;
+	width: 150px;
+	height: 40px;
+	background-color : #FFDDD0;
+	border : solid #ffbba1 2px;
+	border-radius: 12px;
+	color : #395DFF;
+	font-weight: bold;
+}
+
+/* 사진으로 검색하기 */
+#recyclingFile {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.filebox label {
+	display: inline-block; 
+	text-align: center;
+	padding: 100px 150px; 
+	color: #395DFF; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	background-color: #fdfdfd; 
+	cursor: pointer; 
+	border: 1px dashed #395DFF; 
+	border-radius: 25px;
+	margin: 0px auto; 
+}
+
+.filebox input[type="file"] { /* 파일 필드 숨기기 */ 
+	position: absolute; 
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px;
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0;
+}
+
+#submit {
+	padding: 10px 170px; 
+	color: white; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	background-color: #395DFF; 
+	cursor: pointer; 
+	border: 1px solid #395DFF; 
+	border-radius: 15px;
+	margin: 10px auto; 
+	
+}
+
+/* 키워드로 검색 */
+#recyclingKeyword {
+	margin-top : 10px;
+}
+
+#keywords {
+	text-align: center;
+}
+
+#keywords input[type="button"] {
+	display: inline-block; 
+	text-align: center;
+	padding: 10px 10px; 
+	color: #395DFF; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	background-color: #fdfdfd; 
+	cursor: pointer; 
+	border: 1px dashed #395DFF; 
+	border-radius: 15px;
+	margin: 5px 3px;
+}
