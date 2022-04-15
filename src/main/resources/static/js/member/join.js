@@ -8,7 +8,7 @@ window.onload = function() {
 	const submit = document.getElementById('submit');
 	
 	//2자 이상 8자 이하, 영어 또는 숫자 또는 한글로 구성
-	const nicknamePattern = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,8}$/;
+	const nicknamePattern = /^(?=.*[A-Za-z0-9가-힣])[a-z0-9가-힣]{2,8}$/;
 	//최소 4자, 최소 하나 이상의 문자 및 하나의 숫자
 	const pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
 	

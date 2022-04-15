@@ -10,6 +10,8 @@ import member.MemberController;
 import member.MemberDAO;
 import board.BoardController;
 import mission.MissionController;
+import recycling.RecyclingController;
+//import recycling.VisionController;
 import zeroshop.LocationDAO;
 import zeroshop.ZeroshopController;
 
@@ -21,6 +23,8 @@ import zeroshop.ZeroshopController;
 @ComponentScan(basePackageClasses = BoardController.class)
 @ComponentScan(basePackageClasses = ZeroshopController.class)
 @MapperScan(basePackageClasses = LocationDAO.class)
+@ComponentScan(basePackageClasses = RecyclingController.class)
+//@ComponentScan(basePackageClasses = VisionController.class)
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

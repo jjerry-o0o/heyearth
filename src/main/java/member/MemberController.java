@@ -28,7 +28,6 @@ public class MemberController {
 	//회원가입 - 닉네임 체크 컨트롤러
 	@RequestMapping(value="/nicknameCheck", method=RequestMethod.POST)
 	public @ResponseBody int nicknameCheck(@RequestParam(value="id") String id) {
-		System.out.println(id);
 		return service.nicknameCheck(id);
 	}
 	
@@ -73,7 +72,7 @@ public class MemberController {
 		if(session != null) {
 			session.invalidate();
 		}
-		return "member/logout";
+		return "main";
 	}
 	
 	

@@ -9,7 +9,6 @@ public class IndexController {
 	@RequestMapping("/main")
 	public void main() {
 		
-		return "main";
 	}
 	
 }
