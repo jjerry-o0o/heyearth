@@ -1,25 +1,42 @@
 @charset "utf-8";
 
-.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
-    width: 100%;
-    padding-right: var(--bs-gutter-x, 0.75rem);
-    padding-left: var(--bs-gutter-x, 0.75rem);
-    margin-right: auto;
-    margin-left: auto;
+
+.a-s-ic{
+width: 50px;
+height: 47px;
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
+hr.a-divider{
+    height: 0.2rem;
+    max-width: 3.25rem;
+    margin: 1.5rem auto;
+    background-color: blue;
+    opacity: 1;
 }
-body {
-    margin: 0;
-    font-family: '양진체';
-    font-size: var(--bs-body-font-size);
-    font-weight: var(--bs-body-font-weight);
-    line-height: var(--bs-body-line-height);
-    color: var(--bs-body-color);
-    text-align: var(--bs-body-text-align);
-    background-color: var(--bs-body-bg);
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+.a-service-div{
+    display: flex;
+    flex-wrap: wrap;
+  
+  
 }
+.text-center{
+text-align: center !important;
+}
+.mt-5{
+margin-top: 3rem !important;
+}
+
+div{
+display : block;
+}
+
+.a-text-center{
+text-align: center !important;
+}
+.about-image-1{
+	width:800px; height:700px; float:left; margin-right:40px;
+}
+h2.envir{
+	width:200px; height:150px; border:1px solid green; float:left;
+}
+
