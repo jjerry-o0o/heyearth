@@ -1,3 +1,4 @@
+// 지역검색 & 현재위치 검색 변환
 function search(num){
 	if(num =='1'){
 		document.getElementById("searchLoc").style.display = "";
@@ -13,10 +14,44 @@ function search(num){
 		document.getElementById("zerosearch1").style.backgroundColor = "#EAE8E8";
 		document.getElementById("zerosearch2").style.fontWeight = "bold";
 		document.getElementById("zerosearch1").style.fontWeight = "normal";
+		$.ajax({
+			url : "/mapfirst",
+			type : "get"
+		});
 	}
 }
 
+// 제로샵 모달창
+function zeroshopdetail(code){
+	$.ajax({
+		url : "/zeroshopdetail",
+		type : "get",
+		data : {"scode" : code},
+		success : function(result){
+			document.getElementById("modal").style.display = "flex";
+			$("#modalupper").html("<img id='modalimg' src='img/"+result.s_photo+"'>");
+			$("#modalh2").text(result.s_name);
+			$("#modalcontent").html("분류 : " + result.s_inform + "<br>");
+			$("#modalcontent").append("위치 : " + result.s_location + "<br>");
+			if(result.s_call != null){
+				$("#modalcontent").append("전화번호 : " + result.s_call + "<br>");
+			}
+			if(result.s_close != null){
+				$("#modalcontent").append("휴무일 : " + result.s_close + "<br>");
+			}
+			if(result.s_hour != null){
+				$("#modalcontent").append("영업시간 : " + result.s_hour);
+			}
+			$("#modalbtn").html("<div id='modalsite'><a id='modala' href='"+ result.s_url + "' target='_blank'>Site</a></div>");
+			$("#modalbtn").append("<div id='modalmap'><a id='modala' href='https://map.naver.com/v5/search/"+ result.s_location +"/address/' target='_blank'>Map</a></div>")
+			// https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B4%80%EC%95%85%EA%B5%AC%20%EC%A1%B0%EC%9B%90%EB%A1%9C18%EA%B8%B8%2015/address/
+		}
+	});
+}
+
 $(document).ready(function(){
+	
+	// 광역시/도 버튼 클릭
 	$("#bigloc").one('click',function(){
 		$.ajax({
 			url : "/bigloc",
@@ -35,6 +70,7 @@ $(document).ready(function(){
 		bigclicked='ok';
 	});
 	
+	// 시/도/군 버튼 클릭
 	$("#smallloc").on('click',function(){
 		var bigloc = $("#bigloc").val();
 		if(bigclicked == 'ok'){
@@ -54,6 +90,7 @@ $(document).ready(function(){
 		
 	});  // smallloc button click end
 	
+	// 지역별 제로샵 검색 버튼 클릭
 	$("#locbtn").on("click",function(){
 		var bigloc = $("#bigloc").val();
 		var smallloc = $("#smallloc").val();
@@ -70,9 +107,10 @@ $(document).ready(function(){
 							$("#loc_context").html("<div class='Nozeroshop'>존재하는 가게가 없습니다.</div>");
 						}
 						else{
-							$("#loc_context").html("<div class='Loczeroshop'><img class='Zeroshopimg' src='img/"+result[0].s_photo +"'><div class='Zeroshopname'>"+ result[0].s_name +"</div></div>");
+							$("#loc_context").html("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[0].s_code+")'><div class='Loczeroshop'><img class='Zeroshopimg' src='img/"+result[0].s_photo +"'><div class='Zeroshopname'>"+ result[0].s_name +"</div></div></a>");
+							
 							for(var i=1;i<result.length;i++){
-								$("#loc_context").append("<div class='Loczeroshop'><img class='Zeroshopimg' src='img/"+result[i].s_photo+"'><div class='Zeroshopname'>"+ result[i].s_name+"</div></div>");
+								$("#loc_context").append("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[i].s_code+")'><div class='Loczeroshop'><img class='Zeroshopimg' src='img/"+result[i].s_photo+"'><div class='Zeroshopname'>"+ result[i].s_name+"</div></div></a>");
 							}
 						}
 					}
@@ -80,5 +118,33 @@ $(document).ready(function(){
 			});
 		}
 	});
+	
+	// 모달창 닫기버튼
+	$("#modalclose").on("click",function(){
+		document.getElementById("modal").style.display = "none";
+	});
+	
+	// 모달창 외부클릭시 모달창 닫기
+	modal.addEventListener("click", e => {
+    	const evTarget = e.target
+    	if(evTarget.classList.contains("modal-overlay")) {
+        	modal.style.display = "none";
+    	}
+	});
+	
+	// 현재 위치 기반 지도 생성
+	/*document.write("<script type='text/javascript' src='https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=27lk7yjxzo'></script>");
+	
+	navigator.geolocation.getCurrentPosition(function(pos){
+		var latitude = pos.coords.latitude;   // 현재 위치 위도
+		var longitude = pos.coords.longitude;   // 현재 위치 경도
+		
+		var mapOptions = {
+			center : new naver.maps.LatLng(latitude, longitude),   // 지도의 중앙 위치
+			zoom : 17   // 숫자가 높을수록 더 줌된 상태
+		}
+		
+		var map = new naver.maps.Map('map', mapOptions);
+	})*/
 	
 }); // document ready end

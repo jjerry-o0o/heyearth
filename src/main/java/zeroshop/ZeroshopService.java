@@ -5,4 +5,6 @@ import java.util.List;
 public interface ZeroshopService {
 	public int locid(String big_loc, String small_loc);
 	public List<ZeroshopDTO> loczero(int l_code);
+	public ZeroshopDTO zeroshop(int s_code);
+	public List<ZeroshopDTO> latlong();
 }

@@ -25,6 +25,16 @@ public class ZeroshopServiceImpl implements ZeroshopService{
 	public List<ZeroshopDTO> loczero(int l_code) {
 		return zerodao.loczero(l_code);
 	}
+
+	@Override
+	public ZeroshopDTO zeroshop(int s_code) {
+		return zerodao.zeroshop(s_code);
+	}
+
+	@Override
+	public List<ZeroshopDTO> latlong() {
+		return zerodao.latlong();
+	}
 	
 	
 }

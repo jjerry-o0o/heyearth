@@ -6,6 +6,7 @@ public class ZeroshopDTO {
 	String s_name;
 	String s_url;
 	String s_inform;
+	String s_location;
 	String s_call;
 	String s_close;
 	String s_hour;
@@ -17,7 +18,7 @@ public class ZeroshopDTO {
 		
 	}
 	
-	public ZeroshopDTO(int s_code, int l_code, String s_name, String s_url, String s_inform, String s_call,
+	public ZeroshopDTO(int s_code, int l_code, String s_name, String s_url, String s_inform, String s_location, String s_call,
 			String s_close, String s_hour, String s_photo) {
 		super();
 		this.s_code = s_code;
@@ -25,11 +26,20 @@ public class ZeroshopDTO {
 		this.s_name = s_name;
 		this.s_url = s_url;
 		this.s_inform = s_inform;
+		this.s_location = s_location;
 		this.s_call = s_call;
 		this.s_close = s_close;
 		this.s_hour = s_hour;
 		this.s_photo = s_photo;
 	}
+	public String getS_location() {
+		return s_location;
+	}
+
+	public void setS_location(String s_location) {
+		this.s_location = s_location;
+	}
+
 	public int getS_code() {
 		return s_code;
 	}
