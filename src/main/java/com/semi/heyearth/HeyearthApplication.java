@@ -29,6 +29,7 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = LocationDAO.class)
 @MapperScan(basePackageClasses = ZeroshopDAO.class)
 @MapperScan(basePackageClasses = MissionDAO.class)
+
 public class HeyearthApplication {
 
 	public static void main(String[] args) {
