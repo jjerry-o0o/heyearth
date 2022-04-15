@@ -12,4 +12,12 @@
 		select * from zeroshop where l_code = #{l_code};
 	</select>
 	
+	<select id="zeroshop" resultType="zeroshopdto" parameterType="int">
+		select * from zeroshop where s_code = #{s_code};
+	</select>
+	
+	<select id="latlong" resultType="zeroshopdto">
+		select * from zeroshop where latitude is null;
+	</select>
+	
 </mapper>

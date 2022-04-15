@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface ZeroshopDAO {
 	public int locid(LocationDTO dto);
 	public List<ZeroshopDTO> loczero(int l_code);
+	public ZeroshopDTO zeroshop(int s_code);
+	public List<ZeroshopDTO> latlong();
 }
