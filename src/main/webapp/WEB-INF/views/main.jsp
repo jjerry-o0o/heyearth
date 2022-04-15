@@ -7,7 +7,7 @@
 <head>
 <title>Main | Hey, Earth</title>
  <!-- header import -->
-   <%@ include file="/WEB-INF/views/include/header.jsp" %>
+ <%@ include file="/WEB-INF/views/include/header.jsp" %>
    <!-- end of header import -->
 <!-- <link href="main.css" rel="stylesheet"> -->
 <script src="/jquery-3.6.0.min.js"></script>
@@ -152,7 +152,6 @@ to {
 </head>
 <body>
 	<!-- header import -->
-	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	<!-- end of header import -->
 
 	<div class="slideshow-container">

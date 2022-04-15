@@ -11,4 +11,8 @@ public class MainController {
 			return "main";
 		}
 		
-	}
+		@RequestMapping("/about")
+	      public String about() {
+	         return "about";
+	      }
+}
