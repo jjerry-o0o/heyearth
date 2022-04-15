@@ -100,13 +100,29 @@
 	#pagination{
 		padding : 20px;
 		color : black;
+		text-align: center;
+		
 	}
 	.page-item{
-		display: inline;
+		display: inline-block;
 		padding : 10px;
+		font-family: "Noto Sans KR";
+	}
+	.page-link{
+		color : black;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	.page-link:visited{
+		color : black;
+		
 	}
 	.page-link:hover{
 		color : pink;
+		
+	}
+	.pagination{
+		padding : 0;
 	}
 	
 	

@@ -128,9 +128,8 @@ color : green;
 	animation-duration: 1.5s;
 }
 
-@
-keyframes fade {
-	from {opacity: .4
+@keyframes fade {
+	from {opacity: 0.4;
 }
 
 to {

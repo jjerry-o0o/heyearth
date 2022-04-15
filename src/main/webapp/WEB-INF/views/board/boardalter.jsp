@@ -10,7 +10,6 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="/css/board/boardalter.css" />
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
 
 <!-- js -->
 <script type="text/javascript" src="/js/board/boardalter.js"></script>
@@ -18,7 +17,9 @@
 <script src="jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function () {
-		
+		$("#listbtn").on("click", function(){
+			location.href="/boardlist";
+		});
 	});
 </script>
 <style>

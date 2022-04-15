@@ -10,26 +10,28 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="/css/carbon/carbon.css"자연 />
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
 
 <!-- js -->
 <script type="text/javascript" src="/js/carbon/carbon.js"></script>
-
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="jquery-3.6.0.min.js"></script>
+
 <script>
 	$(document).ready(function () {
 		$("#go_btn").on("click", function(){
 			location.href="/mission";
 		});
+		const swiper = new Swiper(".swiper", {
+			autoplay : {
+				delay : 3500,
+			},
+			loop : true,
+		});
 	});
 </script>
 <style>
-	#img_div{
-		width : 500px;
-		height : 350px;
-		padding : 20px;
-		margin : 20px auto;
-	}
 	#info_div{
 		width : 80%;
 		margin : 20px auto;
@@ -49,8 +51,14 @@
 		padding : 20px;
 	}
 	img{
+		width : 80%;
+		height : width*0.4;
+	}
+	.swiper{
 		width : 100%;
-		height : 100%;
+		height : width*0.4;
+		margin : 0px auto;
+		text-align: center;
 	}
 	#infotitle{
 		font-size: 2.5em;
@@ -97,6 +105,9 @@
 		font-size: x-large;
 		font-weight:400;
 	}
+	#go_btn:hover{
+		background-color: gray;
+	}
 	
 	
 </style>
@@ -108,12 +119,24 @@
 
 <section class="boardSection">
 	
-	<div id="img_div">
-		<img alt="탄소배출량 감소에 따른 자연의 변화 이미지1" src="https://thumb.zumst.com/530x0/https://static.news.zumst.com/images/56/2015/11/28/d30e328463af4e35943ca302e9af34d0.jpg">
-		<!-- <img alt="탄소배출량 감소에 따른 자연의 변화 이미지2" src="https://thumb.zumst.com/530x0/https://static.news.zumst.com/images/4/2016/11/03/201611031120115857_t.jpg">
-		<img alt="탄소배출량 감소에 따른 자연의 변화 이미지3" src="https://imgnn.seoul.co.kr/img/upload/2021/08/05/SSI_20210805152938.jpg">
-		<img alt="탄소배출량 감소에 따른 자연의 변화 이미지4" src="https://img.freepik.com/free-photo/wild-polar-bear-ursus-maritimus-mother-and-cub-on-the-pack-ice_160321-5745.jpg?size=626&ext=jpg&ga=GA1.1.2112149269.1643241600">
-		<img alt="탄소배출량 감소에 따른 자연의 변화 이미지5" src="https://cdn.famtimes.co.kr/news/photo/202101/502181_3290_5720.png"> -->
+	<div class="swiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지1" src="https://img.hani.co.kr/imgdb/resize/2019/0201/00502712_20190201.JPG">
+			</div>
+			<div class="swiper-slide">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지2" src="https://t1.daumcdn.net/tistoryfile/fs13/29_tistory_2009_10_27_01_04_4ae5c8821db65?original">
+			</div>
+			<div class="swiper-slide">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지3" src="https://imgnn.seoul.co.kr/img/upload/2021/08/05/SSI_20210805152938.jpg">
+			</div>
+			<div class="swiper-slide">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지4" src="https://t1.daumcdn.net/cfile/blog/990C10365D3D6AF535">
+			</div>
+			<div class="swiper-slide">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지5" src="https://post-phinf.pstatic.net/MjAxODAzMDlfMTQ1/MDAxNTIwNTcyNjA4NTEw.Ba4srqGZ87LeOQp288d7pKxm77SDlu9BvR9DNkSHiM8g.rlVBAhKw11Zc9agKO5pQhkbN8e8fWr79Ezc8RRYRvvYg.JPEG/shutterstock_206652934.jpg?type=w1200">
+			</div>
+		</div>
 	</div>
 	<div id="info_div">
 		<h1 id="infotitle"> 탄소배출량이란 ? </h1>
