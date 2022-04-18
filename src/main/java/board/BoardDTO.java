@@ -4,31 +4,14 @@ import java.time.LocalDateTime;
 
 public class BoardDTO {
 	
-	
-	
-	//게시물번호
-	private int b_no;
-	
-	//작성자
-	private String id;
-	
-	//게시물 제목
-	private String b_title;
-	
-	//게시물내용
-	private String b_content;
-	
-	//작성일
-	private LocalDateTime b_regdate;
-	
-	//조회수
-	private int b_view;
-	
-	//게시물종류
-	private String b_type;
-	
-	//첨부파일
-	private String b_img;
+	int b_no;
+	String id;
+	String b_title;
+	String b_content;
+	LocalDateTime b_regdate;
+	int b_view;
+	String b_type;
+	String b_img;
 
 	public int getB_no() {
 		return b_no;

@@ -12,6 +12,7 @@
 	<typeAlias type="zeroshop.ZeroshopDTO" alias="zeroshopdto"/>
 	<typeAlias type="mission.MissionDTO" alias="missiondto"/>
 	<typeAlias type="participation.ParticipationDTO" alias="participationdto"/>
+	<typeAlias type="board.BoardDTO" alias="boarddto"/>
 </typeAliases>
 
 </configuration>

@@ -57,31 +57,31 @@
 	#alterbtn{
 		padding : 10px 20px;
 		margin-right : 10px;
-		background-color: #FFDDD0;
-		border: 2px solid pink;
+		border: 2px solid #1A271D;
 		border-radius: 5px;
 	}
 	#alterbtn:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color : white;
 	}
 	#deletebtn{
 		padding : 10px 20px;
 		margin-right : 10px;
-		background-color: #FFDDD0;
-		border: 2px solid pink;
+		border: 2px solid #1A271D;
 		border-radius: 5px;
 	}
 	#deletebtn:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color:white;
 	}
 	#listbtn{
 		padding : 10px 20px;
-		background-color: #FFDDD0;
-		border: 2px solid pink;
+		border: 2px solid #1A271D;
 		border-radius: 5px;
 	}
 	#listbtn:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color:white;
 	}
 	#view_textarea{
 		border-style: none;
@@ -101,19 +101,19 @@
 	<table id="view_table">
 		<tr>
 			<th>분류</th>
-			<td>type</td>
+			<td>${dto.b_type }</td>
 		</tr>
 		<tr>
 			<th>제목</th>
-			<td>title</td>
+			<td>${dto.b_title }</td>
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td>writer</td>
+			<td>${dto.id }</td>
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td><textarea id="view_textarea" rows="20" readonly="readonly">content</textarea></td>
+			<td><textarea id="view_textarea" rows="20" readonly="readonly">${dto.b_content }</textarea></td>
 		</tr>
 	</table>
 	
