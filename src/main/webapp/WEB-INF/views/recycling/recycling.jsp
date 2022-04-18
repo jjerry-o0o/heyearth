@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Hey,earth</title>
+<!-- 웹 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 <link href="css/recycling/recycling.css" rel="stylesheet">
 <script src="jquery-3.6.0.min.js"></script>
 <script src="/js/recycling/recycling.js"></script>
@@ -19,17 +24,16 @@
 
 	<div id=recyclingFile>
 		<div class="filebox">
-			<form action="recycling" method="post" enctype="multipart/form-data">
-				<label id=filelabel for="file">이건 어떻게 버릴까?<br>사진 첨부하기</label>
-				<input type="file" id="file" name=uploadFile onchange="preview(event);"><br>
-				<div id=preview>
-					<img src="c:\upload\cat1_0f9bedea.jpg" alt="preview" />
+			<form id="form" action="extractLabels" method="post" enctype="multipart/form-data">
+				<div>
+					<img id=preview1  width=300 height=300 />
 				</div>
-				<input type=submit id="submit" value="방법 확인하기" >
+				<div>
+				<label id=filelabel for="file">이건 어떻게 버릴까?<br>사진 첨부하기</label>
+					<input type="file" id="file" name=uploadFile><br>
+				</div>
+					<input id="submit" type=submit value="방법 확인하기" >
 			</form>
-			
-
-			
 			
 		</div>
 		<div class="content">
@@ -54,7 +58,6 @@
 			<input type="button" value="형광등">
 			<input type="button" value="고철류">
 			<input type="button" value="기타">
-			
 		</div>
 	</div>
 	
