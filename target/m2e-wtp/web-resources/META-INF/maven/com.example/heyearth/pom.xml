@@ -74,56 +74,24 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-                       
-        <!-- 구글 클라우드 라이브러리-->
-<!-- 		<dependency>
-            <groupId>com.google.cloud</groupId>
-            <artifactId>libraries-bom</artifactId>
-            <version>25.0.0</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency> -->
-                        
-        <!-- 구글 스토리지 라이브러리-->
-<!-- 		<dependency>
-            <groupId>com.google.cloud</groupId>
-            <artifactId>libraries-bom</artifactId>
-            <version>25.1.0</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency> -->
-        
-        <!-- 중간에 필요 라이브러리 더 있을듯 짐작 -->
 
-        <!-- 원래 주석 상태였다가 다시 풀어봄
-        <dependency>
-            <groupId>com.google.cloud</groupId>
-            <artifactId>google-cloud-vision</artifactId>
-        </dependency>  -->
-        
-        <!-- 원래 주석 상태였다가 다시 풀어봄 
-        <dependency>
-            <groupId>com.google.cloud</groupId>
-            <artifactId>google-cloud-storage</artifactId>
-        </dependency>  -->    
-        
         <!-- 강사님이 주신 소스에서 추가 -->
         <dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-gcp-starter-vision</artifactId>
 		</dependency>  
 
-        <!-- 강사님이 주신 소스에서 추가 -->
         <dependency>
 	    	<groupId>org.springframework.cloud</groupId>
 	    	<artifactId>spring-cloud-gcp-starter-storage</artifactId>
 	  	</dependency>  	
-          
+                        
         <dependency>
     		<groupId>com.googlecode.json-simple</groupId>
     		<artifactId>json-simple</artifactId>
     		<version>1.1.1</version>
-		</dependency>         
+		</dependency>           
+        <!-- 강사님이 주신 소스에서 추가 -->
     </dependencies>
                 	
     <build>
@@ -139,28 +107,6 @@
         
         <dependencies>
                                                 
-<!--             <dependency>
-                <groupId>com.google.cloud</groupId>
-                <artifactId>libraries-bom</artifactId>
-                <type>pom</type>
-                <scope>import</scope>
-                <version>25.1.0</version>
-            </dependency> -->
-
-			<!-- 새로 추가한 부분 -->
-<!-- 			<dependency>
-				<groupId>com.google.cloud</groupId>
-				<artifactId>spring-cloud-gcp-dependencies</artifactId>
-				<version>3.0.0</version>
-				<type>pom</type>
-				<scope>import</scope>
-	        </dependency> -->
-	        
-<!-- 		    <dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-gcp-starter-vision</artifactId>
-			</dependency> -->
-			
 			
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>

@@ -8,25 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Mapper
+@Repository("boarddao")
 public interface BoardDAO {
-
-	
-	//전체조회
-	public List<BoardDTO> boardList();
 	
 	//작성
-	public void boardInsert(BoardDTO dto);
+	public int insertBoard(BoardDTO dto);
 	
-	//상세조회
-	public BoardDTO boardDetail(int b_no);
-	
-	//작성게시물 조회
-	public BoardDTO myBoardDetail(String id);
+	//조회
+	public BoardDTO selectBoardDetail(int b_no);
 	
 	//수정
-	public void boardUpdate(int b_no);
+	public int updateBoard(BoardDTO dto);
 	
 	//삭제
-	public void boardDelete(int b_no);
+	public int deleteBoard(int b_no);
 	
+	//리스트
+	public List<BoardDTO> selectBoardList();
 }
