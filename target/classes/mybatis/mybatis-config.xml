@@ -13,6 +13,7 @@
 	<typeAlias type="mission.MissionDTO" alias="missiondto"/>
 	<typeAlias type="recycling.RecyclingDTO" alias="recyclingdto"/>
 	<typeAlias type="participation.ParticipationDTO" alias="participationdto"/>
+	<typeAlias type="board.BoardDTO" alias="boarddto"/>
 </typeAliases>
 
 </configuration>

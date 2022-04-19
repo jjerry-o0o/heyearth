@@ -197,19 +197,6 @@
                                 
         
         </dependency>
-                       
-        <!-- 강사님이 주신 소스에서 추가 -->
-                        
-        
-        <dependency>
-                        			
-            
-            <groupId>org.springframework.cloud</groupId>
-                        			
-            
-            <artifactId>spring-cloud-gcp-starter-vision</artifactId>
-                        		
-        
         <!-- 강사님이 주신 소스에서 추가 -->
         <dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -217,20 +204,17 @@
 			<version>1.2.8.RELEASE</version>
 		</dependency>  
 
-        
-        
-        <!-- 강사님이 주신 소스에서 추가 -->
-<!--         <dependency>
+        <dependency>
 	    	<groupId>org.springframework.cloud</groupId>
 	    	<artifactId>spring-cloud-gcp-starter-storage</artifactId>
-	  	</dependency>  --> 	
+	  	</dependency>  	
                         
         <dependency>
     		<groupId>com.googlecode.json-simple</groupId>
     		<artifactId>json-simple</artifactId>
     		<version>1.1.1</version>
-		</dependency>   
-		
+		</dependency>           
+        <!-- 강사님이 주신 소스에서 추가 -->
     </dependencies>
                         	
     
@@ -266,7 +250,8 @@
         
         <dependencies>
                                                 
- 			<dependency>
+			
+			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-gcp-dependencies</artifactId>
 				<version>1.2.8.RELEASE</version>

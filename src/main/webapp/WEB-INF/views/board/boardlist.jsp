@@ -41,24 +41,24 @@
 		overflow: auto;
 	}
 	#findbtn{
-		background-color: #FFDDD0;
-		border: 2px solid pink;
+		border: 2px solid #1A271D;
 		border-radius: 5px;
 		padding : 2px 10px;
 	}
 	#findbtn:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color:white;
 	}
 	#inputbtn{
 		text-align : center;
 		float: right;
-		background-color: #FFDDD0;
-		border: 2px solid pink;
+		border: 2px solid #1A271D;
 		border-radius: 5px;
 		padding : 2px 20px;
 	}
 	#inputbtn:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color:white;
 	}
 	#con_table{
 		width: 90%;
@@ -80,10 +80,10 @@
 		background-color: #DAE6FE;
 	}
 	#not_td:hover{
-		background-color: gray;
+		background-color: #1A271D;
 	}
 	tr:hover{
-		background-color: gray;
+		background-color: #1A271D;
 	}
 	.titlea{
 		text-decoration: none;
@@ -99,7 +99,7 @@
 	}
 	#pagination{
 		padding : 20px;
-		color : black;
+		color : #1A271D;
 		text-align: center;
 		
 	}
@@ -109,16 +109,16 @@
 		font-family: "Noto Sans KR";
 	}
 	.page-link{
-		color : black;
+		color : #1A271D;
 		text-decoration: none;
 		font-weight: bold;
 	}
 	.page-link:visited{
-		color : black;
+		color : #1A271D;
 		
 	}
 	.page-link:hover{
-		color : pink;
+		color : #1A271D;
 		
 	}
 	.pagination{
@@ -155,34 +155,31 @@
 				<th>views</th>
 			</tr>
 			<!-- 공지사항은 맨위에 -->
-			<tr id="not_td">
-				<td>공지</td>
-				<td><a class="titlea" href="/boardview">이거는 내가 뭔말을 하고 싶어서 이렇게 적었나면 그게 말야</a></td>
-				<td>매점아줌마</td>
-				<td>2022/04/01</td>
-				<td>123</td>
-			</tr>
+			<c:forEach items="${notList }" var="notice">
+				<tr id="not_td">
+					<td>공지</td>
+					<td><a class="titlea" href="/boardview?b_no=${notice.b_no }">${notice.b_title }</a></td>
+					<td>${notice.id }</td>
+					<td>${notice.b_regdate }</td>
+					<td>${notice.b_view }</td>
+				</tr>
+			</c:forEach>
 			<!-- 공지사항외 게시물 -->
-			<tr id="td">
-				<td>질문</td>
-				<td><a class="titlea" href="/boardview">오늘 매점에 신상 있나요 ?</a></td>
-				<td>황상철</td>
-				<td>2022/04/02</td>
-				<td>12</td>
-			</tr>
+			<c:forEach items="${boardList }" var="board">
+				<tr id="td">
+					<td>${board.b_type }</td>
+					<td><a class="titlea" href="/boardview?b_no=${board.b_no }">${board.b_title }</a></td>
+					<td>${board.id }</td>
+					<td>${board.b_regdate }</td>
+					<td>${board.b_view }</td>
+				</tr>
+			</c:forEach>
 			
 		</table>
 	</div>
 	
-	<!-- 페이징처리 bootstrap -->
 	<div id="pagination">
-		<ul class="pagination">
-			<li class="page-item"><a class="page-link" href="#">이전</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">다음</a></li>
-		</ul>
+		<!-- 페이징처리 js -->
 	</div>
 
 </section>

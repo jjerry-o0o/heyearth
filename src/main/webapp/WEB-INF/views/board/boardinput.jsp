@@ -55,21 +55,21 @@
 	#inputbtn{
 		padding : 10px 20px;
 		margin-right : 10px;
-		background-color: #FFDDD0;
-		border: 2px solid pink;
+		border: 2px solid #1A271D;
 		border-radius: 5px;
 	}
 	#inputbtn:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color : white;
 	}
 	#listbtn{
 		padding : 10px 20px;
-		background-color: #FFDDD0;
-		border: 2px solid pink;
+		border: 2px solid #1A271D;
 		border-radius: 5px;
 	}
 	#listbtn:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color : white;
 	}
 	#view_textarea{
 		border-style: none;
@@ -102,49 +102,50 @@
 	<!-- end of header import -->
 	
 <section class="viewSection">
-	<table id="view_table">
-		<tr>
-			<th>분류</th>
-			<td>
-				<div class="type_radio">
-					<label for="que">
-						<input type="radio" id="que" name="type" value="que" checked> 
-						질문
-					</label>
-					<label for="req">
-						<input type="radio" id="req" name="type" value="req"> 
-						요청
-					</label>
-					<label for="not">
-						<input type="radio" id="not" name="type" value="not"> 
-						공지
-					</label>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<th>제목</th>
-			<td id="title_td"><input type="text" id="title_input" name="title" autofocus="autofocus" placeholder="제목을 입력해주세요"></td>
-		</tr>
-		<tr>
-			<th>작성자</th>
-			<td>writer</td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td><textarea id="view_textarea" rows="20" placeholder="게시물 내용을 입력해주세요."></textarea></td>
-		</tr>
-		<tr>
-			<th>첨부파일</th>
-			<td></td>
-		</tr>
-	</table>
-	
-	<div id="btn_div">
-		<input type="button" id="inputbtn" value="등록">
-		<input type="button" id="listbtn" value="목록으로">
-	</div>
-
+	<form id="wrap" method="post" action="/boardinput">
+		<table id="view_table">
+			<tr>
+				<th>분류</th>
+				<td>
+					<div class="type_radio">
+						<label for="que">
+							<input type="radio" id="que" name="type" value="que" checked> 
+							질문
+						</label>
+						<label for="req">
+							<input type="radio" id="req" name="type" value="req"> 
+							요청
+						</label>
+						<label for="not">
+							<input type="radio" id="not" name="type" value="not"> 
+							공지
+						</label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>제목</th>
+				<td id="title_td"><input type="text" id="title_input" name="title" autofocus="autofocus" placeholder="제목을 입력해주세요" required="required"></td>
+			</tr>
+				<tr>
+				<th>작성자</th>
+				<td>${dto.id }</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><textarea id="view_textarea" name="content" rows="20" placeholder="게시물 내용을 입력해주세요." required="required"></textarea></td>
+			</tr>
+			<tr>
+				<th>첨부파일</th>
+				<td></td>
+			</tr>
+		</table>
+		
+		<div id="btn_div">
+			<input type="submit" id="inputbtn" value="등록">
+			<input type="button" id="listbtn" value="목록으로">
+		</div>
+	</form>
 </section>
 
 	<!-- footer import -->

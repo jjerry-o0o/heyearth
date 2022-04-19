@@ -32,6 +32,7 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = MemberDAO.class)
 @ComponentScan(basePackageClasses = MissionController.class)
 @ComponentScan(basePackageClasses = BoardController.class)
+@MapperScan(basePackageClasses = BoardDAO.class)
 @ComponentScan(basePackageClasses = ZeroshopController.class)
 @ComponentScan(basePackageClasses = CarbonController.class)
 @ComponentScan(basePackageClasses = MypageController.class)
