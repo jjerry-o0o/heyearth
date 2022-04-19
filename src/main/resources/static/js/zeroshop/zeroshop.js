@@ -3,23 +3,21 @@ function search(num){
 	if(num =='1'){
 		document.getElementById("searchLoc").style.display = "";
 		document.getElementById("searchMy").style.display = "none";
-		document.getElementById("zerosearch1").style.backgroundColor = "#FFDDD0";
-		document.getElementById("zerosearch2").style.backgroundColor = "#EAE8E8";
-		document.getElementById("zerosearch1").style.fontWeight = "bold";
-		document.getElementById("zerosearch2").style.fontWeight = "normal";
+		document.getElementById("zerosearch1").style.backgroundColor = "#1A271D";
+		document.getElementById("zerosearch2").style.backgroundColor = "#FFFFFF";
+		document.getElementById("zerosearch1").style.color = "#FFFFFF";
+		document.getElementById("zerosearch2").style.color = "#1A271D";
 	}else{
 		document.getElementById("searchMy").style.display = "";
 		document.getElementById("searchLoc").style.display = "none";
-		document.getElementById("zerosearch2").style.backgroundColor = "#FFDDD0";
-		document.getElementById("zerosearch1").style.backgroundColor = "#EAE8E8";
-		document.getElementById("zerosearch2").style.fontWeight = "bold";
-		document.getElementById("zerosearch1").style.fontWeight = "normal";
-		$.ajax({
-			url : "/mapfirst",
-			type : "get"
-		});
+		document.getElementById("zerosearch2").style.backgroundColor = "#1A271D";
+		document.getElementById("zerosearch1").style.backgroundColor = "#FFFFFF";
+		document.getElementById("zerosearch2").style.color = "#FFFFFF";
+		document.getElementById("zerosearch1").style.color = "#1A271D";
 	}
 }
+
+
 
 // 제로샵 모달창
 function zeroshopdetail(code){
@@ -80,6 +78,7 @@ $(document).ready(function(){
 				type : "get",
 				data : {"bigloc" : bigloc},
 				success : function(result){
+					$("#smallloc").append("<option class='Locopt' value='전체'>전체</option>")
 					for(var i=0;i<result.length;i++){
 						$("#smallloc").append("<option class='Locopt' value='"+result[i]+"'>"+result[i]+"</option>");
 					}
@@ -107,10 +106,10 @@ $(document).ready(function(){
 							$("#loc_context").html("<div class='Nozeroshop'>존재하는 가게가 없습니다.</div>");
 						}
 						else{
-							$("#loc_context").html("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[0].s_code+")'><div class='Loczeroshop'><img class='Zeroshopimg' src='img/"+result[0].s_photo +"'><div class='Zeroshopname'>"+ result[0].s_name +"</div></div></a>");
+							$("#loc_context").html("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[0].s_code+")'><div class='Loczeroshop'><div class='Zeroshopname'>"+ result[0].s_name +"</div><img class='Zeroshopimg' src='img/"+result[0].s_photo +"'></div></a>");
 							
 							for(var i=1;i<result.length;i++){
-								$("#loc_context").append("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[i].s_code+")'><div class='Loczeroshop'><img class='Zeroshopimg' src='img/"+result[i].s_photo+"'><div class='Zeroshopname'>"+ result[i].s_name+"</div></div></a>");
+								$("#loc_context").append("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[i].s_code+")'><div class='Loczeroshop'><div class='Zeroshopname'>"+ result[i].s_name+"</div><img class='Zeroshopimg' src='img/"+result[i].s_photo+"'></div></a>");
 							}
 						}
 					}
