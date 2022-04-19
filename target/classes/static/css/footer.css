@@ -1,8 +1,11 @@
 @charset "UTF-8";
 footer {
-	/* color: black; */
-	/* background-color: #F2EFEF; */
-	background-color:#395DFF;
+	background-color: #1A271D;
 	color: white;
-	font-family:'Noto Sans KR';
+	margin-top:auto;
 } 
+body{
+	display:flex;
+	flex-direction: column;
+	min-height:100vh;
+}

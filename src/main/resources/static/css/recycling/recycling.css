@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body{
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
 #recyclingbtn {
 	text-align: center;
 }
@@ -8,11 +12,20 @@
 	font-size: 15px;
 	width: 150px;
 	height: 40px;
-	background-color : #FFDDD0;
-	border : solid #ffbba1 2px;
-	border-radius: 12px;
-	color : #395DFF;
-	font-weight: bold;
+	background-color : #f6f5f0;
+	border : solid black 2px;
+	color : black;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+#search1:focus {
+	background-color: black;
+	color : #f6f5f0;
+}
+#search2:focus {
+	background-color: black;
+	color : #f6f5f0;
 }
 
 /* 사진으로 검색하기 */
@@ -21,44 +34,55 @@
 	margin-top: 10px;
 }
 
-.filebox label {
+
+.filebox label { 
 	display: inline-block; 
-	text-align: center;
-	padding: 100px 150px; 
-	color: #395DFF; 
+	padding: 10px 80px; 
+	color: black; 
 	font-size: inherit; 
+	font-weight: 400;
 	line-height: normal; 
 	vertical-align: middle; 
-	background-color: #fdfdfd; 
+	background-color: #f6f5f0;
 	cursor: pointer; 
-	border: 1px dashed #395DFF; 
-	border-radius: 25px;
-	margin: 0px auto; 
+	border: 3px solid black; 
+	
+} 
+.filebox label:hover {
+	background-color: black;
+	color : #f6f5f0;
+}
+.filebox label:active {
+	background-color: black;
+	color : #f6f5f0;
 }
 
-.filebox input[type="file"] { /* 파일 필드 숨기기 */ 
+.filebox input[type="file"] { /* 파일 필드 숨기기 */
 	position: absolute; 
 	width: 1px; 
 	height: 1px; 
 	padding: 0; 
-	margin: -1px;
+	margin: -1px; 
 	overflow: hidden; 
 	clip:rect(0,0,0,0); 
 	border: 0;
 }
 
+
 #submit {
-	padding: 10px 170px; 
-	color: white; 
+	padding : 10px 100px;
 	font-size: inherit; 
+	font-weight: 400;
 	line-height: normal; 
-	vertical-align: middle; 
-	background-color: #395DFF; 
+	background-color: #f6f5f0; 
 	cursor: pointer; 
-	border: 1px solid #395DFF; 
-	border-radius: 15px;
+	border: 3px solid black; 
 	margin: 10px auto; 
-	
+}
+
+#submit:hover {
+	background-color: black;
+	color : #f6f5f0;
 }
 
 /* 키워드로 검색 */
@@ -74,13 +98,22 @@
 	display: inline-block; 
 	text-align: center;
 	padding: 10px 10px; 
-	color: #395DFF; 
+	color: black; 
 	font-size: inherit; 
 	line-height: normal; 
 	vertical-align: middle; 
-	background-color: #fdfdfd; 
+	background-color: #f6f5f0; 
 	cursor: pointer; 
-	border: 1px dashed #395DFF; 
-	border-radius: 15px;
+	border: 3px solid black; 
 	margin: 5px 3px;
+}
+
+#keywords input[type="button"]:hover {
+	background-color: black;
+	color : #f6f5f0;
+}
+
+#keywords input[type="button"]:focus {
+	background-color: black;
+	color : #f6f5f0;
 }

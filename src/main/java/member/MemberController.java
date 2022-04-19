@@ -60,7 +60,7 @@ public class MemberController {
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
 			System.out.println(userdto.getId());
-			mv.setViewName("mission/mission");
+			mv.setViewName("main");
 		}
 		return mv;
 	}

@@ -1,6 +1,8 @@
 package recycling;
 
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gcp.vision.CloudVisionTemplate;
@@ -13,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.cloud.vision.v1.AnnotateImageResponse;
 import com.google.cloud.vision.v1.EntityAnnotation;
 import com.google.cloud.vision.v1.Feature.Type;
-import com.google.cloud.vision.v1.ImageAnnotatorClient;
 
 @RestController
 public class VisionController {
@@ -34,14 +35,26 @@ public class VisionController {
    */
   @GetMapping("/extractLabels")
   public ModelAndView extractLabels(String imageUrl, ModelMap map) {
+	  imageUrl = "http://localhost:8080/img/main-polarbear.jpg";
     AnnotateImageResponse response =
         this.cloudVisionTemplate.analyzeImage(
             this.resourceLoader.getResource(imageUrl), Type.LABEL_DETECTION);
 
+    Map<String, Float> imageLabels =
+    		response.getLabelAnnotationsList().stream()
+    		.collect(
+    				Collectors.toMap(
+    						EntityAnnotation::getDescription,
+    						EntityAnnotation::getScore,
+    						(u, v) -> {
+    							throw new IllegalStateException(String.format("Duplicate key %s", u));
+    							},
+    						LinkedHashMap::new));
+    
     // This gets the annotations of the image from the response object.
-    List<EntityAnnotation> annotations = response.getLabelAnnotationsList();
-
-    map.addAttribute("annotations", annotations);
+    //List<EntityAnnotation> annotations = response.getLabelAnnotationsList();
+    
+    map.addAttribute("annotations", imageLabels);
     map.addAttribute("imageUrl", imageUrl);
 
     return new ModelAndView("result", map);

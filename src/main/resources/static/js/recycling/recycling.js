@@ -8,3 +8,26 @@ function search(num){
 	}
 }
 
+$(document).ready(function (){
+
+	
+	
+	$("#file").on('change', function(){ 
+		var formData = new FormData();
+		
+	formData.append("uploadFile", $("#file")[0].files[0]);	
+		
+		$.ajax({
+			url: '/recycling',
+			data: formData,
+			type:'post',
+			processData : false ,
+			contentType : false ,
+			success : function(savedFileName){
+				$("#preview1").attr("src", "http://localhost:8080/upload/" + savedFileName);
+		}//success
+		});//ajax
+	});//on
+	
+	
+});//ready
