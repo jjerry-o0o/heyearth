@@ -17,27 +17,31 @@
 <!-- 헤더 시작 -->
 <header style="background-color:#F6F5F0">
 
+<div class="JoinLoginAll">
+
 <!-- 로그인 전 오른쪽 상단 메뉴-->
 		<c:if test="${sessionScope.session_id == null }">
-		<div class="JoinLogin" ><a class="header_a" href="/join">회원가입</a>&nbsp;<span>/</span>
-		<a class="header_a" href="${pageContext.request.contextPath}/login">로그인</a></div>
+		<div class="JoinLogin" ><a class="header_j" href="/join">회원가입</a>&nbsp;<span>/</span>
+		<a class="header_j" href="${pageContext.request.contextPath}/login">로그인</a></div>
 		</c:if>
+		
 <!-- 로그인 후 오른쪽 상단 메뉴-->
 		<c:if test="${sessionScope.session_id != null }">
 			<div class="JoinLogin">
-		    <a class="header_a" style="margin-right:30px;" href="${pageContext.request.contextPath}/mypage">What's Up, <span class="whatsup_id">${sessionScope.session_id}</span> !</a>
-			<a class="header_a" href="${pageContext.request.contextPath}/mypage">마이페이지</a>&nbsp;/
-			<a class="header_a" href="${pageContext.request.contextPath}/logout" onclick="alert('로그아웃 되었습니다.');">로그아웃</a>
+		    <a class="header_j" style="margin-right:30px;" href="${pageContext.request.contextPath}/mypage">What's Up, <span class="whatsup_id">${sessionScope.session_id}</span> !</a>
+			<a class="header_j" href="${pageContext.request.contextPath}/mypage">마이페이지</a>&nbsp;/
+			<a class="header_j" href="${pageContext.request.contextPath}/logout" onclick="alert('로그아웃 되었습니다.');">로그아웃</a>
 			</div>
 		 </c:if>	 
+</div>
+
 <!-- Hey, Earth 메인 로고 -->
-		<a href="${pageContext.request.contextPath}/"><img  src="img/logo.png" style="vertical-align: middle; width: 80px"></a>
+		<a href="${pageContext.request.contextPath}/"><img class="header_img" src="${pageContext.request.contextPath}/img/logo.png"></a>
 
 		
 <!-- 메뉴바 목록 -->
 	<nav>
 			<ul class="header_ul">
-
 				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/about">헤이얼스란?</a></li>
 				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/zeroshop">지구를 돕는 가게 찾기</a></li>
 				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/mission">환경 지킴이 모집중</a></li>

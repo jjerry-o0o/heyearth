@@ -231,7 +231,7 @@ to {
 
 </body>
 
- <!-- footer import -->
-   <%@ include file="/WEB-INF/views/include/footer.jsp" %>
-   <!-- end of footer import -->
 </html>
+ <!-- footer import -->
+<%@ include file="/WEB-INF/views/include/footer.jsp" %> 
+   <!-- end of footer import -->

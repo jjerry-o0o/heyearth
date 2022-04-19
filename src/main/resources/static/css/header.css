@@ -1,22 +1,20 @@
 @charset "UTF-8";
 
 
-
-
-/* .header_h1{
-	font-size:70px;  
-	color:#395DFF; 
-	margin-top:5px;
-	margin-bottom:20; 
-	height:90px; 
-	padding-top:20px;  
-	padding-bottom:0;  
-	font-weight:500; 
-	font-style:italic; 
-	text-align:center;
-} */
-.JoinLogin
-{
+* {/*사이트 전체 폰트 통일*/
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+body{
+background-color: #F6F5F0;
+margin:0;
+}
+.JoinLoginAll{/*로그인, 회원가입 부분 전체*/
+	background-color:#1A271D; 
+	color:#F6F5F0; 
+	padding-bottom:1px;
+	padding-top:0;
+}
+.JoinLogin{/*로그인, 회원가입 부분 개별*/
 	text-align: right;
 	margin-right:10px;
 	margin-top:0;
@@ -24,54 +22,50 @@
 	padding-top:10px;
 	font-size: 13px;
 }
-
-
-* {
-	font-family: 'IBM Plex Sans KR', sans-serif;
-
+.header_img{/*로고 이미지*/
+	 padding-top:5px; 
+	 vertical-align: middle; 
+	 width: 80px;
 }
-/* @font-face {
-    font-family: '양진체';
-    src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
- */
-
 .header_ul, .header_li {
 	list-style: none;	
 	padding : 0;
 }
-
 .header_a {
 	text-decoration: none;
-		color: #1A271D;
 		font-weight: 500;
 		font-size: 18px;
 		color: #1A271D;
 		text-align: center;
 	
 }
-.header_b{
+.header_b { /*같은 a태그인데 게시판메뉴만 정렬이 너무 오른쪽으로 가서 따로 정렬*/
 	text-decoration: none;
-		color: #1A271D;
 		font-weight: 500;
 		font-size: 18px;
 		color: #1A271D;
 		text-align: left;
 }
-	.header_a:hover{
+.header_j { /*JoinLogin 부분의 a 태그(색 변경)*/
+	text-decoration: none;
+		font-weight: 500;
+		font-size: 15px;
+		color: #F6F5F0;
+		text-align: left;
+}
+.header_a:hover{
 		font-weight: 800;
 		font-size:18px;
-	}
-	.header_b:hover{
+}
+.header_b:hover{
 		font-weight: 800;
 		font-size:18px;
-	}
-
-/*  상단 메뉴바 */
-nav
-{
+}
+.header_j:hover{
+		font-weight: 800;
+		font-size:15px;
+}
+nav {/* 메뉴바 */
 	display:inline-block;
 	margin-top: 10px;
 	margin-left: auto;
@@ -80,30 +74,30 @@ nav
 	text-align: left;
 	width : 70%;
 }
-
 nav .header_ul> .header_li {
 	display: inline-block;
 	width: 160px;
 	vertical-align: top;
 	text-align: center;
-	
-	
 }
-nav .header_ul> .header_lib {
+nav .header_ul> .header_lib {/*같은 li태그인데 게시판메뉴만 정렬이 너무 오른쪽으로 가서 따로 정렬*/
 	display: inline-block;
 	width: 110px;
 	vertical-align: top;
 	text-align: center;
-	
-	
-}
-.whatsup_id{
-	color:#1A271D;
-
-}
-body{
-background-color:   #F6F5F0;
-margin:0;
 }
 
+.whatsup_id{/*What's Up oo !*/ 
+	font-weight: 800;
+}
+
+
+
+/* @font-face {
+    font-family: '양진체';
+    src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}*/
+ 
 

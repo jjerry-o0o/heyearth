@@ -18,6 +18,8 @@ import recycling.RecyclingDAO;
 import recycling.VisionController;
 import participation.ParticipationController;
 import participation.ParticipationDAO;
+import recycling.RecyclingController;
+import recycling.VisionController;
 import zeroshop.LocationDAO;
 import zeroshop.ZeroshopController;
 import zeroshop.ZeroshopDAO;

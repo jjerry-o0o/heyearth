@@ -2,23 +2,30 @@ package participation;
 
 
 public class ParticipationDTO {
-	int p_code; //참가 미션 코드
+	int p_code; //참가 미션 분류 코드
 	String id; //닉네임
     int m_code; //미션 코드
+    String m_name; //미션 이름
+	int p_friends; //참가 인원
+	String m_photo; //미션 사진
+	String m_date; //미션 날짜
 	int p_complete; //미션 완료 여부
 	int p_star; //별점
 	String p_review; //리뷰
 	int p_photo; //리뷰 사진
-	int p_friends; //참가 인원
 	
+	public String getM_date() {
+		return m_date;
+	}
+	public void setM_date(String m_date) {
+		this.m_date = m_date;
+	}
 	public int getP_friends() {
 		return p_friends;
 	}
 	public void setP_friends(int p_friends) {
 		this.p_friends = p_friends;
 	}
-	String m_name;
-	String m_photo;
 	
 	
 	public String getM_photo() {
