@@ -4,12 +4,36 @@
 
 <mapper namespace="mission.MissionDAO">
 
-	<select id="missionlist"  resultType = "missiondto">
+<!-- 모집중인 단체미션 목록 -->
+	<select id="missionlist_group_ing"  resultType = "missiondto">
 		select * from mission
+		where m_date >= CURRENT_DATE() and m_type='group'
 		order by m_code;
 	</select>	
+
+<!-- 마감된 단체미션 목록 -->	
+	<select id="missionlist_group_end"  resultType = "missiondto">
+		select * from mission
+		where  CURRENT_DATE() > m_date and m_type='group'
+		order by m_code;
+	</select>	
+
+<!-- 모집중인 상시미션 목록 -->	
+	<select id="missionlist_solo_ing"  resultType = "missiondto">
+		select * from mission
+		where m_date >= CURRENT_DATE() and m_type='solo'
+		order by m_code;
+	</select>
 	
-	 <select id = "missiongroup" resultType = "missiondto">
+<!-- 마감된 상시미션 목록(상시미션 날짜 최대한 늘려놓기) -->
+	<select id="missionlist_solo_end"  resultType = "missiondto">
+		select * from mission
+		where  CURRENT_DATE() > m_date and m_type='solo'
+		order by m_code;
+	</select>
+
+<!-- 단체미션의 상세페이지에 들어갈 목록 -->	
+	<select id = "missiongroup" resultType = "missiondto">
     select * from mission
     where m_code = #{m_code};  
     </select>   

@@ -6,9 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+import admin.AdminController;
 import member.MemberController;
 import member.MemberDAO;
 import board.BoardController;
+import board.BoardDAO;
 import carbon.CarbonController;
 import mission.MissionController;
 import mission.MissionDAO;
@@ -18,6 +20,8 @@ import recycling.RecyclingDAO;
 import recycling.VisionController;
 import participation.ParticipationController;
 import participation.ParticipationDAO;
+import recycling.RecyclingController;
+import recycling.VisionController;
 import zeroshop.LocationDAO;
 import zeroshop.ZeroshopController;
 import zeroshop.ZeroshopDAO;
@@ -28,6 +32,7 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = MemberDAO.class)
 @ComponentScan(basePackageClasses = MissionController.class)
 @ComponentScan(basePackageClasses = BoardController.class)
+@MapperScan(basePackageClasses = BoardDAO.class)
 @ComponentScan(basePackageClasses = ZeroshopController.class)
 @ComponentScan(basePackageClasses = CarbonController.class)
 @ComponentScan(basePackageClasses = MypageController.class)
@@ -37,8 +42,10 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = MissionDAO.class)
 @ComponentScan(basePackageClasses = RecyclingController.class)
 @MapperScan(basePackageClasses = RecyclingDAO.class)
+@MapperScan(basePackageClasses = BoardDAO.class)
 @ComponentScan(basePackageClasses = VisionController.class)
 @MapperScan(basePackageClasses = ParticipationDAO.class)
+@ComponentScan(basePackageClasses = AdminController.class)
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

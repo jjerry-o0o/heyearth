@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -54,8 +55,19 @@ public class ZeroshopController {
 	@RequestMapping("/loczeroshop")
 	@ResponseBody
 	public List<ZeroshopDTO> loczeroshop(String bigloc,String smallloc){
-		int l_code = zero_service.locid(bigloc, smallloc);
-		List<ZeroshopDTO> dto = zero_service.loczero(l_code);
+		List<ZeroshopDTO> dto = new ArrayList<ZeroshopDTO>();
+		if(smallloc.equals("전체")) {
+			List<Integer> l_codelist = zero_service.locidall(bigloc);
+			for(int l : l_codelist) {
+				List<ZeroshopDTO> tmp = zero_service.loczero(l);
+				for(ZeroshopDTO tmpdto : tmp) {
+					dto.add(tmpdto);
+				}
+			}
+		}else {			
+			int l_code = zero_service.locid(bigloc, smallloc);
+			dto = zero_service.loczero(l_code);
+		}
 		if(dto.isEmpty()) {
 			ZeroshopDTO tmpdto = new ZeroshopDTO();
 			tmpdto.setS_name("none");
@@ -74,17 +86,25 @@ public class ZeroshopController {
 	@RequestMapping("/mapfirst")
 	@ResponseBody
 	public void mapfirst() {
-		List<ZeroshopDTO> noll = zero_service.latlong();
+		List<ZeroshopDTO> noll = zero_service.noll();
 		if(!noll.isEmpty()) {
 			for(ZeroshopDTO dto : noll) {
 				String[] result = addresstoll(dto.s_location);
-				//ZeroshopDTO newdto = new ZeroshopDTO();
-				//newdto.setS_code(dto.s_code);
-				//newdto.setLatitude(Double.parseDouble(result[0]));
-				//newdto.setLongitude(Double.parseDouble(result[1]));
-				
+				ZeroshopDTO newdto = new ZeroshopDTO();
+				newdto.setS_code(dto.s_code);
+				newdto.setLatitude(Double.parseDouble(result[0]));
+				newdto.setLongitude(Double.parseDouble(result[1]));
+				zero_service.setlatlong(newdto);
 			}
 		}
+		
+	}
+	
+	@RequestMapping("/zeroshoplist")
+	@ResponseBody
+	public List<ZeroshopDTO> zeroshoplist(double latitude, double longitude){
+		List<ZeroshopDTO> zeroshop = zero_service.allzeroshop();
+		return zeroshop;
 	}
 	
 	public String[] addresstoll(String address) {
@@ -143,6 +163,20 @@ public class ZeroshopController {
 			
 		}
 		return result;
+	}  // addresstoll end
+	
+	public double getDistanceFromLatLonInKm(double lat1,double lng1,double lat2,double lng2) {
+		double R = 6371; // Radius of the earth in km 
+		double dLat = deg2rad(lat2-lat1); // deg2rad below 
+		double dLon = deg2rad(lng2-lng1); 
+		double a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2); 
+		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+		double d = R * c; // Distance in km 
+		return d; 
 	}
+	
+	public double deg2rad(double deg) { 
+		return deg * (Math.PI/180); 
+	} 
 	
 }

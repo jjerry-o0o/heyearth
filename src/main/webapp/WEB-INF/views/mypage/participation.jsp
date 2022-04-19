@@ -7,30 +7,35 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Righteous&family=Josefin+Sans:ital,wght@0,300;0,400;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+KR:wght@100;300&display=swap');
 
-body{
-font-family: 'Noto Sans KR';
+<!-- css 모두 정리후 분리할 예정 -->
+<style>
+.my_img{
+width:200px; 
+height:200px; 
 }
-li{
-list-style: none;
+.my_mission{
+margin-left:10px; 
+width:80%; 
+border:3px solid #1A271D;
 }
 </style>
+
 </head>
 <body>
-<h3><마이 페이지></h3>
-<h2>내 미션</h2><br>
-								${map.count}개의 미션 진행중<br> <br>
-					<c:forEach var="row" items="${map.list}">
-				<div style="border:3px solid pink">
-<img width=200px height=200px src="<%=request.getContextPath()%>/img/${row.m_photo}">
-${row.m_name}
-					</div>	
-					</c:forEach>
+<h2>나의 미션</h2><br>
+<h3>${map.count}개의 미션 진행중</h3><br><br>
 
-				
-  
+<!-- 내가 신청한 미션 목록 -->
+	<c:forEach var="row" items="${map.list}">
+		<div class="my_mission">
+     	      <img class="my_img" src="<%=request.getContextPath()%>/img/${row.m_photo}">
+        	  <h3>${row.m_name}</h3>
+          	  미션 날짜 : ${row.m_date}<br>
+          	  신청인원 : ${row.p_friends }명<br>
+		      <a href="delete?p_code=${row.p_code}">미션 취소</a>
+	    </div>	
+	</c:forEach>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

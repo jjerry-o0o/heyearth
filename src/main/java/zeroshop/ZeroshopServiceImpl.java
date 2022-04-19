@@ -32,8 +32,24 @@ public class ZeroshopServiceImpl implements ZeroshopService{
 	}
 
 	@Override
-	public List<ZeroshopDTO> latlong() {
-		return zerodao.latlong();
+	public List<ZeroshopDTO> noll() {
+		return zerodao.noll();
+	}
+
+	@Override
+	public void setlatlong(ZeroshopDTO dto) {
+		zerodao.setlatlong(dto);
+		
+	}
+
+	@Override
+	public List<ZeroshopDTO> allzeroshop() {
+		return zerodao.allzeroshop();
+	}
+
+	@Override
+	public List<Integer> locidall(String big_loc) {
+		return zerodao.locidall(big_loc);
 	}
 	
 	
