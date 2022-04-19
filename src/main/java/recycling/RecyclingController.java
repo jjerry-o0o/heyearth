@@ -8,6 +8,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.gcp.vision.CloudVisionTemplate;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,10 @@ public class RecyclingController {
 
 	@Autowired private CloudVisionTemplate cloudVisionTemplate;
 
+	@Autowired
+	@Qualifier("recyclingservice")
+	RecyclingService recyclingservice;
+	
 	@RequestMapping(value="/recycling", method=RequestMethod.GET)
 	public String recycling() {
 		return "recycling/recycling";
@@ -79,6 +84,15 @@ public class RecyclingController {
 	    map.addAttribute("annotations", imageLabels);
 	    map.addAttribute("imageUrl", imageUrl);
 
-	    return new ModelAndView("result", map);
-	  }
+	    return new ModelAndView("recycling/recycling", map);
+	}
+	
+	@RequestMapping("/keywordrecycling")
+	public ModelAndView keywordrecycling(String r_class) {
+		ModelAndView mv = new ModelAndView();
+		RecyclingDTO recyclingdto = recyclingservice.recycling(r_class);
+		mv.addObject("rdto", recyclingdto);
+		mv.setViewName("recycling/recycling");
+		return mv;
+	}
 }

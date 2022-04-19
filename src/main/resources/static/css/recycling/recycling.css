@@ -16,6 +16,7 @@ body{
 	border : solid black 2px;
 	color : black;
 	font-weight: 400;
+	cursor: pointer;
 }
 
 #search1:focus {

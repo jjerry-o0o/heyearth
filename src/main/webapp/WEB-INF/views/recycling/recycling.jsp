@@ -59,6 +59,7 @@
 			<input type="button" value="고철류">
 			<input type="button" value="기타">
 		</div>
+		<p>분류:${rdto.r_class}</p>
 	</div>
 	
 	
