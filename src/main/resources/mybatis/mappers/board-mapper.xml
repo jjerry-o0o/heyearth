@@ -4,36 +4,36 @@
   
 <mapper namespace="board.BoardDAO">
 
-	<!-- 게시물 전체 조회 -->
+	<!-- 게시물 전체 조회
 	<select resultType="boarddto" id="boardList">
 		select * from board
 	</select>
 
-	<!-- 게시물 상세조회 -->
+	게시물 상세조회
 	<select resultType="boarddto" id="boardDetail" parameterType="int">
 		SELECT * FROM board WHERE b_no = ${b_no};
 	</select>
 	
-	<!-- 내가 작성한 게시물 조회 -->
+	내가 작성한 게시물 조회
 	<select resultType="boarddto" id="myBoardDetail" parameterType="String">
 		SELECT * FROM board WHERE id = ${id};
 	</select>
 
-	<!-- 게시물 작성 -->
-	<insert id="boardInsert" parameterType="BoardDTO">
+	게시물 작성
+	<insert id="boardInsert" parameterType="boarddto">
 		insert into board (`id`, `b_title`, `b_content`, `b_regdate`, `b_view`, `b_type`, `b_img`) values 
 		(#{id}, #{b_title}, ${b_content}, now(), 0, ${b_type}, ${b_img});
 	</insert>
 	
-	<!-- 게시물 수정 -->
+	게시물 수정
 	<update id="boardUpdate" parameterType="int">
 		update board set `b_title`=#{b_title}, `b_content`= #{b_content}, `regdate`= now(), `b_type`=${b_type} 
 		WHERE `b_no`= ${b_no};
 	</update>
 	
-	<!-- 게시물 삭제 -->
+	게시물 삭제
 	<delete id="boardDelete" parameterType="int">
 		DELETE FROM board WHERE `b_no`= ${b_no};
-	</delete>
+	</delete> -->
 	
 </mapper>

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+body{
+	background-color : #F6F5F0;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.adminmain{
+	margin-left : auto;
+	margin-right : auto;
+}
+
+.adminbtnall{
+	margin-bottom : 100px;
+	text-align : center;
+}
+
+.adminbtn{
+	display : block;
+	margin-left : auto;
+	margin-right : auto;
+	background-color : #FFFFFF;
+	color : #1A271D;
+	padding-top : 12px;
+	padding-bottom : 12px;
+	padding-right : 18px;
+	padding-left : 18px;
+	font-weight : 500;
+	margin-bottom : 10px;
+	margin-top : 10px;
+	font-size : 16px;
+	border : 2px solid #C7C1B8;
+}
+
+.adminbtn:hover{
+	background-color : #1A271D;
+	color : #F6F5F0;
+	cursor : pointer;
+}
