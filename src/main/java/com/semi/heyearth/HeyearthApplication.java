@@ -13,9 +13,11 @@ import carbon.CarbonController;
 import mission.MissionController;
 import mission.MissionDAO;
 import mypage.MypageController;
-import recycling.RecyclingController;
+
 import participation.ParticipationController;
 import participation.ParticipationDAO;
+import recycling.RecyclingController;
+import recycling.VisionController;
 import zeroshop.LocationDAO;
 import zeroshop.ZeroshopController;
 import zeroshop.ZeroshopDAO;
@@ -34,7 +36,7 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = ZeroshopDAO.class)
 @MapperScan(basePackageClasses = MissionDAO.class)
 @ComponentScan(basePackageClasses = RecyclingController.class)
-//@ComponentScan(basePackageClasses = VisionController.class)
+@ComponentScan(basePackageClasses = VisionController.class)
 @MapperScan(basePackageClasses = ParticipationDAO.class)
 public class HeyearthApplication {
 

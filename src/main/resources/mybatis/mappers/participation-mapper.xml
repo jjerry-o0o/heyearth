@@ -4,17 +4,23 @@
 
 <mapper namespace="participation.ParticipationDAO">
 
+<!-- 나의 참가 미션 목록 -->
 	<select id="participation_list" parameterType="String" resultType = "participationdto">
-		 select p_code, p.id as id, s.m_code as m_code, m_name, m_photo, p_friends
+		 select p_code, p.id as id, s.m_code as m_code, m_name, m_photo, p_friends, m_date
  	 from member m, participation p, mission s
    		where p.id =m.id and s.m_code = p.m_code and p.id=#{id} order by p_code
 	</select>	
 	
-	   <insert id="participation_register" parameterType="participationdto">
+<!-- 미션 신청하기(환경지킴이 모달창에서) -->
+	<insert id="participation_register" parameterType="participationdto">
         insert into participation ( p_code, id, m_code, p_friends)
         values ( p_code, #{id}, #{m_code}, #{p_friends} )
-
     </insert>
+    
+<!-- 미션 취소하기(나의 미션에서) -->    
+    <delete id="delete">
+        delete from participation where p_code=#{p_code}
+    </delete>
   
 	
 </mapper>

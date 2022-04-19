@@ -9,7 +9,10 @@ import org.springframework.stereotype.Repository;
 @Repository("missiondao")
 public interface MissionDAO {
 
-	public List<MissionDTO> missionlist();
-	 public MissionDTO missiongroup(int m_code);
-}
+	public List<MissionDTO> missionlist_group_ing();//모집중인 단체 미션
+	public List<MissionDTO> missionlist_solo_ing();//모집중인 상시 미션
+	public List<MissionDTO> missionlist_group_end();//마감된 단체 미션
+	public List<MissionDTO> missionlist_solo_end();//마감된 상시 미션
+	public MissionDTO missiongroup(int m_code);//단체미션 상세페이지
 
+}//DAO end

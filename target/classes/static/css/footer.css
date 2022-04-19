@@ -1,8 +1,31 @@
 @charset "UTF-8";
 footer {
-	/* color: black; */
-	/* background-color: #F2EFEF; */
-	background-color:#395DFF;
+	background-color: #1A271D;
 	color: white;
-	font-family:'Noto Sans KR';
+	margin-top:auto;
+	display: grid; 
+	grid-template-columns:15% auto 5%; 
+	text-align: center;
 } 
+.footer_body{
+	display:flex;
+	flex-direction: column;
+	min-height:100vh;
+}
+.footer_left{
+	 padding-top:10px; 
+	 background-color:#1A271D;
+	 display:inline-block; 
+	 height:120px;
+}
+.footer_right{
+	padding-top:50px; 
+	color:#1A271D;
+	background-color:#F2EFEF; 
+	height:120px; 
+}
+.insta{
+	padding-top:50px; 
+	background-color:#F2EFEF; 
+	height:120px;
+}
