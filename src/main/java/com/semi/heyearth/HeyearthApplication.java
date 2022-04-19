@@ -6,9 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+import admin.AdminController;
 import member.MemberController;
 import member.MemberDAO;
 import board.BoardController;
+import board.BoardDAO;
 import carbon.CarbonController;
 import mission.MissionController;
 import mission.MissionDAO;
@@ -39,8 +41,10 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = MissionDAO.class)
 @ComponentScan(basePackageClasses = RecyclingController.class)
 @MapperScan(basePackageClasses = RecyclingDAO.class)
+@MapperScan(basePackageClasses = BoardDAO.class)
 @ComponentScan(basePackageClasses = VisionController.class)
 @MapperScan(basePackageClasses = ParticipationDAO.class)
+@ComponentScan(basePackageClasses = AdminController.class)
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

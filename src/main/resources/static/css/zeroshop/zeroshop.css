@@ -1,9 +1,13 @@
 @charset "UTF-8";
 
+body{
+	background-color : #F6F5F0;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
 .zero_search{
 
 	text-align : center;
-	margin-top : 50px;
 }
 
 #zerosearch1, #zerosearch2{
@@ -16,15 +20,18 @@
 	font-size: 16px;
 	margin-left: 20px;
 	margin-right:20px;
+	font-weight : bold;
 }
 
 #zerosearch2{
-	background-color : #EAE8E8;
+	background-color : #FFFFFF;
+	color : #1A271D;
 }
 
 #zerosearch1{
-	background-color : #FFDDD0;
+	background-color : #1A271D;
 	font-weight : bold;
+	color : #FFFFFF;
 }
 
 #zerosearch1:hover, #zerosearch2:hover{
@@ -36,13 +43,15 @@
 	margin-left : auto;
 	margin-right : auto;
 	width : 85%;
-	
+	margin-bottom : 50px;
 	
 }
 
 .Locmenu{
-	font-size:16px;
-	font-weight: bold;
+	font-size:20px;
+	font-weight: 500;
+	margin-bottom : 20px;
+	margin-right : 15px;
 }
 
 #bigloc, #smallloc{
@@ -59,6 +68,7 @@
 	margin-left:10px;
 	margin-right:10px;
 	font-size : 14px;
+	background-color : #FFFFFF;
 }
 
 #bigloc::-ms-expand, #smallloc::-ms-expand {
@@ -73,36 +83,41 @@
 
 #locbtn:hover{
 	cursor : pointer;
-	background-color : #FFDDD0;
+	background-color : #1A271D;
 	border : inherit;
+	color : #FFFFFF;
 }
 
 
 .Loczeroshop{
-	background-color : #EAE8E8;
-	color : #395DFF;
-	width : 350px;
-	height : 150px;
+	
+	color : #1A271D;
+	width : 400px;
+	height : 280px;
 	margin-top : 10px;
-	margin-right : 20px;
-	margin-bottom : 10px;
+	margin-right : 15px;
+	margin-left : 15px;
+	margin-bottom : 20px;
 	padding-top : 20px;
 	padding-left : 15px;
 	padding-right : 15px;
 	display : inline-block;
+	border : 4px dashed #C7C1B8;
+	border-width : 4px;
 }
 
 .Zeroshopimg{
-	width : 200px;
-	height : 130px;
+	width : 400px;
+	height : 200px;
 	margin-right : 10px;
 }
 
 .Zeroshopname{
-	margin-bottom : 50px;
+	margin-bottom : 20px;
 	display : inline-block;
 	vertical-align : top;
-	width : 130px;
+	font-size: 20px;
+	font-weight : 500;
 }
 
 .Nozeroshop{
@@ -112,11 +127,14 @@
 
 .Zeroshopclick:hover{
 	cursor : pointer;
+	font-weight: 700;
 }
 
 .Loczeroshop:hover{
-	background-color : #FFDDD0;
-	font-weight: bold;
+	background-color : #FFFFFF;
+	font-weight: 700;
+	border : 4px solid #C7C1B8;
+	border-width : 4px;
 }
 
 .modal-overlay{
@@ -140,7 +158,7 @@
 }
 
 .modal-window{
-	background-color : #FFDDD0;
+	background-color : #81A88A;
 	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
     -webkit-backdrop-filter: blur( 13.5px );
@@ -155,7 +173,7 @@
 .modaltitle {
 	margin-top : 35px;
     padding-left: 10px;
-    color : #395DFF;
+    color : #F6F5F0;
     margin-left : 10px;
 }
 
@@ -168,12 +186,15 @@
     float: right;
     padding-right: 10px;
     cursor: pointer;
+    font-weight : bold;
+    color : #FFFFFF;
+    font-size : 18px;
 }
 
 .modalcontent{
 	margin-top: 20px;
     padding: 0px 10px;
-    color: #395DFF;
+    color: #F6F5F0;
     margin-left : 10px;
 }
 
@@ -186,7 +207,7 @@
 }
 
 #modalsite, #modalmap{
-	background-color : #EAE8E8;
+	background-color : #F6F5F0;
 	width : 100px;
 	height : 40px;
 	display : inline-block;
@@ -209,29 +230,80 @@
 
 a {
 	text-decoration: none;
-	color : black;
+	color : #1A271D;
 }
 
 #searchMy{
 	margin-left : auto;
 	margin-right : auto;
 	width : 90%;
+	margin-bottom : 70px;
 }
 
 #mapname{
 	margin-left:0;
-	width:40%;
+	width:35%;
+	height : 600px;
 	display : inline-block;
 	vertical-align : top;
 	overflow : auto;
+	border-right : 2px solid #C7C1B8;
 }
 
 #map{
+	margin-left : 30px;
 	height : 600px;
-	width : 480px;
+	width : 850px;
 	display : inline-block;
+	border : 2px solid #C7C1B8;
 }
 
 .maptitle{
 	margin-bottom : 50px;
+}
+
+
+.mapzeroshop{
+	width : 420px;
+	
+	border : 4px dashed #C7C1B8;
+	margin-bottom : 50px;
+	padding-top : 20px;
+	padding-left : 30px;
+	padding-bottom : 20px;
+}
+
+.mapzeroshopname{
+	font-size : 20px;
+	color : #1A271D;
+	font-weight: 500;
+	margin-top : 30px;
+	margin-bottom : 30px;
+}
+
+.mapzeroshopname:hover{
+	font-weight : bold;
+}
+
+.mapzeroshopimg{
+	margin-top : 15px;
+	width : 380px;
+	height : 200px;
+}
+
+.maploading{
+	margin-top : 50px;
+	width : 200px;
+	height : 200px;
+	margin-left : auto;
+	margin-right : auto;
+	display : block;
+}
+
+.mapzeroshopurl{
+	color : blue;
+}
+
+.iw_inner{
+	padding : 10px;
 }

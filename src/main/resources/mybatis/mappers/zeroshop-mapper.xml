@@ -8,6 +8,10 @@
 		select l_code from location where big_loc=#{big_loc} and small_loc=#{small_loc};
 	</select>
 	
+	<select id="locidall" resultType="int" parameterType="String">
+		select l_code from location where big_loc=#{big_loc};
+	</select>
+	
 	<select id="loczero" resultType="zeroshopdto" parameterType="int">
 		select * from zeroshop where l_code = #{l_code};
 	</select>
@@ -16,8 +20,16 @@
 		select * from zeroshop where s_code = #{s_code};
 	</select>
 	
-	<select id="latlong" resultType="zeroshopdto">
+	<select id="noll" resultType="zeroshopdto">
 		select * from zeroshop where latitude is null;
+	</select>
+	
+	<update id="setlatlong" parameterType="zeroshopdto">
+		update zeroshop set latitude=#{latitude}, longitude=#{longitude} where s_code=#{s_code};
+	</update>
+	
+	<select id="allzeroshop" resultType="zeroshopdto">
+		select * from zeroshop;
 	</select>
 	
 </mapper>
