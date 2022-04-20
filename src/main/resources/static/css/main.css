@@ -1,0 +1,49 @@
+* {/*사이트 전체 폰트 통일*/
+	font-family: 'IBM Plex Sans KR', sans-serif;}
+
+.m-carbon-title{/* 탄소발자국을 아세요? */
+/* position: absolute; */
+/* width: 593px; */
+/* height: 64px; */
+/* left: 212px; */
+/* top: 187px; */
+
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 67px;
+text-align: center;
+}
+
+#m-carbon-text{
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 22px;
+text-align: center;	
+}
+
+
+#together{/* TOGETHER */
+position: absolute;
+width: 99px;
+height: 33px;
+left: 468px;
+top: 610px;
+
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 22px;
+color: black;
+}
+
+button{/* Rectangle 2 */
+position: absolute;
+width: 136.5px;
+height: 35px;
+left: 449px;
+top: 605px;
+
+
+}
