@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#adminzeroshopbtn").on("click",function(){
+	$("#adminzeroshopbtn").on('click',function(){
 		location.href = "adminzeroshop";
 	});
 	
@@ -18,4 +18,5 @@ $(document).ready(function(){
 	$("#adminmemberbtn").on("click",function(){
 		location.href = "adminmember";
 	});
+	
 })

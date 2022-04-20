@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin.AdminDAO">
+
+	<select id="adminzeroshoplist" resultType="zeroshopdto">
+		select * from zeroshop;
+	</select>
+	
+	<delete id="adminzeroshopdel" parameterType="int">
+		delete from zeroshop where s_code=#{s_code};
+	</delete>
+	
+	<select id="adminzeroshopinfo" resultType="zeroshopdto" parameterType="int">
+		select * from zeroshop where s_code=#{s_code};
+	</select>
+	
+	<select id="checkloccode" resultType="int" parameterType="locationdto">
+		select count(*) from location where big_loc=#{big_loc} and small_loc=#{small_loc};
+	</select>
+	
+	<select id="loccode" resultType="int" parameterType="locationdto">
+		select l_code from location where big_loc=#{big_loc} and small_loc=#{small_loc};
+	</select>
+	
+	<insert id="insertloc" parameterType="locationdto">
+		insert into location(big_loc,small_loc) values (#{big_loc},#{small_loc});
+	</insert>
+	
+	<update id="updatezeroshop" parameterType="zeroshopdto">
+		update zeroshop set l_code=#{l_code}, s_name=#{s_name}, s_url=#{s_url}, s_inform=#{s_inform}, s_location=#{s_location}, s_call=#{s_call}, s_close=#{s_close}, s_hour=#{s_hour}, s_photo=#{s_photo} latitude=null, longitude=null where s_code=#{s_code};
+	</update>
+	
+</mapper>

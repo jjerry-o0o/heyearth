@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import admin.AdminController;
+import admin.AdminDAO;
 import member.MemberController;
 import member.MemberDAO;
 import board.BoardController;
@@ -46,6 +47,7 @@ import zeroshop.ZeroshopDAO;
 @ComponentScan(basePackageClasses = VisionController.class)
 @MapperScan(basePackageClasses = ParticipationDAO.class)
 @ComponentScan(basePackageClasses = AdminController.class)
+@MapperScan(basePackageClasses = AdminDAO.class)
 public class HeyearthApplication {
 
 	public static void main(String[] args) {
