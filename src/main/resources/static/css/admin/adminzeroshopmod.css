@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+body{
+	background-color : #F6F5F0;
+	color : #1A271D;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.adminmain{
+	margin-left : auto;
+	margin-right : auto;
+}
+
+.adminzeroshopcontext{
+	text-align : center;
+}
+
+
+td{
+	font-size : 16px;
+	text-align : center;
+	font-weight : 400;
+	border-right: 2px solid #1A271D;
+	border-left : 1px solid #1A271D;
+	border-top : 1px solid #1A271D;
+	border-bottom : 1px solid #1A271D;
+	padding-top : 5px;
+	padding-bottom : 5px;
+}
+
+td:first-child{
+	background-color : #F6F5F0;
+}
+
+td:not(first-child){
+	background-color : #FFFFFF;
+}
+
+.adminzeroshopmodtable{
+	border : 2px solid #1A271D;
+	width : 50%;
+	margin-left : auto;
+	margin-right : auto;
+	border-collapse: collapse;
+	margin-bottom : 100px;
+}
+
+.zeroshoptd{
+	width : 95%;
+}
+
+.modbtn{
+	text-align : center;
+	margin-bottom : 100px;
+}
+
+#zeroshopback,#zeroshopend{
+	padding-left : 25px;
+	padding-right : 25px;
+	padding-top : 7px;
+	padding-bottom : 7px;
+	font-size : 16px;
+	border : 2px #1A271D solid;
+	font-weight : 400;
+	background-color : #f6f5f0;
+	color : #1A271D;
+	margin-left : 15px;
+	margin-right : 15px;
+	
+}
+#zeroshopback:hover, #zeroshopend:hover{
+	background-color : #1A271D;
+	color : #f6f5f0;
+	cursor : pointer;
+}
+
+#previewimg{
+	width : 300px;
+	height : 180px;
+}
+
+#s_location{
+	width : 83%;
+}

@@ -4,15 +4,16 @@ function search(num){
 		document.getElementById("searchLoc").style.display = "";
 		document.getElementById("searchMy").style.display = "none";
 		document.getElementById("zerosearch1").style.backgroundColor = "#1A271D";
-		document.getElementById("zerosearch2").style.backgroundColor = "#FFFFFF";
-		document.getElementById("zerosearch1").style.color = "#FFFFFF";
+		document.getElementById("zerosearch2").style.backgroundColor = "#f6f5f0";
+		document.getElementById("zerosearch1").style.color = "#f6f5f0";
 		document.getElementById("zerosearch2").style.color = "#1A271D";
+		
 	}else{
 		document.getElementById("searchMy").style.display = "";
 		document.getElementById("searchLoc").style.display = "none";
 		document.getElementById("zerosearch2").style.backgroundColor = "#1A271D";
-		document.getElementById("zerosearch1").style.backgroundColor = "#FFFFFF";
-		document.getElementById("zerosearch2").style.color = "#FFFFFF";
+		document.getElementById("zerosearch1").style.backgroundColor = "#f6f5f0";
+		document.getElementById("zerosearch2").style.color = "#f6f5f0";
 		document.getElementById("zerosearch1").style.color = "#1A271D";
 	}
 }
