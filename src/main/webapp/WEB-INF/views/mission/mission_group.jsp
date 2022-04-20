@@ -61,6 +61,7 @@ function groupdetail(code){
 		data : {"m_code" : code},
 		success : function(group){
 			document.getElementById("modal").style.display = "flex";
+			$('html').scrollTop(0);
 			$("#modalh2").text(group.m_name);
 			$("#register_contents").html("날짜 : " + group.m_date + "<br>");
 			$("#register_contents").append("모집중인 인원 : " + group.m_personnel + "명<br>");
@@ -68,6 +69,7 @@ function groupdetail(code){
 	});
 }
 //모달창 닫기버튼
+$(document).ready(function(){
 $("#modalclose").on("click",function(){
 	document.getElementById("modal").style.display = "none";
 });
@@ -79,6 +81,7 @@ modal.addEventListener("click", e => {
     	modal.style.display = "none";
 	}
 });
+}); // document ready end
 </script>
 </head>
 <body>
