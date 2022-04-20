@@ -77,6 +77,7 @@
 		width: 100%;
 		overflow: auto;
 		margin : 20px auto;
+		background-color: #F6F5F0;
 	}
 	.type_radio input{
 		accent-color : black;
@@ -90,6 +91,7 @@
 		width : 100%;
 		font-size: medium;
 		font-weight: bold;
+		background-color: #F6F5F0;
 	}
 	
 </style>
@@ -116,10 +118,12 @@
 							<input type="radio" id="req" name="type" value="req"> 
 							요청
 						</label>
-						<label for="not">
-							<input type="radio" id="not" name="type" value="not"> 
-							공지
-						</label>
+						<c:if test="${sessionScope.session_id == \"admin\" }">
+							<label for="not">
+								<input type="radio" id="not" name="type" value="not"> 
+								공지
+							</label>
+						</c:if>
 					</div>
 				</td>
 			</tr>
@@ -129,7 +133,7 @@
 			</tr>
 				<tr>
 				<th>작성자</th>
-				<td>${dto.id }</td>
+				<td>${sessionScope.session_id}</td>
 			</tr>
 			<tr>
 				<th>내용</th>

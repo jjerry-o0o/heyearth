@@ -3,54 +3,90 @@ package board;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException.Unauthorized;
 
-@Service
+import member.MemberDAO;
+import member.MemberDTO;
+
+
+@Service("boardservice")
 public class BoardServiceImpl implements BoardService{
+	
+	private final static int boardPage=10;
+	
+	@Autowired
+	@Qualifier("memberdao")
+	MemberDAO memberdao;
 	
 	@Autowired
 	@Qualifier("boarddao")
 	BoardDAO boarddao;
 
+	@Autowired
+	HttpSession session;
+
 	@Override
-	public boolean registerBoard(BoardDTO dto) {
-		int result = 0;
+	public void insertBoard(BoardDTO dto) {
+		String id = (String)session.getAttribute("id");
+		MemberDTO memberdto = memberdao.memberView(id);
 		
-		if(dto.getB_no() == 0) { //null로 하면 오류발생
-			result = boarddao.insertBoard(dto);
+		if(id == null || memberdto ==null) {
+			System.out.println("권한 없음");
 		}
 		else {
-			result = boarddao.updateBoard(dto);
+			dto.setId(memberdto.getId());
+			boarddao.insertBoard(dto);
 		}
 		
-		return (result ==1) ? true : false;
 	}
 
 	@Override
-	public BoardDTO getBoardDetail(int b_no) {
+	public BoardDTO selectBoardDetail(int b_no) {
 		return boarddao.selectBoardDetail(b_no);
 	}
 
 	@Override
-	public boolean deleteBoard(int b_no) {
-		int result = 0;
-		
-		BoardDTO dto = boarddao.selectBoardDetail(b_no);
-		
-		if(dto != null) {
-			result = boarddao.deleteBoard(b_no);
-		}
-		
-		return (result == 1) ? true : false;
+	public void updateBoard(BoardDTO dto) {
+		boarddao.updateBoard(dto);
 	}
 
 	@Override
-	public List<BoardDTO> getBoardList() {
-		List<BoardDTO> boardList = boarddao.selectBoardList();
+	public void deleteBoard(int b_no) {
+		boarddao.deleteBoard(b_no);
+	}
+
+	@Override
+	public List<BoardDTO> selectBoardList(int page) {
+		page = (page-1) *10;
+		System.out.println(page);
 		
-		return boardList;
+		return boarddao.selectBoardList(page);
+	}
+
+	@Override
+	public String boardId(int b_no) {
+		return boarddao.boardId(b_no);
+	}
+
+	@Override
+	public int boardCount() {
+		int total = boarddao.boardCount();
+		
+		int pagenum = 0;
+		
+		if(total% boardPage ==0) {
+			pagenum = total / boardPage;
+		}
+		else {
+			pagenum = total / boardPage +1;
+		}
+		
+		return pagenum;
 	}
 	
 	

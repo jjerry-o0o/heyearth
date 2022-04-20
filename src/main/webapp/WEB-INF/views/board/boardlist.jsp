@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	<!-- header import -->
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	<!-- end of header import -->
@@ -69,30 +70,32 @@
 		min-width : 500px;
 	}
 	th{
-		background-color: #FFDDD0;
+		background-color: #1A271D;
 		border-bottom: 1px solid gray;
+		color : white;
 	}
 	td{
 		padding: 20px;
 		border-bottom: 1px solid gray;
 	}
-	#not_td{
-		background-color: #DAE6FE;
-	}
-	#not_td:hover{
-		background-color: #1A271D;
-	}
 	tr:hover{
 		background-color: #1A271D;
+	}
+	#content_td:hover{
+		background-color: #1A271D;
+		color : white;
 	}
 	.titlea{
 		text-decoration: none;
 	}
 	.titlea:link{
-		color : black;
+		color : #1A271D;
 	}
 	.titlea:visited{
 		color : black;
+	}
+	.titlea:hover{
+		color : white;
 	}
 	#b_type{
 		margin-right:20px;
@@ -142,7 +145,13 @@
 		검색 : <input type="text" id="find" name="find" autofocus="autofocus" placeholder="검색어를 입력해주세요">
 		<input type="button" id="findbtn" name="findbtn" value="검색">
 		
-		<input type="button" id="inputbtn" name="inputbtn" value="글작성">
+		<c:if test="${sessionScope.session_id == null }">
+		
+		</c:if>
+		
+		<c:if test="${sessionScope.session_id != null }">
+			<input type="button" id="inputbtn" name="inputbtn" value="글작성">
+		</c:if>
 	</div>
 	
 	<div id="b_content">
@@ -154,23 +163,12 @@
 				<th>date</th>
 				<th>views</th>
 			</tr>
-			<!-- 공지사항은 맨위에 -->
-			<c:forEach items="${notList }" var="notice">
-				<tr id="not_td">
-					<td>공지</td>
-					<td><a class="titlea" href="/boardview?b_no=${notice.b_no }">${notice.b_title }</a></td>
-					<td>${notice.id }</td>
-					<td>${notice.b_regdate }</td>
-					<td>${notice.b_view }</td>
-				</tr>
-			</c:forEach>
-			<!-- 공지사항외 게시물 -->
-			<c:forEach items="${boardList }" var="board">
-				<tr id="td">
+			<c:forEach items="${boardlist }" var="board">
+				<tr id="content_td">
 					<td>${board.b_type }</td>
 					<td><a class="titlea" href="/boardview?b_no=${board.b_no }">${board.b_title }</a></td>
 					<td>${board.id }</td>
-					<td>${board.b_regdate }</td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd HH-mm-ss" value="${board.b_regdate }" /></td>
 					<td>${board.b_view }</td>
 				</tr>
 			</c:forEach>

@@ -25,6 +25,7 @@
 		width : 90%;
 		margin : 20px auto;
 		padding : 20px;
+		color : #1A271D;
 	}
 	h1{
 		text-align: center;
@@ -48,8 +49,7 @@
 		width : 30%;
 		margin : 10px;
 		padding : 10px;
-		background-color: #FFDDD0;
-		border-radius: 20px;
+		border : 2px solid #1A271D;
 	}
 	tr{
 		border-bottom: 1px solid gray;
@@ -62,7 +62,8 @@
 		border-style: none;
 	}
 	tr:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color : white;
 	}
 	#profil_div{
 		align-items: center;
@@ -89,7 +90,7 @@
 		border-radius : 10px;
 		margin : auto 10px;
 		padding : 5px 0px;
-		background-color: white;
+		background-color: #F6F5F0;
 	}
 	#pointinfo{
 		margin : 10px auto;
