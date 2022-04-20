@@ -1,6 +1,9 @@
 package recycling;
 
+import java.util.List;
+
 public interface RecyclingService {
 	
-	public RecyclingDTO recycling (String r_class);
+	public List<RecyclingDTO> recycling (String r_class);
+	public RecyclingDTO recyclingway (String r_code);
 }

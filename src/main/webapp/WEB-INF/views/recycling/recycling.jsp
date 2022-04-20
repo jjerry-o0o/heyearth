@@ -36,30 +36,44 @@
 			</form>
 			
 		</div>
+
 		<div class="content">
-			예시) 골판지 외 종이류<br>
-			신문지<br>
-			- 물기에 젖지 않도록 하고 반듯하게 펴서 차곡차곡 쌓은 후 묶어서 배출<br>
-			- 비닐코팅된 광고지, 비닐류, 기타 오물이 섞이지 않도록 함
-			
 		</div>
 	</div>
 	
 	<div id=recyclingKeyword style="display:none;">
 		<div id="keywords">
-			<input type="button" value="종이류">
-			<input type="button" value="유리병">
-			<input type="button" value="금속캔">
-			<input type="button" value="플라스틱류">
-			<input type="button" value="비닐류">
-			<input type="button" value="스티로품류"><br>
-			<input type="button" value="의류 및 원단류">
-			<input type="button" value="전지류">
-			<input type="button" value="형광등">
-			<input type="button" value="고철류">
-			<input type="button" value="기타">
+			<input type="button" value="종이류" onclick=r_class(1)>
+			<input type="button" value="유리병" onclick=r_class(2)>
+			<input type="button" value="금속캔" onclick=r_class(3)>
+			<input type="button" value="플라스틱류" onclick=r_class(4)>
+			<input type="button" value="비닐류" onclick=r_class(5)>
+			<input type="button" value="스티로품류" onclick=r_class(6)><br>
+			<input type="button" value="의류 및 원단류" onclick=r_class(7)>
+			<input type="button" value="전지류" onclick=r_class(8)>
+			<input type="button" value="형광등" onclick=r_class(9)>
+			<input type="button" value="고철류" onclick=r_class(10)>
+			<input type="button" value="기타" onclick=r_class(11)>
 		</div>
-		<p>분류:${rdto.r_class}</p>
+		<div id=previewbox >
+		</div>
+		
+		<div id="modal" class="modal-overlay" id="modal">
+			<div class="modal-window">
+			<div class="close-area" id="modalclose">X</div>
+				<div class="modalupper" id="modalupper">
+					
+				</div>
+					<div class="modaltitle">
+						<h2 class="modalh2" id="modalh2"></h2>
+					</div>
+				<div class="modalcontent" id="modalcontent">
+				</div>
+				<div id="modalbtn">
+				</div>
+			</div>
+		</div>
+		
 	</div>
 	
 	

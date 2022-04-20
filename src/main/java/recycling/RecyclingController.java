@@ -3,6 +3,7 @@ package recycling;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -37,11 +38,13 @@ public class RecyclingController {
 	@Qualifier("recyclingservice")
 	RecyclingService recyclingservice;
 	
+	//이건 어떻게 버릴까? 페이지
 	@RequestMapping(value="/recycling", method=RequestMethod.GET)
 	public String recycling() {
 		return "recycling/recycling";
 	}
 	
+	//사진 업로드
 	@RequestMapping(value="/recycling", method=RequestMethod.POST)
 	@ResponseBody
 	public String recyclingupload(@RequestParam("uploadFile") MultipartFile uploadFile) throws IOException {
@@ -63,7 +66,9 @@ public class RecyclingController {
 		return savedFileName;
 	}
 	
+	//
 	@PostMapping("/extractLabels")
+	@ResponseBody
 	public ModelAndView extractLabels(String imageUrl, ModelMap map) {
 		imageUrl = "http://localhost:8080/img/main-polarbear.jpg";
 		AnnotateImageResponse response =
@@ -87,12 +92,21 @@ public class RecyclingController {
 	    return new ModelAndView("recycling/recycling", map);
 	}
 	
+	
+	//키워드 검색
 	@RequestMapping("/keywordrecycling")
-	public ModelAndView keywordrecycling(String r_class) {
-		ModelAndView mv = new ModelAndView();
-		RecyclingDTO recyclingdto = recyclingservice.recycling(r_class);
-		mv.addObject("rdto", recyclingdto);
-		mv.setViewName("recycling/recycling");
-		return mv;
+	@ResponseBody
+	public List<RecyclingDTO> keywordrecycling(String r_class) {
+		List<RecyclingDTO> recyclingdto = recyclingservice.recycling(r_class);
+		return recyclingdto;
 	}
+	
+	//키워드 검색 모달창
+	@RequestMapping("/recyclingway")
+	@ResponseBody
+	public RecyclingDTO recyclingway(String r_code) {
+		System.out.println(r_code);
+		return recyclingservice.recyclingway(r_code);
+	}
+	
 }

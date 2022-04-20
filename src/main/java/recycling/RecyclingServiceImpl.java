@@ -1,5 +1,7 @@
 package recycling;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -12,8 +14,13 @@ public class RecyclingServiceImpl implements RecyclingService{
 	public RecyclingDAO recyclingdao;
 	
 	@Override
-	public RecyclingDTO recycling(String r_class) {
+	public List<RecyclingDTO> recycling(String r_class) {
 		return recyclingdao.recycling(r_class);
+	}
+
+	@Override
+	public RecyclingDTO recyclingway(String r_code) {
+		return recyclingdao.recyclingway(r_code);
 	}
 
 }

@@ -117,3 +117,48 @@ body{
 	background-color: black;
 	color : #f6f5f0;
 }
+
+#previewbox div{
+	display: inline-block;
+	border: solid black 1px;
+	width: 300px;
+	height: 300px;
+	text-align: center;
+	margin : 20px 20px;
+}
+
+/* 모달창 클릭시 주변배경 블랙 불투명 */
+.modal-overlay {
+	width: 100%;
+	height: 100%;
+	position : absolute;
+	left : 0;
+	top : 0;
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	justify-content : center;
+	
+	background : rgba(0,0,0, 0.5);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display : none;
+}
+
+/* 모달창 */
+.modal-window{
+	background-color : #81A88A;
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 400px;
+    height: 500px;
+    position: relative;
+    padding: 10px;
+}
+	
