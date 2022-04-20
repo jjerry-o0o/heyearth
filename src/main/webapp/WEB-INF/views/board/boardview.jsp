@@ -19,7 +19,7 @@
 <script>
 	$(document).ready(function () {
 		$("#alterbtn").on("click", function(){
-			location.href="/boardalter";
+			location.href="/boardalter?b_no=${dto.b_no}";
 		});
 		$("#listbtn").on("click", function(){
 			location.href="/boardlist";
@@ -88,6 +88,7 @@
 		resize: none;
 		width: 100%;
 		overflow: auto;
+		background-color: #F6F5F0
 	}
 </style>
 </head>
@@ -118,9 +119,15 @@
 	</table>
 	
 	<div id="btn_div">
-		<input type="button" id="alterbtn" value="수정">
-		<input type="button" id="deletebtn" value="삭제">
-		<input type="button" id="listbtn" value="목록으로">
+		<c:if test="${sessionScope.session_id == null }">
+			<input type="button" id="listbtn" value="목록으로">
+		</c:if>
+		
+		<c:if test="${sessionScope.session_id == dto.id }">
+			<input type="button" id="alterbtn" value="수정">
+			<input type="button" id="deletebtn" value="삭제">
+			<input type="button" id="listbtn" value="목록으로">
+		</c:if>
 	</div>
 
 </section>

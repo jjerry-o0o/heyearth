@@ -1,6 +1,7 @@
 package board;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class BoardDTO {
 	
@@ -8,10 +9,27 @@ public class BoardDTO {
 	String id;
 	String b_title;
 	String b_content;
-	LocalDateTime b_regdate;
+	Date b_regdate;
 	int b_view;
 	String b_type;
 	String b_img;
+
+	public BoardDTO() {
+		super();
+	}
+
+	public BoardDTO(int b_no, String id, String b_title, String b_content, Date b_regdate, int b_view,
+			String b_type, String b_img) {
+		super();
+		this.b_no = b_no;
+		this.id = id;
+		this.b_title = b_title;
+		this.b_content = b_content;
+		this.b_regdate = b_regdate;
+		this.b_view = b_view;
+		this.b_type = b_type;
+		this.b_img = b_img;
+	}
 
 	public int getB_no() {
 		return b_no;
@@ -45,11 +63,11 @@ public class BoardDTO {
 		this.b_content = b_content;
 	}
 
-	public LocalDateTime getB_regdate() {
+	public Date getB_regdate() {
 		return b_regdate;
 	}
 
-	public void setB_regdate(LocalDateTime b_regdate) {
+	public void setB_regdate(Date b_regdate) {
 		this.b_regdate = b_regdate;
 	}
 
@@ -75,6 +93,12 @@ public class BoardDTO {
 
 	public void setB_img(String b_img) {
 		this.b_img = b_img;
+	}
+
+	@Override
+	public String toString() {
+		return "BoardDTO [b_no=" + b_no + ", id=" + id + ", b_title=" + b_title + ", b_content=" + b_content
+				+ ", b_regdate=" + b_regdate + ", b_view=" + b_view + ", b_type=" + b_type + ", b_img=" + b_img + "]";
 	}
 	
 	
