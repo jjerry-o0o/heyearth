@@ -11,27 +11,26 @@ body{
 }
 
 #zerosearch1, #zerosearch2{
-	padding-left : 18px;
-	padding-right : 18px;
-	padding-top : 12px;
-	padding-bottom : 12px;
-	border : 0;
-	outline : 0;
+	padding-left : 25px;
+	padding-right : 25px;
+	padding-top : 7px;
+	padding-bottom : 7px;
 	font-size: 16px;
 	margin-left: 20px;
 	margin-right:20px;
-	font-weight : bold;
+	font-weight : 400;
+	outline : 0;
+	border : 2px #1A271D solid;
 }
 
 #zerosearch2{
-	background-color : #FFFFFF;
+	background-color : #f6f5f0;
 	color : #1A271D;
 }
 
 #zerosearch1{
 	background-color : #1A271D;
-	font-weight : bold;
-	color : #FFFFFF;
+	color : #f6f5f0;
 }
 
 #zerosearch1:hover, #zerosearch2:hover{
@@ -79,13 +78,16 @@ body{
 	height : 29px;
 	width : 60px;
 	font-size : 15px;
+	background-color : #F6F5F0;
+	color : #1A271D;
+	border : 1px solid #1A271D;
 }
 
 #locbtn:hover{
 	cursor : pointer;
 	background-color : #1A271D;
 	border : inherit;
-	color : #FFFFFF;
+	color : #F6F5F0;
 }
 
 
@@ -102,8 +104,7 @@ body{
 	padding-left : 15px;
 	padding-right : 15px;
 	display : inline-block;
-	border : 4px dashed #C7C1B8;
-	border-width : 4px;
+	border : 2px solid #C7C1B8;
 }
 
 .Zeroshopimg{

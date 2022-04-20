@@ -1,5 +1,7 @@
 package zeroshop;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ZeroshopDTO {
 	int s_code;
 	int l_code;
@@ -13,13 +15,18 @@ public class ZeroshopDTO {
 	String s_photo;
 	double latitude;
 	double longitude;
+	MultipartFile image;
 	
+
+
 	public ZeroshopDTO() {
 		
 	}
 	
-	public ZeroshopDTO(int s_code, int l_code, String s_name, String s_url, String s_inform, String s_location, String s_call,
-			String s_close, String s_hour, String s_photo) {
+	
+	public ZeroshopDTO(int s_code, int l_code, String s_name, String s_url, String s_inform, String s_location,
+			String s_call, String s_close, String s_hour, String s_photo, double latitude, double longitude,
+			MultipartFile image) {
 		super();
 		this.s_code = s_code;
 		this.l_code = l_code;
@@ -31,7 +38,20 @@ public class ZeroshopDTO {
 		this.s_close = s_close;
 		this.s_hour = s_hour;
 		this.s_photo = s_photo;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.image = image;
 	}
+
+	public MultipartFile getImage() {
+		return image;
+	}
+	
+	
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
+
 	public String getS_location() {
 		return s_location;
 	}
