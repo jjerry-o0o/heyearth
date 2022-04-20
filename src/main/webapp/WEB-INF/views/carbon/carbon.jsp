@@ -32,6 +32,9 @@
 	});
 </script>
 <style>
+	section{
+		color : #1A271D;
+	}
 	#info_div{
 		width : 80%;
 		margin : 20px auto;
@@ -80,7 +83,7 @@
 		justify-content: center;
 	}
 	.circle{
-		border : 2px dotted black;
+		border : 2px dotted #1A271D;
 		border-radius: 50%;
 		margin : 20px;
 		display : flex;
@@ -96,17 +99,18 @@
 		font-weight: bold;
 	}
 	#go_btn{
-		background-color: #FFDDD0;
-		border: 2px solid pink;
+		border: 2px solid #1A271D;
 		border-radius: 5px;
 		padding : 15px 30px;
 		margin : 10px auto;
 		text-align: center;
 		font-size: x-large;
 		font-weight:400;
+		color : #1A271D
 	}
 	#go_btn:hover{
-		background-color: gray;
+		background-color: #1A271D;
+		color : white;
 	}
 	
 	

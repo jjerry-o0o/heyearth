@@ -6,27 +6,39 @@
 
 	<insert id="insertBoard" parameterType="boarddto">
 		INSERT INTO board (id, b_title, b_content, b_regdate, b_view, b_type, b_img) 
-		values(#{id}, ${b_title}, #{b_content}, #{b_regdate}, 0, #{b_type}, #{b_img})
+		values(#{id}, ${b_title}, #{b_content}, #{b_regdate}, 0, #{b_type}, #{b_img});
 	</insert>
 	
 	<select id="selectBoardDetail" parameterType="int" resultType="boarddto">
-		SELECT FROM board WHERE id=#{id}
+		SELECT * FROM board WHERE b_no = #{b_no};
 	</select>
 	
 	<update id="updateBoard" parameterType="boarddto">
 		UPDATE board 
-		SET b_title=#{b_title}, b_content=#{b_content}, b_type=#{b_type} 
-		WHERE id=#{id}
+		SET b_title=#{b_title}, b_content=#{b_content}, b_type=#{b_type}, b_img=#{b_img}
+		WHERE b_no=#{b_no};
 	</update>
 	
-	<delete id="deleteBoard">
-		DELETE FROM board WHERE b_no=#{b_no}
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM board WHERE b_no=#{b_no};
 	</delete>
 	
-	<select id="selectBoardList" parameterType="boarddto" resultType="boarddto">
-		SELECT FROM board ORDER BY b_type DESC, b_no DESC, b_regdate DESC
+	<select id="selectBoardList" parameterType="int" resultType="boarddto">
+		SELECT * FROM board
+		ORDER BY b_type ASC, b_no ASC, b_regdate ASC
+		LIMIT #{page}, 10;
 	</select>
 	
+	<select id="boardCount" resultType="int">
+		SELECT COUNT(*) FROM board
+		WHERE b_type in (#{b_type});
+	</select>
 	
+	<select id="boardId" parameterType="int" resultType="String">
+		SELECT id FROM member as a
+		JOIN board as b
+		ON a.id = b.id
+		WHERE b.b_no = #{b_no};
+	</select>
 	
 </mapper>

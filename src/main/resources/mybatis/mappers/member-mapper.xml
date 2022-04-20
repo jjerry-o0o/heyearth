@@ -13,7 +13,13 @@
 	</select>
 	
 	<!-- 로그인 관련 매퍼 -->
-	<select id="loginmember" resultType="MemberDTO" parameterType="String">
+	<select id="loginmember" resultType="memberdto" parameterType="String">
 		select * from member where id=#{id} and pw=#{pw};
 	</select>
+	
+	<!-- 회원조회 -->
+	<select id="memberView" resultType="memberdto" parameterType="String">
+		select * from member where id=#{id};
+	</select>
+	
 </mapper>
