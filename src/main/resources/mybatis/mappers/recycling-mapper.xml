@@ -7,5 +7,9 @@
 	<select id="recycling" resultType="recyclingdto" parameterType="String">
 		select * from recycling where r_class=#{r_class};
 	</select>
+	
+	<select id="recyclingway" resultType="recyclingdto" parameterType="String">
+		select * from recycling where r_code=#{r_code};
+	</select>
 
 </mapper>
