@@ -9,10 +9,55 @@ public class ParticipationDTO {
 	int p_friends; //참가 인원
 	String m_photo; //미션 사진
 	String m_date; //미션 날짜
+	int m_point;//미션 포인트
+	int point;//나의 포인트
+	String m_inform;//미션 정보
+	int m_carbon; //미션 탄소배출량
+	int carbon; //내가 줄인 탄소배출량
 	int p_complete; //미션 완료 여부
 	int p_star; //별점
 	String p_review; //리뷰
-	int p_photo; //리뷰 사진
+	String p_photo; //리뷰 사진
+	int m_personnel;//미션 최대 인원
+	
+	
+	public int getM_personnel() {
+		return m_personnel;
+	}
+	public void setM_personnel(int m_personnel) {
+		this.m_personnel = m_personnel;
+	}
+	public int getCarbon() {
+		return carbon;
+	}
+	public void setCarbon(int carbon) {
+		this.carbon = carbon;
+	}
+	
+	public int getM_point() {
+		return m_point;
+	}
+	public void setM_point(int m_point) {
+		this.m_point = m_point;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
+	public String getM_inform() {
+		return m_inform;
+	}
+	public void setM_inform(String m_inform) {
+		this.m_inform = m_inform;
+	}
+	public int getM_carbon() {
+		return m_carbon;
+	}
+	public void setM_carbon(int m_carbon) {
+		this.m_carbon = m_carbon;
+	}
 	
 	public String getM_date() {
 		return m_date;
@@ -77,10 +122,10 @@ public class ParticipationDTO {
 	public void setP_review(String p_review) {
 		this.p_review = p_review;
 	}
-	public int getP_photo() {
+	public String getP_photo() {
 		return p_photo;
 	}
-	public void setP_photo(int p_photo) {
+	public void setP_photo(String p_photo) {
 		this.p_photo = p_photo;
 	}
 	
