@@ -74,8 +74,7 @@ function mymissiondetail(code){
 			$('html').scrollTop(0);
 			$("#register_contents").append("미션이름 : " + mymission.m_name + "<br>");
 			$("#register_contents").append("미션방법 : " + mymission.m_inform + "<br>");
-			$("#register_contents").append("인원 : " + mymission.p_friends + "명<br>");
-			$("#register_contents").append("<span style='color:orange'>모든 인원이 보이도록 촬영해주세요!</span><br>");
+			$("#register_contents").append("<span style='color:orange'>인증 사진을 올려주세요!</span><br>");
 			$("#register_contents").append("탄소배출량을 이만큼 감소할 수 있어요 : " + mymission.m_carbon + "g<br>");
 			$("#register_contents").append("포인트를 이만큼 얻을 수 있어요 : " + mymission.m_point + "p<br>");
 			$("#register_contents").append("나의 현재 포인트 : " + mymission.point + "p<br>");
@@ -134,10 +133,9 @@ modal.addEventListener("click", e => {
 		</form>
 </div>
 </div>
-<div style="text-align: center">
+<div style="text-align: center; margin-bottom:50px;">
 <h2>나의 미션</h2>
 <h3>${map.count}개의 미션 진행중</h3><br><br>
-</div>
 
 <!-- 내가 신청한 미션 목록 -->
 	<c:forEach var="row" items="${map.list}" >
@@ -145,7 +143,7 @@ modal.addEventListener("click", e => {
      	      <div style="display:inline-block">
 		      <c:if test="${row.p_photo == null }">
 		      <img class="my_img" src="<%=request.getContextPath()%>/img/nophoto.jpg"><br>
-		      <a href="delete?p_code=${row.p_code}">미션 취소</a><br>
+		      <a href="delete?p_code=${row.p_code}&m_code=${row.m_code}">미션 취소</a><br>
 		      <input type="button" value="인증하기" id="mymission_detail" onclick="mymissiondetail(${row.p_code})">
 		      </c:if>
 		      <c:if test="${row.p_photo != null }">
@@ -160,10 +158,10 @@ modal.addEventListener("click", e => {
           	  미션 참가 코드 : ${row.p_code}<br>
           	  미션 완료? : ${row.p_complete}<br>
           	  미션 날짜 : ${row.m_date}<br>
-          	  신청인원 : ${row.p_friends }명<br>
               </div>		    
 	    </div>	
 	</c:forEach>
+	</div>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

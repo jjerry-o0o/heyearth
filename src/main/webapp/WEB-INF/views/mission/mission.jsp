@@ -109,7 +109,7 @@ function group(number){
 <input type=button id=group name="mission" checked="checked" autofocus value="단체미션" onclick="group(1)">
 <input type=button id=solo  name="mission" value="상시미션" onclick="group(2)">
  </div>
- <div style="margin-top:50px; text-align: center;">
+ <div style="margin-top:50px; margin-bottom:50px; text-align: center;">
             <div id=ing_div> 
             <div id=group_div>
             <h3>모집 단체</h3>
@@ -145,9 +145,8 @@ function group(number){
                     	<br><br>
                     <ul class="list">
                   
+                        <li>지금 당장 미션을 수행해보세요!</li>
                         <li><h3>${row.m_name }</h3></li>
-                        <li>장소 : ${row.m_location }</li>
-                      	<li>날짜 : ${row.m_date }  </li>
                         <li>포인트 : ${row.m_point }</li>
                         <li>탄소배출감소량 : ${row.m_carbon }</li>
                     </ul>
@@ -162,16 +161,17 @@ function group(number){
           <div id="e_group_div">
           <h3>마감 단체</h3>
         	 <c:forEach items="${gelist }" var="row">
-               	 <div style="display:grid; grid-template-columns:20% auto; margin-left:auto; margin-right:auto; margin-bottom:10px; width:80%; border: 3px solid #1A271D">
+               	 <div style="display:grid; grid-template-columns:20% auto; margin-left:auto; margin-right:auto;  width:80%; border: 3px solid #1A271D">
 
                         <div style="display:inline-block">
-                        <a href = "mission_group/${row.m_code}"><img width=250px height=250px src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
+                        <a href = "mission_group/${row.m_code}"><img width=280px height=280px src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
                         </div>
                         <div  style="display:inline-block">
                     	<br><br>
                     <ul class="list">
                   
                         <li><h3>${row.m_name }</h3></li>
+                        <li>종료된 미션입니다.</li>
                         <li>장소 : ${row.m_location }</li>
                       	<li>날짜 : ${row.m_date }  </li>
                         <li>포인트 : ${row.m_point }</li>
