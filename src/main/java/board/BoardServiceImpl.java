@@ -1,10 +1,12 @@
 package board;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ import org.springframework.web.client.HttpClientErrorException.Unauthorized;
 
 import member.MemberDAO;
 import member.MemberDTO;
+import paging.Criteria;
+import paging.PaginationInfo;
 
 
 @Service("boardservice")
@@ -32,17 +36,13 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public void insertBoard(BoardDTO dto) {
-		String id = (String)session.getAttribute("id");
-		MemberDTO memberdto = memberdao.memberView(id);
+		/*
+		 * String id = (String)session.getAttribute("id"); MemberDTO memberdto =
+		 * memberdao.memberView(id);
+		 */
 		
-		if(id == null || memberdto ==null) {
-			System.out.println("권한 없음");
-		}
-		else {
-			dto.setId(memberdto.getId());
-			boarddao.insertBoard(dto);
-		}
-		
+		/* dto.setId(memberdto.getId()); */
+		boarddao.insertBoard(dto);
 	}
 
 	@Override
@@ -64,8 +64,10 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardDTO> selectBoardList(int page) {
 		page = (page-1) *10;
 		System.out.println(page);
+		List<BoardDTO> boardlist = new ArrayList<BoardDTO>();
 		
-		return boarddao.selectBoardList(page);
+		/* return boarddao.selectBoardList(page); */
+		return boardlist;
 	}
 
 	@Override
@@ -74,19 +76,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int boardCount() {
-		int total = boarddao.boardCount();
-		
-		int pagenum = 0;
-		
-		if(total% boardPage ==0) {
-			pagenum = total / boardPage;
-		}
-		else {
-			pagenum = total / boardPage +1;
-		}
-		
-		return pagenum;
+	public void boardCount(BoardDTO dto){
 	}
 	
 	

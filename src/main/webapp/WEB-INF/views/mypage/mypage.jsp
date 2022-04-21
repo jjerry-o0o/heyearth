@@ -91,6 +91,7 @@
 		margin : auto 10px;
 		padding : 5px 0px;
 		background-color: #F6F5F0;
+		color : black;
 	}
 	#pointinfo{
 		margin : 10px auto;

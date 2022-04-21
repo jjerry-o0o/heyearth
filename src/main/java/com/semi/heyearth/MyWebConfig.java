@@ -1,6 +1,8 @@
 package com.semi.heyearth;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -15,4 +17,5 @@ public class MyWebConfig implements WebMvcConfigurer {
 		//http://localhost:8080/upload 에서 이미지 파일들을 확인 가능하게 됨.
 		
 	}
+
 }
