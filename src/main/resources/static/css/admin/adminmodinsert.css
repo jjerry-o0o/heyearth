@@ -11,7 +11,7 @@ body{
 	margin-right : auto;
 }
 
-.adminzeroshopcontext{
+.admincontext{
 	text-align : center;
 }
 
@@ -36,25 +36,25 @@ td:not(first-child){
 	background-color : #FFFFFF;
 }
 
-.adminzeroshopmodtable{
+.adminmodinserttable{
 	border : 2px solid #1A271D;
-	width : 50%;
+	width : 60%;
 	margin-left : auto;
 	margin-right : auto;
 	border-collapse: collapse;
 	margin-bottom : 100px;
 }
 
-.zeroshoptd{
+.admintd{
 	width : 95%;
 }
 
-.modbtn{
+.adminbtn{
 	text-align : center;
 	margin-bottom : 100px;
 }
 
-#zeroshopback,#zeroshopend{
+.adminback,.adminend{
 	padding-left : 25px;
 	padding-right : 25px;
 	padding-top : 7px;
@@ -68,7 +68,7 @@ td:not(first-child){
 	margin-right : 15px;
 	
 }
-#zeroshopback:hover, #zeroshopend:hover{
+.adminback:hover, .adminend:hover{
 	background-color : #1A271D;
 	color : #f6f5f0;
 	cursor : pointer;
@@ -81,4 +81,15 @@ td:not(first-child){
 
 #s_location{
 	width : 83%;
+}
+
+#s_locnotview{
+	width : 2px;
+	position : relative;
+	z-index : -999;
+}
+
+
+#m_type2{
+	margin-left:40px;
 }

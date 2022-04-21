@@ -2,6 +2,8 @@ package mission;
 
 import java.sql.Date;//맞나..?
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MissionDTO {
 	int m_code; //미션 코드
 	String m_type; //미션 타입(그룹/상시)
@@ -12,7 +14,14 @@ public class MissionDTO {
 	int m_carbon; //미션 탄소배출감소량
 	int m_point; //미션 포인트
 	int m_personnel; //미션 인원
+	MultipartFile image;
 	
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	public int getM_code() {
 		return m_code;
 	}
