@@ -11,7 +11,7 @@ body{
 	margin-right : auto;
 }
 
-.adminzeroshoptable{
+.adminlisttable{
 	border : 2px solid #1A271D;
 	background-color : #FFFFFF;
 	width : 60%;
@@ -21,7 +21,7 @@ body{
 	margin-bottom : 100px;
 }
 
-.adminzeroshopcontext{
+.admincontext{
 	text-align : center;
 }
 
@@ -45,12 +45,12 @@ td{
 	border-bottom : 1px solid #1A271D;
 }
 
-.zeroshopname{
+.tabname{
 	padding-top : 3px;
 	padding-bottom:3px;
 }
 
-#zeroshopmod, #zeroshopdel{
+.tabmodbtn, .tabdelbtn{
 	padding-top : 3px;
 	padding-bottom:3px;
 	width : 100%;
@@ -61,14 +61,13 @@ td{
 	background-color : #f6f5f0;
 }
 
-#zeroshopmod:hover, #zeroshopdel:hover{
+.tabmodbtn:hover, .tabdelbtn:hover{
 	cursor : pointer;
 	background-color : #1A271D;
 	color : #f6f5f0;
 }
 
-#zeroshopadd{
-	width : 60px;
+.addbtn{
 	height : 40px;
 	display : block;
 	margin-right : 100px;
@@ -81,48 +80,41 @@ td{
 	color : #1A271D;
 }
 
-#zeroshopadd:hover{
+.addbtn:hover{
 	background-color : #1A271D;
 	color : #f6f5f0;
 	cursor : pointer;
 }
 
-/* zeroshop 수정 페이지 CSS */
 
-.adminzeroshopmodtable{
-	border : 2px solid #1A271D;
-	width : 50%;
-	margin-left : auto;
-	margin-right : auto;
-	border-collapse: collapse;
-	margin-bottom : 100px;
-}
+.mission_choose{
 
-.zeroshoptd{
-	width : 90%;
-}
-
-.modbtn{
 	text-align : center;
-	margin-bottom : 100px;
 }
 
-#zeroshopback,#zeroshopend{
+#groupmission, #solomission{
 	padding-left : 25px;
 	padding-right : 25px;
 	padding-top : 7px;
 	padding-bottom : 7px;
-	font-size : 16px;
-	border : 2px #1A271D solid;
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right:20px;
 	font-weight : 400;
+	outline : 0;
+	border : 2px #1A271D solid;
+}
+
+#solomission{
 	background-color : #f6f5f0;
 	color : #1A271D;
-	margin-left : 15px;
-	margin-right : 15px;
-	
 }
-#zeroshopback:hover, #zeroshopend:hover{
+
+#groupmission{
 	background-color : #1A271D;
 	color : #f6f5f0;
+}
+
+#groupmission:hover, #solomission:hover{
 	cursor : pointer;
 }

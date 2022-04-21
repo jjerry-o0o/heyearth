@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="smalllocation" resultType="String" parameterType="String">
-		select small_loc from location where big_loc = #{big_loc};
+		select small_loc from location where big_loc = #{big_loc} order by small_loc;
 	</select>
 	
 </mapper>

@@ -192,9 +192,9 @@ function latlong(latitude,longitude){
 					infoWindows.push(infoWindow);
 				}
 				
-				$("#mapname").html("<div class='mapzeroshop'><a href='#' class='mapzeroshopname' onclick='showmap(0)'>1. "+ list[0].name +"</a><img class='mapzeroshopimg' src='img/"+list[0].photo +"'></div>");
+				$("#mapname").html("<div class='mapzeroshop'><a href='#' class='mapzeroshopname' onclick='showmap(0)'>1. "+ list[0].name +"</a><img class='mapzeroshopimg' src='img/"+list[0].photo +"' onerror=\"this.src='/img/noimage.jpg'\"></div>");
 				 for(var i=1;i<list.length;i++){
-					$("#mapname").append("<div class='mapzeroshop'><a href='#' class='mapzeroshopname' onclick='showmap("+ i + ")'>" + (i+1) +". " + list[i].name +"</a><img class='mapzeroshopimg' src='img/"+list[i].photo +"'></div>");
+					$("#mapname").append("<div class='mapzeroshop'><a href='#' class='mapzeroshopname' onclick='showmap("+ i + ")'>" + (i+1) +". " + list[i].name +"</a><img class='mapzeroshopimg' src='img/"+list[i].photo +"' onerror=\"this.src='/img/noimage.jpg'\"></div>");
 					
 				}
 				 

@@ -13,7 +13,7 @@
 	</select>
 	
 	<select id="loczero" resultType="zeroshopdto" parameterType="int">
-		select * from zeroshop where l_code = #{l_code};
+		select * from zeroshop where l_code = #{l_code} order by s_name;
 	</select>
 	
 	<select id="zeroshop" resultType="zeroshopdto" parameterType="int">
