@@ -29,6 +29,10 @@ public class ParticipationServiceImpl implements ParticipationService {
 	  public void delete(int p_code) {//미션 취소하기
 		  dao.delete(p_code);
 	  }
+	  @Override
+	  public void participation_delete2(ParticipationDTO dto) {//미션 취소하기2
+		  dao.participation_delete2(dto);
+	  }; 
 
 	  @Override
 	  public void participation_complete(ParticipationDTO dto) {//미션 완료하기 
@@ -39,8 +43,8 @@ public class ParticipationServiceImpl implements ParticipationService {
 		  dao.participation_complete2(dto);
 	  }; 
 	  @Override
-	  public void participation_complete3(ParticipationDTO dto) {//미션 완료하기 3
-		  dao.participation_complete3(dto);
+	  public void participation_register2(ParticipationDTO dto) {//미션 등록하기2
+		  dao.participation_register2(dto);
 	  }; 
 	  @Override public int participation_friends(String id, int m_code) {//미션 참가 인원
 	  return 0; 

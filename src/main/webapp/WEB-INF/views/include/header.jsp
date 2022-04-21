@@ -15,7 +15,7 @@
 <body>
 
 <!-- 헤더 시작 -->
-<header style="background-color:#F6F5F0">
+<header style="background-color:#F6F5F0; margin-bottom:50px;">
 
 <div class="JoinLoginAll">
 
@@ -49,6 +49,7 @@
 				<li class="header_lib"><a  class="header_b" href="${pageContext.request.contextPath}/boardlist">게시판</a></li>
 		   </ul>
 	</nav>
+	<hr style="color:#F6F5F0">
 </header>
 </body>
 </html>

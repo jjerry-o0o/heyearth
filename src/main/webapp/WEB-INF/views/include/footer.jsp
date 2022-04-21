@@ -15,15 +15,14 @@
 <!-- 푸터 왼쪽 -->
 <div class="footer_left">
 	<h3>Hey, Earth</h3>
-		환경보호, <br>
-		지금 바로 시작하세요
+		
 </div>
 
 <!-- 푸터 오른쪽 -->
 <div class="footer_right">
-	<strong>CONTACT</strong><br>
-		02-1234-5678<br>
-		헤이시 지구 와썹동<br>
+	<strong>Multicampus</strong><br>
+   <span>HeyEarth Project</span>&nbsp;&nbsp; <i>2022.04.01 - 2022.04.28</i><br>
+<span >지구용사 5인조</span> - 문소영 박희영 신미래 윤이나 이민아
 </div>
 
 <!-- 인스타그램 벡터로고/연결 --><!-- 다음에 크기 변형 등 애니메이션 추가 -->
