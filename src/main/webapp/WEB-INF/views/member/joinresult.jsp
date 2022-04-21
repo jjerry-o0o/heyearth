@@ -15,6 +15,10 @@
 <p id=joinresult>${userdto.id}님 회원가입 완료되었습니다.</p>
 </c:if>
 
+<div id=btn>
+<button id=loginbtn type="button" onclick="location.href='login';">로그인하러가기</button>
+</div>
+
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

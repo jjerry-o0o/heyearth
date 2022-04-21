@@ -39,25 +39,76 @@ function r_class(num){
 				data : {"r_class" : r_class},
 				
 				success : function(rdto){
-					$("#previewbox").html("<div><a href='#' onclick='recyclingway("+rdto[0].r_code+")'><img id='r_photo' width=300 height=300 src='img/"+rdto[0].r_photo+"'></a>"
-							+ "<p>분류 : " + rdto[0].r_name + "</p></div>");
+					var previewbox = document.getElementById("previewbox");
+					$('#previebox div').empty();
+					var previewdiv = document.createElement("div");
+					previewbox.appendChild(previewdiv);
+					var previewa = document.createElement("a");
+					previewa.href = "#";
+					previewdiv.appendChild(previewa);
+					var previewimg = document.createElement("img");
+					previewa.appendChild(previewimg);
+					previewimg.src = "img/"+rdto[0].r_photo;
+					previewimg.width = 300;
+					previewimg.height = 300;
+
+					var previewp = document.createElement("p");
+					previewp.setAttribute("id","previewp");
+					previewp.innerHTML = "분류 : "+rdto[0].r_name;
+					previewa.appendChild(previewp);
+					
+					previewa.addEventListener('click',() => {recyclingway(rdto[0].r_code)});
+
 					for(var i=1; i<rdto.length; i++){
-						$("#previewbox").append("<div><img id='r_photo' width=300 height=300 src='img/"+rdto[i].r_photo+"'>"
-							+ "<p>분류 : "+ rdto[i].r_name + "</p></div>");
-					}
+						var previewbox = document.getElementById("previewbox");
+						var previewdiv = document.createElement("div");
+						previewbox.appendChild(previewdiv);
+						var previewa = document.createElement("a");
+						previewa.href = "#";
+						previewdiv.appendChild(previewa);
+						var previewimg = document.createElement("img");
+						previewa.appendChild(previewimg);
+						previewimg.src = "img/"+rdto[i].r_photo;
+						previewimg.width = 300;
+						previewimg.height = 300;
+						previewimg.alt = rdto[i].r_code ;
+
+						var previewp = document.createElement("p");
+						previewp.setAttribute("id","previewp");
+						previewp.innerText = "분류 : "+rdto[i].r_name;
+						previewa.appendChild(previewp);
+	
+						//var previewp2 = document.createElement("p");
+						//previewp2.innerText = rdto[i].r_code ;
+						//previewa.appendChild(previewp2);
+						//for(var i =0; i < previewa.childNodes.length; i++){
+						//alert("--"+previewa.childNodes[2].innerText+"--");
+							
+						//}
+						previewa.addEventListener('click',(e) => {
+							//alert(e.target.alt);
+							//e.target = 클릭 이벤트가 발생한 대상(요소)
+							//alt = 이미지의 alt값
+							recyclingway(e.target.alt);
+							});
+					}//for end
 			}//success
 			});//ajax
 }//function
 
 function recyclingway(r_code){
-			alert('hi');
 	$.ajax({
 		url : "/recyclingway",
 		type : "get",
 		data : {"r_code" : r_code},
 		success : function(rdto){
-			document.getElementById("modal").style.display = "flex";
-			$("#modalupper").html("<img id='modaling' src='img/"+rdto.r_photo+"'>");
+			var modal = document.getElementById("modal");
+			modal.style.display = "flex";
+			
+			$("#modalupper").html("<img id='modalimg' src='img/"+rdto.r_photo+"'>");
+			$("#modalh2").text(rdto.r_name);
+			$("#modalcontent").text("분류 : " + rdto.r_name + "<br>");
+			$("#modalcontent").text("배출 방법 : " + rdto.r_way);
 		}//success end
 	})//ajax end
 }
@@ -83,6 +134,17 @@ $(document).ready(function (){
 		}//success
 		});//ajax
 	});//on
+	
+	$("#modal").on("click",function(){
+		document.getElementById("modal").style.display = "none";
+	});
+	
+	modal.addEventListener("click", e => {
+		const evTarget = e.target
+		if(evTarget.classList.contains("modal-overlay")) {
+			modal.style.display = "none";
+		}
+	});
 	
 
 	

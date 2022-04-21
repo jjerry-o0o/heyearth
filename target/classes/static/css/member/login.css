@@ -12,8 +12,12 @@ input {
 	width: 200px;
 	height: 30px;
 	margin-bottom: 10px;
+	border-radius: 0px;
+	border: black solid 2px;
 }
 
-#loginresult {
-	color: red;	
+#submit {
+	width: 207px;
+	color : #f6f5f0;
+	background-color: black;
 }

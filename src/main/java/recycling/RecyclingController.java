@@ -105,8 +105,8 @@ public class RecyclingController {
 	@RequestMapping("/recyclingway")
 	@ResponseBody
 	public RecyclingDTO recyclingway(String r_code) {
-		System.out.println(r_code);
-		return recyclingservice.recyclingway(r_code);
+		RecyclingDTO rdto = recyclingservice.recyclingway(r_code);
+		return rdto;
 	}
 	
 }

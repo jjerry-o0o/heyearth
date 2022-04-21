@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
+body{
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
 #jointitle {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 #joinform {
@@ -12,6 +16,8 @@ input {
 	width: 200px;
 	height: 30px;
 	margin-bottom: 10px;
+	border-radius: 0px;
+	border: black solid 2px;
 }
 
 #nickname {
@@ -21,6 +27,22 @@ input {
 
 #nicknamebtn {
 	width: 70px;
-	height: 30px;	
+	height: 35px;
+	color : #f6f5f0;
+	background-color: black;
+}
+/* #nicknamebtn:hover {
+	background-color: #f6f5f0;
+	color: black;
+} */
+
+#submit {
+	width: 207px;
+	color : #f6f5f0;
+	background-color: black;
 }
 
+/* #submit:hover {
+	background-color: black;
+	color: #f6f5f0;
+} */

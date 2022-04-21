@@ -58,9 +58,10 @@
 		<div id=previewbox >
 		</div>
 		
-		<div id="modal" class="modal-overlay" id="modal">
+		 <div id="modal" class="modal-overlay" id="modal">
 			<div class="modal-window">
 			<div class="close-area" id="modalclose">X</div>
+				
 				<div class="modalupper" id="modalupper">
 					
 				</div>
@@ -68,11 +69,10 @@
 						<h2 class="modalh2" id="modalh2"></h2>
 					</div>
 				<div class="modalcontent" id="modalcontent">
-				</div>
-				<div id="modalbtn">
+				
 				</div>
 			</div>
-		</div>
+		</div> 
 		
 	</div>
 	
