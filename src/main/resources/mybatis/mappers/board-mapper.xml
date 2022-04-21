@@ -6,7 +6,7 @@
 
 	<insert id="insertBoard" parameterType="boarddto">
 		INSERT INTO board (id, b_title, b_content, b_regdate, b_view, b_type, b_img) 
-		values(#{id}, ${b_title}, #{b_content}, #{b_regdate}, 0, #{b_type}, #{b_img});
+		values(#{id}, #{b_title}, #{b_content}, now(), 0, #{b_type}, #{b_img});
 	</insert>
 	
 	<select id="selectBoardDetail" parameterType="int" resultType="boarddto">
@@ -25,14 +25,19 @@
 	
 	<select id="selectBoardList" parameterType="int" resultType="boarddto">
 		SELECT * FROM board
-		ORDER BY b_type ASC, b_no ASC, b_regdate ASC
-		LIMIT #{page}, 10;
+		ORDER BY b_type, b_regdate DESC 
+		LIMIT #{paginationInfo.firstRecordIndex}, #{recordsPerPage};
 	</select>
 	
-	<select id="boardCount" resultType="int">
-		SELECT COUNT(*) FROM board
-		WHERE b_type in (#{b_type});
+	<select id="selectBoardTotalCount" parameterType="boarddto" resultType="int">
+		SELECT count(*) FROM board
 	</select>
+	
+	<update id="boardCount" parameterType="boarddto">
+		UPDATE board
+		SET b_view = b_view + 1
+		WHERE b_no = #{b_no};
+	</update>
 	
 	<select id="boardId" parameterType="int" resultType="String">
 		SELECT id FROM member as a
