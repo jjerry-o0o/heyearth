@@ -4,6 +4,13 @@
 
 <mapper namespace="zeroshop.ZeroshopDAO">
 
+	<!-- 제로웨이스트샵 목록 -->
+	<select id="zeroshoplist"  resultType = "zeroshopdto">
+		select * from zeroshop limit 7;
+		
+	</select>
+
+
 	<select id="locid" resultType="int" parameterType="locationdto">
 		select l_code from location where big_loc=#{big_loc} and small_loc=#{small_loc};
 	</select>
