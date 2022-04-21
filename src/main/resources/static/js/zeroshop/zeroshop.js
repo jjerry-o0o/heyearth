@@ -28,7 +28,7 @@ function zeroshopdetail(code){
 		data : {"scode" : code},
 		success : function(result){
 			document.getElementById("modal").style.display = "flex";
-			$("#modalupper").html("<img id='modalimg' src='img/"+result.s_photo+"'>");
+			$("#modalupper").html("<img id='modalimg' src='img/"+result.s_photo+"' onerror=\"this.src='/img/noimage.jpg'\">");
 			$("#modalh2").text(result.s_name);
 			$("#modalcontent").html("분류 : " + result.s_inform + "<br>");
 			$("#modalcontent").append("위치 : " + result.s_location + "<br>");
@@ -107,10 +107,10 @@ $(document).ready(function(){
 							$("#loc_context").html("<div class='Nozeroshop'>존재하는 가게가 없습니다.</div>");
 						}
 						else{
-							$("#loc_context").html("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[0].s_code+")'><div class='Loczeroshop'><div class='Zeroshopname'>"+ result[0].s_name +"</div><img class='Zeroshopimg' src='img/"+result[0].s_photo +"'></div></a>");
+							$("#loc_context").html("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[0].s_code+")'><div class='Loczeroshop'><div class='Zeroshopname'>"+ result[0].s_name +"</div><img class='Zeroshopimg' src='img/"+result[0].s_photo +"' onerror=\"this.src='/img/noimage.jpg'\"></div></a>");
 							
 							for(var i=1;i<result.length;i++){
-								$("#loc_context").append("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[i].s_code+")'><div class='Loczeroshop'><div class='Zeroshopname'>"+ result[i].s_name+"</div><img class='Zeroshopimg' src='img/"+result[i].s_photo+"'></div></a>");
+								$("#loc_context").append("<a href='#' class='Zeroshopclick' onclick='zeroshopdetail("+result[i].s_code+")'><div class='Loczeroshop'><div class='Zeroshopname'>"+ result[i].s_name+"</div><img class='Zeroshopimg' src='img/"+result[i].s_photo+"' onerror=\"this.src='/img/noimage.jpg'\"></div></a>");
 							}
 						}
 					}

@@ -5,7 +5,7 @@
 <mapper namespace="admin.AdminDAO">
 
 	<select id="adminzeroshoplist" resultType="zeroshopdto">
-		select * from zeroshop;
+		select * from zeroshop order by s_name;;
 	</select>
 	
 	<delete id="adminzeroshopdel" parameterType="int">
@@ -29,7 +29,50 @@
 	</insert>
 	
 	<update id="updatezeroshop" parameterType="zeroshopdto">
-		update zeroshop set l_code=#{l_code}, s_name=#{s_name}, s_url=#{s_url}, s_inform=#{s_inform}, s_location=#{s_location}, s_call=#{s_call}, s_close=#{s_close}, s_hour=#{s_hour}, s_photo=#{s_photo} latitude=null, longitude=null where s_code=#{s_code};
+		update zeroshop set l_code=#{l_code}, s_name=#{s_name}, s_url=#{s_url}, s_inform=#{s_inform}, s_location=#{s_location}, s_call=#{s_call}, s_close=#{s_close}, s_hour=#{s_hour}, s_photo=#{s_photo}, latitude=null, longitude=null where s_code=#{s_code};
 	</update>
+	
+	<insert id="insertzeroshop" parameterType="zeroshopdto">
+		insert into zeroshop(l_code,s_name,s_url,s_inform,s_location,s_call,s_close,s_hour,s_photo) values (#{l_code},#{s_name},#{s_url},#{s_inform},#{s_location},#{s_call},#{s_close},#{s_hour},#{s_photo});
+	</insert>
+	
+	
+	
+	
+	
+	<select id="adminmissionlist" resultType="missiondto" parameterType="String">
+		select * from mission where m_type=#{m_type} order by m_date desc, m_name;
+	</select>
+	
+	<delete id="adminmissiondel" parameterType="int">
+		delete from mission where m_code=#{m_code};
+	</delete>
+	
+	<select id="adminmissioninfo" resultType="missiondto" parameterType="int">
+		select * from mission where m_code=#{m_code};
+	</select>
+	
+	<update id="updatemission" parameterType="missiondto">
+		update mission set m_location=#{m_location}, m_date=#{m_date}, m_inform=#{m_inform}, m_carbon=#{m_carbon}, m_point=#{m_point}, m_personnel=#{m_personnel}, m_photo=#{m_photo} where m_code=#{m_code};
+	</update>
+	
+	<insert id="insertmission" parameterType="missiondto">
+		insert into mission(m_type,m_name,m_location,m_date,m_inform,m_carbon,m_point,m_personnel,m_photo) values (#{m_type},#{m_name},#{m_location},#{m_date},#{m_inform},#{m_carbon},#{m_point},#{m_personnel},#{m_photo});
+	</insert>
+	
+	<select id="missionname" resultType="String" parameterType="String">
+		select m_name from mission where m_type=#{m_type};
+	</select>
+	
+	
+	
+	
+	
+	<select id="adminguidelist" resultType="recyclingdto">
+		select * from recycling order by r_class, r_name;
+	</select>
+	
+
+	
 	
 </mapper>
