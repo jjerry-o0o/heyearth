@@ -1,49 +1,163 @@
-* {/*사이트 전체 폰트 통일*/
-	font-family: 'IBM Plex Sans KR', sans-serif;}
-
-.m-carbon-title{/* 탄소발자국을 아세요? */
-/* position: absolute; */
-/* width: 593px; */
-/* height: 64px; */
-/* left: 212px; */
-/* top: 187px; */
-
-font-style: normal;
-font-weight: 600;
-font-size: 40px;
-line-height: 67px;
-text-align: center;
+* { /*사이트 전체 폰트 통일*/
+	font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
-#m-carbon-text{
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 22px;
-text-align: center;	
+.m-carbon-title { /* 탄소발자국을 아세요? */
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 67px;
+	text-align: center;
 }
 
-
-#together{/* TOGETHER */
-position: absolute;
-width: 99px;
-height: 33px;
-left: 468px;
-top: 610px;
-
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 22px;
-color: black;
+.m-carbon-text {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 22px;
+	text-align: center;
 }
 
-button{/* Rectangle 2 */
-position: absolute;
-width: 136.5px;
-height: 35px;
-left: 449px;
-top: 605px;
+button { /* TOGETHER */
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 40px;
+	color: white;
+	background-color: black;
+	border: 1px solid black;
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
 
+#together {
+	width: 150px;
+	margin-top: 50px;
+}
 
+button:hover {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 40px;
+	color: black;
+	border: 1px solid black;
+	background-color: transparent;
+}
+
+.m-carbon-text {
+	line-height: 1.5;
+}
+
+button {
+	display: block;
+	margin: auto;
+}
+
+img {
+	width: 60%;
+	height: 60%;
+	text-align: center;
+	margin: auto;
+	display: block;
+	margin-top: 60px;
+}
+
+.m-container {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	margin-top: 45px;
+}
+
+.carbon {
+	display: inline-block;
+	border: 1px dotted black;
+	width: 200px;
+	height: 100px;
+	margin: 30px;
+	text-align: center;
+}
+
+.carbon-text {
+	margin-top: 30px;
+	display: inline-block;
+	margin: 10px;
+	text-align: center;
+	margin-bottom: 3px;
+}
+
+hr {
+	size: 0.5;
+	color: blcak;
+	width: 2000px;
+	margin-top: 60px;
+}
+
+#main-logo {
+	margin-top: 200px;
+	margin-bottom: 100px;
+}
+
+.m-about-text {
+	text-align: center;
+}
+
+#m-a-t-b {
+	font-size: 20px;
+}
+
+#about {
+	margin-top: 60px;
+	width: 150px;
+	font-size: 20px;
+	margin-bottom: 40px;
+}
+
+.m-zeroshop-title {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 67px;
+	text-align: center;
+	margin-top: 80px;
+}
+
+.m-zeroshop-text {
+	font-style: normal;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.m-mission-title {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 67px;
+	text-align: center;
+	margin-top: 80px;
+}
+
+.m-mission-text {
+	font-style: normal;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.m-mission, .m-zeroshop {
+	position: relative;
+}
+
+.m-mission-db, .m-zeroshop-db {
+	display: inline-block;
+	border: 1px dotted black;
+	width: 1000px;
+	height: 300px;
+	margin: 30px;
+	text-align: center;
+	margin : auto;
+	
 }
