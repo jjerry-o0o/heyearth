@@ -4,21 +4,3 @@
 #joinresult {
 	text-align: center;
 }
-
-
-#btn{
-	margin: auto;
-}
-
-#loginbtn {
-	width: 150px;
-	height: 30px;
-	border: 2px black solid;
-	background-color : #f6f5f0;
-	color : black;
-}
-
-#loginbtn:hover {
-	background-color: black;
-	color : #f6f5f0;
-}
