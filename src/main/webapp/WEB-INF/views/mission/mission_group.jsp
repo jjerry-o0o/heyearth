@@ -94,18 +94,14 @@ modal.addEventListener("click", e => {
 </div>
  <form name="form1" method="post" action="${pageContext.request.contextPath}/register">
     <input type="hidden" name="m_code" value="${group.m_code }">
+    <input type="hidden" name="p_friends" value=1>
         <div>   
-           신청 인원(최대 5명) : 
-               <select name="p_friends">
-					<c:forEach begin="1" end="5" var="i">
-						<option value="${i}">${i}</option>
-					</c:forEach> 
-			   </select>명
 	<input type='submit' id='participation' value='참가하기'>
 		</div>
 		</form>
 </div>
 </div>
+<div style="margin-bottom:50px">
 <ul>
   <li>
                        <img width=200px height=200px src="<%=request.getContextPath()%>/img/${group.m_photo}">
@@ -139,7 +135,7 @@ modal.addEventListener("click", e => {
                         </li>
                         
                     </ul>
-  
+  </div>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

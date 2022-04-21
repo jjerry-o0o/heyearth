@@ -4,7 +4,7 @@ footer {
 	color: white;
 	margin-top:auto;
 	display: grid; 
-	grid-template-columns:15% auto 5%; 
+	grid-template-columns:13% auto 5%; 
 	text-align: center;
 } 
 .footer_body{
@@ -13,19 +13,21 @@ footer {
 	min-height:100vh;
 }
 .footer_left{
-	 padding-top:10px; 
+	 padding-top:35px; 
 	 background-color:#1A271D;
 	 display:inline-block; 
-	 height:120px;
+	 height:60px;
 }
 .footer_right{
-	padding-top:50px; 
+	padding-top:35px; 
+	padding-bottom:35px; 
 	color:#1A271D;
 	background-color:#F2EFEF; 
-	height:120px; 
+	height:60px; 
 }
 .insta{
 	padding-top:50px; 
+	padding-bottom:20px; 
 	background-color:#F2EFEF; 
-	height:120px;
+	height:60px;
 }

@@ -56,7 +56,7 @@ public class ParticipationController {
      	}
 	}
 	
-	 //미션 신청하기
+	 //미션 등록하기
 	  @RequestMapping("/register") 
 	  public String register(@ModelAttribute ParticipationDTO dto, HttpSession session) { // 사용자 id를 받아옴 
 		  String id = (String)session.getAttribute("session_id"); 
@@ -65,13 +65,15 @@ public class ParticipationController {
 	  } 
 	  dto.setId(id); 
 	  service.participation_register(dto); 
+	  service.participation_register2(dto); //미션 테이블 수정(참가인원)
 	 return "redirect:/participation"; 
 	  }
 	  
 	//미션 취소하기
 		@RequestMapping("delete")
-	    public String delete(@RequestParam int p_code) {
+	    public String delete(@RequestParam int p_code, ParticipationDTO dto) {
 			service.delete(p_code);
+			service.participation_delete2(dto); //미션 테이블 수정(참가인원)
 	        return "redirect:/participation";
 	    }
 		
@@ -79,9 +81,8 @@ public class ParticipationController {
 		//미션 완료하기
 		@RequestMapping("/complete")
 	    public String comlete(ParticipationDTO dto) {
-			service.participation_complete(dto); //나의미션 테이블 수정
-			service.participation_complete2(dto); //멤버 테이블 수정
-			service.participation_complete3(dto); //미션 테이블 수정
+			service.participation_complete(dto); //나의미션 테이블 수정(미션완료, 인증사진 업로드)
+			service.participation_complete2(dto); //멤버 테이블 수정(포인트, 탄소배출량)
 	        return "redirect:/participation";
 	    }
 		
