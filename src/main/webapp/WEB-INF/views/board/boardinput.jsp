@@ -21,9 +21,7 @@
 		$("#listbtn").on("click", function(){
 			location.href="/boardlist";
 		});
-		$("#inputbtn").on("click", function(){
-			
-		});
+
 	});
 </script>
 <style>
@@ -93,6 +91,9 @@
 		font-weight: bold;
 		background-color: #F6F5F0;
 	}
+	#file{
+		vertical-align: middle;
+	}
 	
 </style>
 
@@ -104,23 +105,23 @@
 	<!-- end of header import -->
 	
 <section class="viewSection">
-	<form id="wrap" method="post" action="/boardinput">
+	<form id="wrap" method="post" action="/boardinput" enctype="multipart/form-data">
 		<table id="view_table">
 			<tr>
 				<th>분류</th>
 				<td>
 					<div class="type_radio">
 						<label for="que">
-							<input type="radio" id="que" name="type" value="que" checked> 
+							<input type="radio" id="que" name="b_type" value="que" checked> 
 							질문
 						</label>
 						<label for="req">
-							<input type="radio" id="req" name="type" value="req"> 
+							<input type="radio" id="req" name="b_type" value="req"> 
 							요청
 						</label>
 						<c:if test="${sessionScope.session_id == \"admin\" }">
 							<label for="not">
-								<input type="radio" id="not" name="type" value="not"> 
+								<input type="radio" id="not" name="b_type" value="not"> 
 								공지
 							</label>
 						</c:if>
@@ -129,19 +130,19 @@
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td id="title_td"><input type="text" id="title_input" name="title" autofocus="autofocus" placeholder="제목을 입력해주세요" required="required"></td>
+				<td id="title_td"><input type="text" id="title_input" name="b_title" autofocus="autofocus" placeholder="제목을 입력해주세요" required="required"></td>
 			</tr>
 				<tr>
 				<th>작성자</th>
-				<td>${sessionScope.session_id}</td>
+				<td><input type="hidden" name="id" value="${sessionScope.session_id}">${sessionScope.session_id}</td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea id="view_textarea" name="content" rows="20" placeholder="게시물 내용을 입력해주세요." required="required"></textarea></td>
+				<td><textarea id="view_textarea" name="b_content" rows="20" placeholder="게시물 내용을 입력해주세요." required="required"></textarea></td>
 			</tr>
 			<tr>
 				<th>첨부파일</th>
-				<td></td>
+				<td><input type="file" name="file" id="file"></td>
 			</tr>
 		</table>
 		

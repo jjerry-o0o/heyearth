@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import paging.Criteria;
+
 
 public interface BoardService {
 
@@ -19,7 +21,7 @@ public interface BoardService {
 	
 	public String boardId(int b_no);
 	
-	public int boardCount();
+	public void boardCount(BoardDTO dto);
 	
 	
 }

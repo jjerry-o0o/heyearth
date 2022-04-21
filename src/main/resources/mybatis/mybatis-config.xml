@@ -14,6 +14,8 @@
 	<typeAlias type="recycling.RecyclingDTO" alias="recyclingdto"/>
 	<typeAlias type="participation.ParticipationDTO" alias="participationdto"/>
 	<typeAlias type="board.BoardDTO" alias="boarddto"/>
+	<typeAlias type="paging.Criteria" alias="criteria"/>
+	<typeAlias type="comment.CommentDTO" alias="commentdto"/>
 </typeAliases>
 
 </configuration>

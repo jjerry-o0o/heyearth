@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="comment.CommentDAO">
+
+	<insert id="insertComment" parameterType="commentdto">
+		INSERT INTO comment (id, b_no, c_comment, c_class, c_order, c_groupNum) 
+		values(#{id}, #{b_no}, #{c_comment}, #{c_class}, #{c_order}, #{c_groupNum});
+	</insert>
+	
+	<update id="updateComment" parameterType="commentdto">
+		UPDATE comment
+		SET c_comment=#{c_comment}
+		WHERE c_index=#{c_index};
+	</update>
+	
+	<delete id="deleteComment" parameterType="int">
+		DELETE FROM comment WHERE c_index=#{c_index};
+	</delete>
+	
+</mapper>

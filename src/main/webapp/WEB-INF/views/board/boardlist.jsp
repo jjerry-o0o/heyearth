@@ -6,7 +6,7 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	<!-- end of header import -->
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="board/layout/basic">
 <head>
 <title>게시판 메인 | heyEarth</title>
 <meta charset="UTF-8">
@@ -89,7 +89,7 @@
 		text-decoration: none;
 	}
 	.titlea:link{
-		color : #1A271D;
+		color : black;
 	}
 	.titlea:visited{
 		color : black;
@@ -136,17 +136,18 @@
 
 <section class="boardSection">
 	<div id="b_title">
-		<select id="b_type" name="b_type">
-			<option value="all"> 분류 </option>
-			<option value="not"> 공지 </option>
-			<option value="que"> 질문 </option>
-			<option value="req"> 요청 </option>
-		</select>
-		검색 : <input type="text" id="find" name="find" autofocus="autofocus" placeholder="검색어를 입력해주세요">
-		<input type="button" id="findbtn" name="findbtn" value="검색">
+		<div id="find_div">
+			<select id="b_type" name="b_type">
+				<option value="all"> 분류 </option>
+				<option value="not"> 공지 </option>
+				<option value="que"> 질문 </option>
+				<option value="req"> 요청 </option>
+			</select>
+			검색 : <input type="text" id="find" name="find" autofocus="autofocus" placeholder="검색어를 입력해주세요">
+			<input type="button" id="findbtn" name="findbtn" value="검색">
+		</div>
 		
 		<c:if test="${sessionScope.session_id == null }">
-		
 		</c:if>
 		
 		<c:if test="${sessionScope.session_id != null }">
@@ -165,8 +166,12 @@
 			</tr>
 			<c:forEach items="${boardlist }" var="board">
 				<tr id="content_td">
-					<td>${board.b_type }</td>
-					<td><a class="titlea" href="/boardview?b_no=${board.b_no }">${board.b_title }</a></td>
+					<td>
+						<c:if test="${board.b_type =='not'}">공지사항</c:if> 
+						<c:if test="${board.b_type =='que'}">질문</c:if> 
+						<c:if test="${board.b_type =='req'}">요청</c:if> 
+					</td>
+					<td><a href="/boardview?b_no=${board.b_no }" class="titlea"> ${board.b_title } </a></td>
 					<td>${board.id }</td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd HH-mm-ss" value="${board.b_regdate }" /></td>
 					<td>${board.b_view }</td>
@@ -177,7 +182,17 @@
 	</div>
 	
 	<div id="pagination">
-		<!-- 페이징처리 js -->
+		<ul class="paging">
+			<c:if test="${paging.prev}">
+				<span><a href='<c:url value="/test?page=${paging.startPage-1}"/>'>이전</a></span>
+			</c:if>
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="num">
+				<span><a href='<c:url value="/test?page=${num}"/>'>${num}</a></span>
+			</c:forEach>
+			<c:if test="${paging.next && paging.endPage>0}">
+				<span><a href='<c:url value="/test?page=${paging.endPage+1}"/>'>다음</a></span>
+			</c:if>
+		</ul>
 	</div>
 
 </section>
