@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- CSS -->
-<link rel="stylesheet" href="/css/mypage/mypage.css"자연 />
+<link rel="stylesheet" href="/css/mypage/mypage.css"/>
 
 <!-- js -->
 <script type="text/javascript" src="/js/mypage/mypage.js"></script>
@@ -121,7 +121,9 @@
 			</tr>
 			<tr>
 				<td id="m_mission" class="btn">
-					<h3> 나의미션 </h3>
+					<div id="mymission" onclick="mymission()">
+						<h3> 나의미션 </h3>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -137,6 +139,7 @@
 		</table>
 		<div id="mymenu_div">
 			<h4 style="text-align: center;">ajax 화면 변환이 보여질 공간입니다.</h4>
+			
 		</div>
 	</div>
 </section>
