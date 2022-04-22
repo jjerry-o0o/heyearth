@@ -14,6 +14,49 @@ public class MissionDTO {
 	int m_carbon; //미션 탄소배출감소량
 	int m_point; //미션 포인트
 	int m_personnel; //미션 인원
+	int p_star;
+	String p_review;
+	String p_code;
+	String id;
+	String p_photo;
+	int p_complete;
+	public int getP_complete() {
+		return p_complete;
+	}
+	public void setP_complete(int p_complete) {
+		this.p_complete = p_complete;
+	}
+	public String getP_photo() {
+		return p_photo;
+	}
+	public void setP_photo(String p_photo) {
+		this.p_photo = p_photo;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getP_code() {
+		return p_code;
+	}
+	public void setP_code(String p_code) {
+		this.p_code = p_code;
+	}
+	public int getP_star() {
+		return p_star;
+	}
+	public void setP_star(int p_star) {
+		this.p_star = p_star;
+	}
+	public String getP_review() {
+		return p_review;
+	}
+	public void setP_review(String p_review) {
+		this.p_review = p_review;
+	}
 	MultipartFile image;
 	
 	public MultipartFile getImage() {

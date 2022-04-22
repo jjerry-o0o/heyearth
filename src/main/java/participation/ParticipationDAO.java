@@ -16,6 +16,7 @@ public interface ParticipationDAO {
 	    public void participation_register2(ParticipationDTO dto); //미션 등록하기2
 	    public void participation_complete(ParticipationDTO dto); //미션 완료하기 
 	    public void participation_complete2(ParticipationDTO dto); //미션 완료하기2 
+	    public void participation_review(ParticipationDTO dto); //미션 리뷰쓰기 
 		public void delete(int p_code);//미션 취소하기
 		public void participation_delete2(ParticipationDTO dto); //미션 취소하기2
 		public int participation_friends(String id, int m_code); //미션 등록 인원
