@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <link href="css/about.css" rel="stylesheet">
+
 <script src="/jquery-3.6.0.min.js"></script>
-<script src="/js/about.js"></script>
+<!-- <script src="/js/about.js"></script> -->
 <title>About | HeyEarth</title>
 
 <!-- header import -->
@@ -24,16 +25,16 @@
 				<img class="a-i1" src="img/about1.png" />
 			</div>
 		</div>
-		<div class ="a-text">
-		<div class="a-m-text1">
-			<h2 class="a-envir-title">내일을 위한 오늘의 준비</h2>
-			<p class="a-envir-text">멸종위기에 처한 바다거북의 코에 빨대가 꽂혀있거나, 해양생물의 뱃속에서
-				플라스틱 생수병이 발견되는 모습은 우리나라를 포함한 전세계의 바다가 해양쓰레기로 심각하게 오염되었고, 해양생물의 목숨을
-				위협하고 있음을 말해줍니다. 해양쓰레기 뿐만 아니라, 섬유에서 나오는 미세플라스틱, 무심코 일회용품이 자연과 생물을
-				위협하는 상황에서 인류는 안전할 수 있을까요? 우리가 사용하고 버린 쓰레기는 땅과 바다, 공기, 다양한 생물체들의 몸을
-				통해 부메랑처럼 다시 인간에게 돌아오고 있습니다. 이는 우리와 더불어 살아가는 모든 것들을 위협합니다.</p>
+		<div class="a-text">
+			<div class="a-m-text1">
+				<h2 class="a-envir-title">내일을 위한 오늘의 준비</h2>
+				<p class="a-envir-text">멸종위기에 처한 바다거북의 코에 빨대가 꽂혀있거나, 해양생물의 뱃속에서
+					플라스틱 생수병이 발견되는 모습은 우리나라를 포함한 전세계의 바다가 해양쓰레기로 심각하게 오염되었고, 해양생물의 목숨을
+					위협하고 있음을 말해줍니다. 해양쓰레기 뿐만 아니라, 섬유에서 나오는 미세플라스틱, 무심코 일회용품이 자연과 생물을
+					위협하는 상황에서 인류는 안전할 수 있을까요? 우리가 사용하고 버린 쓰레기는 땅과 바다, 공기, 다양한 생물체들의 몸을
+					통해 부메랑처럼 다시 인간에게 돌아오고 있습니다. 이는 우리와 더불어 살아가는 모든 것들을 위협합니다.</p>
+			</div>
 		</div>
-	</div>
 	</div>
 
 
@@ -70,7 +71,10 @@
 					<img src="img/about-s1.png" style="width: 40%;"></img>
 				</div>
 				<div class="a-s-t">
-					<button type="button" id="a-s-t" onclick="location.href='/zeroshop'"><strong>제로웨이스트샵 정보</strong></button>
+					<button type="button" id="a-s-t"
+						onclick="location.href='/zeroshop'">
+						<strong>제로웨이스트샵 정보</strong>
+					</button>
 
 				</div>
 				<div id="ser-text">
@@ -86,7 +90,9 @@
 					<img src="img/about-s2.png" style="width: 40%;"></img>
 				</div>
 				<div class="a-s-t">
-					<button type="button" id="a-s-t"onclick="location.href='/mission'"><strong>환경보호 프로그램</strong></button>
+					<button type="button" id="a-s-t" onclick="location.href='/mission'">
+						<strong>환경보호 프로그램</strong>
+					</button>
 
 				</div>
 				<div id="ser-text">
@@ -101,7 +107,10 @@
 					<img src="img/about-s3.png" style="width: 40%;"></img>
 				</div>
 				<div class="a-s-t">
-					<button type="button" id="a-s-t" onclick="location.href='/recycling'"><strong>분리배출 가이드</strong></button>
+					<button type="button" id="a-s-t"
+						onclick="location.href='/recycling'">
+						<strong>분리배출 가이드</strong>
+					</button>
 
 				</div>
 				<div id="ser-text">
@@ -116,7 +125,9 @@
 					<img src="img/about-s4.png" style="width: 40%;"></img>
 				</div>
 				<div class="a-s-t">
-					<button type="button" id="a-s-t" onclick="location.href='/carbon'"><strong>함께 줄인 탄소배출량</strong></button>
+					<button type="button" id="a-s-t" onclick="location.href='/carbon'">
+						<strong>함께 줄인 탄소배출량</strong>
+					</button>
 				</div>
 				<div id="ser-text">
 					<p>
@@ -126,20 +137,71 @@
 			</div>
 		</div>
 	</div>
-	
+
+	<!-- 팀멤버 소개 슬라이드 -->
 	<div class="teamintro">
-		<div class="team-tit">
-		<h1>헤이얼스 팀</h1>
+		<div class="teamintro" id="intro-text">
+			<h1 id="team-tit">헤이얼스 팀</h1>
 			<h3 id="team-text">헤이얼스를 이끌어가는 용사들을 소개합니다.</h3>
-		
 		</div>
-	
-	
+		<div class="swiper-container">
+			<div class="slide_wrapper">
+				<div class="slides">
+					<div id="member">
+						<img id="mem" src="img/about-mi.png" alt="" />
+						<div class="team-text">
+							<h2 id="name">신미래</h2>
+							<p>
+								Team Leader <br><br> 지구용사 5인조의 팀 리더.<br>무슨 역할을 했다고 쓸까요 야호
+							</p>
+						</div>
+					</div>
+					<div id="member">
+						<img id="mem2" src="img/about-min.png" alt="" />
+						<div class="team-text">
+							<h2 id="name">이민아</h2>
+							<p>
+								A Reliable Helper <br><br>지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고
+								쓸까요 야호
+							</p>
+						</div>
+					</div>
+					<div id="member">
+						<img id="mem" src="img/about-so.png" alt="">
+						<div class="team-text">
+							<h2 id="name">문소영</h2>
+							<p>
+								Role Manager<br><br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+							</p>
+						</div>
+					</div>
+					<div id="member">
+						<img id="mem" src="img/about-yi.png" alt="">
+						<div class="team-text">
+							<h2 id="name">윤이나</h2>
+							<p>Time Manager<br><br>
+							
+								지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+							</p>
+						</div>
+					</div>
+					<div id="member">
+						<img id="mem" src="img/about-hee.png" alt="">
+						<div class="team-text">
+							<h2 id="name">박희영</h2>
+							<p>
+								Passion Manager<br><br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+							</p>
+						</div>
+					</div>
+				</div>
+				<p class="controls">
+
+					<span class="prev"><</span> <span class="next">></span>
+				</p>
+			</div>
+		</div>
 	</div>
-
-
-
-
 </body>
 <script>
 	$(document).ready(function() {
@@ -152,6 +214,8 @@
 		});
 	});
 </script>
+
+
 <!-- footer import -->
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 <!-- end of footer import -->
