@@ -25,7 +25,7 @@
 		});
 		const swiper = new Swiper(".swiper", {
 			autoplay : {
-				delay : 3500,
+				delay : 2000,
 			},
 			loop : true,
 		});
@@ -72,7 +72,7 @@
 	#infocontent{
 		width : 90%;
 		padding : 20px;
-		margin : 20 auto;
+		margin : 20px auto;
 		text-align: center;
 		align-items: center;
 	}
@@ -112,6 +112,14 @@
 		background-color: #1A271D;
 		color : white;
 	}
+	.data_info{
+		text-align: center;
+		padding-top : 20px;
+		padding-bottom : 20px;
+		margin : 10px auto;
+		font-weight: bold;
+		font-size: large;
+	}
 	
 	
 </style>
@@ -126,19 +134,19 @@
 	<div class="swiper">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지1" src="https://img.hani.co.kr/imgdb/resize/2019/0201/00502712_20190201.JPG">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지1" src="img/carbon001.jpg">
 			</div>
 			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지2" src="https://t1.daumcdn.net/tistoryfile/fs13/29_tistory_2009_10_27_01_04_4ae5c8821db65?original">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지2" src="img/carbon002.jpg">
 			</div>
 			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지3" src="https://imgnn.seoul.co.kr/img/upload/2021/08/05/SSI_20210805152938.jpg">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지3" src="img/carbon003.jpg">
 			</div>
 			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지4" src="https://t1.daumcdn.net/cfile/blog/990C10365D3D6AF535">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지4" src="img/carbon004.jpg">
 			</div>
 			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지5" src="https://post-phinf.pstatic.net/MjAxODAzMDlfMTQ1/MDAxNTIwNTcyNjA4NTEw.Ba4srqGZ87LeOQp288d7pKxm77SDlu9BvR9DNkSHiM8g.rlVBAhKw11Zc9agKO5pQhkbN8e8fWr79Ezc8RRYRvvYg.JPEG/shutterstock_206652934.jpg?type=w1200">
+				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지5" src="img/carbon005.jpg">
 			</div>
 		</div>
 	</div>
@@ -153,17 +161,32 @@
 		<hr>
 	</div>
 	<div id="circle_div">
-		<div class="circle">
-			<p class="ourdata">100</p><br>
-			/ kg
+		<div>
+			<div class="circle">
+				<p class="ourdata">${sum }</p><br>
+				/ kg
+			</div>
+			<div>
+				<p class="data_info">지구용사들이 모여<br>감소시킨 탄소배출량</p>
+			</div>
 		</div>
-		<div class="circle">
-			<p class="ourdata">100</p><br>
-			/ 회
+		<div>
+			<div class="circle">
+				<p class="ourdata">${totalPart }</p><br>
+				/ 명
+			</div>
+			<div>
+				<p class="data_info">헤이얼스와<br>함께한 지구용사들</p>
+			</div>
 		</div>
-		<div class="circle">
-			<p class="ourdata">100</p><br>
-			/ 명
+		<div>
+			<div class="circle">
+				<p class="ourdata">${everPart }</p><br>
+				/ 회
+			</div>
+			<div>
+				<p class="data_info">지구용사 1명의<br> 미션 실천 횟수 평균치</p>
+			</div>
 		</div>
 	</div>
 	<div id="btn_div">

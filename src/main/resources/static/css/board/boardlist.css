@@ -1,1 +1,96 @@
 @charset "UTF-8";
+
+	#b_title{
+		margin-top : 50px;
+		margin-bottom : 10px;
+		margin-left : auto;
+		margin-right : auto;
+		width: 90%;
+	}
+	#b_content{
+		overflow: auto;
+	}
+	#findbtn{
+		border: 2px solid #1A271D;
+		border-radius: 5px;
+		padding : 2px 10px;
+	}
+	#find_div{
+		display: inline-block;
+	}
+	#findbtn:hover{
+		background-color: #1A271D;
+		color:white;
+	}
+	#inputbtn{
+		text-align : center;
+		float: right;
+		border: 2px solid #1A271D;
+		border-radius: 5px;
+		padding : 2px 20px;
+	}
+	#inputbtn:hover{
+		background-color: #1A271D;
+		color:white;
+	}
+	#con_table{
+		width: 90%;
+		text-align: center;
+		margin : auto;
+		margin-bottom : 50px;
+		border-top : 1px solid gray;
+		border-collapse: collapse;
+		min-width : 500px;
+	}
+	th{
+		background-color: #1A271D;
+		border-bottom: 1px solid gray;
+		color : white;
+	}
+	td{
+		padding: 20px;
+		border-bottom: 1px solid gray;
+	}
+	tr:last-child{
+		border : none;
+	}
+	#content_td:hover{
+		background-color: #1A271D;
+		color : white;
+	}
+	.titlea{
+		text-decoration: none;
+	}
+	.titlea:link{
+		color : black;
+	}
+	.titlea:visited{
+		color : black;
+	}
+	.titlea:hover{
+		color : white;
+		font-weight: bold;
+	}
+	#b_type{
+		margin-right:20px;
+	}
+	#contentnum{
+		margin-right:20px;
+	}
+	.pagination{
+		padding : 5px 15px;
+		margin : 10px;
+		color : #1A271D;
+		text-align: center;
+		text-decoration: none;
+	}
+	.pagination:visted{
+		padding : 20px;
+		color : #1A271D;
+		text-align: center;
+	}
+	.pagination:hover{
+		border : 1px solid #1A271D;
+		border-radius: 50%;
+	}
+	
