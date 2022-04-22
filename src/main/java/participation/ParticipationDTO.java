@@ -1,5 +1,6 @@
 package participation;
 
+import org.springframework.web.multipart.MultipartFile;
 
 public class ParticipationDTO {
 	int p_code; //참가 미션 분류 코드
@@ -19,8 +20,15 @@ public class ParticipationDTO {
 	String p_review; //리뷰
 	String p_photo; //리뷰 사진
 	int m_personnel;//미션 최대 인원
+	MultipartFile image;
 	
 	
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	public int getM_personnel() {
 		return m_personnel;
 	}

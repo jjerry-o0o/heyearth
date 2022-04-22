@@ -61,7 +61,11 @@
 	</insert>
 	
 	<select id="missionname" resultType="String" parameterType="String">
-		select m_name from mission where m_type=#{m_type};
+		select distinct(m_name) from mission where m_type=#{m_type};
+	</select>
+	
+	<select id="missioninfo1" resultType="missiondto" parameterType="missiondto">
+		select * from mission where m_type=#{m_type} and m_name=#{m_name};
 	</select>
 	
 	
@@ -72,7 +76,48 @@
 		select * from recycling order by r_class, r_name;
 	</select>
 	
+	<delete id="adminguidedel" parameterType="int">
+		delete from recycling where r_code=#{r_code};
+	</delete>
+	
+	<select id="adminguideinfo" resultType="recyclingdto" parameterType="int">
+		select * from recycling where r_code=#{r_code};
+	</select>
+	
+	<update id="updateguide" parameterType="recyclingdto">
+		update recycling set r_name=#{r_name}, r_class=#{r_class}, r_way=#{r_way}, r_photo=#{r_photo} where r_code=#{r_code};
+	</update>
+	
+	<insert id="insertguide" parameterType="recyclingdto">
+		insert into recycling(r_class,r_name,r_way,r_photo) values (#{r_class},#{r_name},#{r_way},#{r_photo});
+	</insert>
+	
+	<select id="guideclasslist" resultType="String">
+		select distinct(r_class) from recycling;
+	</select>
+	
 
+	
+	
+	<select id="adminboardlist" resultType="boarddto" parameterType="String">
+		select * from board where b_type=#{b_type};
+	</select>
+	
+	
+	
+	
+	
+	<select id="admininfo" resultType="memberdto" parameterType="String">
+		select * from member where id=#{id};
+	</select>
+	
+	<update id="updateadmin" parameterType="memberdto">
+		update member set phone=#{phone}, pw=#{pw}, photo=#{photo} where id=#{id};
+	</update>
+	
+	<select id="searchpw" resultType="String" parameterType="String">
+		select pw from member where id=#{id};
+	</select>
 	
 	
 </mapper>

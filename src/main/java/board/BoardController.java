@@ -9,28 +9,39 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.http.HttpStatus;
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.util.MultiValueMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import comment.CommentDTO;
+import com.google.api.client.http.HttpHeaders;
+
+import member.MemberDTO;
 import paging.Criteria;
-import paging.PaginationInfo;
 
 @Controller
 public class BoardController {
@@ -42,20 +53,22 @@ public class BoardController {
 	@Qualifier("boarddao")
 	BoardDAO boarddao;
 
+	
+	@RequestMapping("/boardlistpage")
+	public String boardlist(BoardDTO dto, Model model) {
+		
+		List<BoardDTO> boardlist = boarddao.selectBoardList(dto);
+		
+		model.addAttribute("boardlist", boardlist);
+		
+		return "/board/boardlist";
+	}
+
 	@RequestMapping("/boardlist")
-	public String boardlist(int page, Model model) {
-		BoardDTO dto = new BoardDTO();
+	public String boardlist(@RequestParam(defaultValue="1") String pagenum,
+			@RequestParam(defaultValue="10")String contentnum, Model model) throws Exception {
 		
-		List<BoardDTO> list = boardservice.selectBoardList(page);
-		
-		PaginationInfo paging = new PaginationInfo();
-		/* paging.setCri(dto); */
-		
-		int boardCount = boarddao.selectBoardTotalCount(dto);
-		/* paging.setTotalCount(boardCount); */
-		
-		model.addAttribute("boardlist", list);
-		model.addAttribute("paging", paging);
+		boardservice.execute(model, pagenum, contentnum);
 		
 		return "/board/boardlist";
 	}
@@ -88,12 +101,6 @@ public class BoardController {
 
 		if(!img.isEmpty()) {
 			String originname = img.getOriginalFilename();
-			/*
-			 * String beforeext = originname.substring(0, originname.indexOf("."));
-			 * String ext = originname.substring(originname.indexOf("."));
-			 * String randomname = UUID.randomUUID().toString();
-			 * File serverfile = new File(path + beforeext + "(" +randomname+")"+ext);
-			 */
 			
 			File serverfile = new File(path + originname);
 					
@@ -115,7 +122,21 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/boardalter", method = RequestMethod.POST)
-	public String boardalter(BoardDTO dto) {
+	public String boardalter(@ModelAttribute BoardDTO dto) throws IOException {
+		MultipartFile img = dto.getFile();
+
+		Path currentPath = Paths.get(""); 
+		String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+		path = path.replace("\\", "/");
+		
+		if(!img.isEmpty()) {
+			String originname = img.getOriginalFilename();
+			
+			File serverfile = new File(path + originname);
+					
+			img.transferTo(serverfile);
+			dto.setB_img(originname);
+		}
 		
 		boardservice.updateBoard(dto);
 		
@@ -128,5 +149,8 @@ public class BoardController {
 		
 		return "redirect:/boardlist";
 	}
+	
+	
+
 	
 }
