@@ -1,6 +1,10 @@
 package participation;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import mission.MissionDTO;
@@ -80,11 +85,37 @@ public class ParticipationController {
 		
 		//미션 완료하기
 		@RequestMapping("/complete")
-	    public String comlete(ParticipationDTO dto) {
+	    public String comlete(ParticipationDTO dto) throws Exception {
+			MultipartFile mf = dto.getImage();
+			
+			if(!mf.isEmpty()) {			
+				Path currentPath = Paths.get(""); 
+				String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+				path = path.replace("\\", "/");
+				File serverfile = new File(path + mf.getOriginalFilename());
+				mf.transferTo(serverfile);
+				dto.setP_photo(mf.getOriginalFilename());
+			}
+			
 			service.participation_complete(dto); //나의미션 테이블 수정(미션완료, 인증사진 업로드)
 			service.participation_complete2(dto); //멤버 테이블 수정(포인트, 탄소배출량)
 	        return "redirect:/participation";
 	    }
+		//미션 리뷰쓰기
+		@RequestMapping("/review")
+		public String review(ParticipationDTO dto) {						
+			service.participation_review(dto); //리뷰제출
+			return "redirect:/participation";
+		}
+		 //미션 리뷰쓰기 모달창
+			/*
+			 * @RequestMapping("/mymissiondetail2")
+			 * 
+			 * @ResponseBody public ParticipationDTO mymission_review(int p_code) { return
+			 * service.mymission_detail(p_code); }
+			 */
+		
+		
 		
 	 //미션 인증하기 모달창
 			@RequestMapping("/mymissiondetail")
