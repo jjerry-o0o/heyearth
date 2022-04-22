@@ -37,6 +37,10 @@ public class MissionServiceImpl implements MissionService {
     public MissionDTO missiongroup(int m_code) {//단체미션 상세페이지
         return dao.missiongroup(m_code);    
     }
+	@Override
+	public List<MissionDTO> missionreview(String m_name) {//단체미션 상세페이지
+		return dao.missionreview(m_name);    
+	}
 	
 }//ServiceImpl Class end
 	 

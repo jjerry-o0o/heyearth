@@ -6,9 +6,9 @@
 
 <!-- 나의 참가 미션 목록 -->
 	<select id="participation_list" parameterType="String" resultType = "participationdto">
-		 select p_code, p.id as id, s.m_code as m_code, m_name, m_photo, p_friends,  p_complete, p_photo, m_date, m_carbon, m_point, m_personnel
+		 select p_code, p.id as id, s.m_code as m_code, m_name, m_photo, p_friends, p_star, p_review, p_complete, p_photo, m_date, m_carbon, m_point, m_personnel
  	 from member m, participation p, mission s
-   		where p.id =m.id and s.m_code = p.m_code and p.id=#{id} order by p_code
+   		where p.id =m.id and s.m_code = p.m_code and p.id=#{id} order by p_code desc;
 	</select>	
 	
 <!-- 미션 신청하기(환경지킴이 모달창에서) -->
@@ -45,7 +45,7 @@
 <!-- 1. participation 테이블 변경(미션완료, 인증사진) -->
 	<update id="participation_complete" parameterType="participationdto">
         update participation 
-        set p_complete = 1, p_photo = 'seawaste.jpg' 
+        set p_complete = 1, p_photo = #{p_photo} 
         where p_code = #{p_code};
     </update>    
 <!-- 2. member 테이블 변경(포인트, 탄소배출량) -->
@@ -55,6 +55,12 @@
        where id = #{id};
     </update>
     
+<!-- 별점, 리뷰 쓰기 -->	
+<update id="participation_review" parameterType="participationdto">
+        update participation 
+        set p_star = #{p_star}, p_review = #{p_review} 
+        where p_code = #{p_code};
+    </update>    
   
 	
 	
