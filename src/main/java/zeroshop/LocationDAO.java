@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface LocationDAO {
 	public List<String> biglocation();
 	public List<String> smalllocation(String big_loc); 
+	
 }

@@ -50,7 +50,7 @@ td{
 	padding-bottom:3px;
 }
 
-.tabmodbtn, .tabdelbtn{
+.tabmodbtn, .tabdelbtn, .tabreviewbtn{
 	padding-top : 3px;
 	padding-bottom:3px;
 	width : 100%;
@@ -61,7 +61,7 @@ td{
 	background-color : #f6f5f0;
 }
 
-.tabmodbtn:hover, .tabdelbtn:hover{
+.tabmodbtn:hover, .tabdelbtn:hover, .tabreviewbtn:hover{
 	cursor : pointer;
 	background-color : #1A271D;
 	color : #f6f5f0;
@@ -87,12 +87,12 @@ td{
 }
 
 
-.mission_choose{
+.mission_choose, .board_choose{
 
 	text-align : center;
 }
 
-#groupmission, #solomission{
+#groupmission, #solomission, #notice, #request, #question{
 	padding-left : 25px;
 	padding-right : 25px;
 	padding-top : 7px;
@@ -105,16 +105,16 @@ td{
 	border : 2px #1A271D solid;
 }
 
-#solomission{
+#solomission, #request, #question{
 	background-color : #f6f5f0;
 	color : #1A271D;
 }
 
-#groupmission{
+#groupmission, #notice{
 	background-color : #1A271D;
 	color : #f6f5f0;
 }
 
-#groupmission:hover, #solomission:hover{
+#groupmission:hover, #solomission:hover, #notice:hover, #request:hover, #question:hover{
 	cursor : pointer;
 }

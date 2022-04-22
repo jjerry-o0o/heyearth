@@ -10,10 +10,6 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="/css/board/boardinput.css" />
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
-
-<!-- js -->
-<script type="text/javascript" src="/js/board/boardinput.js"></script>
 
 <script src="jquery-3.6.0.min.js"></script>
 <script>
@@ -24,78 +20,6 @@
 
 	});
 </script>
-<style>
-	#view_table{
-		width : 90%;
-		border-top: 1px solid gray;
-		border-bottom: 1px solid gray;
-		border-collapse: collapse;
-		margin : 30px auto;
-	}
-	tr{
-		border-bottom: 1px dashed gray;
-	}
-	td{
-		padding-left : 20px;
-	}
-	th{
-		width : 20%;
-		border-right: 1px solid gray;
-		padding : 20px;
-	}
-	tr:last-child{
-		vertical-align: top;
-	}
-	#btn_div{
-		text-align: center;
-		margin : 30px auto;
-	}
-	#inputbtn{
-		padding : 10px 20px;
-		margin-right : 10px;
-		border: 2px solid #1A271D;
-		border-radius: 5px;
-	}
-	#inputbtn:hover{
-		background-color: #1A271D;
-		color : white;
-	}
-	#listbtn{
-		padding : 10px 20px;
-		border: 2px solid #1A271D;
-		border-radius: 5px;
-	}
-	#listbtn:hover{
-		background-color: #1A271D;
-		color : white;
-	}
-	#view_textarea{
-		border-style: none;
-		resize: none;
-		width: 100%;
-		overflow: auto;
-		margin : 20px auto;
-		background-color: #F6F5F0;
-	}
-	.type_radio input{
-		accent-color : black;
-	}
-	label{
-		margin-right : 20px;
-	}
-	#title_input{
-		border-style: none;
-		height : 30px;
-		width : 100%;
-		font-size: medium;
-		font-weight: bold;
-		background-color: #F6F5F0;
-	}
-	#file{
-		vertical-align: middle;
-	}
-	
-</style>
 
 </head>
 <body>
@@ -119,12 +43,6 @@
 							<input type="radio" id="req" name="b_type" value="req"> 
 							요청
 						</label>
-						<c:if test="${sessionScope.session_id == \"admin\" }">
-							<label for="not">
-								<input type="radio" id="not" name="b_type" value="not"> 
-								공지
-							</label>
-						</c:if>
 					</div>
 				</td>
 			</tr>
@@ -141,7 +59,7 @@
 				<td><textarea id="view_textarea" name="b_content" rows="20" placeholder="게시물 내용을 입력해주세요." required="required"></textarea></td>
 			</tr>
 			<tr>
-				<th>첨부파일</th>
+				<th>첨부 이미지</th>
 				<td><input type="file" name="file" id="file"></td>
 			</tr>
 		</table>

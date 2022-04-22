@@ -58,7 +58,14 @@ public class MissionDTO {
 		this.p_review = p_review;
 	}
 	MultipartFile image;
+	String selboxDirect;
 	
+	public String getSelboxDirect() {
+		return selboxDirect;
+	}
+	public void setSelboxDirect(String selboxDirect) {
+		this.selboxDirect = selboxDirect;
+	}
 	public MultipartFile getImage() {
 		return image;
 	}

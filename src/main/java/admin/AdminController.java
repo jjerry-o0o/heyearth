@@ -5,6 +5,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import board.BoardDTO;
+import member.MemberDTO;
 import mission.MissionDTO;
 import recycling.RecyclingDTO;
 import zeroshop.ZeroshopDTO;
@@ -213,6 +218,10 @@ public class AdminController {
 			dto.setM_photo(mf.getOriginalFilename());
 		}
 		
+		if(dto.getM_name().equals("direct")) {
+			dto.setM_name(dto.getSelboxDirect());
+		}
+		
 		adminservice.updatemission(dto);
 		
 		return "redirect:/adminmission";
@@ -234,9 +243,11 @@ public class AdminController {
 			dto.setM_photo("eco.jpg");
 		}
 		
+		if(dto.getM_name().equals("direct")) {
+			dto.setM_name(dto.getSelboxDirect());
+		}
 		
 		adminservice.insertmission(dto);
-		
 		
 		return "redirect:/adminmission";
 	}
@@ -246,6 +257,15 @@ public class AdminController {
 	public List<String> missionname(String m_type){
 		return adminservice.missionname(m_type);
 	}
+	
+	@RequestMapping("/missioninfo1")
+	@ResponseBody
+	public MissionDTO missioninfo1(String m_type, String m_name) {
+		return adminservice.missioninfo1(m_type,m_name);
+	}
+	
+
+	
 	
 	
 	
@@ -259,12 +279,93 @@ public class AdminController {
 		return mv;
 	}
 	
+	@RequestMapping("/adminguidedel")
+	public String guidedel(int code) {
+		adminservice.adminguidedel(code);
+		return "redirect:/adminguide";
+	}
+	
+	@RequestMapping("/adminguidemod")
+	public ModelAndView guidemod(int code) {
+		ModelAndView mv = new ModelAndView();
+		RecyclingDTO guideinfo = adminservice.adminguideinfo(code);
+		mv.addObject("guideinfo",guideinfo);
+		mv.setViewName("admin/adminguidemod");
+		return mv;
+	}
+	
+	@RequestMapping("/adminguideinsert")
+	public String guideinsert() {
+		return "admin/adminguideinsert";
+	}
+	
+	@RequestMapping("/guideclasslist")
+	@ResponseBody
+	public List<String> guideclasslist(){
+		return adminservice.guideclasslist();
+	}
+	
+	@RequestMapping("/adminguideinsertinfo")
+	public String adminguideinsertinfo(@ModelAttribute("") RecyclingDTO dto) throws Exception{
+		MultipartFile mf = dto.getImage();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+			
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setR_photo(mf.getOriginalFilename());
+		}
+		
+		if(dto.getR_class().equals("direct")) {
+			dto.setR_class(dto.getSelboxDirect());
+		}
+		
+		adminservice.insertguide(dto);
+		
+		return "redirect:/adminguide";
+	}
+	
+	@RequestMapping("/adminguidemodinfo")
+	public String adminguidemodinfo(@ModelAttribute("") RecyclingDTO dto) throws Exception{
+		MultipartFile mf = dto.getImage();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setR_photo(mf.getOriginalFilename());
+		}
+		else {
+			dto.setR_photo("noimage.jpg");
+		}
+		
+		if(dto.getR_class().equals("direct")) {
+			dto.setR_class(dto.getSelboxDirect());
+		}
+		
+		adminservice.updateguide(dto);
+		
+		return "redirect:/adminguide";
+	}
+	
+	
+	
 	
 	
 	/*게시판 관리*/
 	@RequestMapping("/adminboard")
-	public String adminboard() {
-		return "admin/adminboard";
+	public ModelAndView adminboard() {
+		ModelAndView mv = new ModelAndView();
+		List<BoardDTO> boardlist = adminservice.adminboardlist("not");
+		mv.addObject("boardlist",boardlist);
+		mv.setViewName("admin/adminboard");
+		return mv;
 	}
 	
 	
@@ -279,8 +380,72 @@ public class AdminController {
 	
 	/*관리자마이페이지 관리*/
 	@RequestMapping("/adminmypage")
-	public String adminmypage() {
-		return "admin/adminmypage";
+	public ModelAndView adminmypage(HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("session_id");
+		MemberDTO admininfo = adminservice.admininfo(id);
+		if(admininfo.getPhone()==null) {
+			admininfo.setPhone("-");
+		}
+		if(admininfo.getPhoto()==null) {
+			admininfo.setPhoto("member.png");
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("admininfo",admininfo);
+		mv.setViewName("admin/adminmypage");
+		return mv;
+	}
+	
+	@RequestMapping("/admininfoupdate")
+	public ModelAndView admininfoupdate(HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("session_id");
+		MemberDTO admininfo = adminservice.admininfo(id);
+		if(admininfo.getPhone()==null) {
+			admininfo.setPhone("");
+		}
+		if(admininfo.getPhoto()==null) {
+			admininfo.setPhoto("member.png");
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("admininfo",admininfo);
+		mv.setViewName("admin/adminmypagemod");
+		return mv;
+	}
+	
+	@RequestMapping("/adminmypagemodinfo")
+	public String adminmypagemodinfo(@ModelAttribute("") MemberDTO dto,HttpServletRequest request) throws Exception {
+		MultipartFile mf = dto.getImage();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setPhoto(mf.getOriginalFilename());
+		}
+		
+		
+		if(dto.getPw().length()==0) {
+			String pw = adminservice.searchpw(dto.getId());
+			dto.setPw(pw);
+		}
+		if(dto.getPhone().length()==0) {
+			dto.setPhone(null);
+		}
+		System.out.println(dto.getId());
+		System.out.println(dto.getPw());
+		System.out.println(dto.getPhone());
+		System.out.println(dto.getPhoto());
+		
+		adminservice.updateadmin(dto);
+		
+		
+		return "redirect:/adminmypage";
 	}
 	
 }

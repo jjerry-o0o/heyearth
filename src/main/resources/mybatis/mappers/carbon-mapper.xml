@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="carbon.CarbonDAO">
+
+	<select id="partCount" resultType="int">
+		SELECT count(*) FROM participation 
+		WHERE p_complete = 1;
+	</select>
+	
+	<select id="memberCount"  resultType="int">
+		SELECT count(*) FROM member;
+	</select>
+	
+	<select id="carbonList" resultType="int">
+		SELECT carbon FROM member;
+	</select>
+</mapper>

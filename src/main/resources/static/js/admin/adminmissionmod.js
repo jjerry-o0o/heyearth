@@ -8,7 +8,11 @@ $(document).ready(function(){
     	readImage(e.target)
 	})
 
-	
+	if($("#m_type").val() == "solo"){
+		$("#location").html("어디서나<input type='hidden' name='m_location' value='어디서나'>");
+		$("#date").html("상시<input type='hidden' name='m_date' value='2025-12-31'>");
+		$("#personnel").html("1<input type='hidden' name='m_personnel' value='1'>");
+	}
 })
 
 function readImage(input){
