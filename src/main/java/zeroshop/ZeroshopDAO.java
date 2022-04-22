@@ -15,4 +15,5 @@ public interface ZeroshopDAO {
 	public List<ZeroshopDTO> noll();
 	public void setlatlong(ZeroshopDTO dto);
 	public List<ZeroshopDTO> allzeroshop();
+	public List<ZeroshopDTO> zeroshoplist();
 }
