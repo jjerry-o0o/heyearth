@@ -24,7 +24,7 @@
 
 	<div id=recyclingFile>
 		<div class="filebox">
-			<form id="form" action="extractLabels" method="post" enctype="multipart/form-data">
+			<!-- <form id="form" action="extractLabels" method="post" enctype="multipart/form-data"> -->
 				<div>
 					<img id=preview1  width=300 height=300 />
 				</div>
@@ -32,8 +32,12 @@
 				<label id=filelabel for="file">이건 어떻게 버릴까?<br>사진 첨부하기</label>
 					<input type="file" id="file" name=uploadFile><br>
 				</div>
-					<input id="submit" type=submit value="방법 확인하기" >
-			</form>
+				<input id="waycheck" type=button value="방법 확인하기">
+				<div id=way>
+					<div id=waynoti></div>
+					<div id=wayradio></div>
+					<p id=wayp></p>
+				</div>
 			
 		</div>
 

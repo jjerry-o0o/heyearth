@@ -11,7 +11,10 @@
 <!-- end of header import -->
 <link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
 <script src="/jquery-3.6.0.min.js"></script>
-<!-- <script src="js/main.js"></script> -->
+<script src="js/main.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+				
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -56,7 +59,7 @@
 
 	<button type="button" id="together" onclick="location.href='/carbon'">TOGETHER</button>
 	<div class="m-img1">
-		<img src="img/main1.png">
+		<img id="m-image" src="img/main1.png">
 	</div>
 
 	<hr>
@@ -82,27 +85,91 @@
 			<h1>지구를 돕는 가게 찾기</h1>
 		</div>
 		<div class="m-zeroshop-text">
-			<p>가장 인기 많은 제로웨이스트샵 살짝 맛보기!
-			</p>
+			<p>가장 인기 많은 제로웨이스트샵 살짝 맛보기!</p>
 		</div>
-		<div class="m-mission-db">
-			데이터 영역
+		<div class="slider">
+			<div class="m-zeroshop-db">
+				<div id=zeroshop_div>
+					<div id=group_div>
+						<c:forEach items="${zeroshoplist}" var="row">
+							<div id="m-zeroshop-each">
+								<div id="m-zeroshop-img">
+									<a href="zeroshop_group/${row.s_code}"><img width=250px
+										height=250px
+										src="<%=request.getContextPath()%>/img/${row.s_photo}"></a>
+								</div>
+								<div id="m-zeroshop-text">
+									<div class="list">
+										<h3>${row.s_name }</h3>
+										<p>
+											${row.s_location }<br> ${row.s_call }
+										</p>
+
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
 			</div>
 		</div>
-		
-		<hr>
+	</div>
+
+	<hr>
 	<div class="m-mission">
 		<div class="m-mission-title">
 			<h1>환경 지킴이 모집중</h1>
 		</div>
 		<div class="m-mission-text">
-			<p>헤이얼스와 함께 해요! 내 손으로 지키는 우리의 지구
-			</p>
+			<p>헤이얼스와 함께 해요! 내 손으로 지키는 우리의 지구</p>
+		</div>
+		<div class="m-mission-db">
+			<div id=ing_div>
+				<div id=group_div>
+					<c:forEach items="${gilist }" var="row">
+						<div id="m-mission-each">
+							<div id="m-mission-img">
+								<a href="mission_group/${row.m_code}"><img width=250px
+									height=250px
+									src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
+							</div>
+							<div id="m-mission-text">
+								<div class="list">
+									<h3>${row.m_name }</h3>
+									<p>
+										장소 : ${row.m_location }<br> 날짜 : ${row.m_date }
+									</p>
+
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+				<div id=solo_div>
+
+					<c:forEach items="${silist }" var="row">
+						<div id="m-mission-each">
+							<div id="m-mission-img">
+								<a href="mission_group/${row.m_code}"><img width=250px
+									height=250px
+									src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
+							</div>
+							<div id="m-mission-text">
+								<div class="list">
+									<h3>${row.m_name }</h3>
+									<p>
+										지금 당장 미션을 수행해보세요!<br>
+										<br> 포인트 : ${row.m_point }<br> 탄소배출감소량 :
+										${row.m_carbon }
+									</p>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
 			</div>
-			<div class="m-mission-db">
-			데이터 영역
 		</div>
-		</div>
+	</div>
 </body>
 
 </html>

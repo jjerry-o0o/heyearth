@@ -13,6 +13,7 @@ import member.MemberDAO;
 import board.BoardController;
 import board.BoardDAO;
 import carbon.CarbonController;
+import carbon.CarbonDAO;
 import mission.MissionController;
 import mission.MissionDAO;
 import mypage.MypageController;
@@ -48,6 +49,7 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = ParticipationDAO.class)
 @ComponentScan(basePackageClasses = AdminController.class)
 @MapperScan(basePackageClasses = AdminDAO.class)
+@MapperScan(basePackageClasses = CarbonDAO.class)
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

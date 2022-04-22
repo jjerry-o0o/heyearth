@@ -43,6 +43,10 @@ public class ParticipationServiceImpl implements ParticipationService {
 		  dao.participation_complete2(dto);
 	  }; 
 	  @Override
+	  public void participation_review(ParticipationDTO dto) {//미션 리뷰쓰기
+		  dao.participation_review(dto);
+	  }; 
+	  @Override
 	  public void participation_register2(ParticipationDTO dto) {//미션 등록하기2
 		  dao.participation_register2(dto);
 	  }; 

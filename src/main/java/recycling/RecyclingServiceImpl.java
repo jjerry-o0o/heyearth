@@ -19,8 +19,13 @@ public class RecyclingServiceImpl implements RecyclingService{
 	}
 
 	@Override
-	public RecyclingDTO recyclingway(String r_code) {
+	public RecyclingDTO recyclingway(int r_code) {
 		return recyclingdao.recyclingway(r_code);
+	}
+
+	@Override
+	public RecyclingDTO recyclinghowtoway(int r_code) {
+		return recyclingdao.recyclinghowtoway(r_code);
 	}
 
 }

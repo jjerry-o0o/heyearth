@@ -106,17 +106,17 @@
 	<!-- end of header import -->
 
 <section class="boardSection">
-	<h1>Whats up _ _ !</h1>
+	<h1>What's up ${sessionScope.session_id} !</h1>
 	<div id="menu">
 		<table id="menu_table">
 			<tr>
 				<td id="m_info" class="btn">
-					<div id="profil_div">
-						<img id="profil" alt="프로필사진" src="https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927">
-						<h2 id="name">닉네임</h2>
+					<div id="profil_div" onclick="profil_div()">
+						<img id="profil" alt="${sessionScope.session_id}" src="https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927">
+						<h2 id="name">${sessionScope.session_id}</h2>
 					</div>
 					<h3 id="pointinfo">보유포인트</h3>
-					<div id="point"> 1000 P</div>
+					<div id="point"></div>
 				</td>
 			</tr>
 			<tr>

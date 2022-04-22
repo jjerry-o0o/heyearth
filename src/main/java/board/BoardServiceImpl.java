@@ -10,12 +10,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.client.HttpClientErrorException.Unauthorized;
 
 import member.MemberDAO;
 import member.MemberDTO;
 import paging.Criteria;
-import paging.PaginationInfo;
 
 
 @Service("boardservice")
@@ -36,12 +36,6 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public void insertBoard(BoardDTO dto) {
-		/*
-		 * String id = (String)session.getAttribute("id"); MemberDTO memberdto =
-		 * memberdao.memberView(id);
-		 */
-		
-		/* dto.setId(memberdto.getId()); */
 		boarddao.insertBoard(dto);
 	}
 
@@ -62,11 +56,8 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public List<BoardDTO> selectBoardList(int page) {
-		page = (page-1) *10;
-		System.out.println(page);
 		List<BoardDTO> boardlist = new ArrayList<BoardDTO>();
 		
-		/* return boarddao.selectBoardList(page); */
 		return boardlist;
 	}
 
@@ -76,8 +67,56 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public void boardCount(BoardDTO dto){
+	public int execute(Model model, String pagenum, String contentnum){
+		Criteria pagemaker = new Criteria();
+		
+		int cpagenum = Integer.parseInt(pagenum);
+		int ccontentnum = Integer.parseInt(contentnum);
+		
+		List<BoardDTO> list = null;
+		
+		pagemaker.setTotalcount(boarddao.testCount());
+		pagemaker.setPagenum(cpagenum-1);
+		
+		pagemaker.setContentnum(ccontentnum);
+		pagemaker.setCurrentblock(cpagenum);
+		
+		pagemaker.setLastblock(pagemaker.getTotalcount());
+		
+		pagemaker.prevnext(cpagenum);
+		pagemaker.setStartPage(pagemaker.getCurrentblock());
+		
+		pagemaker.setEndPage(pagemaker.getLastblock(), pagemaker.getCurrentblock());
+		
+		if(ccontentnum ==5) {
+			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*5, pagemaker.getContentnum());	
+		}
+		else if(ccontentnum == 10) {
+			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*10, pagemaker.getContentnum());
+		}
+		else if(ccontentnum ==15) {
+			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*15, pagemaker.getContentnum());
+		}
+		
+		model.addAttribute("test", list);
+		model.addAttribute("page", pagemaker);
+		
+		return cpagenum ;
 	}
+
+	@Override
+	public boolean addComment(CommentDTO dto) {
+		return boarddao.addComment(dto);
+	}
+
+	@Override
+	public List<board.CommentDTO> getComment(int b_no) {
+		return boarddao.getComment(b_no);
+	}
+
+	
+	
+	
 	
 	
 }

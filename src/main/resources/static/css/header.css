@@ -23,8 +23,9 @@ margin:0;
 	font-size: 13px;
 }
 .header_img{/*로고 이미지*/
-	 padding-top:8px; 
-	 padding-left:10px; 
+	 padding-top:5px; 
+	 padding-bottom:5px; 
+	 padding-left:20px; 
 	 vertical-align: middle; 
 	 width: 70px;
 	 height:70px;
@@ -39,7 +40,9 @@ margin:0;
 		font-size: 20px;
 		color: #1A271D;
 		text-align: center;
-	
+	    display: inline-block;
+	    width: 190px;
+	    border-radius: 10px;
 }
 .header_b { /*같은 a태그인데 게시판메뉴만 정렬이 너무 오른쪽으로 가서 따로 정렬*/
 	text-decoration: none;
@@ -58,6 +61,7 @@ margin:0;
 .header_a:hover{
 		font-weight: 800;
 		font-size:20px;
+		color: #1A271D;
 }
 .header_b:hover{
 		font-weight: 800;
@@ -72,13 +76,12 @@ nav {/* 메뉴바 */
 	margin-top: 15px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 15px;
+	margin-bottom: 0;
 	text-align: center;
 	width : 80%;
 }
 nav .header_ul> .header_li {
 	display: inline-block;
-	width: 190px;
 	vertical-align: top;
 	text-align: center;
 }

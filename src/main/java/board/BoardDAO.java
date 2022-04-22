@@ -27,7 +27,8 @@ public interface BoardDAO {
 	public void deleteBoard(int b_no);
 	
 	//리스트
-	public List<BoardDTO> selectBoardList(int page, int contentnum);
+	public List<BoardDTO> selectBoardList(BoardDTO dto);
+	public List<BoardDTO> selectBoardListPage(int page, int contentnum);
 	 
 	
 	//글 총갯수
@@ -37,5 +38,10 @@ public interface BoardDAO {
 	public String boardId(@Param("b_no") int b_no);
 	
 	//게시물 페이징
-	public int selectBoardTotalCount(BoardDTO dto);
+	public int testCount();
+	
+	//댓글
+	public boolean addComment(CommentDTO dto);
+	
+	public List<CommentDTO> getComment(int b_no);
 }
