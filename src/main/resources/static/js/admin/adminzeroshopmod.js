@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#zeroshopback").one('click',function(){
+	$("#zeroshopback").on('click',function(){
 		location.href = "adminzeroshop";
 	});
 	

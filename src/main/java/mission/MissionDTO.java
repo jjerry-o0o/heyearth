@@ -15,7 +15,14 @@ public class MissionDTO {
 	int m_point; //미션 포인트
 	int m_personnel; //미션 인원
 	MultipartFile image;
+	String selboxDirect;
 	
+	public String getSelboxDirect() {
+		return selboxDirect;
+	}
+	public void setSelboxDirect(String selboxDirect) {
+		this.selboxDirect = selboxDirect;
+	}
 	public MultipartFile getImage() {
 		return image;
 	}

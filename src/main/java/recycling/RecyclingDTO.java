@@ -1,18 +1,35 @@
 package recycling;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class RecyclingDTO {
 
-	String r_code;
+	int r_code;
 	String r_class;
 	String r_name;
 	String r_photo;
 	String r_way;
+	MultipartFile image;
+	String selboxDirect;
 	
-	public String getR_code() {
+	
+	public int getR_code() {
 		return r_code;
 	}
-	public void setR_code(String r_code) {
+	public void setR_code(int r_code) {
 		this.r_code = r_code;
+	}
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
+	public String getSelboxDirect() {
+		return selboxDirect;
+	}
+	public void setSelboxDirect(String selboxDirect) {
+		this.selboxDirect = selboxDirect;
 	}
 	public String getR_class() {
 		return r_class;
