@@ -33,11 +33,14 @@ public class ZeroshopController {
 	@Qualifier("zeroshopservice")
 	ZeroshopService zero_service = new ZeroshopServiceImpl();
 	
+	
+	// 제로샵메인페이지 이동
 	@GetMapping("/zeroshop")
 	public String zeroshoplist() {
 		return "zeroshop/zeroshop";
 	}
 	
+	// location에 저장된 광역시/도 이름 리스트 리턴
 	@RequestMapping("/bigloc")
 	@ResponseBody
 	public List<String> bigloc() {
@@ -45,6 +48,7 @@ public class ZeroshopController {
 		return result;
 	}
 	
+	// 주어진 광역시/도에 맞는 시/군/구 이름 리스트 리턴
 	@RequestMapping("/smallloc")
 	@ResponseBody
 	public List<String> smallloc(String bigloc) {
@@ -52,6 +56,7 @@ public class ZeroshopController {
 		return result;
 	}
 	
+	// 주어진 주소에 있는 제로샵 리스트 리턴
 	@RequestMapping("/loczeroshop")
 	@ResponseBody
 	public List<ZeroshopDTO> loczeroshop(String bigloc,String smallloc){
@@ -77,12 +82,14 @@ public class ZeroshopController {
 		return dto;
 	}
 	
+	// 해당 제로샵 상세정보 리턴
 	@RequestMapping("/zeroshopdetail")
 	@ResponseBody
 	public ZeroshopDTO zeroshopdetail(int scode) {
 		return zero_service.zeroshop(scode);
 	}
 	
+	// 내 주변에서 검색 눌렀을때 주소를 통한 위경도값 저장
 	@RequestMapping("/mapfirst")
 	@ResponseBody
 	public void mapfirst() {
@@ -100,6 +107,7 @@ public class ZeroshopController {
 		
 	}
 	
+	// 모든 제로샵 정보 리턴
 	@RequestMapping("/zeroshoplist")
 	@ResponseBody
 	public List<ZeroshopDTO> zeroshoplist(double latitude, double longitude){
@@ -107,6 +115,7 @@ public class ZeroshopController {
 		return zeroshop;
 	}
 	
+	// 주소를 위경도로 바꾸는 함수(네이버 geocode API 이용)
 	public String[] addresstoll(String address) {
 		String[] result = new String[2];
 		String addr = address;
@@ -165,6 +174,7 @@ public class ZeroshopController {
 		return result;
 	}  // addresstoll end
 	
+	// 위경도를 통해 두 지점 사이에 거리를 계산하는 함수
 	public double getDistanceFromLatLonInKm(double lat1,double lng1,double lat2,double lng2) {
 		double R = 6371; // Radius of the earth in km 
 		double dLat = deg2rad(lat2-lat1); // deg2rad below 

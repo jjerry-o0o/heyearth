@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/adminheader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +19,6 @@
 
 <div>
 <input class="addbtn" id='guideadd' type='button' value='등록하기' onclick='guideinsert()'>
-<input class="addbtn" id="guideclassadd" type="button" value="분류 추가/수정"> 
 </div>
 
 <div class='admincontext'>

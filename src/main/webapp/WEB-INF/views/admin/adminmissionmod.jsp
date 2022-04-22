@@ -1,7 +1,7 @@
 <%@page import="zeroshop.ZeroshopDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/adminheader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,12 +32,12 @@
 			<tr><td>타입</td><td>상시</td></tr>
 		</c:if>
 		<tr><td>이름</td><td>${missioninfo.m_name }</td></tr>		
-		<tr><td>위치</td><td><input id="m_location" name="m_location" class="admintd" type="text" placeholder="(예시) 여의도공원" value="${missioninfo.m_location}" required></td></tr>
-		<tr><td>날짜</td><td><input id="m_date" name="m_date" class="admintd" type="date" value="${missioninfo.m_date}" required></td></tr>
+		<tr><td>위치</td><td id="location"><input id="m_location" name="m_location" class="admintd" type="text" value="${missioninfo.m_location}" required></td></tr>
+		<tr><td>날짜</td><td id="date"><input id="m_date" name="m_date" class="admintd" type="date" value="${missioninfo.m_date}" required></td></tr>
 		<tr><td>간단한 소개</td><td><input id="m_inform" name="m_inform" class="admintd" type="textarea" maxlength=300 value="${missioninfo.m_inform}" required></td></tr>
 		<tr><td>감소시킨 탄소배출량</td><td><input id="m_carbon" name="m_carbon" class="admintd" type="number" value="${missioninfo.m_carbon}" min="0" required></td></tr>
 		<tr><td>포인트</td><td><input id="m_point" name="m_point" class="admintd" type="number" value="${missioninfo.m_point}" min="0" required></td></tr>
-		<tr><td>미션인원</td><td><input id="m_personnel" name="m_point" class="admintd" type="number"  value="${missioninfo.m_personnel}" min="0" required></td></tr>
+		<tr><td>미션인원</td><td id="personnel"><input id="m_personnel" name="m_personnel" class="admintd" type="number"  value="${missioninfo.m_personnel}" min="0" required></td></tr>
 		<tr><td>사진</td>
 		<td>
 		<img id="previewimg" src="img/${missioninfo.m_photo}" onerror="this.src='/img/noimage.jpg'">
