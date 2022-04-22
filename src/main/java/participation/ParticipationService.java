@@ -11,6 +11,7 @@ public interface ParticipationService {
 	  public int participation_friends(String id, int m_code);//참가하는 인원
 	  public void participation_complete(ParticipationDTO dto); //미션 완료하기 
 	  public void participation_complete2(ParticipationDTO dto); //미션 완료하기2
+	  public void participation_review(ParticipationDTO dto); //미션 리뷰쓰기
 	 
 	  public ParticipationDTO mymission_detail(int p_code);//나의 미션 상세페이지
 	  

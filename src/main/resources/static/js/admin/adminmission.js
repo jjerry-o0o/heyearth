@@ -34,6 +34,10 @@ function missiondel(code){
 	}
 }
 
+function missionreview(code){
+	location.href = "adminmissionreview?code="+code;
+}
+
 $(document).ready(function(){
 	
 	// 솔로미션 버튼 클릭
@@ -43,10 +47,11 @@ $(document).ready(function(){
 			type : "get",
 			data : {"m_type" : "solo"},
 			success : function(result){
-				$("#adminsolomissiontable").html("<tr><th>미션명</th><th>날짜</th><th> </th><th> </th></tr>");
+				$("#adminsolomissiontable").html("<tr><th>미션명</th><th> </th><th> </th></tr>");
 				for(var i=0;i<result.length;i++){
-					$("#adminsolomissiontable").append("<tr><td class='tabname'>"+ result[i].m_name +"</td><td>" + result[i].m_date + 
-					"</td><td><input class='tabmodbtn' id='missionmod' type='button' value='수정' onclick='missionmod("+ result[i].m_code +")'></td>"+
+					$("#adminsolomissiontable").append("<tr><td class='tabname'>"+ result[i].m_name +"</td>" +
+					"<td><input class='tabreviewbtn' id='missionreview' type='button' value='후기보러가기' onclick='missionreview("+result[i].m_code+")'></td>" +
+					"<td><input class='tabmodbtn' id='missionmod' type='button' value='수정' onclick='missionmod("+ result[i].m_code +")'></td>"+
 					"<td><input class='tabdelbtn' id='missiondel' type='button' value='삭제' onclick='missiondel("+ result[i].m_code +")'></td></tr>");
 				}
 			}
@@ -62,8 +67,9 @@ $(document).ready(function(){
 			success : function(result){
 				$("#admingroupmissiontable").html("<tr><th>미션명</th><th>날짜</th><th> </th><th> </th></tr>");
 				for(var i=0;i<result.length;i++){
-					$("#admingroupmissiontable").append("<tr><td class='tabname'>"+ result[i].m_name +"</td><td>" + result[i].m_date + 
-					"</td><td><input class='tabmodbtn' id='missionmod' type='button' value='수정' onclick='missionmod("+ result[i].m_code +")'></td>"+
+					$("#admingroupmissiontable").append("<tr><td class='tabname'>"+ result[i].m_name +"</td><td>" + result[i].m_date + "</td>" +
+					"<td><input class='tabreviewbtn' id='missionreview' type='button' value='후기보러가기' onclick='missionreview("+result[i].m_code+")'></td>" +
+					"<td><input class='tabmodbtn' id='missionmod' type='button' value='수정' onclick='missionmod("+ result[i].m_code +")'></td>"+
 					"<td><input class='tabdelbtn' id='missiondel' type='button' value='삭제' onclick='missiondel("+ result[i].m_code +")'></td></tr>");
 				}
 			}

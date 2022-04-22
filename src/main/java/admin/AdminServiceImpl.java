@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import board.BoardDTO;
+import member.MemberDTO;
 import mission.MissionDTO;
 import recycling.RecyclingDTO;
 import zeroshop.LocationDTO;
@@ -103,13 +105,22 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void insertmission(MissionDTO dto) {
-		admindao.updatemission(dto);
+		admindao.insertmission(dto);
 		
 	}
 
 	@Override
 	public List<String> missionname(String m_type) {
 		return admindao.missionname(m_type);
+	}
+	
+	@Override
+	public MissionDTO missioninfo1(String m_type, String m_name) {
+		MissionDTO dto = new MissionDTO();
+		dto.setM_type(m_type);
+		dto.setM_name(m_name);
+		List<MissionDTO> missionlist = admindao.missioninfo1(dto);
+		return missionlist.get(0);
 	}
 
 	
@@ -120,5 +131,62 @@ public class AdminServiceImpl implements AdminService {
 	public List<RecyclingDTO> adminguidelist() {
 		return admindao.adminguidelist();
 	}
+
+	@Override
+	public List<String> guideclasslist() {
+		return admindao.guideclasslist();
+	}
+
+	@Override
+	public void adminguidedel(int r_code) {
+		admindao.adminguidedel(r_code);
+		
+	}
+
+	@Override
+	public RecyclingDTO adminguideinfo(int r_code) {
+		return admindao.adminguideinfo(r_code);
+	}
+
+	@Override
+	public void updateguide(RecyclingDTO dto) {
+		admindao.updateguide(dto);
+		
+	}
+
+	@Override
+	public void insertguide(RecyclingDTO dto) {
+		admindao.insertguide(dto);
+	}
+
+	
+	
+	/*게시판 관리*/
+	
+	@Override
+	public List<BoardDTO> adminboardlist(String b_type) {
+		return admindao.adminboardlist(b_type);
+	}
+
+	
+	
+	/*관리자 마이페이지*/
+	
+	@Override
+	public MemberDTO admininfo(String id) {
+		return admindao.admininfo(id);
+	}
+
+	@Override
+	public void updateadmin(MemberDTO dto) {
+		admindao.updateadmin(dto);
+		
+	}
+
+	@Override
+	public String searchpw(String id) {
+		return admindao.searchpw(id);
+	}
+
 
 }

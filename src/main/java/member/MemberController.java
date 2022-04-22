@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -75,5 +76,12 @@ public class MemberController {
 		return "main";
 	}
 	
+	//마이페이지 DB연결
+	@GetMapping("modifymypage")
+	@ResponseBody
+	public MemberDTO mypage(String id) {
+		MemberDTO userdto = service.memberView(id);
+		return userdto;
+	}
 	
 }

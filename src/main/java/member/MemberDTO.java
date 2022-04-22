@@ -1,5 +1,7 @@
 package member;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberDTO {
 	String id;
 	String phone;
@@ -8,7 +10,15 @@ public class MemberDTO {
 	int grade;
 	int point;
 	int admin;
+	MultipartFile image;
+
 	
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	public String getId() {
 		return id;
 	}

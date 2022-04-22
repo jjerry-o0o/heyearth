@@ -2,6 +2,8 @@ package admin;
 
 import java.util.List;
 
+import board.BoardDTO;
+import member.MemberDTO;
 import mission.MissionDTO;
 import recycling.RecyclingDTO;
 import zeroshop.ZeroshopDTO;
@@ -24,7 +26,21 @@ public interface AdminService {
 	public void updatemission(MissionDTO dto);
 	public void insertmission(MissionDTO dto);
 	public List<String> missionname(String m_type);
+	public MissionDTO missioninfo1(String m_type, String m_name);
 	
 	/*가이드 관리*/
 	public List<RecyclingDTO> adminguidelist();
+	public List<String> guideclasslist();
+	public void adminguidedel(int r_code);
+	public RecyclingDTO adminguideinfo(int r_code);
+	public void updateguide(RecyclingDTO dto);
+	public void insertguide(RecyclingDTO dto);
+	
+	/*게시판 관리*/
+	public List<BoardDTO> adminboardlist(String b_type);
+	
+	/*관리자 마이페이지*/
+	public MemberDTO admininfo(String id);
+	public void updateadmin(MemberDTO dto);
+	public String searchpw(String id);
 }

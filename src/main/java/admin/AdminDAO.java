@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import board.BoardDTO;
+import member.MemberDTO;
 import mission.MissionDTO;
 import recycling.RecyclingDTO;
 import zeroshop.LocationDTO;
@@ -30,8 +32,25 @@ public interface AdminDAO {
 	public void updatemission(MissionDTO dto);
 	public void insertmission(MissionDTO dto);
 	public List<String> missionname(String m_type);
+	public List<MissionDTO> missioninfo1(MissionDTO dto);
 
 	
 	/*가이드 관리*/
 	public List<RecyclingDTO> adminguidelist();
+	public List<String> guideclasslist();
+	public void adminguidedel(int r_code);
+	public RecyclingDTO adminguideinfo(int r_code);
+	public void updateguide(RecyclingDTO dto);
+	public void insertguide(RecyclingDTO dto);
+	
+	
+	/*게시판 관리*/
+	public List<BoardDTO> adminboardlist(String b_type);
+	
+	
+	
+	/*관리자 마이페이지*/
+	public MemberDTO admininfo(String id);
+	public void updateadmin(MemberDTO dto);
+	public String searchpw(String id);
 }
