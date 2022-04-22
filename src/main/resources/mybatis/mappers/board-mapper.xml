@@ -15,7 +15,7 @@
 	
 	<update id="updateBoard" parameterType="boarddto">
 		UPDATE board 
-		SET b_title=#{b_title}, b_content=#{b_content}, b_type=#{b_type}, b_img=#{b_img}
+		SET b_title=#{b_title}, b_content=#{b_content}, b_type=#{b_type}, b_img=#{b_img} 
 		WHERE b_no=#{b_no};
 	</update>
 	
@@ -26,10 +26,15 @@
 	<select id="selectBoardList" parameterType="int" resultType="boarddto">
 		SELECT * FROM board
 		ORDER BY b_type, b_regdate DESC 
-		LIMIT #{paginationInfo.firstRecordIndex}, #{recordsPerPage};
 	</select>
 	
-	<select id="selectBoardTotalCount" parameterType="boarddto" resultType="int">
+	<select id="selectBoardListPage" parameterType="int" resultType="boarddto">
+		SELECT * FROM board
+		ORDER BY b_type, b_regdate DESC 
+		LIMIT #{page}, #{contentnum};
+	</select>
+	
+	<select id="testCount" resultType="int">
 		SELECT count(*) FROM board
 	</select>
 	
@@ -44,6 +49,18 @@
 		JOIN board as b
 		ON a.id = b.id
 		WHERE b.b_no = #{b_no};
+	</select>
+	
+	<insert id="addComment" parameterType="commentdto">
+		INSERT INTO comment(b_no, c_order, c_comment) 
+		VALUES (#{b_no}, #{c_order}, #{c_comment});
+	</insert>
+	
+	<select id="getComment" parameterType="int" resultType="commentdto">
+		SELECT c_index, b_no, c_order, c_comment 
+		FROM comment
+		WHERE b_no = #{b_no}
+		ORDER BY c_order ASC;
 	</select>
 	
 </mapper>

@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import paging.Criteria;
 
-public class BoardDTO /* extends Criteria */{
+public class BoardDTO{
 	
 	int b_no;
 	String id;
