@@ -79,7 +79,7 @@ td:not(first-child){
 	height : 180px;
 }
 
-#s_location{
+#s_location, #id{
 	width : 83%;
 }
 
@@ -92,4 +92,8 @@ td:not(first-child){
 
 #m_type2{
 	margin-left:40px;
+}
+
+#r_way{
+	height : 300px;
 }

@@ -15,7 +15,7 @@
 <body>
 
 <!-- 헤더 시작 -->
-<header style="background-color:#F6F5F0; margin-bottom:50px;">
+<header style="background-color:#F6F5F0; ">
 
 <div class="JoinLoginAll">
 
@@ -30,6 +30,9 @@
 			<div class="JoinLogin">
 		    <a class="header_j" style="margin-right:30px;" href="${pageContext.request.contextPath}/mypage">What's Up, <span class="whatsup_id">${sessionScope.session_id}</span> !</a>
 			<a class="header_j" href="${pageContext.request.contextPath}/mypage">마이페이지</a>&nbsp;/
+			<c:if test="${sessionScope.session_id == 'admin' }">
+			<a class="header_j" href="${pageContext.request.contextPath}/adminmain">관리자페이지</a>&nbsp;/
+			</c:if>
 			<a class="header_j" href="${pageContext.request.contextPath}/logout" onclick="alert('로그아웃 되었습니다.');">로그아웃</a>
 			</div>
 		 </c:if>	 
@@ -49,7 +52,7 @@
 				<li class="header_lib"><a  class="header_b" href="${pageContext.request.contextPath}/boardlist">게시판</a></li>
 		   </ul>
 	</nav>
-	<hr style="color:#F6F5F0">
+<!-- 	<hr style=" color:#F6F5F0"> -->
 </header>
 </body>
 </html>

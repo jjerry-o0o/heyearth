@@ -3,6 +3,7 @@ package board;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import paging.Criteria;
 
@@ -21,7 +22,14 @@ public interface BoardService {
 	
 	public String boardId(int b_no);
 	
-	public void boardCount(BoardDTO dto);
+	//페이징
+	public int execute(Model model, String pagenum, String contentnum);
+	
+	
+	//댓글
+	public boolean addComment(CommentDTO dto);
+	
+	public List<CommentDTO> getComment(int b_no);
 	
 	
 }

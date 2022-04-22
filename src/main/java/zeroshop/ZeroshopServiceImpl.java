@@ -51,6 +51,11 @@ public class ZeroshopServiceImpl implements ZeroshopService{
 	public List<Integer> locidall(String big_loc) {
 		return zerodao.locidall(big_loc);
 	}
+
+	@Override
+	public List<ZeroshopDTO> zeroshoplist() {
+		return zerodao.zeroshoplist();
+	}
 	
 	
 }
