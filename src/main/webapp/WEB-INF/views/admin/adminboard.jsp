@@ -27,17 +27,19 @@
 <div class="board_body">
 	<div id="noticepage">
 		<div>
-			<input class="addbtn" id='guideadd' type='button' value='등록하기' onclick='guideinsert()'>
+			<input class="addbtn" id='guideadd' type='button' value='등록하기' onclick='boardinsert()'>
 		</div>
 		<br>
 		<br>
 		<br>
+		<div id="noticetable">
 		<table class='adminlisttable' id='adminnoticetable'>
-		<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th> </th><th> </th></tr>
+		<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th>   </th><th>   </th></tr>
 		<c:forEach items="${boardlist}" var="boardlist">
-			<tr><td class='tabname'>${boardlist.b_title}</td><td class='tabname'>${boardlist.id }</td><td class="tabname">${boardlist.b_regdate }</td><td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod(${boardlist.b_no})'></td><td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel(${boardlist.b_no})'></td></tr>
+			<tr><td class='tabname'>${boardlist.b_title}</td><td class='tabname'>${boardlist.id }</td><td class="tabname">${boardlist.regdate}</td><td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod(${boardlist.b_no})'></td><td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel(${boardlist.b_no})'></td></tr>
 		</c:forEach> 
 		</table>
+		</div>
 	</div>
 	
 	<div id="questionpage" style="display:none;">

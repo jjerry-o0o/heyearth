@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	
+	$("#previewimg").hide();
 	
 	$("#zeroshopback").on('click',function(){
 		location.href = "adminzeroshop";
@@ -7,7 +8,8 @@ $(document).ready(function(){
 	
 	const inputImage = document.getElementById("input-image")
 	inputImage.addEventListener("change", e => {
-    	readImage(e.target)
+    	readImage(e.target);
+    	$("#previewimg").show();
 	})
 })
 
@@ -41,12 +43,4 @@ function jusoCallBack(roadFullAddr){
 		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
 		document.getElementById("s_location").value = roadFullAddr;
 		document.getElementById("s_locnotview").value = roadFullAddr;
-}
-
-function modend(){
-	alert("수정되었습니다.");
-}
-
-function insertend(){
-	alert("등록되었습니다.");
 }

@@ -3,6 +3,9 @@ package admin;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import board.BoardDTO;
 import member.MemberDTO;
 import mission.MissionDTO;
+import participation.ParticipationDTO;
 import recycling.RecyclingDTO;
 import zeroshop.ZeroshopDTO;
 
@@ -76,21 +80,11 @@ public class AdminController {
 			Path currentPath = Paths.get(""); 
 			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
 			path = path.replace("\\", "/");
-			/*
-			 * System.out.println("현재 작업 경로: " + path);
-			 * System.out.println(mf.getOriginalFilename());
-			 */
+
 			File serverfile = new File(path + mf.getOriginalFilename());
 			mf.transferTo(serverfile);
 			dto.setS_photo(mf.getOriginalFilename());
 		}
-		/*
-		 * System.out.println(dto.getS_name()); System.out.println(dto.getS_location());
-		 * System.out.println(dto.getS_url()); System.out.println(dto.getS_inform());
-		 * System.out.println(dto.getS_hour()); System.out.println(dto.getS_close());
-		 * System.out.println(dto.getS_call()); System.out.println(dto.getS_code());
-		 * System.out.println(dto.getS_photo());
-		 */
 		
 		String[] address = dto.getS_location().split(" ");
 		boolean checkloc = adminservice.checkloccode(address[0], address[1]);
@@ -209,10 +203,7 @@ public class AdminController {
 			Path currentPath = Paths.get(""); 
 			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
 			path = path.replace("\\", "/");
-			/*
-			 * System.out.println("현재 작업 경로: " + path);
-			 * System.out.println(mf.getOriginalFilename());
-			 */
+
 			File serverfile = new File(path + mf.getOriginalFilename());
 			mf.transferTo(serverfile);
 			dto.setM_photo(mf.getOriginalFilename());
@@ -239,8 +230,6 @@ public class AdminController {
 			File serverfile = new File(path + mf.getOriginalFilename());
 			mf.transferTo(serverfile);
 			dto.setM_photo(mf.getOriginalFilename());
-		}else {
-			dto.setM_photo("eco.jpg");
 		}
 		
 		if(dto.getM_name().equals("direct")) {
@@ -262,6 +251,75 @@ public class AdminController {
 	@ResponseBody
 	public MissionDTO missioninfo1(String m_type, String m_name) {
 		return adminservice.missioninfo1(m_type,m_name);
+	}
+	
+	/*미션 리뷰관리*/
+	@RequestMapping("/adminmissionreview")
+	public ModelAndView adminmissionreview(int code){
+		ModelAndView mv = new ModelAndView();
+		List<MissionDTO> reviewlist = adminservice.missionreviewlist(code);
+		if(reviewlist.isEmpty()) {
+			MissionDTO dto = new MissionDTO();
+			dto.setM_name("none");
+			reviewlist.add(dto);
+		}
+		mv.addObject("reviewlist",reviewlist);
+		mv.setViewName("admin/adminreviewlist");
+		return mv;
+	}
+	
+	@RequestMapping("/adminreviewdel")
+	public String reviewdel(int code) {
+		int m_code = adminservice.mcodetopcode(code);
+		// 리뷰를 삭제하면 
+		// (1) 멤버의 point 줄어들고
+		adminservice.adminmemberpoint(code);
+		// (2) carbon 줄어들고
+		adminservice.adminmembercarbon(code);
+		// (3) grade 줄어들수도..?
+		
+		// 리뷰 삭제하기
+		adminservice.adminreviewdel(code);
+		
+		
+		return "redirect:/adminmissionreview?code="+m_code;
+	}
+	
+	@RequestMapping("/adminreviewmod")
+	public ModelAndView reviewmod(int code) {
+		ModelAndView mv = new ModelAndView();
+		MissionDTO reviewinfo = adminservice.adminreviewinfo(code);
+		
+		mv.addObject("reviewinfo",reviewinfo);
+		mv.setViewName("admin/adminreviewmod");
+		return mv;
+	}
+	
+	@RequestMapping("/adminreviewmodinfo")
+	public String adminreviewmodinfo(@ModelAttribute("") MissionDTO dto) throws Exception{
+		MultipartFile mf = dto.getImage();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+			
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setP_photo(mf.getOriginalFilename());
+		}
+		
+		if(dto.getStar().length()==0) {
+			dto.setStar(null);
+		}
+		
+		if(dto.getP_review().length()==0) {
+			dto.setP_review(null);
+		}
+		
+		adminservice.updatereview(dto);
+		
+		return "redirect:/adminmissionreview?code="+dto.getM_code();
 	}
 	
 
@@ -317,6 +375,8 @@ public class AdminController {
 			File serverfile = new File(path + mf.getOriginalFilename());
 			mf.transferTo(serverfile);
 			dto.setR_photo(mf.getOriginalFilename());
+		}else {
+			dto.setR_photo("loading.png");
 		}
 		
 		if(dto.getR_class().equals("direct")) {
@@ -341,9 +401,6 @@ public class AdminController {
 			mf.transferTo(serverfile);
 			dto.setR_photo(mf.getOriginalFilename());
 		}
-		else {
-			dto.setR_photo("noimage.jpg");
-		}
 		
 		if(dto.getR_class().equals("direct")) {
 			dto.setR_class(dto.getSelboxDirect());
@@ -360,21 +417,189 @@ public class AdminController {
 	
 	/*게시판 관리*/
 	@RequestMapping("/adminboard")
-	public ModelAndView adminboard() {
+	public ModelAndView adminboard() throws ParseException {
 		ModelAndView mv = new ModelAndView();
 		List<BoardDTO> boardlist = adminservice.adminboardlist("not");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+		for(int i=0;i<boardlist.size();i++) {			
+			String currentDate = dateFormat.format(boardlist.get(i).getB_regdate());
+			boardlist.get(i).setRegdate(currentDate);
+		}
 		mv.addObject("boardlist",boardlist);
 		mv.setViewName("admin/adminboard");
 		return mv;
 	}
 	
+	@RequestMapping("/adminboardlist")
+	@ResponseBody
+	public List<BoardDTO> adminboardlist(String b_type){
+		List<BoardDTO> boardlist = adminservice.adminboardlist(b_type);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+		for(int i=0;i<boardlist.size();i++) {			
+			String currentDate = dateFormat.format(boardlist.get(i).getB_regdate());
+			boardlist.get(i).setRegdate(currentDate);
+		}
+		return boardlist;
+	}
+	
+	@RequestMapping("/adminboarddel")
+	public String boarddel(int code) {
+		adminservice.adminboarddel(code);
+		return "redirect:/adminboard";
+	}
+	
+	@RequestMapping("/adminboardmod")
+	public ModelAndView boardmod(int code) {
+		ModelAndView mv = new ModelAndView();
+		BoardDTO boardinfo = adminservice.adminboardinfo(code);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
+		String currentDate = dateFormat.format(boardinfo.getB_regdate());
+		boardinfo.setRegdate(currentDate);
+		
+		if(boardinfo.getB_img()==null) { 
+			boardinfo.setB_img("none"); 
+		}
+		
+		mv.addObject("boardinfo",boardinfo);
+		mv.setViewName("admin/adminboardmod");
+		return mv;
+	}
+	
+	@RequestMapping("/adminboardinsert")
+	public String boardinsert() {
+		return "admin/adminboardinsert";
+	}
+	
+	@RequestMapping("/adminboardinsertinfo")
+	public String adminboardinsertinfo(@ModelAttribute("") BoardDTO dto, HttpServletRequest request) throws Exception{
+		MultipartFile mf = dto.getFile();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+			
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setB_img(mf.getOriginalFilename());
+		}else {
+			dto.setB_img(null);
+		}
+		
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("session_id");
+		dto.setId(id);
+		
+		
+		adminservice.insertboard(dto);
+		
+		return "redirect:/adminboard";
+	}
+	
+	@RequestMapping("/adminboardmodinfo")
+	public String adminboardmodinfo(@ModelAttribute("") BoardDTO dto) throws Exception{
+		MultipartFile mf = dto.getFile();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setB_img(mf.getOriginalFilename());
+		}
+		else if(dto.getB_img().equals("none")) {
+			dto.setB_img(null);
+		}
+		
+		adminservice.updateboard(dto);
+		
+		return "redirect:/adminboard";
+	}
+	
+	/*댓글관리*/
+	@RequestMapping("/admincomment")
+	public ModelAndView admincomment(int code) {
+		ModelAndView mv = new ModelAndView();
+		BoardDTO boardinfo = adminservice.adminboardinfo(code);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
+		String currentDate = dateFormat.format(boardinfo.getB_regdate());
+		boardinfo.setRegdate(currentDate);
+		/*if(boardinfo.getB_img()==null) {
+			boardinfo.setB_img("none");
+		}*/
+		mv.addObject("boardinfo",boardinfo);
+		mv.setViewName("admin/admincomment");
+		return mv;
+	}
+
+	
+	
+	
+	
 	
 	
 	/*회원 관리*/
 	@RequestMapping("/adminmember")
-	public String adminmember() {
-		return "admin/adminmember";
+	public ModelAndView adminmember() {
+		ModelAndView mv = new ModelAndView();
+		List<MemberDTO> memberlist = adminservice.adminmemberlist();
+		mv.addObject("memberlist",memberlist);
+		mv.setViewName("admin/adminmember");
+		return mv;
 	}
+	
+	@RequestMapping("/adminmemerdel")
+	public String memberdel(String id) {
+		adminservice.adminmemberdel(id);
+		return "redirect:/adminmember";
+	}
+	
+	@RequestMapping("/adminmemberboard")
+	public ModelAndView memberboard(String id) {
+		ModelAndView mv = new ModelAndView();
+		List<BoardDTO> boardlist = adminservice.adminmemberboard(id);
+		mv.addObject("boardlist",boardlist);
+		mv.setViewName("admin/adminmemberboard");
+		return mv;
+	}
+	
+	/*
+	@RequestMapping("/adminmembercomment")
+	public ModelAndView membercomment(String id) {
+		ModelAndView mv = new ModelAndView();
+		List<CommentDTO> commentlist = adminservice.adminmembercomment(id);
+		mv.addObject("commentlist",commentlist);
+		mv.setViewName("admin/adminmembercomment");
+		return mv;
+	}*/
+	
+	@RequestMapping("/adminmembermission")
+	public ModelAndView membermission(String id) {
+		ModelAndView mv = new ModelAndView();
+		List<MissionDTO> missionlist = adminservice.adminmembermission(id);
+		mv.addObject("missionlist",missionlist);
+		mv.setViewName("admin/adminmembermission");
+		return mv;
+	}
+	
+	@RequestMapping("/adminmemberboardlist")
+	@ResponseBody
+	public List<BoardDTO> adminmemberboardlist(String b_type, String id){
+		List<BoardDTO> boardlist = adminservice.adminmemberboardlist(b_type,id);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+		for(int i=0;i<boardlist.size();i++) {			
+			String currentDate = dateFormat.format(boardlist.get(i).getB_regdate());
+			boardlist.get(i).setRegdate(currentDate);
+		}
+		return boardlist;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -387,9 +612,9 @@ public class AdminController {
 		if(admininfo.getPhone()==null) {
 			admininfo.setPhone("-");
 		}
-		if(admininfo.getPhoto()==null) {
-			admininfo.setPhoto("member.png");
-		}
+		/*
+		 * if(admininfo.getPhoto()==null) { admininfo.setPhoto("member.png"); }
+		 */
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("admininfo",admininfo);
@@ -405,9 +630,9 @@ public class AdminController {
 		if(admininfo.getPhone()==null) {
 			admininfo.setPhone("");
 		}
-		if(admininfo.getPhoto()==null) {
-			admininfo.setPhoto("member.png");
-		}
+		/*
+		 * if(admininfo.getPhoto()==null) { admininfo.setPhoto("member.png"); }
+		 */
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("admininfo",admininfo);
@@ -417,17 +642,16 @@ public class AdminController {
 	
 	@RequestMapping("/adminmypagemodinfo")
 	public String adminmypagemodinfo(@ModelAttribute("") MemberDTO dto,HttpServletRequest request) throws Exception {
-		MultipartFile mf = dto.getImage();
-		
-		if(!mf.isEmpty()) {			
-			Path currentPath = Paths.get(""); 
-			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
-			path = path.replace("\\", "/");
-
-			File serverfile = new File(path + mf.getOriginalFilename());
-			mf.transferTo(serverfile);
-			dto.setPhoto(mf.getOriginalFilename());
-		}
+		/*
+		 * MultipartFile mf = dto.getImage();
+		 * 
+		 * if(!mf.isEmpty()) { Path currentPath = Paths.get(""); String path =
+		 * currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/";
+		 * path = path.replace("\\", "/");
+		 * 
+		 * File serverfile = new File(path + mf.getOriginalFilename());
+		 * mf.transferTo(serverfile); dto.setPhoto(mf.getOriginalFilename()); }
+		 */
 		
 		
 		if(dto.getPw().length()==0) {
@@ -437,10 +661,6 @@ public class AdminController {
 		if(dto.getPhone().length()==0) {
 			dto.setPhone(null);
 		}
-		System.out.println(dto.getId());
-		System.out.println(dto.getPw());
-		System.out.println(dto.getPhone());
-		System.out.println(dto.getPhoto());
 		
 		adminservice.updateadmin(dto);
 		
