@@ -20,7 +20,20 @@ public class BoardDTO{
 	String b_type;
 	String b_img;
 	MultipartFile file;
+	String regdate;
 	Map<String, String> data;
+
+
+	public String getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+	
+	
+
 
 	public BoardDTO() {
 		super();

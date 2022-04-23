@@ -96,6 +96,7 @@ public class RecyclingController {
 	    for(String k : keys) {
 	    	System.out.println(k + ":" + imageLabels.get(k));
 	    }
+	    System.out.println("체크");
 	    //System.out.println("이미지 라벨"+imageLabels);
 	    
 	    return imageLabels;

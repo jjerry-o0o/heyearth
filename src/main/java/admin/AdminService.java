@@ -28,6 +28,15 @@ public interface AdminService {
 	public List<String> missionname(String m_type);
 	public MissionDTO missioninfo1(String m_type, String m_name);
 	
+	/*미션 리뷰관리*/
+	public List<MissionDTO> missionreviewlist(int m_code);
+	public void adminmemberpoint(int p_code);
+	public void adminmembercarbon(int p_code);
+	public void adminreviewdel(int p_code);
+	public MissionDTO adminreviewinfo(int p_code);
+	public void updatereview(MissionDTO dto);
+	public int mcodetopcode(int p_code);
+	
 	/*가이드 관리*/
 	public List<RecyclingDTO> adminguidelist();
 	public List<String> guideclasslist();
@@ -38,6 +47,17 @@ public interface AdminService {
 	
 	/*게시판 관리*/
 	public List<BoardDTO> adminboardlist(String b_type);
+	public void adminboarddel(int b_no);
+	public BoardDTO adminboardinfo(int b_no);
+	public void insertboard(BoardDTO dto);
+	public void updateboard(BoardDTO dto);
+	
+	/*회원 관리*/
+	public List<MemberDTO> adminmemberlist();
+	public void adminmemberdel(String id);
+	public List<BoardDTO> adminmemberboard(String id);
+	public List<MissionDTO> adminmembermission(String id);
+	public List<BoardDTO> adminmemberboardlist(String b_type, String id);
 	
 	/*관리자 마이페이지*/
 	public MemberDTO admininfo(String id);

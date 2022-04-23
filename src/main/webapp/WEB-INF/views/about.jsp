@@ -177,7 +177,7 @@
 						<p>
 							Team Leader <br><br> 지구용사 5인조의 팀 리더.<br>무슨 역할을 했다고 쓸까요 야호
 						</p>
-				</div>
+					</div>
 				</div>
 				<div class="swiper-slide" id="member">
 					<img id="mem2" src="img/about-min.png" alt="" />

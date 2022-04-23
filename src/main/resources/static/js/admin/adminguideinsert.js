@@ -1,7 +1,11 @@
 $(document).ready(function(){
+	
+	$("#previewimg").hide();
+	
 	const inputImage = document.getElementById("input-image")
 	inputImage.addEventListener("change", e => {
-    	readImage(e.target)
+    	readImage(e.target);
+    	$("#previewimg").show();
 	})
 	
 	$.ajax({

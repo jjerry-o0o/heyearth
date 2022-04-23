@@ -24,6 +24,14 @@ public class ParticipationServiceImpl implements ParticipationService {
 	  dao.participation_register(dto); 
 	  }
 	  
+	  @Override public void participation_register_complete(ParticipationDTO dto) {//미션 신청하기(상시)
+		  dao.participation_register_complete(dto); 
+	  }
+	  
+	  @Override public void participation_register_complete2(ParticipationDTO dto) {//미션 신청하기(상시)
+		  dao.participation_register_complete2(dto); 
+	  }
+	  
 	  
 	  @Override
 	  public void delete(int p_code) {//미션 취소하기
@@ -57,6 +65,7 @@ public class ParticipationServiceImpl implements ParticipationService {
 	    public ParticipationDTO mymission_detail(int p_code) {//나의 미션 상세페이지
 	        return dao.mymission_detail(p_code);    
 	    }
+
 	 
 	
 }//ServiceImpl Class end

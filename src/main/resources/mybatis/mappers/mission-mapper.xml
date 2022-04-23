@@ -7,14 +7,14 @@
 <!-- 모집중인 단체미션 목록 -->
 	<select id="missionlist_group_ing"  resultType = "missiondto">
 		select * from mission
-		where m_date >= CURRENT_DATE() and m_type='group'
+		where m_date > CURRENT_DATE() and m_type='group'
 		order by m_code;
 	</select>	
 
 <!-- 마감된 단체미션 목록 -->	
 	<select id="missionlist_group_end"  resultType = "missiondto">
 		select * from mission
-		where  CURRENT_DATE() > m_date and m_type='group'
+		where  CURRENT_DATE() >= m_date and m_type='group'
 		order by m_code;
 	</select>	
 
@@ -25,22 +25,31 @@
 		order by m_code;
 	</select>
 	
-<!-- 마감된 상시미션 목록(상시미션 날짜 최대한 늘려놓기) -->
+<!-- 마감된 상시미션 목록 -->
 	<select id="missionlist_solo_end"  resultType = "missiondto">
 		select * from mission
 		where  CURRENT_DATE() > m_date and m_type='solo'
 		order by m_code;
 	</select>
 
-<!-- 단체미션의 상세페이지에 들어갈 목록 -->	
+<!-- 미션 상세페이지에 들어갈 목록 -->	
 	<select id = "missiongroup" resultType = "missiondto">
     select * from mission
     where m_code = #{m_code};  
     </select>
     
+<!-- 미션 상세페이지의 리뷰 목록 -->
 	<select id = "missionreview" parameterType="String" resultType = "missiondto">
-    select m.m_code, m_name, p_star,p_code, p_photo, p_review, m_date, m_location, id, p_complete 
-    from participation p, mission m 
-    where m.m_code = p.m_code and p_complete = 1 and m_name like CONCAT('%',#{m_name},'%');
+    select m.m_code, m_name, p_star,p_code, p_photo, p_review, m_date, m_location, p.id, p_complete, b.grade, b.id, g.g_code
+    from participation p, mission m, member b, grade g
+    where m.m_code = p.m_code and p_complete = 1 and p.id = b.id and g.g_code = b.grade and m_name like CONCAT('%',#{m_name},'%')
+    order by p_code desc;
     </select>   
+	<select id = "missionreview2" parameterType="String" resultType = "missiondto">
+    select m.m_code, m_name, p_star,p_code, id, p_complete
+    from participation p, mission m
+    where m.m_code = p.m_code and p_complete = 1 and p_star != 0 and m_name like CONCAT('%',#{m_name},'%')
+    order by p_code;
+    </select>   
+    
 </mapper>
