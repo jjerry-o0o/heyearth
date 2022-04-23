@@ -1,6 +1,9 @@
 package carbon;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,6 +32,17 @@ public class CarbonServiceImpl implements CarbonService{
 		List<Integer> list = carbondao.carbonList();
 		
 		return list;
+	}
+
+	@Override
+	public Map<String, Object> allcarbon() {
+		Map<String, Object> list = new HashMap<String, Object>();
+		
+		list.put("mc", carbondao.memberCount());
+		list.put("pc", carbondao.partCount());
+		list.put("cl", carbondao.carbonList());
+		
+		return null;
 	}
 
 	
