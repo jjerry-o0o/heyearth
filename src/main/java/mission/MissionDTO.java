@@ -21,13 +21,22 @@ public class MissionDTO {
 	String id;
 	String p_photo;
 	int p_complete;
-	
+	int grade;
+
 	public String getStar() {
 		return star;
 	}
 	public void setStar(String star) {
 		this.star = star;
 	}
+
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	
 	public int getP_complete() {
 		return p_complete;
 	}
