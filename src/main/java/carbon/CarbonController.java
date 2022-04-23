@@ -27,7 +27,8 @@ public class CarbonController {
 		
 		int everPart = (int)totalPart/carbonservice.memberCount();
 		
-		model.addAttribute("sum", sum);
+		model.addAttribute("sum", Math.round(sum*100)/100.0);
+
 		model.addAttribute("totalPart", totalPart);
 		model.addAttribute("everPart", everPart);
 		

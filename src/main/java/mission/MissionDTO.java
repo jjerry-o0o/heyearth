@@ -20,6 +20,14 @@ public class MissionDTO {
 	String id;
 	String p_photo;
 	int p_complete;
+	int grade;
+
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 	public int getP_complete() {
 		return p_complete;
 	}

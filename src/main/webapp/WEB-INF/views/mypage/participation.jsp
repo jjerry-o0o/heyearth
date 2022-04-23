@@ -150,7 +150,7 @@ function mymissiondetail(code){
 			$("#register_contents").append("나의 별점 : " + mymission.p_star + "<br>");
 			$("#register_contents").append("나의 리뷰: " + mymission.p_review + "<br>");
 			$("#register_contents").append("미션 완료 ?: " + mymission.p_complete + "<br>");
-			$("#register_contents").append("<img class=p_img id=previewimg src=img/"+ mymission.p_photo +" onerror='this.src=/img/nophoto.JPG'><br>");
+			$("#register_contents").append("<img class=p_img id=previewimg><br>");
 			$("#p_code").val(mymission.p_code);
 			$("#id").val(mymission.id);
 			$("#point").val(mymission.point);
