@@ -1,10 +1,12 @@
 package board;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
+import comment.CommentDTO;
 import paging.Criteria;
 
 
@@ -31,5 +33,7 @@ public interface BoardService {
 	
 	public List<CommentDTO> getComment(int b_no);
 	
+	//게시물 검색
+	public List<BoardDTO> findList(String type, String keyword);
 	
 }

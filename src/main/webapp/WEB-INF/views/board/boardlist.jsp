@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	<!-- header import -->
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
+	
 	<!-- end of header import -->
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="board/layout/basic">
@@ -24,7 +26,7 @@
 			location.href="/boardinput";
 		});
 		$("#findbtn").on("click", function(){
-			
+			location.href="/boardfindkey";
 		});
 	});
 </script>
@@ -39,14 +41,16 @@
 				<option value="10" <c:if test="${page.getContentnum() ==10 }">selected="selected"</c:if>> 10개 </option>
 				<option value="15" <c:if test="${page.getContentnum() ==15 }">selected="selected"</c:if>> 15개 </option>
 			</select>
-			<select id="b_type" name="b_type">
-				<option value="all"> 검색유형 </option>
-				<option value="not"> 공지 </option>
-				<option value="que"> 질문 </option>
-				<option value="req"> 요청 </option>
-			</select>
-			검색 : <input type="text" id="find" name="find" autofocus="autofocus" placeholder="검색어를 입력해주세요">
-			<input type="button" id="findbtn" name="findbtn" value="검색">
+			<form action="/boardfind" id="findform">
+				<select id="b_type" name="type">
+					<option value="all"> 검색유형 </option>
+					<option value="not"> 공지 </option>
+					<option value="que"> 질문 </option>
+					<option value="req"> 요청 </option>
+				</select>
+				검색 : <input type="text" id="find" name="keyword" autofocus="autofocus" placeholder="검색어를 입력해주세요">
+				<input type="submit" id="findbtn" value="검색">
+			</form>
 		</div>
 		
 		<c:if test="${sessionScope.session_id == null }">
@@ -97,23 +101,26 @@
 				</c:forEach>
 			</tbody>
 			<tfoot>
-				<tr id="pagination">
-					<td colspan="5">
-						<!-- paging -->
-						<c:if test="${page.prev }">
-							<a href="javascript:page(${page.getStartPage()-1});">&laquo;</a>
-						</c:if>
-						<c:forEach begin="${page.getStartPage() }" end="${page.getEndPage() }" var="idx">
-								<a href="javascript:page(${idx });" class="pagination">${idx }</a>
-						</c:forEach>
-						<c:if test="$page.next">
-							<a href="javascript:page(${page.getEndPage()+1 });">&raquo;</a>
-						</c:if>
-					</td>
-				</tr>
+				<c:if test="${url != 'find' }">
+					<tr id="pagination">
+						<td colspan="5">
+							<!-- paging -->
+							<c:if test="${page.prev }">
+								<a href="javascript:page(${page.getStartPage()-1});">&laquo;</a>
+							</c:if>
+							<c:forEach begin="${page.getStartPage() }" end="${page.getEndPage() }" var="idx">
+									<a href="javascript:page(${idx });" class="pagination">${idx }</a>
+							</c:forEach>
+							<c:if test="$page.next">
+								<a href="javascript:page(${page.getEndPage()+1 });">&raquo;</a>
+							</c:if>
+						</td>
+					</tr>
+				</c:if>
 			</tfoot>
 		</table>
 	</div>
+
 
 </section>
 

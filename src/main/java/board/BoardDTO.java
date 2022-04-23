@@ -2,6 +2,8 @@ package board;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,6 +20,7 @@ public class BoardDTO{
 	String b_type;
 	String b_img;
 	MultipartFile file;
+	Map<String, String> data;
 
 	public BoardDTO() {
 		super();
@@ -115,6 +118,16 @@ public class BoardDTO{
 
 	public void setFile(MultipartFile file) {
 		this.file = file;
+	}
+
+
+	public Map<String, String> getData() {
+		return data;
+	}
+
+
+	public void setData(Map<String, String> data) {
+		this.data = data;
 	}
 	
 	

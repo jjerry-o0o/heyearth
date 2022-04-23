@@ -1,6 +1,7 @@
 package carbon;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CarbonService {
 
@@ -12,4 +13,6 @@ public interface CarbonService {
 	
 	//회원별 탄소배출감소량 조회
 	public List<Integer> carbonList();
+	
+	public Map<String, Object> allcarbon();
 }
