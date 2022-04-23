@@ -6,21 +6,21 @@
 
 	<insert id="insertBoard" parameterType="boarddto">
 		INSERT INTO board (id, b_title, b_content, b_regdate, b_view, b_type, b_img) 
-		values(#{id}, #{b_title}, #{b_content}, now(), 0, #{b_type}, #{b_img});
+		values(#{id}, #{b_title}, #{b_content}, now(), 0, #{b_type}, #{b_img})
 	</insert>
 	
 	<select id="selectBoardDetail" parameterType="int" resultType="boarddto">
-		SELECT * FROM board WHERE b_no = #{b_no};
+		SELECT * FROM board WHERE b_no = #{b_no}
 	</select>
 	
 	<update id="updateBoard" parameterType="boarddto">
 		UPDATE board 
 		SET b_title=#{b_title}, b_content=#{b_content}, b_type=#{b_type}, b_img=#{b_img} 
-		WHERE b_no=#{b_no};
+		WHERE b_no=#{b_no}
 	</update>
 	
 	<delete id="deleteBoard" parameterType="int">
-		DELETE FROM board WHERE b_no=#{b_no};
+		DELETE FROM board WHERE b_no=#{b_no}
 	</delete>
 	
 	<select id="selectBoardList" parameterType="int" resultType="boarddto">
@@ -31,7 +31,7 @@
 	<select id="selectBoardListPage" parameterType="int" resultType="boarddto">
 		SELECT * FROM board
 		ORDER BY b_type, b_regdate DESC 
-		LIMIT #{page}, #{contentnum};
+		LIMIT #{page}, #{contentnum}
 	</select>
 	
 	<select id="testCount" resultType="int">
@@ -41,26 +41,41 @@
 	<update id="boardCount" parameterType="boarddto">
 		UPDATE board
 		SET b_view = b_view + 1
-		WHERE b_no = #{b_no};
+		WHERE b_no = #{b_no}
 	</update>
 	
 	<select id="boardId" parameterType="int" resultType="String">
 		SELECT id FROM member as a
 		JOIN board as b
 		ON a.id = b.id
-		WHERE b.b_no = #{b_no};
+		WHERE b.b_no = #{b_no}
 	</select>
 	
-	<insert id="addComment" parameterType="commentdto">
-		INSERT INTO comment(b_no, c_order, c_comment) 
-		VALUES (#{b_no}, #{c_order}, #{c_comment});
-	</insert>
-	
-	<select id="getComment" parameterType="int" resultType="commentdto">
-		SELECT c_index, b_no, c_order, c_comment 
-		FROM comment
-		WHERE b_no = #{b_no}
-		ORDER BY c_order ASC;
+	<select id="findList" parameterType="map" resultType="boarddto">
+		SELECT * FROM board
+		<include refid="search"></include>
 	</select>
+	
+	<sql id="search">
+		<choose>
+			<when test="#{type}.equals('all') and !#{keyword }.equals('')">
+				WHERE id like CONCAT('%',#{keyword},'%') 
+				OR b_content like CONCAT('%',#{keyword},'%') 
+				OR b_title like CONCAT('%',#{keyword},'%') 
+				ORDER BY b_type, b_regdate DES
+			</when>
+			<when test="!#{type}.equals('all') and !#{keyword}.equals('')">
+				WHERE b_type=#{type} AND
+				(id like CONCAT('%',#{keyword},'%') 
+				OR b_content like CONCAT('%',#{keyword},'%') 
+				OR b_title like CONCAT('%',#{keyword},'%'))
+				ORDER BY b_type, b_regdate DESC
+			</when>
+			<when test="!#{type}.equals('all') and #{keyword}.equals('')">
+				WHERE b_type=#{type} 
+				ORDER BY b_type, b_regdate DESC
+			</when>
+		</choose>
+	</sql>
 	
 </mapper>

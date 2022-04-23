@@ -1,6 +1,7 @@
 package board;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -8,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import comment.CommentDTO;
 import paging.Criteria;
 
 @Mapper
@@ -44,4 +46,7 @@ public interface BoardDAO {
 	public boolean addComment(CommentDTO dto);
 	
 	public List<CommentDTO> getComment(int b_no);
+	
+	//게시물검색
+	public List<BoardDTO> findList(Map<String, String> data);
 }

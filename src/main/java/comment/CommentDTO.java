@@ -1,4 +1,7 @@
-package board;
+package comment;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CommentDTO {
 
@@ -6,8 +9,8 @@ public class CommentDTO {
 	int c_index;
 	int c_order;
 	String c_comment;
-	
-	
+	String id;
+	Date c_regdate;
 	
 	public CommentDTO() {
 		
@@ -45,6 +48,22 @@ public class CommentDTO {
 	}
 	public void setC_comment(String c_comment) {
 		this.c_comment = c_comment;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Date getC_regdate() {
+		return c_regdate;
+	}
+
+	public void setC_regdate(Date c_regdate) {
+		this.c_regdate = c_regdate;
 	}
 	
 	

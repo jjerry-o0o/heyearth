@@ -4,10 +4,10 @@
 		var contentnum = $("#contentnum option:selected").val();
 		
 		if(contentnum == 5){
-			location.href="${pageContext.request.contextPath}/boardlist?pagenum="+pagenum+"&contentnum="+contentnum
+			location.href="/boardlist?pagenum="+pagenum+"&contentnum="+5
 		}else if(contentnum == 10){
-			location.href="${pageContext.request.contextPath}/boardlist?pagenum="+pagenum+"&contentnum="+contentnum
+			location.href="/boardlist?pagenum="+pagenum+"&contentnum="+10
 		}else if(contentnum == 15){
-			location.href="${pageContext.request.contextPath}/boardlist?pagenum="+pagenum+"&contentnum="+contentnum
+			location.href="/boardlist?pagenum="+pagenum+"&contentnum="+15
 		}
 	}

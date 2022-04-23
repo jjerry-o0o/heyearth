@@ -5,10 +5,35 @@
 <head>
 <meta charset="UTF-8">
 <link href="css/about.css" rel="stylesheet">
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+<script src="js/about.js"></script>
 
 <script src="/jquery-3.6.0.min.js"></script>
-<!-- <script src="/js/about.js"></script> -->
 <title>About | HeyEarth</title>
+
+<script>
+	$(document).ready(function() {
+		const swiper = new Swiper( '.swiper', {
+			autoplay: {
+			      delay: 1000,
+			    },
+		    loop: true,
+		    navigation: {
+		      nextEl: '.swiper-button-next',
+		      prevEl: '.swiper-button-prev',
+		    },
+		    pagination: {
+		      el: '.swiper-pagination',
+		      type: 'bullets',
+		      clickable: true,
+		    },
+		    slidesPerView: 3,
+		    slidesPerGroup : 1,
+		  } );
+	});
+</script>
 
 <!-- header import -->
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
@@ -138,70 +163,69 @@
 		</div>
 	</div>
 
-	<!-- 팀멤버 소개 슬라이드 -->
 	<div class="teamintro">
 		<div class="teamintro" id="intro-text">
 			<h1 id="team-tit">헤이얼스 팀</h1>
 			<h3 id="team-text">헤이얼스를 이끌어가는 용사들을 소개합니다.</h3>
 		</div>
-		<div class="swiper-container">
-			<div class="slide_wrapper">
-				<div class="slides">
-					<div id="member">
-						<img id="mem" src="img/about-mi.png" alt="" />
-						<div class="team-text">
-							<h2 id="name">신미래</h2>
-							<p>
-								Team Leader <br><br> 지구용사 5인조의 팀 리더.<br>무슨 역할을 했다고 쓸까요 야호
-							</p>
-						</div>
-					</div>
-					<div id="member">
-						<img id="mem2" src="img/about-min.png" alt="" />
-						<div class="team-text">
-							<h2 id="name">이민아</h2>
-							<p>
-								A Reliable Helper <br><br>지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고
-								쓸까요 야호
-							</p>
-						</div>
-					</div>
-					<div id="member">
-						<img id="mem" src="img/about-so.png" alt="">
-						<div class="team-text">
-							<h2 id="name">문소영</h2>
-							<p>
-								Role Manager<br><br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
-							</p>
-						</div>
-					</div>
-					<div id="member">
-						<img id="mem" src="img/about-yi.png" alt="">
-						<div class="team-text">
-							<h2 id="name">윤이나</h2>
-							<p>Time Manager<br><br>
-							
-								지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
-							</p>
-						</div>
-					</div>
-					<div id="member">
-						<img id="mem" src="img/about-hee.png" alt="">
-						<div class="team-text">
-							<h2 id="name">박희영</h2>
-							<p>
-								Passion Manager<br><br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
-							</p>
-						</div>
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide" id="member">
+					<img id="mem" src="img/about-mi.png" alt="" />
+					<div class="team-text">
+						<h2 id="name">신미래</h2>
+						<p>
+							Team Leader <br><br> 지구용사 5인조의 팀 리더.<br>무슨 역할을 했다고 쓸까요 야호
+						</p>
+				</div>
+				</div>
+				<div class="swiper-slide" id="member">
+					<img id="mem2" src="img/about-min.png" alt="" />
+					<div class="team-text">
+						<h2 id="name">이민아</h2>
+						<p>
+							A Reliable Helper <br>
+							<br>지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+						</p>
 					</div>
 				</div>
-				<p class="controls">
-
-					<span class="prev"><</span> <span class="next">></span>
-				</p>
+				<div class="swiper-slide" id="member">
+					<img id="mem" src="img/about-so.png" alt="">
+					<div class="team-text">
+						<h2 id="name">문소영</h2>
+						<p>
+							Role Manager<br>
+							<br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+						</p>
+					</div>
+				</div>
+				<div class="swiper-slide" id="member">
+					<img id="mem" src="img/about-yi.png" alt="">
+					<div class="team-text">
+						<h2 id="name">윤이나</h2>
+						<p>
+							Time Manager<br>
+							<br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+						</p>
+					</div>
+				</div>
+				<div class="swiper-slide" id="member">
+					<img id="mem" src="img/about-hee.png" alt="">
+					<div class="team-text">
+						<h2 id="name">박희영</h2>
+						<p>
+							Passion Manager<br>
+							<br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+						</p>
+					</div>
+				</div>
 			</div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-pagination"></div>
 		</div>
 	</div>
+	
 </body>
 <script>
 	$(document).ready(function() {
