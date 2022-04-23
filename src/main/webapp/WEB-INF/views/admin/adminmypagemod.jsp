@@ -35,12 +35,12 @@
 		<div id="pwckerror"></div>
 		</td></tr>
 		<tr><td>전화번호</td><td><input id="phone" name="phone" class="admintd" type="text" pattern="[0-9]{2,4}-[0-9]{3,4}-[0-9]{4}" maxlength="14" value="${admininfo.phone }"></td></tr>
-		<tr><td>사진</td>
+		<%-- <tr><td>사진</td>
 		<td>
 		<img id="previewimg" src="img/${admininfo.photo}" onerror="this.src='/img/noimage.jpg'">
 		<input name="photo" type="hidden" value="${admininfo.photo }">
 		<input name="image" id="input-image" class="admintd" type="file" accept="image/*">
-		</td></tr>
+		</td> --%></tr>
 	</table>
 </div>
 <div class='adminbtn'>

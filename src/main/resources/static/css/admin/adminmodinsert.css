@@ -68,7 +68,7 @@ td:not(first-child){
 	margin-right : 15px;
 	
 }
-.adminback:hover, .adminend:hover{
+.adminback:hover, .adminend:hover, #imageremove:hover{
 	background-color : #1A271D;
 	color : #f6f5f0;
 	cursor : pointer;
@@ -96,4 +96,34 @@ td:not(first-child){
 
 #r_way{
 	height : 300px;
+}
+
+#p_review{
+	height : 100px;
+}
+
+#b_content{
+	height : 300px;
+}
+
+#previewimg{
+	margin-top : 10px;
+	margin-bottom : 10px;
+	border : 1px solid black;
+}
+
+#imageremove{
+	margin-top : 10px;
+	margin-bottom : 5px;
+	padding-left : 25px;
+	padding-right : 25px;
+	padding-top : 7px;
+	padding-bottom : 7px;
+	font-size : 12px;
+	border : 2px #1A271D solid;
+	font-weight : 400;
+	color : #1A271D;
+	display : block;
+	margin-left : auto;
+	margin-right : auto;
 }

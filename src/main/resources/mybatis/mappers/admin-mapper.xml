@@ -71,6 +71,43 @@
 	
 	
 	
+	<select id="missionreviewlist" resultType="missiondto" parameterType="int">
+		select m.m_code as m_code, m_name, p_star,p_code, p_photo, p_review, id
+    	from participation p, mission m 
+    	where m.m_code = p.m_code and p.m_code = #{m_code};
+		
+	</select>
+	
+	<update id="adminmemberpoint" parameterType="int">
+		update member mem,participation p,mission mis 
+		set mem.point=mem.point-mis.m_point 
+		where p.id=mem.id and p.p_code=#{p_code} and p.m_code=mis.m_code;
+	</update>
+	
+	<update id="adminmembercarbon" parameterType="int">
+		update member mem,participation p,mission mis 
+		set mem.carbon=mem.carbon-mis.m_carbon 
+		where p.id=mem.id and p.p_code=#{p_code} and p.m_code=mis.m_code;
+	</update>
+	
+	<delete id="adminreviewdel" parameterType="int">
+		delete from participation where p_code=#{p_code};
+	</delete>
+	
+	<select id="adminreviewinfo" parameterType="int" resultType="missiondto">
+		select p_code,id,p.m_code as m_code,p_complete,p_star,p_review,p_photo,m_name from participation p,mission m where p.p_code=#{p_code} and p.m_code=m.m_code;
+	</select>
+	
+	<update id="updatereview" parameterType="missiondto">
+		update participation
+		set p_star=#{star}, p_review=#{p_review},p_photo=#{p_photo} where p_code=#{p_code};
+	</update>
+	
+	<select id="mcodetopcode" parameterType="int" resultType="int">
+		select m_code from participation where p_code=#{p_code};
+	</select>
+	
+	
 	
 	<select id="adminguidelist" resultType="recyclingdto">
 		select * from recycling order by r_class, r_name;
@@ -103,6 +140,44 @@
 		select * from board where b_type=#{b_type};
 	</select>
 	
+	<delete id="adminboarddel" parameterType="int">
+		delete from board where b_no=#{b_no};
+	</delete>
+	
+	<select id="adminboardinfo" resultType="boarddto" parameterType="int">
+		select * from board where b_no=#{b_no};
+	</select>
+	
+	<insert id="insertboard" parameterType="boarddto">
+		insert into board(id,b_title,b_content,b_regdate,b_view,b_type,b_img) values (#{id},#{b_title},#{b_content},now(),0,#{b_type},#{b_img});
+	</insert>
+	
+	<update id="updateboard" parameterType="boarddto">
+		update board set b_title=#{b_title},b_content=#{b_content},b_img=#{b_img} where b_no= #{b_no};
+	</update>
+	
+	
+	
+	<select id="adminmemberlist" resultType="memberdto">
+		select * from member order by id;
+	</select>
+	
+	<delete id="adminmemberdel" parameterType="String">
+		delete from member where id=#{id};
+	</delete>
+	
+	<select id="adminmemberboard" resultType="boarddto" parameterType="String">
+		select * from board where id=#{id};
+	</select>
+	
+	<select id="adminmembermission" resultType="missiondto" parameterType="String">
+		select p_code,id,p.m_code as m_code,m_name,p_star,p_review,p_photo from participation p,mission m where p.id=#{id} and p.m_code=m.m_code;
+	</select>
+	
+	<select id="adminmemberboardlist" resultType="boarddto" parameterType="boarddto">
+		select * from board where b_type=#{b_type} and id=#{id};
+	</select>
+	
 	
 	
 	
@@ -112,7 +187,7 @@
 	</select>
 	
 	<update id="updateadmin" parameterType="memberdto">
-		update member set phone=#{phone}, pw=#{pw}, photo=#{photo} where id=#{id};
+		update member set phone=#{phone}, pw=#{pw} where id=#{id};
 	</update>
 	
 	<select id="searchpw" resultType="String" parameterType="String">

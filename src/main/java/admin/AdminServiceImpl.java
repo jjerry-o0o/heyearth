@@ -122,7 +122,52 @@ public class AdminServiceImpl implements AdminService {
 		List<MissionDTO> missionlist = admindao.missioninfo1(dto);
 		return missionlist.get(0);
 	}
+	
+	
+	
+	
+	/*미션 리뷰관리*/
+	
+	@Override
+	public List<MissionDTO> missionreviewlist(int m_code) {
+		return admindao.missionreviewlist(m_code);
+	}
 
+	@Override
+	public void adminmemberpoint(int p_code) {
+		admindao.adminmemberpoint(p_code);
+		
+	}
+
+	@Override
+	public void adminmembercarbon(int p_code) {
+		admindao.adminmembercarbon(p_code);
+	}
+
+	@Override
+	public void adminreviewdel(int p_code) {
+		admindao.adminreviewdel(p_code);
+	}
+	
+	@Override
+	public MissionDTO adminreviewinfo(int p_code) {
+		return admindao.adminreviewinfo(p_code);
+	}
+	
+	@Override
+	public void updatereview(MissionDTO dto) {
+		admindao.updatereview(dto);
+		
+	}
+	
+	@Override
+	public int mcodetopcode(int p_code) {
+		return admindao.mcodetopcode(p_code);
+	}
+	
+	
+	
+	
 	
 	
 	/*가이드 관리*/
@@ -167,6 +212,62 @@ public class AdminServiceImpl implements AdminService {
 	public List<BoardDTO> adminboardlist(String b_type) {
 		return admindao.adminboardlist(b_type);
 	}
+	
+	@Override
+	public void adminboarddel(int b_no) {
+		admindao.adminboarddel(b_no);
+	}
+
+	@Override
+	public BoardDTO adminboardinfo(int b_no) {
+		return admindao.adminboardinfo(b_no);
+	}
+	
+	@Override
+	public void insertboard(BoardDTO dto) {
+		admindao.insertboard(dto);
+	}
+	
+	@Override
+	public void updateboard(BoardDTO dto) {
+		admindao.updateboard(dto);
+	}
+	
+	
+	
+	
+	
+	/* 회원 관리 */
+	@Override
+	public List<MemberDTO> adminmemberlist() {
+		return admindao.adminmemberlist();
+	}
+	
+	@Override
+	public void adminmemberdel(String id) {
+		admindao.adminmemberdel(id);
+	}
+
+	@Override
+	public List<BoardDTO> adminmemberboard(String id) {
+		return admindao.adminmemberboard(id);
+	}
+
+	@Override
+	public List<MissionDTO> adminmembermission(String id) {
+		return admindao.adminmembermission(id);
+	}
+	
+	@Override
+	public List<BoardDTO> adminmemberboardlist(String b_type, String id) {
+		BoardDTO dto = new BoardDTO();
+		dto.setB_type(b_type);
+		dto.setId(id);
+		return admindao.adminmemberboardlist(dto);
+	}
+	
+	
+	
 
 	
 	
@@ -187,6 +288,7 @@ public class AdminServiceImpl implements AdminService {
 	public String searchpw(String id) {
 		return admindao.searchpw(id);
 	}
+
 
 
 }

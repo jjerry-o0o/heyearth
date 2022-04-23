@@ -96,10 +96,10 @@ $(document).ready(function(){
 		location.href = "adminmypage";
 	});
 	
-	const inputImage = document.getElementById("input-image")
+	/*const inputImage = document.getElementById("input-image")
 	inputImage.addEventListener("change", e => {
     	readImage(e.target)
-	})
+	})*/
 })
 
 function readImage(input){
