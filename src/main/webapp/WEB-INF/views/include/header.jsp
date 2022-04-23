@@ -30,6 +30,7 @@
 			<div class="JoinLogin">
 		    <a class="header_j" style="margin-right:30px;" href="${pageContext.request.contextPath}/mypage">What's Up, <span class="whatsup_id">${sessionScope.session_id}</span> !</a>
 			<a class="header_j" href="${pageContext.request.contextPath}/mypage">마이페이지</a>&nbsp;/
+			<a class="header_j" href="${pageContext.request.contextPath}/participation">참가 미션</a>&nbsp;/
 			<c:if test="${sessionScope.session_id == 'admin' }">
 			<a class="header_j" href="${pageContext.request.contextPath}/adminmain">관리자페이지</a>&nbsp;/
 			</c:if>

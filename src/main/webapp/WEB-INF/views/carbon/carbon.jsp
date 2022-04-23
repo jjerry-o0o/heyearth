@@ -163,7 +163,7 @@
 	<div id="circle_div">
 		<div>
 			<div class="circle">
-				<p class="ourdata">${sum }</p><br>
+				<p class="ourdata">${sum  }</p><br>
 				/ kg
 			</div>
 			<div>

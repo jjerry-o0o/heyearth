@@ -21,8 +21,14 @@ public class ParticipationDTO {
 	String p_photo; //리뷰 사진
 	int m_personnel;//미션 최대 인원
 	MultipartFile image;
+	int grade;
 	
-	
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 	public MultipartFile getImage() {
 		return image;
 	}
