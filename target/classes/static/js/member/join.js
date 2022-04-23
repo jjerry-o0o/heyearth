@@ -11,7 +11,8 @@ window.onload = function() {
 	const nicknamePattern = /^(?=.*[A-Za-z0-9가-힣])[A-Za-z0-9가-힣]{2,8}$/;
 	//최소 4자, 최소 하나 이상의 문자 및 하나의 숫자
 	const pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
-	
+	//3자리-3~4자리-4자리
+	const phonePattern = /^\d{3}-\d{3,4}-\d{4}$/;	
 	nicknamebtn.onclick = nicknameCheck;
 	submit.onclick = phoneCheck;
 	
@@ -47,25 +48,29 @@ window.onload = function() {
 		let pwCheck = pwPattern.test(pwInput);
 				
 		if(!pwCheck || pwInput == ""){
-			$("#pwerror").html('4자 이상, 영문 및 숫자로 입력해주세요');
+			$("#pwerror").html('4자 이상, 영문+숫자로 입력해주세요');
 			pw.focus();
 			return false;
+		}else{
+			$("#pwerror").html('');
 		}
 		
 	}
 	
 	function pwckCheck() {
 		let pwInput = pw.value;
-		let pwckInput = pw.value;		
+		let pwckInput = pwck.value;		
 
-		if(pwckInput == ""){
+		/*if(pwckInput == ""){
 			$("#pwckerror").html('비밀번호를 입력해주세요');
-			pw.focus();
+			pwck.focus();
 			return false;
-		}else if(!pwckInput == pwInput){
+		}else */if(pwInput != pwckInput){
 			$("#pwckerror").html('비밀번호가 일치하지 않습니다');
-			pw.focus();
+			pwck.focus();
 			return false;
+		}else{
+			$("#pwckerror").html('');
 		}
 	}
 	
@@ -75,11 +80,13 @@ window.onload = function() {
 		pwckCheck();
 		
 		let phoneInput = phone.value;
-		
-		if(phoneInput == ""){
+		let phoneCheck = phonePattern.test(phoneInput);
+		if(!phoneCheck || phoneInput == ""){
 			$("#phoneerror").html('전화번호를 입력해주세요');
 			phone.focus();
 			return false;
+		}else{
+			$("#phoneerror").html('');
 		}
 	}
 	

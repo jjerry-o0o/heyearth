@@ -111,7 +111,7 @@
 		<table id="menu_table">
 			<tr>
 				<td id="m_info" class="btn">
-					<div id="profil_div" onclick="profil_div()">
+					<div id="profil_div" onclick = "profil_div()">
 						<img id="profil" alt="${sessionScope.session_id}" src="https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927">
 						<h2 id="name">${sessionScope.session_id}</h2>
 					</div>
@@ -121,7 +121,7 @@
 			</tr>
 			<tr>
 				<td id="m_mission" class="btn">
-					<div id="mymission" onclick="mymission()">
+					<div id="mymission" onclick = "mymission()">
 						<h3> 나의미션 </h3>
 					</div>
 				</td>
@@ -138,8 +138,13 @@
 			</tr>
 		</table>
 		<div id="mymenu_div">
-			<h4 style="text-align: center;">ajax 화면 변환이 보여질 공간입니다.</h4>
-			
+			<form action="/update" method="post">
+				<div id="updateDiv">
+				</div>
+				
+				<div id="myMissionDiv">
+				</div>
+			</form>
 		</div>
 	</div>
 </section>

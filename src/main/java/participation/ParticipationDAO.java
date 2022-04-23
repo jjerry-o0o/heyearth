@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import member.MemberDTO;
 import mission.MissionDTO;
 
 @Mapper
@@ -21,5 +22,5 @@ public interface ParticipationDAO {
 		public void participation_delete2(ParticipationDTO dto); //미션 취소하기2
 		public int participation_friends(String id, int m_code); //미션 등록 인원
 		public ParticipationDTO mymission_detail(int p_code);//나의 미션 상세페이지
-
+		
 }//DAO end

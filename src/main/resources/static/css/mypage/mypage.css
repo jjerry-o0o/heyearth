@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
+
 #profileImgDiv {
 	display:inline-block;
 	text-align: left;
+}
+
+#profileP p{
+	margin-top: 0px;
+	margin-bottom: 10px;
 }
 
 #updateId p{
@@ -15,6 +21,8 @@
 	border: 2px solid black;
 	width: 180px;
 }
+
+/* 현재 비밀번호 */
 #pw p{
 	display: inline-block;
 	margin-right: 30px;
@@ -24,6 +32,25 @@
 #pw input{
 	border: 2px solid black;
 }
+
+/*비밀번호 확인 버튼*/
+#pwckbtn{
+	border: 2px solid black;
+	background-color : #f6f5f0;
+	display:inline-block;
+	margin-left: 10px;
+}
+#pwckbtn:hover {
+	background-color: black;
+	color : #f6f5f0;
+}
+
+/* #pwck:focus {
+	background-color: black;
+	color : #f6f5f0;
+} */
+
+/* 새 비밀번호 */
 #newpw p {
 	display: inline-block;
 	margin-right: 45px;
@@ -33,6 +60,7 @@
 	border: 2px solid black;
 }
 
+/* 새 비밀번호 확인 */
 #newpwck p {
 	display: inline-block;
 	margin-right: 14px;
@@ -42,6 +70,7 @@
 	border: 2px solid black;
 }
 
+/* 전화번호 */
 #phone p {
 	display: inline-block;
 	margin-right: 63px;
@@ -51,6 +80,7 @@
 	border: 2px solid black;
 }
 
+/* 회원 정보 수정 */
 #update{
 	float:left;
 	margin-right : 20px;
@@ -71,6 +101,8 @@
 	color : #f6f5f0;
 }
 
+
+/* 회원 탈퇴 */
 #withdraw{
 	float:left;
 }
