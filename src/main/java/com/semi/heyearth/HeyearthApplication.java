@@ -14,6 +14,8 @@ import board.BoardController;
 import board.BoardDAO;
 import carbon.CarbonController;
 import carbon.CarbonDAO;
+import comment.CommentContoller;
+import comment.CommentDAO;
 import mission.MissionController;
 import mission.MissionDAO;
 import mypage.MypageController;
@@ -50,6 +52,8 @@ import zeroshop.ZeroshopDAO;
 @ComponentScan(basePackageClasses = AdminController.class)
 @MapperScan(basePackageClasses = AdminDAO.class)
 @MapperScan(basePackageClasses = CarbonDAO.class)
+@ComponentScan(basePackageClasses = CommentContoller.class)
+@MapperScan(basePackageClasses = CommentDAO.class)
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

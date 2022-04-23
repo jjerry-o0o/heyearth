@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.http.HttpStatus;
+import org.apache.ibatis.annotations.Param;
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -40,6 +41,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.api.client.http.HttpHeaders;
 
+import comment.CommentDAO;
+import comment.CommentDTO;
+import comment.CommentService;
 import member.MemberDTO;
 import paging.Criteria;
 
@@ -54,21 +58,23 @@ public class BoardController {
 	BoardDAO boarddao;
 
 	
-	@RequestMapping("/boardlistpage")
-	public String boardlist(BoardDTO dto, Model model) {
-		
-		List<BoardDTO> boardlist = boarddao.selectBoardList(dto);
-		
-		model.addAttribute("boardlist", boardlist);
+	@RequestMapping("/boardlist")
+	public String boardlist(@RequestParam(defaultValue="1") String pagenum,
+			@RequestParam(defaultValue="10")String contentnum, BoardDTO dto, Model model) throws Exception {
+
+		boardservice.execute(model, pagenum, contentnum);
 		
 		return "/board/boardlist";
 	}
-
-	@RequestMapping("/boardlist")
-	public String boardlist(@RequestParam(defaultValue="1") String pagenum,
-			@RequestParam(defaultValue="10")String contentnum, Model model) throws Exception {
+	
+	@RequestMapping("/boardfind")
+	public String boardfind(@RequestParam String type, @RequestParam String keyword, Model model) {
 		
-		boardservice.execute(model, pagenum, contentnum);
+		List<BoardDTO> findlist = boardservice.findList(type, keyword);
+		
+		model.addAttribute("boardlist", findlist);
+		
+		System.out.println(type + " / " + keyword);
 		
 		return "/board/boardlist";
 	}

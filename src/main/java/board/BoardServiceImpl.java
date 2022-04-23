@@ -2,7 +2,9 @@ package board;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.client.HttpClientErrorException.Unauthorized;
 
+import comment.CommentDTO;
 import member.MemberDAO;
 import member.MemberDTO;
 import paging.Criteria;
@@ -110,13 +113,22 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<board.CommentDTO> getComment(int b_no) {
+	public List<comment.CommentDTO> getComment(int b_no) {
 		return boarddao.getComment(b_no);
 	}
 
-	
-	
-	
+	@Override
+	public List<BoardDTO> findList(String type, String keyword) {
+		Map<String, String> data = new HashMap<String, String>();
+		data.put("type", type);
+		data.put("keyword", keyword);
+		
+		BoardDTO dto = new BoardDTO();
+		dto.setData(data);
+		
+		return boarddao.findList(data);
+	}
+
 	
 	
 }
