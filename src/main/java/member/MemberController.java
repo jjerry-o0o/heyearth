@@ -60,7 +60,6 @@ public class MemberController {
 		}else { //로그인 성공인 경우
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
-			System.out.println(userdto.getId());
 			mv.setViewName("main");
 		}
 		return mv;
@@ -82,6 +81,34 @@ public class MemberController {
 	public MemberDTO mypage(String id) {
 		MemberDTO userdto = service.memberView(id);
 		return userdto;
+	}
+	
+	//마이페이지 회원정보 수정 - 비밀번호 확인
+	@RequestMapping(value="/pwck", method=RequestMethod.POST)
+	public @ResponseBody int pwck(@RequestParam(value="pw2") String pw) {
+		int result = service.nicknameCheck(pw);
+		System.out.println(result);
+		return result;
+	}
+	
+	//마이페이지 회원정보 수정
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public ModelAndView updatemember(@RequestParam(value="userId") String userId,
+			@RequestParam(value="pw") String pw,
+			@RequestParam(value="newpw") String newpw,
+			@RequestParam(value="newpwck") String newpwck,
+			MemberDTO dto) {
+
+		System.out.println(userId);
+		System.out.println(pw);
+		System.out.println(newpw);
+		System.out.println(newpwck);
+		int result = service.updatemember(userId,pw,newpw,newpwck);
+		System.out.println(result);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result", result);
+		mv.setViewName("mypage/mypage");
+		return mv;
 	}
 	
 }

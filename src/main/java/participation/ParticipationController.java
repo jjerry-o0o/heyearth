@@ -38,7 +38,7 @@ public class ParticipationController {
 	 }
 	 
 	//나의 미션 목록
-	 @RequestMapping("/participation")
+	 @RequestMapping(value= {"/participation", "/participation2"})
      public ModelAndView list(HttpSession session, ModelAndView mv) {
 
 		Map<String, Object> map = new HashMap<>();
@@ -118,11 +118,11 @@ public class ParticipationController {
 		
 		
 	 //미션 인증하기 모달창
-			@RequestMapping("/mymissiondetail")
-			@ResponseBody
-			public ParticipationDTO mymission_modal(int p_code) {
-				return service.mymission_detail(p_code);
-			}
+		@RequestMapping("/mymissiondetail")
+		@ResponseBody
+		public ParticipationDTO mymission_modal(int p_code) {
+			return service.mymission_detail(p_code);
+		}
 		
 
 

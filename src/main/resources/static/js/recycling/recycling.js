@@ -33,6 +33,7 @@ function r_class(num){
 			}else if (num == '11'){
 				r_class = "기타";
 			}
+			$("#previewbox").empty();
 			$.ajax({
 				url: '/keywordrecycling',
 				type:'get',
@@ -115,7 +116,8 @@ function recyclingway(r_code){
 
 
 $(document).ready(function (){
-	
+
+	var savedFileName = "";
 
 	$("#file").on('change', function(){ 
 		var formData = new FormData();
@@ -128,57 +130,66 @@ $(document).ready(function (){
 			type:'post',
 			processData : false ,
 			contentType : false ,
-			success : function(savedFileName){
+			success : function(data){
+				$("#preview1").attr("src", "http://localhost:8080/upload/" + data);
+				savedFileName = data;
+				document.querySelector("#waycheck").onclick = waycheck(data);
 				
-				$("#preview1").attr("src", "http://localhost:8080/upload/" + savedFileName);
-				
-				$("#waycheck").on('click', function(){
-					
-				$.ajax({
-					url : '/extractLabels',
-					data: {"savedFileName" : savedFileName},
-					type: 'post',
-					success: function(imageLabels){
-								$("#waynoti").html("※원하는 분류항목이 나오지 않은 경우 재촬영한 사진을 업로드 해주세요※<br>")
-						for( var k in imageLabels){
-							if(imageLabels[k] >= 0.80){
-								$("#wayradio").append("<input class='radio' type='radio' name='labels' value='"+k+"'>"+k);
-								
-							}
-							//alert(k +":"+imageLabels[k]);
-						}//inner for end
-						
-						$(".radio").on('click', function(){
-							
-							var radiock = document.querySelector('input[type=radio]:checked').value;
-							
-							$.ajax({
-								url: '/howtoway',
-								data: { "value" : radiock },
-								type: 'get',
-								success: function(dto){
-									var waydiv = document.createElement("div");
-									var wayp = document.createElement("p");
-									waydiv.appendChild(wayp);
-									wayp.id = "wayp";
-									$("#wayp").text("배출방법 : "+dto.r_way);
-									//wayp.innerText("배출방법 : "+dto.r_way);
-									//alert("배출방법 : "+dto.r_way);
-								}//inner2 success
-							})//inner2 ajax
-							
-						})//inner2 on end
-						
-						
-					}//inner success
-				});//inner ajax
-				})//inner on
-				
-				
-		}//success
+			}//success
 		});//ajax
 	});//on
 	
+	function waycheck(data){
+		let savedFileName = data;
+		return function(){
+			$.ajax({
+			url : '/extractLabels',
+			data: {"savedFileName" : savedFileName},
+			type: 'post',
+			success: function(imageLabels){
+				$("#waynoti").html("※원하는 분류항목이 나오지 않은 경우 재촬영한 사진을 업로드 해주세요※<br>")
+				$("#wayradio").html('');
+				for( var k in imageLabels){
+					if(imageLabels[k] >= 0.80){
+						$("#wayradio").append("<input class='radio' type='radio' name='labels' value='"+k+"'>"+k);
+					}
+					//alert(k +":"+imageLabels[k]);
+				}//inner for end
+				 console.dir(document.querySelector('input[type=radio]'));
+				document.querySelectorAll(".radio").forEach(e => {
+					e.onclick = radiocheck();
+				})
+				
+				}//inner success
+			});//inner ajax
+		}
+	}
+	
+	function radiocheck(){
+		
+		return function(){
+		var radiovalue = document.querySelector('input[type=radio]:checked').value;
+		
+		$.ajax({
+			url: '/howtoway',
+			data: { "value" : radiovalue },
+			type: 'get',
+			success: function(dto){
+				var waydiv = document.createElement("div");
+				var wayp = document.createElement("p");
+				waydiv.appendChild(wayp);
+				wayp.id = "wayp";
+				$("#wayp").text("배출방법 : "+dto.r_way);
+				//wayp.innerText("배출방법 : "+dto.r_way);
+				//alert("배출방법 : "+dto.r_way);
+			}//inner2 success
+		})//inner2 ajax
+		}					
+		
+	}
+	
+	
+		
 	$("#modal").on("click",function(){
 		document.getElementById("modal").style.display = "none";
 	});
@@ -189,7 +200,5 @@ $(document).ready(function (){
 			modal.style.display = "none";
 		}
 	});
-	
-
 	
 });//ready
