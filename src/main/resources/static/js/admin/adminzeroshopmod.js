@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+	
 	$("#zeroshopback").on('click',function(){
 		location.href = "adminzeroshop";
 	});

@@ -22,9 +22,9 @@
 	<table class='adminmodinserttable'>
 		<tr><td>닉네임(아이디)</td><td>${admininfo.id }</td></tr>
 		<tr><td>전화번호</td><td>${admininfo.phone }</td></tr>
-		<tr><td>사진</td>
+		<%-- <tr><td>사진</td>
 		<td>
-		<img id="previewimg" src="img/${admininfo.photo}" onerror="this.src='/img/noimage.jpg'">
+		<img id="previewimg" src="img/${admininfo.photo}" onerror="this.src='/img/noimage.jpg'"> --%>
 	</table>
 </div>
 

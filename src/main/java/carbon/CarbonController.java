@@ -23,6 +23,12 @@ public class CarbonController {
 		
 		int sum = carbonlist.stream().mapToInt(Integer::intValue).sum();
 		
+		int n = 2;
+		double n2 = Math.pow(10.0, n);
+		double e = (double)sum/1000;
+		double result = Math.round((e*n2)/n2);
+
+		
 		int totalPart = carbonservice.partCount();
 		
 		int everPart = (int)totalPart/carbonservice.memberCount();
@@ -35,3 +41,5 @@ public class CarbonController {
 		return "carbon/carbon";
 	}
 }
+
+

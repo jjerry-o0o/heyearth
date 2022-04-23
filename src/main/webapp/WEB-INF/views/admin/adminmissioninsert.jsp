@@ -34,9 +34,9 @@
 		<tr><td>미션인원</td><td id="personnel"><input id="m_personnel" name="m_personnel" class="admintd" min="1" type="number" required></td></tr>
 		<tr><td>사진</td>
 		<td>
-		<img id="previewimg" src="img/eco.jpg">
-		<input name="m_photo" type="hidden" value="eco.jpg">
-		<input name="image" id="input-image" class="admintd" type="file" accept="image/*"></td></tr>
+		<img id="previewimg">
+		<input type="hidden" name="m_photo" id="m_photo">
+		<input name="image" id="input-image" class="admintd" type="file" accept="image/*" required></td></tr>
 	</table>
 </div>
 <div class='adminbtn'>

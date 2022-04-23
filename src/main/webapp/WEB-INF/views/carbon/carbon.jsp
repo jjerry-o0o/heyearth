@@ -23,12 +23,14 @@
 		$("#go_btn").on("click", function(){
 			location.href="/mission";
 		});
-		const swiper = new Swiper(".swiper", {
-			autoplay : {
-				delay : 2000,
-			},
-			loop : true,
-		});
+		
+		$(function(){
+			$(".fade-slide img:gt(0)").hide(); // 첫째 이미지외에 모두 가리고.
+			setInterval(  function(){
+				$(".fade-slide :first-child").fadeOut(0)
+				.next("img").fadeIn(1000).end().appendTo(".fade-slide");},
+				3000);
+			});
 	});
 </script>
 <style>
@@ -53,16 +55,23 @@
 		text-align: center;
 		padding : 20px;
 	}
-	img{
-		width : 80%;
-		height : width*0.4;
-	}
-	.swiper{
+	.imgs{
 		width : 100%;
 		height : width*0.4;
-		margin : 0px auto;
-		text-align: center;
+		margin : auto;
+		object-position : center;
 	}
+	.fade-slide{
+		width : 100%;
+		margin : auto;
+		padding-top : 20px;
+		padding-bottom : 20px;
+		position : relative;
+	}
+	#other{
+		
+	}
+
 	#infotitle{
 		font-size: 2.5em;
 	}
@@ -130,67 +139,58 @@
 	<!-- end of header import -->
 
 <section class="boardSection">
-	
-	<div class="swiper">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지1" src="img/carbon001.jpg">
-			</div>
-			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지2" src="img/carbon002.jpg">
-			</div>
-			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지3" src="img/carbon003.jpg">
-			</div>
-			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지4" src="img/carbon004.jpg">
-			</div>
-			<div class="swiper-slide">
-				<img alt="탄소배출량 감소에 따른 자연의 변화 이미지5" src="img/carbon005.jpg">
-			</div>
+	<div class="fade-slide">
+		<img class="imgs" src="./img/carbon001.jpg" alt="슬라이드 이미지"/>
+		<img class="imgs" src="./img/carbon002.jpg" alt="슬라이드 이미지"/>
+		<img class="imgs" src="./img/carbon003.jpg" alt="슬라이드 이미지"/>
+		<img class="imgs" src="./img/carbon004.jpg" alt="슬라이드 이미지"/>
+		<img class="imgs" src="./img/carbon005.jpg" alt="슬라이드 이미지"/>
+	</div>
+	<div id="other">
+		<div id="info_div">
+			<h1 id="infotitle"> 탄소배출량이란 ? </h1>
+			<hr>
+			<p id="infocontent">탄소발자국이자 Carbon footprint로 불리며 개인 또는 단체가 직접 그리고 간접적으로 발생시키는 온실 기체의 총량을 의미합니다.<br>
+			보통 일상생활에서 사용하는 연료, 전기, 용품 등 광범위하게 포함되죠.<br>
+			대기로 방출된 이산화탄소 등 온실가스 물질이 지구의 기후변화에 미치는 영향을 알 수 있습니다. <p>
 		</div>
-	</div>
-	<div id="info_div">
-		<h1 id="infotitle"> 탄소배출량이란 ? </h1>
-		<hr>
-		<p id="infocontent">탄소배출량에 대한 설명이 들어갈 공간 입니다.<p>
-	</div>
-	
-	<div id="data_div">
-		<h1 id="datatitle"> 헤이얼스 & 지구용사 </h1>
-		<hr>
-	</div>
-	<div id="circle_div">
-		<div>
-			<div class="circle">
-				<p class="ourdata">${sum  }</p><br>
-				/ kg
+		
+		<div id="data_div">
+			<h1 id="datatitle"> 헤이얼스 & 지구용사 </h1>
+			<hr>
+		</div>
+		<div id="circle_div">
+			<div>
+				<div class="circle">
+					<p class="ourdata">${sum }</p><br>
+					/ kg
+				</div>
+				<div>
+					<p class="data_info">지구용사들이 모여<br>감소시킨 탄소배출량</p>
+				</div>
 			</div>
 			<div>
-				<p class="data_info">지구용사들이 모여<br>감소시킨 탄소배출량</p>
-			</div>
-		</div>
-		<div>
-			<div class="circle">
-				<p class="ourdata">${totalPart }</p><br>
-				/ 명
-			</div>
-			<div>
-				<p class="data_info">헤이얼스와<br>함께한 지구용사들</p>
-			</div>
-		</div>
-		<div>
-			<div class="circle">
-				<p class="ourdata">${everPart }</p><br>
-				/ 회
+				<div class="circle">
+					<p class="ourdata">${totalPart }</p><br>
+					/ 명
+				</div>
+				<div>
+					<p class="data_info">헤이얼스와<br>함께한 지구용사들</p>
+				</div>
 			</div>
 			<div>
-				<p class="data_info">지구용사 1명의<br> 미션 실천 횟수 평균치</p>
+				<div class="circle">
+					<p class="ourdata">${everPart }</p><br>
+					/ 회
+				</div>
+				<div>
+					<p class="data_info">지구용사 1명의<br> 미션 실천 횟수 평균치</p>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div id="btn_div">
-		<input type="button" value="탄소배출량 줄이러 가기" id="go_btn">
+		<div id="btn_div">
+			<input type="button" value="탄소배출량 줄이러 가기" id="go_btn">
+		</div>
 	</div>
 	
 </section>

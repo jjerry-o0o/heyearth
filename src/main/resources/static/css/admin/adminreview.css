@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+body{
+	background-color : #F6F5F0;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.adminmain{
+	text-align:center;
+}
+
+.admincontext{
+	width : 90%;
+	margin-left : auto;
+	margin-right : auto;
+	text-align:center;
+}
+
+
+.review{
+	
+	color : #1A271D;
+	width : 50%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top : 25px;
+	margin-bottom : 25px;
+	padding-top : 10px;
+	padding-left : 15px;
+	padding-right : 15px;
+	padding-bottom : 20px;
+	border: 2px solid #1A271D;
+	text-align :center;
+
+}
+
+.reviewimg{
+	width : 150px;
+	height : 150px;
+	margin-left : 100px;
+	margin-right: 20px;
+	margin-bottom : 20px;
+}
+
+.reviewcontent{
+	margin-top : 5px;
+	width : 300px;
+	vertical-align : top;
+	font-size: 15px;
+	font-weight : 400;
+	display : inline-block;
+	margin-bottom : 20px;
+}
+
+.reviewinfo{
+	margin-top : 30px;
+	width : 300px;
+	vertical-align : top;
+	font-size : 18px;
+	font-weight : 400;
+	text-align:left;
+	display : inline-block;
+}
+
+.noreview{
+	margin-top : 10px;
+	font-size: 30px;
+}
+
+.reviewbtn{
+	color : #1A271D;
+	background-color : #F6F5F0;
+	width : 100px;
+	height : 40px;
+	display : inline-block;
+	text-align : center;
+	font-size: 20px;
+	margin-right: 20px;
+	margin-left : 20px;
+	line-height: 35px;
+}
+
+.reviewbtn:hover{
+	cursor : pointer;
+	background-color : #1A271D;
+	color:#F6F5F0;
+	
+}
+

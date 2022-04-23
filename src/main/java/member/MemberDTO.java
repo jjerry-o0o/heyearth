@@ -11,8 +11,22 @@ public class MemberDTO {
 	int point;
 	int admin;
 	MultipartFile image;
+	String newpw;
+	String newpwck;
 
 	
+	public String getNewpw() {
+		return newpw;
+	}
+	public void setNewpw(String newpw) {
+		this.newpw = newpw;
+	}
+	public String getNewpwck() {
+		return newpwck;
+	}
+	public void setNewpwck(String newpwck) {
+		this.newpwck = newpwck;
+	}
 	public MultipartFile getImage() {
 		return image;
 	}
