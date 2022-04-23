@@ -50,9 +50,10 @@ function boarddel(code){
 	}
 }
 
-function boardcontent(code){  // 댓글쓰기가 필요한 요청/질문 게시판 선택시
-	
+function comment(code){
+	location.href = "admincomment?code=" + code;
 }
+
 
 $(document).ready(function(){
 	
@@ -62,15 +63,16 @@ $(document).ready(function(){
 			url : "/adminboardlist",
 			type : "get",
 			data : {"b_type" : "not"},
-			success : function(result){
+			success : function(result){				
 				$("#adminnoticetable").html("<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th> </th><th> </th></tr>");
 				for(var i=0;i<result.length;i++){
 					$("#adminnoticetable").append("<tr><td class='tabname'>"+ result[i].b_title +"</td>" +
 					"<td class='tabname'>" +result[i].id + "</td>" +
-					"<td class='tabname'>" + result[i].b_regdate + "</td>" +
+					"<td class='tabname'>" + result[i].regdate + "</td>" +
 					"<td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod("+ result[i].b_no +")'></td>"+
 					"<td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel("+ result[i].b_no +")'></td></tr>");
 				}
+					
 			}
 		});
 	}); // notice button click end
@@ -82,12 +84,13 @@ $(document).ready(function(){
 			type : "get",
 			data : {"b_type" : "que"},
 			success : function(result){
-				$("#adminquestiointable").html("<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th> </th><th> </th></tr>");
+				$("#adminquestiontable").html("<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th>  </th><th>  </th><th>  </th></tr>");
 				for(var i=0;i<result.length;i++){
 					$("#adminquestiontable").append("<tr><td class='tabname'>"+ result[i].b_title +"</td>" +
 					"<td class='tabname'>" +result[i].id + "</td>" +
-					"<td class='tabname'>" + result[i].b_regdate + "</td>" +
-					"<td><input class='tabmodbtn' id='boardmod' type='button' value='게시물확인' onclick='boardcontent("+ result[i].b_no +")'></td>"+
+					"<td class='tabname'>" + result[i].regdate + "</td>" +
+					"<td><input class='tabmodbtn' id='comment' type='button' value='댓글작성' onclick='comment("+result[i].b_no + ")'></td>" +
+					"<td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod("+ result[i].b_no +")'></td>"+
 					"<td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel("+ result[i].b_no +")'></td></tr>");
 				}
 			}
@@ -101,12 +104,13 @@ $(document).ready(function(){
 			type : "get",
 			data : {"b_type" : "req"},
 			success : function(result){
-				$("#adminrequesttable").html("<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th> </th><th> </th></tr>");
+				$("#adminrequesttable").html("<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th>  </th><th>  </th><th>  </th></tr>");
 				for(var i=0;i<result.length;i++){
 					$("#adminrequesttable").append("<tr><td class='tabname'>"+ result[i].b_title +"</td>" +
 					"<td class='tabname'>" +result[i].id + "</td>" +
-					"<td class='tabname'>" + result[i].b_regdate + "</td>" +
-					"<td><input class='tabmodbtn' id='boardmod' type='button' value='게시물확인' onclick='boardcontent("+ result[i].b_no +")'></td>"+
+					"<td class='tabname'>" + result[i].regdate + "</td>" +
+					"<td><input class='tabmodbtn' id='comment' type='button' value='댓글작성' onclick='comment("+result[i].b_no + ")'></td>" +
+					"<td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod("+ result[i].b_no +")'></td>"+
 					"<td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel("+ result[i].b_no +")'></td></tr>");
 				}
 			}

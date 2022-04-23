@@ -1,28 +1,34 @@
 $(document).ready(function(){
-	$("#missionback").one('click',function(){
+	
+	$("#previewimg").hide();   // 이미지 미리보기창 안보이게
+	
+	$("#missionback").one('click',function(){   // 미션리스트 목록으로
 		location.href = "adminmission";
 	});
 	
-	const inputImage = document.getElementById("input-image")
+	const inputImage = document.getElementById("input-image")  // 이미지 띄우기
 	inputImage.addEventListener("change", e => {
-    	readImage(e.target)
+    	readImage(e.target);
+    	$("#previewimg").show();   // 이미지 미리보기창 보이게
 	})
 	
-	var type = "group";
+	var type = "group";   // 현재 미션 타입을 저장
 	
 	$("#m_type1").click(function(){   // 그룹선택
-		$("#selboxDirect").show();
-		$("#selboxDirect").attr("required",true);
+		$("#selboxDirect").show();   // 직접입력창 띄우기
+		$("#selboxDirect").attr("required",true);  // 무조건 입력하도록
 		type = "group";
-		$("#m_inform").val("");
+		$("#m_inform").val("");   // 다른 입력값 초기화
 		$("#m_carbon").val("");
 		$("#m_point").val("");
 		$("#selboxDirect").val("");
 		$("#m_location").val("");
 		$("#m_date").val("");
 		$("#m_personnel").val("");
-		$("#m_photo").val("eco.jpg");
-		document.getElementById("previewimg").src="img/eco.jpg";
+		$("#m_photo").val("");
+		$("#previewimg").hide();
+		$("#input-image").attr("required",true);
+		$("#input-image").val("");
 		
 		$("#location").html("<input id='m_location' name='m_location' class='admintd' type='text' required>");
 		$("#date").html("<input id='m_date' name='m_date' class='admintd' type='date' required>");
@@ -41,8 +47,10 @@ $(document).ready(function(){
 		$("#m_location").val("");
 		$("#m_date").val("");
 		$("#m_personnel").val("");
-		$("#m_photo").val("eco.jpg");
-		document.getElementById("previewimg").src="img/eco.jpg";
+		$("#m_photo").val("");
+		$("#previewimg").hide();
+		$("#input-image").attr("required",true);
+		$("#input-image").val("");
 		
 		$("#location").html("어디서나<input type='hidden' name='m_location' value='어디서나'>");
 		$("#date").html("상시<input type='hidden' name='m_date' value='2025-12-31'>");
@@ -53,14 +61,28 @@ $(document).ready(function(){
 	})
 	
 	
-	$("#m_name").change(function(){
-		if($("#m_name").val() == "direct"){
+	$("#m_name").change(function(){    // 미션명을 바꾼다면
+		if($("#m_name").val() == "direct"){   // 직접입력을 선택
 			$("#selboxDirect").show();
 			$("#selboxDirect").attr("required",true);
+			$("#m_inform").val("");
+			$("#m_carbon").val("");
+			$("#m_point").val("");
+			$("#m_photo").val("");
+			$("#m_location").val("");
+			$("#m_date").val("");
+			$("#m_personnel").val("");
+			$("#previewimg").hide();
+			$("#input-image").attr("required",true);
+			$("#input-image").val("");
 			
-		}else{
+		}else{    // 존재하는 미션 이름을 선택
 			$("#selboxDirect").hide();
 			$("#selboxDirect").attr("required",false);
+			$("#m_location").val("");
+			$("#m_date").val("");
+			$("#m_personnel").val("");
+			$("#input-image").val("");
 			$.ajax({
 				url : "/missioninfo1",
 				type : "get",
@@ -71,13 +93,15 @@ $(document).ready(function(){
 					$("#m_point").val(result.m_point);
 					$("#m_photo").val(result.m_photo);
 					document.getElementById("previewimg").src="img/"+result.m_photo;
+					$("#previewimg").show();
+					$("#input-image").attr("required",false);
 				}
 			});
 			
 		}
 	})
 	
-	firstnameclick($("#m_name").val());
+	firstnameclick($("#m_name").val());   // 페이지 로드시 이름목록 채우기
 	
 })
 
@@ -132,7 +156,6 @@ function firstnameclick(name){
 				} // success  function end
 			});  //missionname ajax
 	}else{
-		alert("상시");
 		$("#m_name").html("<option value='direct' selected>직접입력</option>");
 	}
 

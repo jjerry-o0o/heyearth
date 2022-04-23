@@ -15,11 +15,19 @@ public class MissionDTO {
 	int m_point; //미션 포인트
 	int m_personnel; //미션 인원
 	int p_star;
+	String star;
 	String p_review;
 	String p_code;
 	String id;
 	String p_photo;
 	int p_complete;
+	
+	public String getStar() {
+		return star;
+	}
+	public void setStar(String star) {
+		this.star = star;
+	}
 	public int getP_complete() {
 		return p_complete;
 	}
