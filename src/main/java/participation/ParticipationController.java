@@ -1,7 +1,6 @@
 package participation;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -13,14 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import mission.MissionDTO;
 
 @Controller
 public class ParticipationController {
@@ -52,22 +49,8 @@ public class ParticipationController {
 		} else {
 			return new ModelAndView("member/login", "", null);
 		}
-		 //미션 리뷰쓰기 모달창
-			/*
-			 * @RequestMapping("/mymissiondetail2")
-			 * 
-			 * @ResponseBody public ParticipationDTO mymission_review(int p_code) { return
-			 * service.mymission_detail(p_code); }
-			 */
-		
-		
-		
-	 //미션 인증하기 모달창
-		@RequestMapping("/mymissiondetail")
-		@ResponseBody
-		public ParticipationDTO mymission_modal(int p_code) {
-			return service.mymission_detail(p_code);
-		}
+	
+	}
 		
 
 	// 상시 미션 등록&인증하기

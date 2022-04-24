@@ -29,7 +29,7 @@
 	</select>
 	
 	<!-- 회원정보 수정 -->
-	<update id="updatemember" parameterType="memberdto">
+	<update id="updatemember" parameterType="String">
 		update member set pw=#{newpw}, phone=#{phone} where id=#{id};
 	</update> 
 	
