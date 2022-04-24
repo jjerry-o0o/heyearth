@@ -10,11 +10,18 @@ public class MemberDTO {
 	int grade;
 	int point;
 	int admin;
+	int carbon;
+
 	MultipartFile image;
 	String newpw;
 	String newpwck;
-
 	
+	public int getCarbon() {
+		return carbon;
+	}
+	public void setCarbon(int carbon) {
+		this.carbon = carbon;
+	}	
 	public String getNewpw() {
 		return newpw;
 	}

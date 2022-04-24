@@ -30,8 +30,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int updatemember(String userId,String pw,String newpw,String newpwck) {
-		return memberdao.updatemember(userId,pw,newpw,newpwck);
+	public int updatemember(String id,String pw,String newpw,String newpwck,String phone) {
+		return memberdao.updatemember(id,pw,newpw,newpwck,phone);
 	}
 
 	@Override
