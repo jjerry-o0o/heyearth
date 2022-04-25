@@ -8,7 +8,7 @@ public interface CommentService {
 	
 	public List<CommentDTO> selectComment(int b_no);
 	
-	public void updateComment(int c_index);
+	public void updateComment(CommentDTO dto);
 	
 	public void deleteComment(int c_index);
 	
