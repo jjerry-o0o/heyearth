@@ -50,14 +50,18 @@ public class MypageController {
 		 
 	  //나의 가이드 스크랩
 		 @RequestMapping("/guide_insert")
-			public String register(@ModelAttribute MyguideDTO dto, HttpSession session) {
+			public ModelAndView register(@ModelAttribute MyguideDTO dto, HttpSession session, ModelAndView mv) {
 				String id = (String) session.getAttribute("session_id");
 				if (id == null) {
-					return "member/login";
+					return new ModelAndView("member/login", "", null);
 				}
 				dto.setId(id);
-				myguideservice.guide_insert(dto); 
-				return "redirect:/recycling";
+				int result = myguideservice.guide_insert(dto);
+				System.out.println(result);
+				mv.addObject("result", result);
+				mv.setViewName("recycling/recycling");
+				return mv;
+				/* "redirect:/recycling"; */
 			}
 		 
 		// 스크랩 삭제하기

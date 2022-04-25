@@ -11,8 +11,9 @@
 	</select>	
 <!-- 스크랩하기 --> 
 	<insert id="guide_insert" parameterType="myguidedto">
-        insert into myguide ( mg_code, id, r_code)
-        values ( mg_code, #{id}, #{r_code})
+        insert into myguide ( id, r_code)
+        select  #{id}, #{r_code}
+  from dual where not exists(select * from myguide where id = #{id} and r_code = #{r_code});
     </insert>
     
 <!-- 스크랩 삭제하기 -->    
