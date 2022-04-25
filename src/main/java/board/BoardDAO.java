@@ -49,4 +49,5 @@ public interface BoardDAO {
 	
 	//게시물검색
 	public List<BoardDTO> findList(Map<String, String> data);
+	public List<BoardDTO> findList2(Map<String, String> data);
 }

@@ -13,6 +13,18 @@
 <link href="css/recycling/recycling.css" rel="stylesheet">
 <script src="jquery-3.6.0.min.js"></script>
 <script src="/js/recycling/recycling.js"></script>
+<script>
+$(document).ready(function(){
+	$(".insert").on("submit", function(){
+		if($(this).children("input[name=r_code]").val() > 1){		
+		alert("스크랩되었습니다!");
+		return true;
+		}
+		return false;	
+		
+	});
+	});
+</script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
@@ -69,10 +81,18 @@
 					
 				</div>
 					<div class="modaltitle">
+					<form name="form" method="post" class="insert"
+				action="${pageContext.request.contextPath}/guide_insert">
+				<input type="hidden" id="r_code" name="r_code">
+				
+					<input class="scrap" type='submit' value='★'>
+				
+			</form>
 						<h2 class="modalh2" id="modalh2"></h2>
 					</div>
 				<div class="modalcontent" id="modalcontent">
 				</div>
+				
 				<div id="modalbtn">
 				</div>
 			</div>
