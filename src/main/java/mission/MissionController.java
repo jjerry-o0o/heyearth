@@ -35,9 +35,9 @@ public class MissionController {
 	    }
 	 
 	   //미션 상세페이지
-	   @RequestMapping("/mission_group/{m_code}")
+	   @RequestMapping("/mission_detail/{m_code}")
 	    public ModelAndView mission_group(@PathVariable("m_code") int m_code, String m_name, ModelAndView mav) {
-	        mav.setViewName("mission/mission_group");
+	        mav.setViewName("mission/mission_detail");
 	        MissionDTO dto = missionservice.missiongroup(m_code);
 	        
 	        mav.addObject("group",missionservice.missiongroup(m_code));//미션 상세페이지 목록

@@ -18,6 +18,7 @@ import comment.CommentContoller;
 import comment.CommentDAO;
 import mission.MissionController;
 import mission.MissionDAO;
+import mypage.MyguideDAO;
 import mypage.MypageController;
 import recycling.RecyclingController;
 import recycling.RecyclingDAO;
@@ -54,6 +55,7 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = CarbonDAO.class)
 @ComponentScan(basePackageClasses = CommentContoller.class)
 @MapperScan(basePackageClasses = CommentDAO.class)
+@MapperScan(basePackageClasses = MyguideDAO.class)
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

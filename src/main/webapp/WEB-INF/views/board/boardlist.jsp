@@ -44,8 +44,8 @@
 			<form action="/boardfind" id="findform">
 				<select id="b_type" name="type">
 					<option value="all"> 검색유형 </option>
-					<option value="not"> 공지 </option>
 					<option value="que"> 질문 </option>
+					<option value="not"> 공지 </option>
 					<option value="req"> 요청 </option>
 				</select>
 				검색 : <input type="text" id="find" name="keyword" autofocus="autofocus" placeholder="검색어를 입력해주세요">
@@ -76,6 +76,7 @@
 				<c:forEach items="${boardlist }" var="board">
 					<tr id="content_td">
 						<td>
+							<c:if test="${board.b_type =='all'}">전체</c:if> 
 							<c:if test="${board.b_type =='not'}">공지사항</c:if> 
 							<c:if test="${board.b_type =='que'}">질문</c:if> 
 							<c:if test="${board.b_type =='req'}">요청</c:if> 

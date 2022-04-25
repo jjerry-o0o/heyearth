@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+
+li{
+list-style: none;
+}
+ #ing, #end{
+ display:inline-block;
+ width:100px;
+	padding-left : 18px;
+	padding-right : 18px;
+	padding-top : 8px;
+	padding-bottom : 8px;
+	border:2px solid #1A271D;
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right:20px;
+	color: #1A271D;
+}
+#group, #solo{
+	padding-left : 18px;
+	padding-right : 18px;
+	padding-top : 8px;
+	padding-bottom : 8px;
+	border:2px solid #1A271D;
+	font-size: 16px;
+	color: #1A271D;
+}
+#solo{
+	background-color : #F6F5F0;
+}
+
+#group{
+	background-color : #1A271D;
+	font-weight : bold;
+	color:#F6F5F0;
+}
+#end{
+	background-color : #F6F5F0;
+}
+
+#ing{
+	background-color : #1A271D;
+	font-weight : bold;
+	color:#F6F5F0;
+}
+#group:hover, #solo:hover,  #ing:hover,  #end:hover{
+	cursor : pointer;
+}
+.missionlist{
+display: grid; 
+grid-template-columns: 20% auto; 
+margin-left: auto; 
+margin-right: auto; 
+margin-bottom: 10px; 
+width: 80%; 
+border: 3px solid #1A271D;		
+}
+.mission_box{
+	margin-top: 20px; 
+	margin-bottom: 50px; 
+	text-align: center;
+	
+}
