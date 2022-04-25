@@ -48,9 +48,9 @@ public class ParticipationController {
 			return mv;
 		} else {
 			return new ModelAndView("member/login", "", null);
-		}	
-	 }
+		}
 
+	 }
 	// 상시 미션 등록&인증하기
 	@RequestMapping("/register_complete")
 	public String register_complete(@ModelAttribute ParticipationDTO dto, HttpSession session) throws Exception { 

@@ -11,44 +11,44 @@
 <!-- end of header import -->
 <link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
 <script src="/jquery-3.6.0.min.js"></script>
-<script src="js/main.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <script type="text/javascript"
 	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	
+
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
-	$(document).ready(function () {
-		$( '.slider' ).slick( {
-	          autoplay: true,
-	          autoplaySpeed: 5000,
-	          slidesToShow: 4,
-	          slidesToScroll: 1,
-	        } );
+	$(document).ready(function() {
+		$('.slider').slick({
+			autoplay : true,
+			autoplaySpeed : 5000,
+			slidesToShow : 4,
+			slidesToScroll : 1,
+		});
 		$('.slider').slick('setPosition');
-		
-		const swiper = new Swiper( '.swiper', {
-			autoplay: {
-			      delay: 1000,
-			    },
-		    loop: true,
-		    navigation: {
-		      nextEl: '.swiper-button-next',
-		      prevEl: '.swiper-button-prev',
-		    },
-		    pagination: {
-		      el: '.swiper-pagination',
-		      type: 'bullets',
-		      clickable: true,
-		    },
-		  	 slidesPerView: 5,
-		    slidesPerGroup : 1,
-		  } );
+
+		const swiper = new Swiper('.swiper', {
+			autoplay : {
+				delay : 2000,
+			},
+			loop : true,
+			navigation : {
+				nextEl : '.swiper-button-next',
+				prevEl : '.swiper-button-prev',
+			},
+			pagination : {
+				el : '.swiper-pagination',
+				type : 'bullets',
+				clickable : true,
+			},
+			slidesPerView : 5,
+			slidesPerGroup : 1,
+		});
 	});
 </script>
 
@@ -56,13 +56,15 @@
 
 </head>
 <body>
+
+	<!-- 메인1 탄소 -->
 	<div class="m-carbon">
 		<div class="m-carbon-title">
 			<h1>탄소발자국을 아세요?</h1>
 		</div>
 		<div class="m-carbon-text">
 			<p>
-				약 81명의 와썹러들이 환경보호 활동을 통해 함께 실천해나가는 탄소배출 줄이기.<br>함께 확인해보실래요?
+				헤이얼스와 함께하는 와썹러들이 환경보호 활동을 통해 함께 실천해나가는 탄소배출 줄이기.<br>함께 확인해보실래요?
 			</p>
 		</div>
 
@@ -95,7 +97,32 @@
 		<img id="m-image" src="img/main1.png">
 	</div>
 
-	<hr>
+
+
+
+	<!-- 메인2 제휴사 연결 -->
+
+	<div class="affiliates">
+
+		<div id="aff-text">
+			<h2>헤이얼스와 함께하는 제로웨이스트샵을 소개합니다.</h2>
+		</div>
+		<div id="aff-imges">
+			<img id="aff-img" src=img/main-aff1.png> <img id="aff-img2"
+				src=img/main-aff2.png style="width: 10%; height: 10%;"> <img
+				id="aff-img" src=img/main-aff3.png> <img id="aff-img"
+				src=img/main-aff4.png> <img id="aff-img" src=img/main-aff5.png>
+			<img id="aff-img" src=img/main-aff6.png> <img id="aff-img"
+				src=img/main-aff7.png> <img id="aff-img" src=img/main-aff8.png>
+			<img id="aff-img" src=img/main-aff9.png> <img id="aff-img"
+				src=img/main-aff10.png style="width: 15%; height: 15%;">
+
+		</div>
+
+	</div>
+
+
+	<!-- 메인3 About 연결 -->
 
 	<div class="m-about">
 		<img src="img/main2.png" id="main-logo"
@@ -112,6 +139,8 @@
 		</div>
 	</div>
 
+	<!-- 메인4 제로샵 연결 -->
+
 	<hr>
 	<div class="m-zeroshop">
 		<div class="m-zeroshop-title">
@@ -126,8 +155,8 @@
 					<div class="swiper-slide" id="m-zeroshop-db">
 						<div id="m-zeroshop-each">
 							<div id="m-zeroshop-img">
-								<a href="zeroshop_group/${row.s_code}"> <img width=250px
-									height=250px
+								<a href="zeroshop_group/${row.s_code}"> <img width=270px
+									height=270px
 									src="<%=request.getContextPath()%>/img/${row.s_photo}">
 								</a>
 							</div>
@@ -135,7 +164,7 @@
 								<div class="list">
 									<h3>${row.s_name }</h3>
 									<p>
-										${row.s_location }<br> ${row.s_call }
+										${row.s_location }<br>☎ ${row.s_call }
 									</p>
 
 								</div>
@@ -147,6 +176,8 @@
 		</div>
 	</div>
 
+	<!-- 메인5 미션 연결 -->
+
 	<hr>
 	<div class="m-mission">
 		<div class="m-mission-title">
@@ -157,46 +188,48 @@
 		</div>
 		<div class="swiper">
 			<div class="swiper-wrapper">
-			<c:forEach items="${gilist }" var="row">
-			<div class="swiper-slide" id="m-zeroshop-db">
-				<div id="m-mission-each">
-					<div id="m-mission-img">
-						<a href="mission_group/${row.m_code}">
-							<img width=250px height=250px src="<%=request.getContextPath()%>/img/${row.m_photo}">
-						</a>
-					</div>
-					<div id="m-mission-text">
-						<div class="list">
-							<h3>${row.m_name }</h3>
-							<p>
-								장소 : ${row.m_location }<br> 날짜 : ${row.m_date }
-							</p>
+				<c:forEach items="${gilist }" var="row">
+					<div class="swiper-slide" id="m-zeroshop-db">
+						<div id="m-mission-each">
+							<div id="m-mission-img">
+								<a href="mission_group/${row.m_code}"> <img width=270px
+									height=270px
+									src="<%=request.getContextPath()%>/img/${row.m_photo}">
+								</a>
+							</div>
+							<div id="m-mission-text">
+								<div class="list">
+									<h3>${row.m_name }</h3>
+									<p>
+										함께 하길 기다리고 있어요!<br> <br> 장소 : ${row.m_location }<br>
+										날짜 : ${row.m_date }
+									</p>
 
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				</div>
-			</c:forEach>
-			<c:forEach items="${silist }" var="row">
-			<div class="swiper-slide" id="m-zeroshop-db">
-				<div id="m-mission-each">
-					<div id="m-mission-img">
-						<a href="mission_group/${row.m_code}"><img width=250px
-							height=250px
-							src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
-					</div>
-					<div id="m-mission-text">
-						<div class="list">
-							<h3>${row.m_name }</h3>
-							<p>
-								지금 당장 미션을 수행해보세요!<br> <br> 포인트 : ${row.m_point }<br>
-								탄소배출감소량 : ${row.m_carbon }
-							</p>
+				</c:forEach>
+				<c:forEach items="${silist }" var="row">
+					<div class="swiper-slide" id="m-zeroshop-db">
+						<div id="m-mission-each">
+							<div id="m-mission-img">
+								<a href="mission_group/${row.m_code}"><img width=270px
+									height=270px
+									src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
+							</div>
+							<div id="m-mission-text">
+								<div class="list">
+									<h3>${row.m_name }</h3>
+									<p>
+										지금 당장 미션을 수행해보세요!<br> <br> 포인트 : ${row.m_point }<br>
+										탄소배출감소량 : ${row.m_carbon }
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				</div>
-			</c:forEach>
+				</c:forEach>
 			</div>
 		</div>
 	</div>
