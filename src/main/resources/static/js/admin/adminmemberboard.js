@@ -2,18 +2,22 @@ function board(num){
 	if(num =='1'){
 		document.getElementById("questionpage").style.display = "";
 		document.getElementById("requestpage").style.display = "none";
-		document.getElementById("question").style.backgroundColor = "#1A271D";
-		document.getElementById("request").style.backgroundColor = "#f6f5f0";
-		document.getElementById("question").style.color = "#f6f5f0";
-		document.getElementById("request").style.color = "#1A271D";
+		document.getElementById("que").style.backgroundColor = "#1A271D";
+		document.getElementById("req").style.backgroundColor = "#f6f5f0";
+		document.getElementById("que").style.color = "#f6f5f0";
+		document.getElementById("req").style.color = "#1A271D";
 	}else{
 		document.getElementById("requestpage").style.display = "";
 		document.getElementById("questionpage").style.display = "none";
-		document.getElementById("request").style.backgroundColor = "#1A271D";
-		document.getElementById("question").style.backgroundColor = "#f6f5f0";
-		document.getElementById("request").style.color = "#f6f5f0";
-		document.getElementById("question").style.color = "#1A271D";
+		document.getElementById("req").style.backgroundColor = "#1A271D";
+		document.getElementById("que").style.backgroundColor = "#f6f5f0";
+		document.getElementById("req").style.color = "#f6f5f0";
+		document.getElementById("que").style.color = "#1A271D";
 	}
+}
+
+function boardback(){
+	location.href="adminmember";
 }
 
 
@@ -32,7 +36,7 @@ function boarddel(code){
 $(document).ready(function(){
 	
 	// 질문 버튼
-	$("#question").on('click',function(){
+	$("#que").on('click',function(){
 		$.ajax({
 			url : "/adminmemberboardlist",
 			type : "get",
@@ -50,7 +54,7 @@ $(document).ready(function(){
 	}); // question button click end
 	
 	// 요청 버튼
-	$("#request").on('click',function(){
+	$("#req").on('click',function(){
 		$.ajax({
 			url : "/adminmemberboardlist",
 			type : "get",
@@ -63,6 +67,7 @@ $(document).ready(function(){
 					"<td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod("+ result[i].b_no +")'></td>"+
 					"<td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel("+ result[i].b_no +")'></td></tr>");
 				}
+				
 			}
 		});
 	}); // request button click end

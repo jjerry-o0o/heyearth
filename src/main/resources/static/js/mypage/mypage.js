@@ -26,7 +26,7 @@ function profil_div(){
 			$("#updateDiv").append("<div id=update><input type='submit' value='회원정보 수정'></div>");
 			$("#updateDiv").append("<div id=withdraw><input type='button' value='회원탈퇴'></div>");
 			
-			document.getElementById("pwckbtn").onclick = pwck();
+			document.getElementById("pwckbtn").onclick = pwck;
 			
 			function pwck() {
 				var pw2 = document.getElementById("pw2").value;

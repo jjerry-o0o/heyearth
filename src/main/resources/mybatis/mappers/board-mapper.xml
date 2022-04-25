@@ -58,7 +58,7 @@
 	
 	<sql id="search">
 		<choose>
-			<when test="#{type}.equals('all') and !#{keyword }.equals('')">
+			<when test="#{type}.equals('all') and !#{keyword}.equals('')">
 				WHERE id like CONCAT('%',#{keyword},'%') 
 				OR b_content like CONCAT('%',#{keyword},'%') 
 				OR b_title like CONCAT('%',#{keyword},'%') 

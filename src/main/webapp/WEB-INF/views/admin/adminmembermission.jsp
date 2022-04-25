@@ -6,20 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Hey,Earth | Admin Page</title>
-<link href="css/admin/adminlist.css" rel="stylesheet">
+<link href="css/admin/adminreview.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="jquery-3.6.0.min.js"></script>
-<script src="/js/admin/adminmission.js"></script>
+<script src="/js/admin/adminmembermission.js"></script>
 </head>
 <body>
 
-<h1 class='adminmain'>'환경 지킴이 모집중' 관리 페이지입니다.</h1><br>
-
-<div>
-<input class="addbtn" id='missionadd' type='button' value='등록하기' onclick='missioninsert()'>
-</div>
+<h1 class='adminmain'>'${missionlist[0].id}'님이 참여하신 미션 페이지입니다.</h1><br>
+<input type="hidden" id="id" value="${missionlist[0].id }">
 
 <div class="mission_choose">
 		<input type="button" id="groupmission" name="findid" value = "단체미션" onclick="mission(1)" checked="checked" autofocus>
@@ -28,24 +25,79 @@
 </div>
 <br>
 <br>
-<div class="mission_body">
+<div class="admincontext">
 	<div id="groupmissionpage">
-		<table class='adminlisttable' id='admingroupmissiontable'>
-		<tr><th>미션명</th><th>날짜</th><th> </th><th> </th><th> </th></tr>
 		<c:forEach items="${missionlist}" var="missionlist">
-			<tr><td class='tabname'>${missionlist.m_name}</td><td class='missiondate'>${missionlist.m_date }</td>
-			<td><input class='tabreviewbtn' id='missionreview' type='button' value='후기보러가기' onclick='missionreview(${missionlist.m_code })'></td>
-			<td><input class='tabmodbtn' id='missionmod' type='button' value='수정' onclick='missionmod(${missionlist.m_code})'></td>
-			<td><input class='tabdelbtn' id='missiondel' type='button' value='삭제' onclick='missiondel(${missionlist.m_code})'></td></tr>
+			<c:if test="${missionlist.m_type == 'group' }">
+				<c:if test="${missionlist.m_name != 'none'}">		
+					<div class='review'>
+						<div class='reviewinfo'><img class='reviewimg' src="img/${missionlist.p_photo }"></div>
+						<div class='reviewinfo'><span class='reviewmission'>${missionlist.m_name }</span><br>
+						날짜 : ${missionlist.m_date }<br>
+						장소 : ${missionlist.m_location }<br>
+						<c:if test="${missionlist.p_star != 0 }">
+							별점 : ${missionlist.p_star }<br>
+						</c:if>
+						<c:if test="${missionlist.p_review != null }">
+							<div class='reviewcontent'>${missionlist.p_review }</div>
+						</c:if>
+						<c:if test="${missionlist.p_review == null }">
+							아직 리뷰가 없습니다.
+						</c:if>
+						</div><br>
+						<input type="button" class="reviewbtn" value="수정하기" onclick='missionmod(${missionlist.p_code})'>
+						<input type="button" class="reviewbtn" value="삭제하기" onclick='missiondel(${missionlist.p_code})'>
+					</div>
+				</c:if>
+				<c:if test="${missionlist.m_name == 'none' }">
+					<div class='noreview'>
+						참여한 미션이 없습니다.
+						
+					</div>
+				</c:if>
+			</c:if>
 		</c:forEach> 
-		</table>
 	</div>
 	
 	<div id="solomissionpage" style="display:none;">
-		<table class='adminlisttable' id='adminsolomissiontable'>
-		
-		</table>
+		<c:forEach items="${missionlist}" var="missionlist">
+			<c:if test="${missionlist.m_type == 'solo' }">
+				<c:if test="${missionlist.m_name != 'none'}">		
+					<div class='review'>
+						<div class='reviewinfo'><img class='reviewimg' src="img/${missionlist.p_photo }"></div>
+						<div class='reviewinfo'><span class='reviewmission'>${missionlist.m_name }</span><br>
+						<c:if test="${missionlist.p_star != 0 }">
+							별점 : ${missionlist.p_star }<br>
+						</c:if>
+						<c:if test="${missionlist.p_review != null }">
+							<div class='reviewcontent'>${missionlist.p_review }</div>
+						</c:if>
+						<c:if test="${missionlist.p_review == null }">
+							아직 리뷰가 없습니다.
+						</c:if>
+						</div><br>
+						<input type="button" class="reviewbtn" value="수정하기" onclick='missionmod(${missionlist.p_code})'>
+						<input type="button" class="reviewbtn" value="삭제하기" onclick='missiondel(${missionlist.p_code})'>
+					</div>
+				</c:if>
+				<c:if test="${missionlist.m_name == 'none' }">
+					<div class='noreview'>
+						참여한 미션이 없습니다.
+						
+					</div>
+				</c:if>
+			</c:if>
+		</c:forEach> 
 	</div>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<input type="button" class="reviewbtn" value="목록으로" onclick='missionback()'>
+	<br>
+	<br>
+	<br>
 </div>
 
 </body>

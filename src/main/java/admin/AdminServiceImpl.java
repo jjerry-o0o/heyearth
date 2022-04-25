@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import board.BoardDTO;
+import comment.CommentDTO;
 import member.MemberDTO;
 import mission.MissionDTO;
 import recycling.RecyclingDTO;
@@ -237,6 +238,28 @@ public class AdminServiceImpl implements AdminService {
 	
 	
 	
+	/* 댓글 관리*/
+	@Override
+	public List<CommentDTO> commentlist(int b_no) {
+		return admindao.commentlist(b_no);
+	}
+	
+	@Override
+	public List<CommentDTO> recommentlist(int b_no) {
+		return admindao.recommentlist(b_no);
+	}
+	
+	@Override
+	public void admincommentinsert(CommentDTO dto) {
+		admindao.admincommentinsert(dto);
+		
+	}
+	
+	
+	
+	
+	
+	
 	/* 회원 관리 */
 	@Override
 	public List<MemberDTO> adminmemberlist() {
@@ -264,6 +287,21 @@ public class AdminServiceImpl implements AdminService {
 		dto.setB_type(b_type);
 		dto.setId(id);
 		return admindao.adminmemberboardlist(dto);
+	}
+	
+	@Override
+	public MemberDTO adminmembermod(String id) {
+		return admindao.adminmembermod(id);
+	}
+	
+	@Override
+	public void updatemember(MemberDTO dto) {
+		admindao.updatemember(dto);
+	}
+	
+	@Override
+	public String idtopcode(int p_code) {
+		return admindao.idtopcode(p_code);
 	}
 	
 	
