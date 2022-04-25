@@ -74,7 +74,7 @@
 	<select id="missionreviewlist" resultType="missiondto" parameterType="int">
 		select m.m_code as m_code, m_name, p_star,p_code, p_photo, p_review, id
     	from participation p, mission m 
-    	where m.m_code = p.m_code and p.m_code = #{m_code};
+    	where m.m_code = p.m_code and p.m_code = #{m_code} and p_complete = 1;
 		
 	</select>
 	
@@ -95,7 +95,9 @@
 	</delete>
 	
 	<select id="adminreviewinfo" parameterType="int" resultType="missiondto">
-		select p_code,id,p.m_code as m_code,p_complete,p_star,p_review,p_photo,m_name from participation p,mission m where p.p_code=#{p_code} and p.m_code=m.m_code;
+		select p_code,id,p.m_code as m_code,p_complete,p_star,p_review,p_photo,m_name,m_type,m_location,m_date
+		from participation p,mission m 
+		where p.p_code=#{p_code} and p.m_code=m.m_code;
 	</select>
 	
 	<update id="updatereview" parameterType="missiondto">
@@ -137,7 +139,7 @@
 	
 	
 	<select id="adminboardlist" resultType="boarddto" parameterType="String">
-		select * from board where b_type=#{b_type};
+		select * from board where b_type=#{b_type} order by b_regdate desc;
 	</select>
 	
 	<delete id="adminboarddel" parameterType="int">
@@ -153,13 +155,29 @@
 	</insert>
 	
 	<update id="updateboard" parameterType="boarddto">
-		update board set b_title=#{b_title},b_content=#{b_content},b_img=#{b_img} where b_no= #{b_no};
+		update board set b_type=#{b_type}, b_title=#{b_title},b_content=#{b_content},b_img=#{b_img} where b_no= #{b_no};
 	</update>
 	
 	
+
+
+	<select id="commentlist" parameterType="int" resultType="commentdto">
+		select * from comment where b_no=#{b_no} and c_order=0 ;
+	</select>
+	
+	<select id="recommentlist" parameterType="int" resultType="commentdto">
+		select * from comment where b_no=#{b_no} and c_order!=0 ;
+	</select>
+	
+	<insert id="admincommentinsert" parameterType="commentdto">
+		insert into comment(b_no,id,c_comment,c_order,c_regdate) values (#{b_no},#{id},#{c_comment},0,now());
+	</insert>
+
+
+	
 	
 	<select id="adminmemberlist" resultType="memberdto">
-		select * from member order by id;
+		select * from member where admin != 1 order by id;
 	</select>
 	
 	<delete id="adminmemberdel" parameterType="String">
@@ -167,17 +185,30 @@
 	</delete>
 	
 	<select id="adminmemberboard" resultType="boarddto" parameterType="String">
-		select * from board where id=#{id};
+		select * from board where id=#{id} and b_type="que";
 	</select>
 	
 	<select id="adminmembermission" resultType="missiondto" parameterType="String">
-		select p_code,id,p.m_code as m_code,m_name,p_star,p_review,p_photo from participation p,mission m where p.id=#{id} and p.m_code=m.m_code;
+		select p_code,id,p.m_code as m_code,m_name,m_type,m_location,m_date,p_star,p_review,p_photo 
+		from participation p,mission m 
+		where p.id=#{id} and p.m_code=m.m_code and p_complete=1;
 	</select>
 	
 	<select id="adminmemberboardlist" resultType="boarddto" parameterType="boarddto">
 		select * from board where b_type=#{b_type} and id=#{id};
 	</select>
 	
+	<select id="adminmembermod" resultType="memberdto" parameterType="String">
+		select * from member where id=#{id};
+	</select>
+	
+	<update id="updatemember" parameterType="memberdto">
+		update member set photo=#{photo}, grade=#{grade}, point=#{point}, carbon=#{carbon} where id=#{id};
+	</update>
+	
+	<select id="idtopcode" parameterType="int" resultType="String">
+		select id from participation where p_code=#{p_code};
+	</select>
 	
 	
 	

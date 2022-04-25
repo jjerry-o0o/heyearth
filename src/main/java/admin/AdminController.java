@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import board.BoardDTO;
+import comment.CommentDTO;
 import member.MemberDTO;
 import mission.MissionDTO;
 import participation.ParticipationDTO;
@@ -518,6 +519,11 @@ public class AdminController {
 		return "redirect:/adminboard";
 	}
 	
+	
+	
+	
+	
+	
 	/*댓글관리*/
 	@RequestMapping("/admincomment")
 	public ModelAndView admincomment(int code) {
@@ -529,9 +535,26 @@ public class AdminController {
 		/*if(boardinfo.getB_img()==null) {
 			boardinfo.setB_img("none");
 		}*/
+		
+		List<CommentDTO> commentlist = adminservice.commentlist(code);
+		List<CommentDTO> recommentlist = adminservice.recommentlist(code);
+		
+		mv.addObject("commentlist",commentlist);
+		mv.addObject("recommentlist",recommentlist);
 		mv.addObject("boardinfo",boardinfo);
 		mv.setViewName("admin/admincomment");
 		return mv;
+	}
+	
+	@RequestMapping("/admincommentinsert")
+	public String admincommentinsert(String c_comment, String id, int b_no ) {
+		CommentDTO dto = new CommentDTO();
+		dto.setB_no(b_no);
+		dto.setC_comment(c_comment);
+		dto.setId(id);
+		adminservice.admincommentinsert(dto);
+		
+		return "redirect:/admincomment";
 	}
 
 	
@@ -550,16 +573,40 @@ public class AdminController {
 		return mv;
 	}
 	
-	@RequestMapping("/adminmemerdel")
+	@RequestMapping("/adminmemberdel")
 	public String memberdel(String id) {
 		adminservice.adminmemberdel(id);
 		return "redirect:/adminmember";
+	}
+	
+	@RequestMapping("/adminmembermod")
+	public ModelAndView membermod(String id) {
+		ModelAndView mv = new ModelAndView();
+		MemberDTO memberinfo = adminservice.adminmembermod(id);
+		if(memberinfo.getPhoto() == null) {
+			memberinfo.setPhoto("none");
+		}
+		
+		mv.addObject("memberinfo", memberinfo);
+		mv.setViewName("admin/adminmembermod");
+		return mv;
 	}
 	
 	@RequestMapping("/adminmemberboard")
 	public ModelAndView memberboard(String id) {
 		ModelAndView mv = new ModelAndView();
 		List<BoardDTO> boardlist = adminservice.adminmemberboard(id);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+		for(int i=0;i<boardlist.size();i++) {			
+			String currentDate = dateFormat.format(boardlist.get(i).getB_regdate());
+			boardlist.get(i).setRegdate(currentDate);
+		}
+		if(boardlist.isEmpty()) {
+			BoardDTO dto = new BoardDTO();
+			dto.setId(id);
+			dto.setB_title(null);
+			boardlist.add(dto);
+		}
 		mv.addObject("boardlist",boardlist);
 		mv.setViewName("admin/adminmemberboard");
 		return mv;
@@ -579,6 +626,29 @@ public class AdminController {
 	public ModelAndView membermission(String id) {
 		ModelAndView mv = new ModelAndView();
 		List<MissionDTO> missionlist = adminservice.adminmembermission(id);
+		int solo=0;
+		int group=0;
+		for(int i=0;i<missionlist.size();i++) {
+			if(missionlist.get(i).getM_type().equals("solo")) {
+				solo += 1;
+			}else {
+				group += 1;
+			}
+		}
+		if(solo ==0) {
+			MissionDTO dto = new MissionDTO();
+			dto.setM_name("none");
+			dto.setM_type("solo");
+			dto.setId(id);
+			missionlist.add(dto);
+		}
+		if(group == 0) {
+			MissionDTO dto = new MissionDTO();
+			dto.setM_name("none");
+			dto.setM_type("group");
+			dto.setId(id);
+			missionlist.add(dto);
+		}
 		mv.addObject("missionlist",missionlist);
 		mv.setViewName("admin/adminmembermission");
 		return mv;
@@ -593,7 +663,131 @@ public class AdminController {
 			String currentDate = dateFormat.format(boardlist.get(i).getB_regdate());
 			boardlist.get(i).setRegdate(currentDate);
 		}
+
 		return boardlist;
+	}
+	
+	@RequestMapping("/adminmembermodinfo")
+	public String adminmembermodinfo(@ModelAttribute("") MemberDTO dto) throws Exception{
+		MultipartFile mf = dto.getImage();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setPhoto(mf.getOriginalFilename());
+		}
+		else if(dto.getPhoto().equals("none")) {
+			dto.setPhoto(null);
+		}
+		
+		adminservice.updatemember(dto);
+		
+		return "redirect:/adminmember";
+	}
+	
+	@RequestMapping("/adminmemberboarddel")
+	public String memberboarddel(int code) {
+		BoardDTO dto = adminservice.adminboardinfo(code);
+		adminservice.adminboarddel(code);
+		return "redirect:/adminmemberboard?id="+dto.getId();
+	}
+	
+	@RequestMapping("/adminmemberboardmod")
+	public ModelAndView memberboardmod(int code) {
+		ModelAndView mv = new ModelAndView();
+		BoardDTO boardinfo = adminservice.adminboardinfo(code);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
+		String currentDate = dateFormat.format(boardinfo.getB_regdate());
+		boardinfo.setRegdate(currentDate);
+		
+		if(boardinfo.getB_img()==null) { 
+			boardinfo.setB_img("none"); 
+		}
+		
+		mv.addObject("boardinfo",boardinfo);
+		mv.setViewName("admin/adminmemberboardmod");
+		return mv;
+	}
+	
+	@RequestMapping("/adminmemberboardmodinfo")
+	public String adminmemberboardmodinfo(@ModelAttribute("") BoardDTO dto) throws Exception{
+		MultipartFile mf = dto.getFile();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setB_img(mf.getOriginalFilename());
+		}
+		else if(dto.getB_img().equals("none")) {
+			dto.setB_img(null);
+		}
+		
+		adminservice.updateboard(dto);
+		
+		return "redirect:/adminmemberboard?id="+dto.getId();
+	}
+	
+	@RequestMapping("/adminmembermissiondel")
+	public String membermissiondel(int code) {
+		String id = adminservice.idtopcode(code);
+		int m_code = adminservice.mcodetopcode(code);
+		// 리뷰를 삭제하면 
+		// (1) 멤버의 point 줄어들고
+		adminservice.adminmemberpoint(code);
+		// (2) carbon 줄어들고
+		adminservice.adminmembercarbon(code);
+		// (3) grade 줄어들수도..?
+		
+		// 리뷰 삭제하기
+		adminservice.adminreviewdel(code);
+		
+		
+		return "redirect:/adminmembermission?id="+id;
+	}
+	
+	@RequestMapping("/adminmembermissionmod")
+	public ModelAndView membermissionmod(int code) {
+		ModelAndView mv = new ModelAndView();
+		MissionDTO reviewinfo = adminservice.adminreviewinfo(code);
+		
+		mv.addObject("reviewinfo",reviewinfo);
+		mv.setViewName("admin/adminmembermissionmod");
+		return mv;
+	}
+	
+	@RequestMapping("/adminmembermissionmodinfo")
+	public String adminmembermissionmodinfo(@ModelAttribute("") MissionDTO dto) throws Exception{
+		MultipartFile mf = dto.getImage();
+		
+		if(!mf.isEmpty()) {			
+			Path currentPath = Paths.get(""); 
+			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
+			path = path.replace("\\", "/");
+			
+			File serverfile = new File(path + mf.getOriginalFilename());
+			mf.transferTo(serverfile);
+			dto.setP_photo(mf.getOriginalFilename());
+		}
+		
+		if(dto.getStar().length()==0) {
+			dto.setStar(null);
+		}
+		
+		if(dto.getP_review().length()==0) {
+			dto.setP_review(null);
+		}
+		
+		adminservice.updatereview(dto);
+		
+		return "redirect:/adminmembermission?id="+dto.getId();
 	}
 	
 	

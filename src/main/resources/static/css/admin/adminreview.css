@@ -62,6 +62,10 @@ body{
 	display : inline-block;
 }
 
+.reviewmission{
+	font-size : 20px;
+}
+
 .noreview{
 	margin-top : 10px;
 	font-size: 30px;
@@ -85,5 +89,37 @@ body{
 	background-color : #1A271D;
 	color:#F6F5F0;
 	
+}
+
+.mission_choose{
+
+	text-align : center;
+}
+
+#groupmission, #solomission{
+	padding-left : 25px;
+	padding-right : 25px;
+	padding-top : 7px;
+	padding-bottom : 7px;
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right:20px;
+	font-weight : 400;
+	outline : 0;
+	border : 2px #1A271D solid;
+}
+
+#solomission{
+	background-color : #f6f5f0;
+	color : #1A271D;
+}
+
+#groupmission{
+	background-color : #1A271D;
+	color : #f6f5f0;
+}
+
+#groupmission:hover, #solomission:hover{
+	cursor : pointer;
 }
 
