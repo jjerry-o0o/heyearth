@@ -1,23 +1,20 @@
 package board;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
+import org.checkerframework.checker.units.qual.K;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.client.HttpClientErrorException.Unauthorized;
 
 import comment.CommentDTO;
 import member.MemberDAO;
-import member.MemberDTO;
 import paging.Criteria;
 
 
@@ -119,15 +116,18 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public List<BoardDTO> findList(String type, String keyword) {
+		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("type", type);
+		 System.out.println(data.get("type")); 
+			
 		data.put("keyword", keyword);
-		
 		BoardDTO dto = new BoardDTO();
 		dto.setData(data);
 		
 		return boarddao.findList(data);
 	}
+	
 
 	
 	

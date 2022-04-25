@@ -86,29 +86,35 @@ public class MemberController {
 	//마이페이지 회원정보 수정 - 비밀번호 확인
 	@RequestMapping(value="/pwck", method=RequestMethod.POST)
 	public @ResponseBody int pwck(@RequestParam(value="pw2") String pw) {
-		int result = service.nicknameCheck(pw);
+		int result = service.pwck(pw);
+		System.out.println(pw);
 		System.out.println(result);
 		return result;
 	}
 	
 	//마이페이지 회원정보 수정
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public ModelAndView updatemember(@RequestParam(value="userId") String userId,
-			@RequestParam(value="pw") String pw,
+	public ModelAndView updatemember(@RequestParam(value="userId") String id,
 			@RequestParam(value="newpw") String newpw,
-			@RequestParam(value="newpwck") String newpwck,
-			MemberDTO dto) {
+			@RequestParam(value="phone") String phone) {
 
-		System.out.println(userId);
-		System.out.println(pw);
-		System.out.println(newpw);
-		System.out.println(newpwck);
-		int result = service.updatemember(userId,pw,newpw,newpwck);
-		System.out.println(result);
+		int result = service.updatemember(id,newpw,phone);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", result);
 		mv.setViewName("mypage/mypage");
 		return mv;
+	}
+	
+	//마이페이지 회원탈퇴
+	@RequestMapping("/deletemember")
+	public String deleteresult(String id) {
+		int result = service.deletemember(id);
+		
+		if(result == 1) {
+			return "redirect:/"; 
+		}
+		return "redirect:/mypage/mypage"; 
+		
 	}
 	
 }

@@ -6,10 +6,6 @@ function memberboard(id){
 	location.href = "adminmemberboard?id=" + id;
 }
 
-function membercomment(id){
-	location.href = "adminmembercomment?id=" + id;
-}
-
 function membermission(id){
 	location.href = "adminmembermission?id=" + id;
 }

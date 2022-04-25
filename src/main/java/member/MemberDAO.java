@@ -15,6 +15,7 @@ public interface MemberDAO {
 	
 	//회원정보조회
 	public MemberDTO memberView(String id);
-	public int updatemember(String userId,String pw,String newpw,String newpwck);
+	public int updatemember(String id,String newpw,String phone);
 	public int pwck(String pw);
+	public int deletemember(String id);
 }

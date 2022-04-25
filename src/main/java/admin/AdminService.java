@@ -3,6 +3,7 @@ package admin;
 import java.util.List;
 
 import board.BoardDTO;
+import comment.CommentDTO;
 import member.MemberDTO;
 import mission.MissionDTO;
 import recycling.RecyclingDTO;
@@ -52,12 +53,20 @@ public interface AdminService {
 	public void insertboard(BoardDTO dto);
 	public void updateboard(BoardDTO dto);
 	
+	/*댓글 관리*/
+	public List<CommentDTO> commentlist(int b_no);
+	public List<CommentDTO> recommentlist(int b_no);
+	public void admincommentinsert(CommentDTO dto);
+	
 	/*회원 관리*/
 	public List<MemberDTO> adminmemberlist();
 	public void adminmemberdel(String id);
 	public List<BoardDTO> adminmemberboard(String id);
 	public List<MissionDTO> adminmembermission(String id);
 	public List<BoardDTO> adminmemberboardlist(String b_type, String id);
+	public MemberDTO adminmembermod(String id);
+	public void updatemember(MemberDTO dto);
+	public String idtopcode(int p_code);
 	
 	/*관리자 마이페이지*/
 	public MemberDTO admininfo(String id);

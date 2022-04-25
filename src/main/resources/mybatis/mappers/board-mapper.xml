@@ -58,17 +58,17 @@
 	
 	<sql id="search">
 		<choose>
-			<when test="#{type}.equals('all') and !#{keyword }.equals('')">
-				WHERE id like CONCAT('%',#{keyword},'%') 
-				OR b_content like CONCAT('%',#{keyword},'%') 
-				OR b_title like CONCAT('%',#{keyword},'%') 
-				ORDER BY b_type, b_regdate DES
-			</when>
 			<when test="!#{type}.equals('all') and !#{keyword}.equals('')">
 				WHERE b_type=#{type} AND
 				(id like CONCAT('%',#{keyword},'%') 
 				OR b_content like CONCAT('%',#{keyword},'%') 
 				OR b_title like CONCAT('%',#{keyword},'%'))
+				ORDER BY b_type, b_regdate DESC
+			</when>
+			<when test="#{type}.equals('all') and !#{keyword}.equals('')">
+				 WHERE id like CONCAT('%',#{keyword},'%') 
+				OR b_content like CONCAT('%',#{keyword},'%')
+				OR b_title like CONCAT('%',#{keyword},'%') 
 				ORDER BY b_type, b_regdate DESC
 			</when>
 			<when test="!#{type}.equals('all') and #{keyword}.equals('')">

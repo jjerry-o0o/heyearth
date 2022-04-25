@@ -1,5 +1,13 @@
 $(document).ready(function(){
 	
+	var curtype = $("#curtype").val();
+	
+	if(curtype == 'que'){
+		$("#queopt").attr("selected","true");
+	}else if(curtype == 'req'){
+		$("#reqopt").attr("selected","true");
+	}
+	
 	$("#boardback").one('click',function(){
 		location.href = "adminboard";
 	});

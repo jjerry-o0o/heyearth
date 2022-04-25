@@ -15,11 +15,6 @@
 <script type="text/javascript" src="/js/mypage/mypage.js"></script>
 <script src="jquery-3.6.0.min.js"></script>
 
-<script>
-	$(document).ready(function () {
-		
-	});
-</script>
 <style>
 	section{
 		width : 90%;
@@ -66,14 +61,18 @@
 		color : white;
 	}
 	#profil_div{
-		align-items: center;
+		width : 100%;
+		height : 170px;
+		margin-top: 10px;
+		border-style: none;
+		background-color: #F6F5F0;
+		color: #1A271D;
+		font-size: large;
+		font-weight: bold;
 	}
-	#profil{
-		border-radius: 50%;
-		width : 30%;
-		display: inline-block;
-		padding : 10px;
-		vertical-align: middle;
+	#profil_div:hover{
+		background-color: #1A271D;
+		color : #F6F5F0;
 	}
 	#name{
 		width : 50%;
@@ -88,16 +87,34 @@
 		text-align: center;
 		border: 1px solid gray;
 		border-radius : 10px;
-		margin : auto 10px;
+ 		margin : 0px 0px;
 		padding : 5px 0px;
+		width: 30%;
 		background-color: #F6F5F0;
 		color : black;
 	}
-	#pointinfo{
-		margin : 10px auto;
+	#pointP p{
+		margin: 0px 0px;
 	}
-	
-	
+	#carbon{
+		font-size: large;
+		text-align: center;
+		border: 1px solid gray;
+		border-radius : 10px;
+ 		margin : 0px 0px; 
+		padding : 5px 0px;
+		width: 30%;
+		background-color: #F6F5F0;
+		color : black;
+	}
+	#carbonP p{
+		margin: 0px 0px;
+	}
+	#successP{
+		font-size: 25px;
+		text-align: center;
+		margin-top: 200px;
+	}
 </style>
 </head>
 <body>
@@ -108,22 +125,16 @@
 <section class="boardSection">
 	<h1>What's up ${sessionScope.session_id} !</h1>
 	<div id="menu">
+	
 		<table id="menu_table">
 			<tr>
-				<td id="m_info" class="btn">
-					<div id="profil_div" onclick = "profil_div()">
-						<img id="profil" alt="${sessionScope.session_id}" src="https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927">
-						<h2 id="name">${sessionScope.session_id}</h2>
-					</div>
-					<h3 id="pointinfo">보유포인트</h3>
-					<div id="point"></div>
+				<td>
+					<input type=button id="profil_div" name="${sessionScope.session_id}" value="${sessionScope.session_id}님의 정보" onclick = "profil_div()" checked="checked"/>
 				</td>
 			</tr>
 			<tr>
 				<td id="m_mission" class="btn">
-					<div id="mymission" onclick = "mymission()">
-						<h3> 나의미션 </h3>
-					</div>
+					<input type=button id="mymission" value="나의 미션" onclick = "mymission()">
 				</td>
 			</tr>
 			<tr>

@@ -183,3 +183,10 @@ body{
 	height: 180px;
 	overflow: auto;
 }
+.scrap{
+	cursor: pointer;
+	border: 0 solid black; 
+	background-color: #81A88A; 
+	color:yellow;
+	font-size:30px;
+}

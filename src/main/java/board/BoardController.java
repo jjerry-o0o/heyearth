@@ -68,13 +68,14 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/boardfind")
-	public String boardfind(@RequestParam String type, @RequestParam String keyword, Model model) {
+	public String boardfind(@RequestParam String type, @RequestParam String keyword, Model model,
+			 BoardDTO dto) {
+		
 		
 		List<BoardDTO> findlist = boardservice.findList(type, keyword);
-		
-		model.addAttribute("boardlist", findlist);
-		
-		System.out.println(type + " / " + keyword);
+					model.addAttribute("boardlist", findlist);
+					
+		System.out.println("컨트롤러 : " + type + " / " + keyword);
 		
 		return "/board/boardlist";
 	}
