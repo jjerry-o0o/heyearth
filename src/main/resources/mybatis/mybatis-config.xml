@@ -17,6 +17,7 @@
 	<typeAlias type="paging.Criteria" alias="criteria"/>
 	<typeAlias type="comment.CommentDTO" alias="commentdto"/>
 	<typeAlias type="carbon.CarbonDTO" alias="carbondto"/>
+	<typeAlias type="mypage.MyguideDTO" alias="myguidedto"/>
 </typeAliases>
 
 </configuration>
