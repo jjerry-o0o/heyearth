@@ -51,7 +51,7 @@ public class MainController {
 		double n2 = Math.pow(10.0, n);
 		double e = (double)sum/1000;
 		double r = Math.round((e*n2)/n2);
-
+     
 		
 		int totalPart = carbonservice.partCount();
 		

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage.MyguideDAO">
+<!-- 나의 가이드 목록 --> 
+	<select id="guide_list" parameterType="String" resultType = "myguidedto">
+		 select mg_code, g.id as id, r.r_code as r_code, r_name, r_photo, r_way
+ 	 from member m, myguide g, recycling r
+   		where m.id =g.id and g.r_code = r.r_code and g.id=#{id};
+	</select>	
+<!-- 스크랩하기 --> 
+	<insert id="guide_insert" parameterType="myguidedto">
+        insert into myguide ( mg_code, id, r_code)
+        values ( mg_code, #{id}, #{r_code})
+    </insert>
+    
+<!-- 스크랩 삭제하기 -->    
+    <delete id="delete">
+        delete from myguide where mg_code=#{mg_code}
+    </delete>
+    </mapper>

@@ -14,8 +14,8 @@ public class MemberDTO {
 	MultipartFile image;
 	String newpw;
 	String newpwck;
-
 	
+
 	public String getNewpw() {
 		return newpw;
 	}

@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+	section{
+		padding-bottom: 50px;
+	}
 	#comment_table{
 		width : 80%;
 		border: 1px solid gray;
@@ -20,18 +22,18 @@
 		border-collapse: collapse;
 		margin : 30px auto;
 	}
-	tr{
+	.tr1{
 		border-bottom: 1px dashed gray;
 	}
-	td{
+	.td1{
 		padding : 20px;
 	}
-	th{
+	.th1{
 		width : 20%;
 		border-right: 1px solid gray;
 		padding : 20px;
 	}
-	tr:nth-child(4){
+	.th1:nth-child(4){
 		vertical-align: top;
 	}
 	#btn_div{
@@ -92,77 +94,86 @@
 		border: 2px solid #1A271D;
 		border-radius: 5px;
 	}
-	.openBtn{
-		padding : 10px 20px;
-		margin-right : 10px;
-		margin-bottom : 10px;
-		border: 2px solid #1A271D;
-		border-radius: 5px;
-	}
-	.openBtn:hover{
-		background-color: #1A271D;
-		color : white;
-	}
-	.closeBtn{
-		padding : 5px 20px;
-		border-radius: 5px;
-		cursor : pointer;
-		margin : 5 auto;
-		float: right;
-		text-align: center;
-		border : none;
-		background-color: #fff;
-	}
-	.closeBtn:hover{
-		background-color: #1A271D;
-		color : white;
-	}
-	.okBtn{
-		padding : 5px 20px;
-		border-radius: 5px;
-		cursor : pointer;
-		margin : 5 auto;
-		border: 2px solid #1A271D;
-		text-align: center;
-		background-color: #fff;
-	}
-	.okBtn:hover{
-		background-color: #1A271D;
-		color : white;
-	}
-	.modal{
-		position : fixed;
-		top : 0;
-		left : 0;
-		width : 100%;
-		height : 100%;
+
+
+	
+	/* comment */
+	
+	.cinput_div{
+		width : 80%;
+		height : 100px;
+		margin : 20px auto;
 		display : flex;
+		align-items : center;
 		justify-content: center;
-		align-items: center;
+		text-align: center;
 	}
-	.modal .bg{
-		width : 100%;
-		height : 100%;
-		background-color: rgba(0, 0, 0, 0.6);
+	.btn_div{
+		width : 80%;
+		margin : 0px auto;
+		display : flex;
+		align-items : center;
+		justify-content: center;
+		text-align: center;
 	}
-	.modalBox{
-		position : absolute;
-		background-color: #fff;
-		width: 400px;
-		height: 200px;
-		padding : 15px;
+	.calter_div{
+		width : 80%;
+		height : 100px;
+		margin : 20px auto;
+		display : flex;
+		align-items : center;
+		justify-content: center;
+		text-align: center;
 	}
-	.modalBox .openBtn .closeBtn .okBtn{
-		display: block;
-		width: 80px;
+	.button{
+		height : 50px;
+		text-align : center;
+		border: 2px solid #1A271D;
+		border-radius: 5px;
+		padding : 0px 20px;
+		display: inline-block;
+		margin : 0px 20px;
 	}
-	.hidden{
-		display: none;
+	.button:hover{
+		background-color: #1A271D;
+		color:white;
 	}
-	#comment_input{
-		border-style: none;
+	#c_comment{
+		border-style: 1px solid #1A271D;
 		resize: none;
-		width: 100%;
+		width: 70%;
+		height : 50px;
 		overflow: auto;
-		background-color: #fff;
+		display: inline-block;
+		background-color: #F6F5F0;
+		margin : 0px 20px;
+	}
+	.a_comment{
+		border-style: 1px solid #1A271D;
+		resize: none;
+		width: 70%;
+		height : 50px;
+		overflow: auto;
+		display: inline-block;
+		background-color: #F6F5F0;
+		margin : 0px 20px;
+	}
+	.comment_tb{
+		width : 80%;
+		border: 1px solid gray;
+		border-collapse: collapse;
+		margin : 30px auto;
+		text-align: center;
+	}
+	.tr2{
+		border: 1px dashed gray;
+	}
+	.td2{
+		width : 20%;
+		border: 1px dashed gray;
+	}
+	.th2{
+		width : 20%;
+		border-right: 1px solid gray;
+		border-bottom: 1px solid gray;
 	}

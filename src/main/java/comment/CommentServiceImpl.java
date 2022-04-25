@@ -27,8 +27,8 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public void updateComment(int c_index) {
-		commentdao.updateComment(c_index);
+	public void updateComment(CommentDTO dto) {
+		commentdao.updateComment(dto);
 		
 	}
 

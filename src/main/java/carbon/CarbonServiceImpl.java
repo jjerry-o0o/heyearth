@@ -18,7 +18,14 @@ public class CarbonServiceImpl implements CarbonService{
 
 	@Override
 	public int memberCount() {
-		return carbondao.memberCount();
+		int a;
+		if(carbondao.memberCount() == 0) {
+			a = 1;
+		}else {
+			a = carbondao.memberCount();
+		}
+		
+		return a;
 	}
 
 	@Override

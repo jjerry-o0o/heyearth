@@ -1,5 +1,6 @@
 package comment;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,15 @@ public class CommentContoller {
 	@RequestMapping("/selectcomment")
 	@ResponseBody
 	public List<CommentDTO> selectComment(@RequestParam int b_no, Model model){
+		List<CommentDTO> list = commentservice.selectComment(b_no);
 		
-		return commentservice.selectComment(b_no);
+		for(int i=0; i <list.size(); i++) {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
+			String currentDate = dateFormat.format(list.get(i).getC_regdate());
+			list.get(i).setRegdate(currentDate);
+		}
+
+		return list;
 	}
 
 	@RequestMapping(value="/insertcomment", method=RequestMethod.POST)
@@ -36,8 +44,11 @@ public class CommentContoller {
 
 	@RequestMapping(value = "/updatecomment", method = RequestMethod.POST)
 	@ResponseBody
-	public void updateComment(@RequestParam int c_index, Model model) {
-		commentservice.updateComment(c_index);
+	public void updateComment(@RequestParam int c_index, @RequestParam String c_comment, Model model) {
+		CommentDTO dto = new CommentDTO();
+		dto.setC_comment(c_comment);
+		dto.setC_index(c_index);
+		commentservice.updateComment(dto);
 	}
 	
 	@RequestMapping(value = "/deletecomment", method = RequestMethod.POST)
@@ -45,5 +56,6 @@ public class CommentContoller {
 	public void deleteComment(@RequestParam int c_index) {
 		commentservice.deleteComment(c_index);
 	}
+
 
 }
