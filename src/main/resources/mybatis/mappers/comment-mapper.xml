@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="selectComment" parameterType="int" resultType="commentdto">
-		SELECT c_index, b_no, c_comment 
+		SELECT c_index, b_no, c_comment, c_regdate, id
 		FROM comment
 		WHERE b_no = #{b_no}
 		ORDER BY c_regdate DESC
@@ -20,9 +20,9 @@
 		SELECT count(*) FROM comment
 	</select>
 	
-	<update id="updateComment" parameterType="int">
+	<update id="updateComment" parameterType="commentdto">
 		UPDATE comment 
-		SET c_comment
+		SET c_comment=#{c_comment}, c_regdate=now()
 		WHERE c_index=#{c_index}
 	</update>
 	

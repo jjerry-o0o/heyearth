@@ -12,9 +12,15 @@
 <!-- CSS -->
 <link rel="stylesheet" href="/css/board/boardview.css" />
 
+<!-- js -->
+<script type="text/javascript" src="/js/board/comment.js"></script>
+
 <script src="jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function () {
+		
+		selectlist();
+		
 		$("#alterbtn").on("click", function(){
 			location.href="/boardalter?b_no=${dto.b_no}";
 		});
@@ -30,8 +36,22 @@
 		$("#closeof").on("click", function(){
 			$("#upload_img").css("width", "100px");
 		});
+			
+		$("#comment_btn").on("click", function(){
+			alert("댓글이 작성되었습니다.");
+			$.ajax({
+				type:"post",
+				url:"/insertcomment",
+				data : {"id" : $(".id").val(), "c_comment" : $("#c_comment").val(), "b_no" : $(".b_no").val()},
+				success:function(data){
+					$("#list_div").empty();
+					selectlist();
+				}
+			});
+		});
 
 	});
+		
 
 </script>
 </head>
@@ -43,30 +63,30 @@
 	
 <section class="viewSection">
 	<table id="view_table">
-		<tr>
-			<th>분류</th>
-			<td>
+		<tr class="tr1">
+			<th class="th1">분류</th>
+			<td class="td1">
 				<c:if test="${dto.b_type == 'req' }">요청</c:if>
 				<c:if test="${dto.b_type == 'que' }">질문</c:if>
 				<c:if test="${dto.b_type == 'not' }">공지사항</c:if>
 			</td>
 		</tr>
-		<tr>
-			<th>제목</th>
-			<td>${dto.b_title }</td>
+		<tr class="tr1">
+			<th class="th1">제목</th>
+			<td class="td1">${dto.b_title }</td>
 		</tr>
-		<tr>
-			<th>작성자</th>
-			<td>${dto.id }</td>
+		<tr class="tr1">
+			<th class="th1">작성자</th>
+			<td class="td1">${dto.id }</td>
 		</tr>
-		<tr>
-			<th>내용</th>
-			<td><textarea id="view_textarea" rows="20" readonly="readonly">${dto.b_content }</textarea></td>
+		<tr class="tr1">
+			<th class="th1">내용</th>
+			<td class="td1"><textarea id="view_textarea" rows="20" readonly="readonly">${dto.b_content }</textarea></td>
 		</tr>
 		<c:if test="${dto.b_img != null}">
-			<tr>
-				<th>첨부 이미지</th>
-				<td>
+			<tr class="tr1">
+				<th class="th1">첨부 이미지</th>
+				<td class="td1">
 					<input type="button" id="closeup" value="이미지확대">
 					<input type="button" id="closeof" value="이미지축소"><br>
 					<img src="/img/${dto.b_img }" id="upload_img">
@@ -86,19 +106,19 @@
 	</div>
 
 	<c:if test="${sessionScope.session_id != null }">
-		<div class="c_container">
-			<form action="/insertcomment" method="post">
-				<input type="text" id="comment" name="c_comment" placeholder="댓글을 입력해주세요" required="required">
-				<input type="hidden" name="id" value="${sessionScope.session_id }">
-				<input type="hidden" name="b_no" value="${dto.b_no }">
-				<input type="submit" id="cinput_btn" value="등록">
-			</form>
+		<div class="cinput_div">
+			<textarea id="c_comment" name="c_comment" placeholder="댓글을 입력해주세요"></textarea>
+			<button id ="comment_btn" class="button">작성</button>
+			<input type="hidden" class="id" name="id" value="${sessionScope.session_id }">
+			<input type="hidden" class="b_no" name="b_no" value="${dto.b_no }">
 		</div>
 	</c:if>
-		<div class="container">
-			<div class="commentList">
-			</div>
-		</div>
+	
+	<div id="list_div">
+		<input type="hidden" class="id" name="id" value="${sessionScope.session_id }">
+		<input type="hidden" class="b_no" name="b_no" value="${dto.b_no }">
+		
+	</div>
 
 	</section>
 

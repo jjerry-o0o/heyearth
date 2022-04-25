@@ -78,12 +78,4 @@
 		</choose>
 	</sql>
 	
-	<select id="findList2" parameterType="map" resultType="boarddto">
-		SELECT * FROM board
-	WHERE id like CONCAT('%',#{keyword},'%') 
-				OR b_content like CONCAT('%',#{keyword},'%')
-				OR b_title like CONCAT('%',#{keyword},'%') 
-				ORDER BY b_type, b_regdate DESC
-	</select>
-	
 </mapper>
