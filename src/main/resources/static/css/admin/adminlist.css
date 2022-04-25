@@ -92,7 +92,7 @@ td{
 	text-align : center;
 }
 
-#groupmission, #solomission, #notice, #request, #question{
+#groupmission, #solomission, #notice, #request, #question, #req, #que{
 	padding-left : 25px;
 	padding-right : 25px;
 	padding-top : 7px;
@@ -105,16 +105,42 @@ td{
 	border : 2px #1A271D solid;
 }
 
-#solomission, #request, #question{
+#solomission, #request, #question, #req{
 	background-color : #f6f5f0;
 	color : #1A271D;
 }
 
-#groupmission, #notice{
+#groupmission, #notice, #que{
 	background-color : #1A271D;
 	color : #f6f5f0;
 }
 
 #groupmission:hover, #solomission:hover, #notice:hover, #request:hover, #question:hover{
 	cursor : pointer;
+}
+
+.noque, .noreq{
+	margin-top : 10px;
+	font-size: 30px;
+	text-align :center;
+}
+
+.mainbtn{
+	color : #1A271D;
+	background-color : #F6F5F0;
+	width : 100px;
+	height : 40px;
+	display : inline-block;
+	text-align : center;
+	font-size: 20px;
+	margin-right: 20px;
+	margin-left : 20px;
+	line-height: 35px;
+}
+
+.mainbtn:hover{
+	cursor : pointer;
+	background-color : #1A271D;
+	color:#F6F5F0;
+	
 }

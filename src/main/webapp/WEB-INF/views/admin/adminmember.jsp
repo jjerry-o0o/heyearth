@@ -22,11 +22,10 @@
 		<tr><th>닉네임</th><th> </th><th>  </th><th> </th><th> </th></tr>
 		<c:forEach items="${memberlist}" var="memberlist">
 			<tr><td class='tabname'>${memberlist.id}</td>
-			<td><input class="tabmodbtn" id='membermod' type='button' value='회원정보 수정' onclick='membermod(${memberlist.id})'></td>
-			<td><input class="tabmodbtn" id='memberboard' type='button' value='작성한 글 확인' onclick='memberboard(${memberlist.id})'></td>
-			<td><input class="tabdelbtn" id='membercomment' type='button' value='작성한 댓글 확인' onclick='membercomment(${memberlist.id})'></td>
-			<td><input class="tabdelbtn" id='membermission' type='button' value='참여 미션 확인' onclick='membermission(${memberlist.id})'></td>
-			<td><input class="tabdelbtn" id='memberdel' type='button' value='탈퇴' onclick='memberdel(${memberlist.id})'></td></tr>
+			<td><input class="tabmodbtn" id='membermod' type='button' value='회원정보 수정' onclick="membermod('${memberlist.id}')"></td>
+			<td><input class="tabmodbtn" id='memberboard' type='button' value='작성한 글 확인' onclick="memberboard('${memberlist.id}')"></td>
+			<td><input class="tabdelbtn" id='membermission' type='button' value='참여 미션 확인' onclick="membermission('${memberlist.id}')"></td>
+			<td><input class="tabdelbtn" id='memberdel' type='button' value='탈퇴' onclick="memberdel('${memberlist.id}')"></td></tr>
 		</c:forEach> 
 	</table>
 </div>

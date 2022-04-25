@@ -1,39 +1,32 @@
 $(document).ready(function(){
-	
-	var curtype = $("#curtype").val();
-	
-	if(curtype == 'que'){
-		$("#queopt").attr("selected","true");
-	}else if(curtype == 'req'){
-		$("#reqopt").attr("selected","true");
-	}
-	
-	$("#boardback").one('click',function(){
-		location.href = "adminboard";
-	});
+	const inputImage = document.getElementById("input-image")
+	inputImage.addEventListener("change", e => {
+    	readImage(e.target);
+    	$("#previewimg").show();
+    	$("#imageremove").show();
+	})
 	
 	$("#imageremove").on("click",function(){
 		$("#previewimg").hide();
-		$("#b_img").val("none");
+		$("#photo").val("none");
 		$("#input-image").val("");
 		$("#imageremove").hide();
 	});
 	
-	const inputImage = document.getElementById("input-image")
-	inputImage.addEventListener("change", e => {
-    	readImage(e.target);
-    		$("#previewimg").show();
-    		$("#imageremove").show();
-	})
-
-	if($("#b_img").val() != 'none'){
-		document.getElementById("previewimg").src="img/"+$("#b_img").val();
+	
+	$("#memberback").on('click',function(){
+		location.href = "adminmember";
+	});
+	
+	if($("#photo").val() != "none"){
+		$("#previewimg").attr("src","img/"+$("#photo").val());
 		$("#previewimg").show();
 		$("#imageremove").show();
 	}else{
 		$("#previewimg").hide();
 		$("#imageremove").hide();
 	}
+	
 })
 
 function readImage(input){
@@ -51,4 +44,3 @@ function readImage(input){
 		reader.readAsDataURL(input.files[0])
 	}
 }
-

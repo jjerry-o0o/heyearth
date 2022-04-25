@@ -9,7 +9,7 @@ $(document).ready(function(){
 	}
 	
 	$("#boardback").one('click',function(){
-		location.href = "adminboard";
+		location.href = "adminmemberboard?id="+$("#id").val();
 	});
 	
 	$("#imageremove").on("click",function(){

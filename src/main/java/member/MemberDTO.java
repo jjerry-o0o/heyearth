@@ -11,17 +11,11 @@ public class MemberDTO {
 	int point;
 	int admin;
 	int carbon;
-
 	MultipartFile image;
 	String newpw;
 	String newpwck;
 	
-	public int getCarbon() {
-		return carbon;
-	}
-	public void setCarbon(int carbon) {
-		this.carbon = carbon;
-	}	
+
 	public String getNewpw() {
 		return newpw;
 	}
@@ -81,6 +75,12 @@ public class MemberDTO {
 	}
 	public void setAdmin(int admin) {
 		this.admin = admin;
+	}
+	public int getCarbon() {
+		return carbon;
+	}
+	public void setCarbon(int carbon) {
+		this.carbon = carbon;
 	}
 	
 }
