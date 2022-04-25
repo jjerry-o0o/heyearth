@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 	<!-- header import -->
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	
@@ -43,7 +44,7 @@
 			</select>
 			<form action="/boardfind" id="findform">
 				<select id="b_type" name="type">
-					<option value="all"> 검색유형 </option>
+					<option value="all" selected="selected"> 게시물 분류 </option>
 					<option value="not"> 공지 </option>
 					<option value="que"> 질문 </option>
 					<option value="req"> 요청 </option>
@@ -101,7 +102,7 @@
 				</c:forEach>
 			</tbody>
 			<tfoot>
-				<c:if test="${url != 'find' }">
+				<c:if test="${url != 'find'}">
 					<tr id="pagination">
 						<td colspan="5">
 							<!-- paging -->

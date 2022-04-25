@@ -11,6 +11,7 @@ public class CommentDTO {
 	String c_comment;
 	String id;
 	Date c_regdate;
+	String regdate;
 	
 	public CommentDTO() {
 		
@@ -23,7 +24,16 @@ public class CommentDTO {
 		this.c_order = c_order;
 		this.c_comment = c_comment;
 	}
+	
 
+
+	public String getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
 
 	public int getB_no() { //게시물번호 
 		return b_no;
