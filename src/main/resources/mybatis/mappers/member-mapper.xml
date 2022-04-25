@@ -31,6 +31,10 @@
 	<!-- 회원정보 수정 -->
 	<update id="updatemember" parameterType="String">
 		update member set pw=#{newpw}, phone=#{phone} where id=#{id};
-	</update> 
+	</update>
 	
+	<!-- 회원 탈퇴 --> 
+	<delete id="deletemember" parameterType="String">
+		delete from member where id=#{id};
+	</delete>
 </mapper>

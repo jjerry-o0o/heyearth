@@ -8,7 +8,6 @@ function profil_div(){
 		type: 'get',
 		success: function(userdto){
 			
-			
 			$("#updateDiv").html("<div id=pointP><p>보유 포인트</p></div>");
 			$("#updateDiv").append("<div id=point>"+userdto.point+" p"+"</div><br>");
 			$("#updateDiv").append("<div id=carbonP><p>탄소 배출량</p></div>");
@@ -16,7 +15,7 @@ function profil_div(){
 			$("#updateDiv").append("<div id='updateId'><p>닉네임</p><p id=userid>&nbsp"+userdto.id+"</p></div>");
 			$("#updateDiv").append("<hr>");
 			
-			$("#updateDiv").append("<div id=hidden><input type='hidden' id='userId' name='userId' value='"+userdto.id+"'></div>");
+			$("#updateDiv").append("<div id=hidden><input type='hidden' id='hiddenUserId' name='userId' value='"+userdto.id+"'></div>");
 			$("#updateDiv").append("<div id=pw><p>현재 비밀번호 </p><input id=pw2 type='password' name='pw'>"
 								+"<input type='button' id='pwckbtn' name='pwck' value='비밀번호 확인'></div>");
 			$("#updateDiv").append("<div id=pwerror></div>");
@@ -29,10 +28,10 @@ function profil_div(){
 			
 			$("#updateDiv").append("<div id=phone><p>전화번호</p><input id=phone2 type='text' name='phone' value='"+userdto.phone+"'></div>");
 			$("#updateDiv").append("<div id=update><input id='submit' type='submit' value='회원정보 수정'></div>");
-			$("#updateDiv").append("<div id=withdraw><input type='button' value='회원탈퇴'></div>");
+			$("#updateDiv").append("<div id=withdraw><input type='button' id='withdrawbtn' value='회원탈퇴' onclick='withdraw()'></div>");
 			
 			document.getElementById("pwckbtn").onclick = pwck;
-			document.getElementById("submit").onclick = pwUpdate;
+			document.getElementById("submit").onclick = pwUpdate(userdto);
 			
 		}//success end
 	});//ajax end
@@ -66,45 +65,61 @@ function pwck() {
 	});//ajax
 }//function end
 
-function pwUpdate(){
+function pwUpdate(userdto){
 	pwck();
-	
 	var newpw2 = document.getElementById("newpw2").value;
-	var pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
 	let newpw2Check = pwPattern.test(newpw2);
+	var newpwck2 = document.getElementById("newpwck2").value;
 	let newpwck2Check = pwPattern.test(newpwck2);
 	
-	var newpwck2 = document.getElementById("newpwck2").value;
+	var pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
 	
-	if(newpw2 == "" || !newpw2Check){
-		$("#newpwerror").html('4자 이상, 영문+숫자로 입력해주세요');
-		document.getElementById("newpw2").focus();
-		return false;		
-	}else{
-		$("#newpwerror").html('');
-		
-		if(newpwck2 == "" || !newpwck2Check || newpw2 != newpwck2){
-			$("#newpwckerror").html('비밀번호가 일치하지 않습니다');
-			document.getElementById("newpwck2").focus();
-			return false;	
-		}else{
-			$("#newpwckerror").html('');
-		}
-	}
+	$.ajax({
+		url: "/update",
+		data: {"id" : userdto.id, "newpw" : newpw2, "newpwck" : newpwck2},
+		type: "post",
+		success: function(){
+			if(newpw2 == "" || !newpw2Check){
+				$("#newpwerror").html('4자 이상, 영문+숫자로 입력해주세요');
+				document.getElementById("newpw2").focus();
+				return false;		
+			}else{
+				$("#newpwerror").html('');
+				
+				if(newpwck2 == "" || !newpwck2Check || newpwck2 != newpw2){
+					$("#newpwckerror").html('비밀번호가 일치하지 않습니다');
+					document.getElementById("newpwck2").focus();
+					return false;
+				}else{
+					$("#newpwckerror").html('');
+				}
+			}
+			alert("개인정보가 정상적으로 수정되었습니다.")	
+			$("#updateDiv").html("<p id='successP'>회원가입이 정상적으로 수정되었습니다.</p>");
+		}//success
+	})//ajax
 	
-	$("#updateDiv").html("<p id='successP'>회원가입이 정상적으로 수정되었습니다.</p>");
+	
+	
 }
 
-function mymission(id){
+function withdraw(){
+	alert('정상적으로 탈퇴되었습니다');
+	//id를 컨트롤러로 어떻게 넘길 수 있을까
+	// 새 비밀번호 확인에서 비밀번호 수정으로 안넘어가는 이유
+}
+
+function mymission(){
+	alert('hi');
 
 	//location.href = "participation";
-	var id = document.getElementById("profil").alt;
+	//var id = document.getElementById("hiddenUserId").value;
 	$.ajax({
 		url: "/participation2",
 		type: "get",
 		
 		success: function(map){
-			alert(map);
+			alert('hi');
 			
 			$("#mymenu_div").html("<div id=profileP><p>"+map.count+"개의 미션 진행중</p></div>");
 			$("#mymenu_div").append("<hr>");
