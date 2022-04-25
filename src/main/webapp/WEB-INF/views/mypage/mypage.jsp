@@ -15,11 +15,6 @@
 <script type="text/javascript" src="/js/mypage/mypage.js"></script>
 <script src="jquery-3.6.0.min.js"></script>
 
-<script>
-	$(document).ready(function () {
-		
-	});
-</script>
 <style>
 	section{
 		width : 90%;
@@ -139,9 +134,7 @@
 			</tr>
 			<tr>
 				<td id="m_mission" class="btn">
-					<div id="mymission" onclick = "mymission()">
-						<h3> 나의미션 </h3>
-					</div>
+					<input type=button id="mymission" value="나의 미션" onclick = "mymission()">
 				</td>
 			</tr>
 			<tr>

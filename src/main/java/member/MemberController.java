@@ -95,16 +95,26 @@ public class MemberController {
 	//마이페이지 회원정보 수정
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public ModelAndView updatemember(@RequestParam(value="userId") String id,
-			@RequestParam(value="pw") String pw,
 			@RequestParam(value="newpw") String newpw,
-			@RequestParam(value="newpwck") String newpwck,
 			@RequestParam(value="phone") String phone) {
 
-		int result = service.updatemember(id,pw,newpw,newpwck,phone);
+		int result = service.updatemember(id,newpw,phone);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", result);
 		mv.setViewName("mypage/mypage");
 		return mv;
+	}
+	
+	//마이페이지 회원탈퇴
+	@RequestMapping("/deletemember")
+	public String deleteresult(String id) {
+		int result = service.deletemember(id);
+		
+		if(result == 1) {
+			return "redirect:/"; 
+		}
+		return "redirect:/mypage/mypage"; 
+		
 	}
 	
 }
