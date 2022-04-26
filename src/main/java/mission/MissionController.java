@@ -4,6 +4,7 @@ package mission;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.checkerframework.checker.units.qual.K;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import participation.ParticipationDTO;
-import zeroshop.ZeroshopDTO;
 
 
 @Controller
@@ -48,6 +46,8 @@ public class MissionController {
 				map.put("list", list);				
 				map.put("count", list.size());
 				mav.addObject("map", map);
+				
+		
 	        return mav;
 	    }
 	

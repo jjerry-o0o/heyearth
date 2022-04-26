@@ -94,7 +94,7 @@ td:not(first-child){
 	margin-left : auto;
 	margin-right : auto;
 	text-align:left;
-	height : 100px;
+	height : 70px;
 }
 
 #c_title{
@@ -104,16 +104,22 @@ td:not(first-child){
 	text-align:left;
 }
 
-#comment{
+#c_comment{
 	background-color :white;
-	width : 60%;
-	height: 30px;
+	width : 70%;
+	height: 35px;
 	margin-right : 20px;
-	font-size : 13px;
+	font-size : 14px;
+	border-style: 1px solid #1A271D;
+	resize: none;
+	overflow: auto;
+	display: inline-block;
+	padding-left : 10px;
+	padding-right : 10px;
 }
 
 #cinput_btn{
-	height : 35px;
+	height : 40px;
 	width : 50px;
 	font-size : 13px;
 	border : 1px #1A271D solid;
@@ -124,3 +130,98 @@ td:not(first-child){
 	color : #f6f5f0;
 	cursor : pointer;
 }
+
+
+#comment_tb{
+	width : 65%;
+	margin-left : auto;
+	margin-right : auto;
+	border-collapse: collapse;
+	margin-bottom : 50px;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+/* comment css 추가*/
+
+	.cinput_div{
+		width : 80%;
+		height : 100px;
+		margin : 20px auto;
+		display : flex;
+		align-items : center;
+		justify-content: center;
+		text-align: center;
+	}
+	.btn_div{
+		width : 80%;
+		margin : 0px auto;
+		display : flex;
+		align-items : center;
+		justify-content: center;
+		text-align: center;
+	}
+	.alter_div{
+		width : 100%;
+		height : 30px;
+		margin : 5px auto;
+		display : flex;
+		align-items : center;
+		justify-content: center;
+		text-align: center;
+		display : inline-block;
+	}
+	.button{
+		text-align : center;
+		border: 2px solid #1A271D;
+		border-radius: 5px;
+		/*padding : 5px 10px;*/
+		display: inline-block;
+		margin-top:auto;
+		margin-bottom:auto;
+		height : 80%;
+		
+	}
+	.button:hover{
+		background-color: #1A271D;
+		color:white;
+	}
+	
+	.a_comment{
+		border-style: 1px solid #1A271D;
+		resize: none;
+		width: 80%;
+		height : 20px;
+		overflow: auto;
+		display: inline-block;
+		background-color: #F6F5F0;
+		margin : 0px 20px;
+	}
+	
+	.tr2{
+		border: 1px dashed gray;
+	}
+	.td2{
+		width : 20%;
+		border: 1px dashed gray;
+		padding-left : 8px;
+		padding-right : 8px;
+	}
+	.th2{
+		width : 20%;
+		border-right: 1px solid gray;
+		border-bottom: 1px solid gray;
+	}
+	.td2:nth-child(4){
+		width : 6%;
+	}
+	.td2:last-child{
+		width : 6%;
+	}
+	.td2:first-child{
+		width : 30%;
+		background-color : white;
+	}
+	.td3{
+		background-color : white;
+	}
