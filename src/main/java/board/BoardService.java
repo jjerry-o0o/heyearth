@@ -36,4 +36,7 @@ public interface BoardService {
 	//게시물 검색
 	public List<BoardDTO> findList(String type, String keyword);
 	
+	//id로 작성한 게시물 조회
+	public List<BoardDTO> myboardlist(String id);
+	
 }

@@ -34,9 +34,14 @@
 		<br>
 		<div id="noticetable">
 		<table class='adminlisttable' id='adminnoticetable'>
-		<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th>   </th><th>   </th></tr>
+		<tr><th>게시물명</th><th>작성자</th><th>작성일</th><th> </th><th>   </th><th>   </th></tr>
 		<c:forEach items="${boardlist}" var="boardlist">
-			<tr><td class='tabname'>${boardlist.b_title}</td><td class='tabname'>${boardlist.id }</td><td class="tabname">${boardlist.regdate}</td><td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod(${boardlist.b_no})'></td><td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel(${boardlist.b_no})'></td></tr>
+			<tr><td class='tabname'>${boardlist.b_title}</td>
+			<td class='tabname'>${boardlist.id }</td>
+			<td class="tabname">${boardlist.regdate}</td>
+			<td><input class='tabmodbtn' id='comment' type='button' value='댓글작성' onclick='comment(${boardlist.b_no})'></td>
+			<td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod(${boardlist.b_no})'></td>
+			<td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel(${boardlist.b_no})'></td></tr>
 		</c:forEach> 
 		</table>
 		</div>

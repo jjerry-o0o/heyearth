@@ -20,8 +20,8 @@ public class MyguideServiceImpl implements MyguideService {
 		return dao.guide_list(id);
       }
 	
-	  @Override public void guide_insert(MyguideDTO dto) {//가이드 스크랩하기
-	  dao.guide_insert(dto); 
+	  @Override public int guide_insert(MyguideDTO dto) {//가이드 스크랩하기
+	  return dao.guide_insert(dto); 
 	  }
 	  
 	

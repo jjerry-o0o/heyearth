@@ -52,13 +52,24 @@ display: grid;
 grid-template-columns: 20% auto; 
 margin-left: auto; 
 margin-right: auto; 
-margin-bottom: 10px; 
+margin-bottom: 20px; 
 width: 80%; 
-border: 3px solid #1A271D;		
+border: 0 solid white;
+border-radius: 20px;		
+background-color:white;
 }
 .mission_box{
 	margin-top: 20px; 
 	margin-bottom: 50px; 
 	text-align: center;
 	
+}
+.img_list{
+	width:250px;
+	height:250px; 
+	padding-top:10px;
+}
+a{
+text-decoration: none;
+color: #1A271D;
 }
