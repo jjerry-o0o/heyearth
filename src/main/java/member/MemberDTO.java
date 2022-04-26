@@ -14,20 +14,14 @@ public class MemberDTO {
 	MultipartFile image;
 	String newpw;
 	String newpwck;
-	String withdraw;
-	String withdrawId;
+	String del;
+	
 
-	public String getIdnum() {
-		return withdrawId;
+	public String getDel() {
+		return del;
 	}
-	public void setIdnum(String withdrawId) {
-		this.withdrawId = withdrawId;
-	}
-	public String getWithdraw() {
-		return withdraw;
-	}
-	public void setWithdraw(String withdraw) {
-		this.withdraw = withdraw;
+	public void setDel(String del) {
+		this.del = del;
 	}
 	public String getNewpw() {
 		return newpw;

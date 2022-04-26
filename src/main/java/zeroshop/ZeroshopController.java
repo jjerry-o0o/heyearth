@@ -6,6 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -69,6 +71,16 @@ public class ZeroshopController {
 					dto.add(tmpdto);
 				}
 			}
+			
+			Collections.sort(dto,new Comparator<ZeroshopDTO>() {
+
+				@Override
+				public int compare(ZeroshopDTO o1, ZeroshopDTO o2) {
+					return o1.s_name.compareTo(o2.s_name);
+				}
+				
+			});
+			
 		}else {			
 			int l_code = zero_service.locid(bigloc, smallloc);
 			dto = zero_service.loczero(l_code);

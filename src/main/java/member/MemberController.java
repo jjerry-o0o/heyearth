@@ -58,15 +58,12 @@ public class MemberController {
 		if(userdto == null) { //로그인 실패인 경우
 			mv.addObject("msg", "일치하는 정보가 없습니다");
 			mv.setViewName("member/login");
+		}else if(userdto.admin == 1){ //관리자 로그인인 경우
+			HttpSession session = request.getSession();
+			session.setAttribute("session_id", userdto.getId());
+			mv.setViewName("admin/adminmain");
 		}
-		
-//		else if(userdto.withdraw.equals("Y")){
-//			System.out.println("탈퇴 y");
-//			mv.addObject("msg", "탈퇴한 회원입니다");
-//			mv.setViewName("member/login");
-//		}
-		
-		else { //로그인 성공인 경우
+		else { // 로그인 성공인 경우	
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
 			mv.setViewName("main");
@@ -81,7 +78,7 @@ public class MemberController {
 		if(session != null) {
 			session.invalidate();
 		}
-		return "main";
+		return "redirect:/";
 	}
 	
 	//마이페이지 DB연결
