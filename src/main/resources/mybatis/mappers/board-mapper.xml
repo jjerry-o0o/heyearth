@@ -51,6 +51,10 @@
 		WHERE b.b_no = #{b_no}
 	</select>
 	
+	<select id="myboardlist" parameterType="String" resultType="boarddto">
+		SELECT * FROM board WHERE id = #{id}
+	</select>
+	
 	<select id="findList" parameterType="map" resultType="boarddto">
 		SELECT * FROM board
 		<include refid="search"></include>
@@ -58,23 +62,34 @@
 	
 	<sql id="search">
 		<choose>
-			<when test="!#{type}.equals('all') and !#{keyword}.equals('')">
-				WHERE b_type=#{type} AND
-				(id like CONCAT('%',#{keyword},'%') 
-				OR b_content like CONCAT('%',#{keyword},'%') 
-				OR b_title like CONCAT('%',#{keyword},'%'))
-				ORDER BY b_type, b_regdate DESC
+			<when test="type.equals('all')">
+				<choose>
+					<when test="!keyword.equals('')">
+						WHERE id like CONCAT('%',#{keyword},'%') 
+						OR b_content like CONCAT('%',#{keyword},'%') 
+						OR b_title like CONCAT('%',#{keyword},'%') 
+						ORDER BY b_type, b_regdate DESC
+					</when>
+					<otherwise>
+						ORDER BY b_type, b_regdate DESC
+					</otherwise>
+				</choose>
 			</when>
-			<when test="#{type}.equals('all') and !#{keyword}.equals('')">
-				 WHERE id like CONCAT('%',#{keyword},'%') 
-				OR b_content like CONCAT('%',#{keyword},'%')
-				OR b_title like CONCAT('%',#{keyword},'%') 
-				ORDER BY b_type, b_regdate DESC
-			</when>
-			<when test="!#{type}.equals('all') and #{keyword}.equals('')">
-				WHERE b_type=#{type} 
-				ORDER BY b_type, b_regdate DESC
-			</when>
+			<otherwise>
+				<choose>
+					<when  test="!keyword.equals('')">
+						WHERE b_type=#{type} AND
+						(id like CONCAT('%',#{keyword},'%') 
+						OR b_content like CONCAT('%',#{keyword},'%') 
+						OR b_title like CONCAT('%',#{keyword},'%'))
+						ORDER BY b_type, b_regdate DESC
+					</when>				
+					<otherwise>
+						WHERE b_type=#{type} 
+						ORDER BY b_type, b_regdate DESC
+					</otherwise>
+				</choose>
+			</otherwise>
 		</choose>
 	</sql>
 	
