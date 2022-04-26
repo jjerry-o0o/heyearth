@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -157,7 +158,20 @@ public class BoardController {
 		return "redirect:/boardlist";
 	}
 	
-	
+	@RequestMapping(value="/myboardlist", method = RequestMethod.POST)
+	@ResponseBody
+	public List<BoardDTO> myboardlist(@RequestParam String id) {
+		List<BoardDTO> list = boardservice.myboardlist(id);
+		
+		for(int i=0; i <list.size(); i++) {
+			Date date = list.get(i).getB_regdate();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
+			String currentDate = dateFormat.format(date);
+			list.get(i).setRegdate(currentDate);
+		}
+		
+		return list;
+	}
 
 	
 }

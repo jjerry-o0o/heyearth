@@ -119,13 +119,19 @@ public class BoardServiceImpl implements BoardService{
 		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("type", type);
-		 System.out.println(data.get("type")); 
+		 System.out.println(">>" +data.get(type)); 
 			
 		data.put("keyword", keyword);
 		BoardDTO dto = new BoardDTO();
 		dto.setData(data);
 		
 		return boarddao.findList(data);
+	}
+
+	@Override
+	public List<BoardDTO> myboardlist(String id) {
+		
+		return boarddao.myboardlist(id);
 	}
 	
 
