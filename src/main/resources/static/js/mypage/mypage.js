@@ -48,7 +48,7 @@ function pwck() {
 	data: {"pw2" : pw2},
 	type: "post",
 	success: function(result){
-		if( pw2 == ""|| !pwCheck){
+		if( pw2 == "" || !pwCheck){
 		$("#pwerror").html('4자 이상, 영문+숫자로 입력해주세요');
 		document.getElementById("pw2").focus();
 		return false;
@@ -182,6 +182,7 @@ function solodetail(code){
 }
 
 
+
 function myboard(){
 	alert('myboard hi');
 }
@@ -189,3 +190,18 @@ function myboard(){
 function myguide(){
 	alert('myguide hi');
 }
+
+$(document).ready(function (){
+	
+//모달창 닫기
+	$("#modal").on("click",function(){
+		document.getElementById("modal").style.display = "none";
+	});
+	
+	modal.addEventListener("click", e => {
+		const evTarget = e.target
+		if(evTarget.classList.contains("modal-overlay")) {
+			modal.style.display = "none";
+		}
+	});
+});

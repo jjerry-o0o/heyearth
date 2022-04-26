@@ -148,6 +148,7 @@
 				</td>
 			</tr>
 		</table>
+		
 		<div id="mymenu_div">
 			<form action="/update" method="post">
 				<div id="updateDiv">
@@ -155,7 +156,8 @@
 				<div id="myMissionDiv">
 				</div>
 			</form>
-			
+		</div>
+		
 				<div id="modal" class="modal-overlay">
 					<div class="modal-window">
 					<div class="close-area" id="modalclose">X</div>
@@ -172,7 +174,6 @@
 						</div>
 					</div>
 				</div>
-		</div>
 	</div>
 </section>
 	
