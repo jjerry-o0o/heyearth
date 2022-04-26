@@ -237,8 +237,8 @@
 							역할을 했다고 쓸까요 야호<br>
 							<br>
 						</p>
-						<a href=""><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
-						<a href=""><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
+						<a href="http://www.linkedin.com/in/heeyoung-park"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href="https://github.com/heeyoung0101"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
 					</div>
 				</div>
 			</div>
