@@ -48,7 +48,7 @@ function pwck() {
 	data: {"pw2" : pw2},
 	type: "post",
 	success: function(result){
-		if( pw2 == ""|| !pwCheck){
+		if( pw2 == "" || !pwCheck){
 		$("#pwerror").html('4자 이상, 영문+숫자로 입력해주세요');
 		document.getElementById("pw2").focus();
 		return false;
@@ -67,35 +67,37 @@ function pwck() {
 
 function pwUpdate(userdto){
 	pwck();
+	var pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
 	var newpw2 = document.getElementById("newpw2").value;
 	let newpw2Check = pwPattern.test(newpw2);
 	var newpwck2 = document.getElementById("newpwck2").value;
 	let newpwck2Check = pwPattern.test(newpwck2);
 	
-	var pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
-	
+		if(newpw2 == "" || !newpw2Check){
+			$("#newpwerror").html('4자 이상, 영문+숫자로 입력해주세요');
+			document.getElementById("newpw2").focus();
+			return false;		
+		}else{
+			$("#newpwerror").html('');
+			
+			if(newpwck2 == "" || !newpwck2Check || newpwck2 != newpw2){
+				$("#newpwckerror").html('비밀번호가 일치하지 않습니다');
+				document.getElementById("newpwck2").focus();
+				return false;
+			}else{
+				$("#newpwckerror").html('');
+			}
+		}
+
+		alert("개인정보가 정상적으로 수정되었습니다.");
+
 	$.ajax({
 		url: "/update",
 		data: {"id" : userdto.id, "newpw" : newpw2, "newpwck" : newpwck2},
 		type: "post",
 		success: function(){
-			if(newpw2 == "" || !newpw2Check){
-				$("#newpwerror").html('4자 이상, 영문+숫자로 입력해주세요');
-				document.getElementById("newpw2").focus();
-				return false;		
-			}else{
-				$("#newpwerror").html('');
-				
-				if(newpwck2 == "" || !newpwck2Check || newpwck2 != newpw2){
-					$("#newpwckerror").html('비밀번호가 일치하지 않습니다');
-					document.getElementById("newpwck2").focus();
-					return false;
-				}else{
-					$("#newpwckerror").html('');
-				}
-			}
-			alert("개인정보가 정상적으로 수정되었습니다.")	
-			$("#updateDiv").html("<p id='successP'>회원가입이 정상적으로 수정되었습니다.</p>");
+			//alert(result);
+			//$("#updateDiv").html("<p id='successP'>회원가입이 정상적으로 수정되었습니다.</p>");
 		}//success
 	})//ajax
 	
@@ -104,30 +106,102 @@ function pwUpdate(userdto){
 }
 
 function withdraw(){
-	alert('정상적으로 탈퇴되었습니다');
-	//id를 컨트롤러로 어떻게 넘길 수 있을까
-	// 새 비밀번호 확인에서 비밀번호 수정으로 안넘어가는 이유
+	//alert('정상적으로 탈퇴되었습니다');
+	var id = document.getElementById("hiddenUserId").value;
+	$.ajax({
+		url: "/deletemember",
+		data: {"id" : id},
+		type: "get",
+		success: function(){
+			alert('정상적으로 탈퇴 되었습니다.');
+			location.href = "main";
+		}//success
+	});//ajax
 }
 
 function mymission(){
-	alert('hi');
 
 	//location.href = "participation";
-	//var id = document.getElementById("hiddenUserId").value;
+	var id = document.getElementById("profil_div").name;
 	$.ajax({
 		url: "/participation2",
+		data: {"id" : id},
 		type: "get",
 		
-		success: function(map){
-			alert('hi');
+		success: function(list){
 			
-			$("#mymenu_div").html("<div id=profileP><p>"+map.count+"개의 미션 진행중</p></div>");
+			$("#mymenu_div").html("<p>진행중인 환경 지킴이 활동</p>");
 			$("#mymenu_div").append("<hr>");
-		}
-	})
+			
+			for(var i=0; i<list.length; i++){
+				//
+				if(list[i].p_complete == 0){
+					$("#mymenu_div").append("<div><a href='mission_detail/"+list[i].m_code+"'><img src=img/"+list[i].m_photo+" width=100px height=100px>"+list[i].m_name+"</a></div>");
+					$("#mymenu_div").append("<div><button class=mymissionbtn onclick='solodetail("+list[i].m_code+")'>신청내역 조회</button></div>");
+					$("#mymenu_div").append("<div id=modal2><div id=modalh22></div></div>")
+				}
+			}//for
+			
+			$("#mymenu_div").append("<p>진행완료한 환경 지킴이 활동</p>");
+			$("#mymenu_div").append("<hr>");
+			
+			for(var i=0; i<list.length; i++){
+				if(list[i].p_complete == 1){
+					$("#mymenu_div").append("<div><a href='mission_detail/"+list[i].m_code+"'><img src=img/"+list[i].m_photo+" width=100px height=100px>"+list[i].m_name+"</a></div>");
+					$("#mymenu_div").append("<div><button class=mymissionbtn onclick='solodetail("+list[i].m_code+")'>신청내역 조회</button></div>");
+				}
+			}
+		}//seccess
+	});
 	
 	
 }
 
+function solodetail(code){
+	alert(code);
+	$.ajax({
+		url : "/solodetail",
+		type : "get",
+		data : {"m_code" : code},
+		success : function(solo){
+			var modal = document.getElementById("modal");
+			modal.style.display = "flex";
+			
+			$('html').scrollTop(0);
+			$("#modalh2").text(solo.m_name);
+			$("#modalcontent").html("사진을 찍고 미션을 완료해주세요.<br><br>");
+			$("#modalcontent").append("포인트 획득: " + solo.m_point + "<br>");
+			$("#modalcontent").append("탄소배출 감소량 : " + solo.m_carbon + "g<br>");
+			$("#modalcontent").append("미션방법 : " + solo.m_inform + "<br>");
+			$("#modalcontent").append("<span style='color:orange'>인증 사진을 올려주세요!</span><br>");
+			$("#modalcontent").append("<img class=p_img id=previewimg><br>");
+			$("#p_photo").val(solo.p_photo); 
+		}
+	});
+
+}
 
 
+
+function myboard(){
+	alert('myboard hi');
+}
+
+function myguide(){
+	alert('myguide hi');
+}
+
+$(document).ready(function (){
+	
+//모달창 닫기
+	$("#modal").on("click",function(){
+		document.getElementById("modal").style.display = "none";
+	});
+	
+	modal.addEventListener("click", e => {
+		const evTarget = e.target
+		if(evTarget.classList.contains("modal-overlay")) {
+			modal.style.display = "none";
+		}
+	});
+});

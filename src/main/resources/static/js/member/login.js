@@ -26,6 +26,11 @@ window.onload = function() {
 			pw.focus();
 			return false;
 		}
+		
+/*		$.ajax({
+			url: "/loginCheck"
+		});*/
+		
 	}
 	
 

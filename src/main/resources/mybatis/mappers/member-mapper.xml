@@ -34,7 +34,12 @@
 	</update>
 	
 	<!-- 회원 탈퇴 --> 
-	<delete id="deletemember" parameterType="String">
+	<!-- <delete id="deletemember" parameterType="String">
 		delete from member where id=#{id};
-	</delete>
+	</delete> -->
+	
+	<update id="deletemember" parameterType="String">
+		update member set id = #{withdrawId} where id=#{id};
+	</update>
+
 </mapper>
