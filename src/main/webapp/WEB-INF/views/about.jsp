@@ -184,7 +184,7 @@
 							<br> 지구용사 5인조의 팀 리더.<br>무슨 역할을 했다고 쓸까요 야호<br>
 							<br>
 						</p>
-						<a href=""><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href="https://www.linkedin.com/in/mirae-shin-66b833238/"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
 						<a href="https://github.com/jjerry-o0o"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
 					</div>
 				</div>
