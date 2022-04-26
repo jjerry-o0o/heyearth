@@ -10,5 +10,5 @@ public interface MemberService {
 	public MemberDTO memberView(String id);
 	public int updatemember(String id,String newpw,String phone);
 	public int pwck(String pw);
-	public int deletemember(String id);
+	public int deletemember(String id, String withdrawId);
 }

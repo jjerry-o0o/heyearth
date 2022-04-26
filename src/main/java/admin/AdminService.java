@@ -55,8 +55,9 @@ public interface AdminService {
 	
 	/*댓글 관리*/
 	public List<CommentDTO> commentlist(int b_no);
-	public List<CommentDTO> recommentlist(int b_no);
 	public void admincommentinsert(CommentDTO dto);
+	public void admincommentupdate(int c_index, String c_comment);
+	public void admincommentdelete(int c_index);
 	
 	/*회원 관리*/
 	public List<MemberDTO> adminmemberlist();

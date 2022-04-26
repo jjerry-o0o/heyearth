@@ -112,7 +112,7 @@ function recyclingway(r_code){
 			$("#modalcontent").text("배출 방법 : " + rdto.r_way);
 			$("#r_code").val(rdto.r_code);
 		}//success end
-	})//ajax end
+	});//ajax end
 }
 
 
@@ -159,7 +159,7 @@ $(document).ready(function (){
 				 console.dir(document.querySelector('input[type=radio]'));
 				document.querySelectorAll(".radio").forEach(e => {
 					e.onclick = radiocheck();
-				})
+				});
 				
 				}//inner success
 			});//inner ajax
@@ -184,13 +184,13 @@ $(document).ready(function (){
 				//wayp.innerText("배출방법 : "+dto.r_way);
 				//alert("배출방법 : "+dto.r_way);
 			}//inner2 success
-		})//inner2 ajax
+		});//inner2 ajax
 		}					
 		
 	}
 	
-	
-		
+
+//모달창 닫기
 	$("#modal").on("click",function(){
 		document.getElementById("modal").style.display = "none";
 	});

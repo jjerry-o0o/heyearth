@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <link href="css/about.css" rel="stylesheet">
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
 <script src="js/about.js"></script>
 
@@ -15,23 +16,23 @@
 
 <script>
 	$(document).ready(function() {
-		const swiper = new Swiper( '.swiper', {
-			autoplay: {
-			      delay: 1000,
-			    },
-		    loop: true,
-		    navigation: {
-		      nextEl: '.swiper-button-next',
-		      prevEl: '.swiper-button-prev',
-		    },
-		    pagination: {
-		      el: '.swiper-pagination',
-		      type: 'bullets',
-		      clickable: true,
-		    },
-		    slidesPerView: 3,
-		    slidesPerGroup : 1,
-		  } );
+		const swiper = new Swiper('.swiper', {
+			autoplay : {
+				delay : 1000,
+			},
+			loop : true,
+			navigation : {
+				nextEl : '.swiper-button-next',
+				prevEl : '.swiper-button-prev',
+			},
+			pagination : {
+				el : '.swiper-pagination',
+				type : 'bullets',
+				clickable : true,
+			},
+			slidesPerView : 3,
+			slidesPerGroup : 1,
+		});
 	});
 </script>
 
@@ -47,17 +48,20 @@
 		<!-- 환경이야기 -->
 		<div class="a-m-content">
 			<div class="a-img1">
-				<img class="a-i1" src="img/about1.png" />
+				<img class="a-i1" src="img/melting-earth.gif"
+					style="width: 65%; height: 65%;" />
 			</div>
 		</div>
 		<div class="a-text">
 			<div class="a-m-text1">
-				<h2 class="a-envir-title">내일을 위한 오늘의 준비</h2>
+				<h2 class="a-envir-title">우리가 살아가는 지구를 위해</h2>
 				<p class="a-envir-text">멸종위기에 처한 바다거북의 코에 빨대가 꽂혀있거나, 해양생물의 뱃속에서
 					플라스틱 생수병이 발견되는 모습은 우리나라를 포함한 전세계의 바다가 해양쓰레기로 심각하게 오염되었고, 해양생물의 목숨을
 					위협하고 있음을 말해줍니다. 해양쓰레기 뿐만 아니라, 섬유에서 나오는 미세플라스틱, 무심코 일회용품이 자연과 생물을
 					위협하는 상황에서 인류는 안전할 수 있을까요? 우리가 사용하고 버린 쓰레기는 땅과 바다, 공기, 다양한 생물체들의 몸을
 					통해 부메랑처럼 다시 인간에게 돌아오고 있습니다. 이는 우리와 더불어 살아가는 모든 것들을 위협합니다.</p>
+				<br>
+				<br> 우리 헤이얼스와 함께, 더불어 살아갈 지구를 함께 지켜보는건 어때요?
 			</div>
 		</div>
 	</div>
@@ -175,8 +179,13 @@
 					<div class="team-text">
 						<h2 id="name">신미래</h2>
 						<p>
-							Team Leader <br><br> 지구용사 5인조의 팀 리더.<br>무슨 역할을 했다고 쓸까요 야호
+							Team Leader <br>
+							
+							<br> 지구용사 5인조의 팀 리더.<br>무슨 역할을 했다고 쓸까요 야호<br>
+							<br>
 						</p>
+						<a href=""><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href="https://github.com/jjerry-o0o"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
 					</div>
 				</div>
 				<div class="swiper-slide" id="member">
@@ -184,9 +193,13 @@
 					<div class="team-text">
 						<h2 id="name">이민아</h2>
 						<p>
-							A Reliable Helper <br>
-							<br>지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+							A Reliable Helper <br> <br>지구용사 5인조의 든든한 조력자.<br>무슨
+							역할을 했다고 쓸까요 야호<br>
+							<br>
 						</p>
+						<a href=""><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href=""><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
+
 					</div>
 				</div>
 				<div class="swiper-slide" id="member">
@@ -194,9 +207,12 @@
 					<div class="team-text">
 						<h2 id="name">문소영</h2>
 						<p>
-							Role Manager<br>
-							<br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+							R&R Manager<br> <br> 지구용사 5인조의 R&R 매니저<br>무슨 역할을
+							했다고 쓸까요 야호<br>
+							<br>
 						</p>
+						<a href="https://www.linkedin.com/in/soyoung-moon-b9a915237/"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href="https://github.com/moonjubilees"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
 					</div>
 				</div>
 				<div class="swiper-slide" id="member">
@@ -204,9 +220,12 @@
 					<div class="team-text">
 						<h2 id="name">윤이나</h2>
 						<p>
-							Time Manager<br>
-							<br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+							Time Manager<br> <br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을
+							했다고 쓸까요 야호<br>
+							<br>
 						</p>
+						<a href="http://www.linkedin.com/in/yina-yoon"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href="https://github.com/YooniqueEque"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
 					</div>
 				</div>
 				<div class="swiper-slide" id="member">
@@ -214,9 +233,12 @@
 					<div class="team-text">
 						<h2 id="name">박희영</h2>
 						<p>
-							Passion Manager<br>
-							<br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을 했다고 쓸까요 야호
+							Passion Manager<br> <br> 지구용사 5인조의 든든한 조력자.<br>무슨
+							역할을 했다고 쓸까요 야호<br>
+							<br>
 						</p>
+						<a href=""><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href=""><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
 					</div>
 				</div>
 			</div>
@@ -225,7 +247,7 @@
 			<div class="swiper-pagination"></div>
 		</div>
 	</div>
-	
+
 </body>
 <script>
 	$(document).ready(function() {

@@ -26,7 +26,7 @@
 	$(document).ready(function() {
 		$('.slider').slick({
 			autoplay : true,
-			autoplaySpeed : 5000,
+			autoplaySpeed : 7000,
 			slidesToShow : 4,
 			slidesToScroll : 1,
 		});
@@ -34,7 +34,7 @@
 
 		const swiper = new Swiper('.swiper', {
 			autoplay : {
-				delay : 2000,
+				delay : 5000,
 			},
 			loop : true,
 			navigation : {
@@ -52,51 +52,71 @@
 	});
 </script>
 
-
-
 </head>
 <body>
 
+
 	<!-- 메인1 탄소 -->
-	<div class="m-carbon">
+	<div class="m-carbon-wrapper">
 		<div class="m-carbon-title">
-			<h1>탄소발자국을 아세요?</h1>
+			<div class="child">탄소발자국을 아세요?</div>
 		</div>
+
 		<div class="m-carbon-text">
-			<p>
-				헤이얼스와 함께하는 와썹러들이 환경보호 활동을 통해 함께 실천해나가는 탄소배출 줄이기.<br>함께 확인해보실래요?
-			</p>
-		</div>
-
-		<div class="m-container">
-			<div class="carbon-text">
-				<p>
-					<strong>줄인 탄소량</strong>
-				</p>
-				<span class="carbon">${sum }</span>
-			</div>
-			<div class="carbon-text">
-				<p>
-					<strong>1인당 평균 참여횟수</strong>
-				</p>
-				<span class="carbon">${everPart }</span>
-			</div>
-			<div class="carbon-text">
-				<p>
-					<strong>미션 참여 총 인원</strong>
-				</p>
-				<span class="carbon">${totalPart }</span>
+			<div class="child">
+				헤이얼스와 함께하는 와썹러들이 환경보호 활동을 통해 함께 실천해나가는 탄소배출 줄이기.<br>
+				<br>함께 확인해보실래요?
 			</div>
 		</div>
 
 
-	</div>
+		<div id="data_div"></div>
+		<div id="circle_div">
+			<div>
+				<div>
+					<p class="data_info">
+						줄인 탄소량
+					</p>
+				</div>
+				<div class="circle">
+					<p class="ourdata">${sum }</p>
+					<br> / kg
+				</div>
+			</div>
+			<div>
+				<div>
+					<p class="data_info">
+						1인당 평균 참여횟수
+					</p>
+				</div>
+				<div class="circle">
+					<p class="ourdata">${everPart}</p>
+					<br> / 명
+				</div>
 
-	<button type="button" id="together" onclick="location.href='/carbon'">TOGETHER</button>
+			</div>
+			<div>
+				<div>
+					<p class="data_info">
+						미션 총 인원
+					</p>
+				</div>
+				<div class="circle">
+					<p class="ourdata">${totalPart  }</p>
+					<br> / 회
+				</div>
+
+			</div>
+		</div>
+	
+
+	<button type="button" class="together"
+		onclick="location.href='/carbon'">TOGETHER</button>
 	<div class="m-img1">
-		<img id="m-image" src="img/main1.png">
+		<img id="m-image" src="img/main-carbon.gif"
+			style="width: 100%; height: 20%;">
 	</div>
-
+</div>
 
 
 
@@ -108,25 +128,28 @@
 			<h2>헤이얼스와 함께하는 제로웨이스트샵을 소개합니다.</h2>
 		</div>
 		<div id="aff-imges">
-			<img id="aff-img" src=img/main-aff1.png> <img id="aff-img2"
-				src=img/main-aff2.png style="width: 10%; height: 10%;"> <img
-				id="aff-img" src=img/main-aff3.png> <img id="aff-img"
-				src=img/main-aff4.png> <img id="aff-img" src=img/main-aff5.png>
-			<img id="aff-img" src=img/main-aff6.png> <img id="aff-img"
-				src=img/main-aff7.png> <img id="aff-img" src=img/main-aff8.png>
-			<img id="aff-img" src=img/main-aff9.png> <img id="aff-img"
-				src=img/main-aff10.png style="width: 15%; height: 15%;">
-
+		<a href="https://thepicker.net/"><img src="img/main-aff1.png" id="main-aff" ></a>
+		<a href="https://jigubyulstore.com/"><img src="img/main-aff8.png" id="main-aff" style="width: %; height: %;"></a>
+		<a href="https://www.thanksto.co.kr/"><img src="img/main-aff4.png" id="main-aff" style="width: 20%; height: 20%;"></a>
+		<a href="https://www.instagram.com/dam_a_store/"><img src="img/main-aff6.png" id="main-aff" style="width: 15%; height: 15%;"></a>
+		<a href="https://www.instagram.com/b.green_official/"><img src="img/main-aff5.png" id="main-aff" style="width: %; height: %;"></a>
+		<a href="https://zerothings.co.kr/"><img src="img/main-aff7.png" id="main-aff" style="width: 20%; height: 20%;"></a>
+		<a href="https://almang.modoo.at/"><img src="img/main-aff2.png" id="main-aff" style="width: 10%; height: 10%;" ></a>
+		<a href="https://www.jigushop.co.kr/"><img src="img/main-aff3.png" id="main-aff" style="width: 15%; height: 20%;"></a>
+		<a href="https://www.atomos-store.kr/"><img src="img/main-aff9.png" id="main-aff" style="width: 20%; height: 20%;"></a>
+		<a href="https://brunch.co.kr/magazine/organicpunk"><img src="img/main-aff10.png" id="main-aff" style="width: 10%; height: 10%;"></a>
+		<a href="https://donggubat.com/"><img src="img/main-aff11.png" id="main-aff" style="width: 15%; height: 15%;"></a>
 		</div>
+
 
 	</div>
 
 
 	<!-- 메인3 About 연결 -->
 
-	<div class="m-about">
+	<div class="m-about" style="background: #F3EADF;">
 		<img src="img/main2.png" id="main-logo"
-			style="width: 15%; height: 15%;">
+			style="width: 15%; height: 15%; ">
 		<div class="m-about-text">
 			<p id="m-a-t-b">
 				<strong>헤이얼스는 환경보호를 위한 제로웨이스트 라이프스타일 플랫폼입니다.</strong>
@@ -141,7 +164,7 @@
 
 	<!-- 메인4 제로샵 연결 -->
 
-	<hr>
+
 	<div class="m-zeroshop">
 		<div class="m-zeroshop-title">
 			<h1>지구를 돕는 가게 찾기</h1>
@@ -175,6 +198,7 @@
 			</div>
 		</div>
 	</div>
+
 
 	<!-- 메인5 미션 연결 -->
 

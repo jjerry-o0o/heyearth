@@ -8,8 +8,8 @@ function groupdetail(code){
 			document.getElementById("modal").style.display = "flex";
 			$('html').scrollTop(0);
 			$("#modalh2").text(group.m_name);
-			$("#register_contents").html("날짜 : " + group.m_date + "<br>");
-			$("#register_contents").append("모집중인 인원 : " + group.m_personnel + "명<br>");
+			$("#register_contents").html("날짜 <span style='font-weight:700; font-size:20px;'>" + group.m_date + "</span><br>");
+			$("#register_contents").append("모집중인 인원 <span style='font-weight:700; font-size:20px;'>" + group.m_personnel + "명</span><br>");
 		}
 	});
 }
@@ -24,11 +24,10 @@ function solodetail(code){
 			document.getElementById("modal2").style.display = "flex";
 			$('html').scrollTop(0);
 			$("#modalh22").text(solo.m_name);
-			$("#register_contents2").html("사진을 찍고 미션을 완료해주세요.<br><br>");
-			$("#register_contents2").append("포인트 획득: " + solo.m_point + "<br>");
-			$("#register_contents2").append("탄소배출 감소량 : " + solo.m_carbon + "g<br>");
-			$("#register_contents2").append("미션방법 : " + solo.m_inform + "<br>");
-			$("#register_contents2").append("<span style='color:orange'>인증 사진을 올려주세요!</span><br>");
+			$("#register_contents2").html("포인트 획득<span style='font-weight:700; font-size:20px;'> " + solo.m_point + "p</span><br>");
+			$("#register_contents2").append("탄소배출 감소량 <span style='font-weight:700; font-size:20px;'>" + solo.m_carbon + "g</span><br>");
+			$("#register_contents2").append("미션방법 <span style='font-weight:700; font-size:20px;'>" + solo.m_inform + "</span><br><br>");
+			$("#register_contents2").append("<span style='color:green'>사진을 찍고 미션을 완료해보세요!</span><br>");
 			$("#register_contents2").append("<img class=p_img id=previewimg><br>");
 			$("#p_photo").val(solo.p_photo); 
 		}
