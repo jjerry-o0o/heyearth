@@ -90,6 +90,20 @@
 		where p.id=mem.id and p.p_code=#{p_code} and p.m_code=mis.m_code;
 	</update>
 	
+	<select id="adminmembercurcarbon" parameterType="int" resultType="int">
+		select carbon from member m, participation p where p.p_code=#{p_code} and p.id=m.id;
+	</select>
+	
+	<select id="membergradelist" resultType="gradedto">
+		select * from grade;
+	</select>
+	
+	<update id="adminmembergrade" parameterType="int">
+		update member m,participation p
+		set grade=#{grade}
+		where p.id=m.id and p.p_code=#{p_code};
+	</update>
+	
 	<delete id="adminreviewdel" parameterType="int">
 		delete from participation where p_code=#{p_code};
 	</delete>
@@ -162,16 +176,20 @@
 
 
 	<select id="commentlist" parameterType="int" resultType="commentdto">
-		select * from comment where b_no=#{b_no} and c_order=0 ;
-	</select>
-	
-	<select id="recommentlist" parameterType="int" resultType="commentdto">
-		select * from comment where b_no=#{b_no} and c_order!=0 ;
+		select * from comment where b_no=#{b_no};
 	</select>
 	
 	<insert id="admincommentinsert" parameterType="commentdto">
 		insert into comment(b_no,id,c_comment,c_order,c_regdate) values (#{b_no},#{id},#{c_comment},0,now());
 	</insert>
+	
+	<update id="admincommentupdate" parameterType="commentdto">
+		update comment set c_comment=#{c_comment}, c_regdate=now() where c_index=#{c_index};
+	</update>
+	
+	<delete id="admincommentdelete" parameterType="int">
+		delete from comment where c_index=#{c_index};
+	</delete>
 
 
 	
@@ -181,7 +199,7 @@
 	</select>
 	
 	<delete id="adminmemberdel" parameterType="String">
-		delete from member where id=#{id};
+		update member set id=concat(#{id}," (탈퇴한회원)"),del="Y" where id=#{id};
 	</delete>
 	
 	<select id="adminmemberboard" resultType="boarddto" parameterType="String">

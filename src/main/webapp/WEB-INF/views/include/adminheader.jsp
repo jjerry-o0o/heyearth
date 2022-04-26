@@ -15,40 +15,63 @@
 .aheader_a {
 	text-decoration: none;
 		font-weight: 500;
-		font-size: 15px;
+		font-size: 20px;
 		color: #1A271D;
 		text-align: center;
 	
 }
 .aheader_a:hover{
 		font-weight: 800;
-		font-size:15px;
+		font-size:20px;
 }
-.nav {/* 메뉴바 */
+.nav {
 	display:inline-block;
 	margin-top: 15px;
-	margin-left: auto;
+	margin-left : auto;
 	margin-right: auto;
-	margin-bottom: 15px;
+	margin-bottom: 70px;
 	text-align: center;
 	width : 80%;
 }
 .aheader_ul> .aheader_li {
 	display: inline-block;
-	width: 200px;
+	margin-left : 30px;
+	margin-right : 30px;
 	vertical-align: top;
 	text-align: center;
 }
+
 </style>
+
+<link href="/css/header.css" rel="stylesheet">
 
 
 </head>
 <body>
 <!-- 헤더 시작 -->
-<div style="background-color:#F6F5F0;text-align: center;">
+<header style="background-color:#F6F5F0">
+
+<div class="JoinLoginAll">
+<!-- 로그인 전 오른쪽 상단 메뉴-->
+	<c:if test="${sessionScope.session_id == null }">
+		<div class="JoinLogin" ><a class="header_j" href="/join">회원가입</a>&nbsp;<span>/</span>
+		<a class="header_j" href="${pageContext.request.contextPath}/login">로그인</a></div>
+	</c:if>
+		
+<!-- 로그인 후 오른쪽 상단 메뉴-->
+	<c:if test="${sessionScope.session_id != null }">
+		<div class="JoinLogin">
+		   	<a class="header_j" style="margin-right:30px;" href="${pageContext.request.contextPath}/mypage">What's Up, <span class="whatsup_id">${sessionScope.session_id}</span> !</a>
+			<a class="header_j" href="${pageContext.request.contextPath}/adminmypage">마이페이지</a>&nbsp;/
+			<a class="header_j" href="${pageContext.request.contextPath}/logout" onclick="alert('로그아웃 되었습니다.');">로그아웃</a>
+			</div>
+		 </c:if>	 
+</div>
+	<a href="${pageContext.request.contextPath}/adminmain"><img class="header_img" src="${pageContext.request.contextPath}/img/logo.png"></a>
+	
 
 <!-- 메뉴바 목록 -->
-	<div class="nav">
+	<nav class='nav'>
 			<ul class="aheader_ul">
 				<li class="aheader_li"><a  class="aheader_a" href="${pageContext.request.contextPath}/adminzeroshop">지구를 돕는 가게 찾기 관리</a></li>
 				<li class="aheader_li"><a class="aheader_a" href="${pageContext.request.contextPath}/adminmission">환경지킴이 모집중 관리</a></li>
@@ -56,7 +79,7 @@
 				<li class="aheader_li"><a class="aheader_a" href="${pageContext.request.contextPath}/adminboard">게시판 관리</a></li>
 				<li class="aheader_li"><a class="aheader_a" href="${pageContext.request.contextPath}/adminmember">회원 관리</a></li>
 		   </ul>
-	</div>
-</div>
+	</nav>
+</header>
 </body>
 </html>

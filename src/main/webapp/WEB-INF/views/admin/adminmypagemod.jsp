@@ -34,7 +34,7 @@
 		<tr><td>새로운 비밀번호 다시입력하기</td><td><input id="newpwdck" class="admintd" type="password">
 		<div id="pwckerror"></div>
 		</td></tr>
-		<tr><td>전화번호</td><td><input id="phone" name="phone" class="admintd" type="text" pattern="[0-9]{2,4}-[0-9]{3,4}-[0-9]{4}" maxlength="14" value="${admininfo.phone }"></td></tr>
+		<tr><td>전화번호</td><td><input id="phone" name="phone" class="admintd" type="text" pattern="[0-9]{2,4}-[0-9]{3,4}-[0-9]{4}" maxlength="14" value="${admininfo.phone }" required></td></tr>
 		<%-- <tr><td>사진</td>
 		<td>
 		<img id="previewimg" src="img/${admininfo.photo}" onerror="this.src='/img/noimage.jpg'">
