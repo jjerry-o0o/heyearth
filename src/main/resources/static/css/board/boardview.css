@@ -126,13 +126,12 @@
 		text-align: center;
 	}
 	.button{
-		height : 50px;
+		width:84px;
 		text-align : center;
 		border: 2px solid #1A271D;
 		border-radius: 5px;
-		padding : 0px 20px;
+		padding : 5px 20px;
 		display: inline-block;
-		margin : 0px 20px;
 	}
 	.button:hover{
 		background-color: #1A271D;
@@ -158,7 +157,7 @@
 		background-color: #F6F5F0;
 		margin : 0px 20px;
 	}
-	.comment_tb{
+	#comment_tb{
 		width : 80%;
 		border: 1px solid gray;
 		border-collapse: collapse;
@@ -176,4 +175,20 @@
 		width : 20%;
 		border-right: 1px solid gray;
 		border-bottom: 1px solid gray;
+	}
+	.td2:nth-child(4){
+		width : 5%;
+	}
+	.td2:nth-child(5){
+		width : 5%;
+	}
+	.td2:last-child{
+		width : 5%;
+	}
+	.comment_h{
+		text-align: center;
+	}
+	.calter_div{
+		width : 80%;
+		border: 1px dashed gray;
 	}
