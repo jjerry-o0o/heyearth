@@ -1,12 +1,14 @@
 package admin;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import board.BoardDTO;
 import comment.CommentDTO;
+import grade.GradeDTO;
 import member.MemberDTO;
 import mission.MissionDTO;
 import recycling.RecyclingDTO;
@@ -39,6 +41,9 @@ public interface AdminDAO {
 	public List<MissionDTO> missionreviewlist(int m_code);
 	public void adminmemberpoint(int p_code);
 	public void adminmembercarbon(int p_code);
+	public int adminmembercurcarbon(int p_code);
+	public List<GradeDTO> membergradelist();
+	public void adminmembergrade(int p_code, int grade);
 	public void adminreviewdel(int p_code);
 	public MissionDTO adminreviewinfo(int p_code);
 	public void updatereview(MissionDTO dto);
@@ -63,8 +68,9 @@ public interface AdminDAO {
 	
 	/*댓글 관리*/
 	public List<CommentDTO> commentlist(int b_no);
-	public List<CommentDTO> recommentlist(int b_no);
 	public void admincommentinsert(CommentDTO dto);
+	public void admincommentupdate(CommentDTO dto);
+	public void admincommentdelete(int c_index);
 	
 	
 	/*회원 관리*/
