@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -33,13 +34,13 @@ public class ParticipationController {
 	 }
 	 
 	//나의 미션 목록
-	 @RequestMapping(value= {"/participation", "/participation2"})
+	 @RequestMapping(value= "/participation")
      public ModelAndView list(HttpSession session, ModelAndView mv) {
 
 		Map<String, Object> map = new HashMap<>();
 		String id = (String) session.getAttribute("session_id");//사용자 id 받아옴
 		if (id != null) {
-			java.util.List<ParticipationDTO> list = service.participation_list(id);
+			List<ParticipationDTO> list = service.participation_list(id);
 
 			map.put("list", list);
 			map.put("count", list.size());
@@ -49,8 +50,23 @@ public class ParticipationController {
 		} else {
 			return new ModelAndView("member/login", "", null);
 		}
-
 	 }
+	 
+	//마이페이지 - 나의 미션 목록
+	@RequestMapping(value= "/participation2")
+	@ResponseBody
+    public List<ParticipationDTO> mymissionlist(@RequestParam(value="id") String id) {
+		
+		//ModelAndView mv = new ModelAndView();
+		List<ParticipationDTO> list = service.participation_list(id);
+		
+		//ParticipationDTO listget = list.get(0);
+		
+		//mv.addObject("list", list);
+		//mv.setViewName("mypage/mypage");
+		return list;
+	}
+	 
 	// 상시 미션 등록&인증하기
 	@RequestMapping("/register_complete")
 	public String register_complete(@ModelAttribute ParticipationDTO dto, HttpSession session) throws Exception { 

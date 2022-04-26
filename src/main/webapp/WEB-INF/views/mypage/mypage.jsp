@@ -134,17 +134,17 @@
 			</tr>
 			<tr>
 				<td id="m_mission" class="btn">
-					<input type=button id="mymission" value="나의 미션" onclick = "mymission()">
+					<input type=button id="mymission" value="나의 활동" onclick = "mymission()">
 				</td>
 			</tr>
 			<tr>
 				<td id="m_board" class="btn">
-					<h3> 작성 게시물 </h3>
+					<input type=button id="myboard" value="작성 게시글" onclick = "myboard()">
 				</td>
 			</tr>
 			<tr>
 				<td id="m_guide" class="btn">
-					<h3> 자주 보는<br>배출 가이드 </h3>
+					<input type=button id="myguide" value="자주 보는 배출가이드" onclick = "myguide()">
 				</td>
 			</tr>
 		</table>
@@ -152,10 +152,26 @@
 			<form action="/update" method="post">
 				<div id="updateDiv">
 				</div>
-				
 				<div id="myMissionDiv">
 				</div>
 			</form>
+			
+				<div id="modal" class="modal-overlay">
+					<div class="modal-window">
+					<div class="close-area" id="modalclose">X</div>
+						<div class="modalupper" id="modalupper">
+							
+						</div>
+							<div class="modaltitle">
+								<h2 class="modalh2" id="modalh2"></h2>
+							</div>
+						<div class="modalcontent" id="modalcontent">
+						</div>
+						
+						<div id="modalbtn">
+						</div>
+					</div>
+				</div>
 		</div>
 	</div>
 </section>
