@@ -1,24 +1,25 @@
 .a-m-section {
 	width: 100%;
-	height: 500px;
+	height: 100%;
 	background-color: #F5EDE2;
 	display : flex;
+	margin-bottom : 70px;
 }
 
 .a-m-content {
-	width: 50%;
-	box-sizing: border-box;
+/* 	box-sizing: border-box; */
 	background-color: #F5EDE2;
-	margin : 30px auto;
+/* 	margin : 30px auto; */
 	vertical-align: middle;
-	display : inline-block;
+/* 	display : flex; */
 }
 .a-text{
 	width : 50%;
 }
 .a-img1{
-	margin : 0 auto;
 	width : 80%;
+/* 	display : inline-block; */
+	margin-left : 25%;
 }
 
 .a-m-text1 {
@@ -38,19 +39,20 @@ button { /* TOGETHER */
 	font-size: 20px;
 	line-height: 80%;
 	color: white;
-	background-color: black;
-	border: 1px solid black;
+	background-color: #1A271D;
+	border: 1px solid #1A271D;
 	margin-top: 80px;
 	margin-bottom: 80px;
 	width : 80%;
 }
 
 #more {
-	width: 130px;
-	height : 40px;
+	width: 150px;
+	height : 50px;
 	margin-top: 100px;
 	text-align: center;
 	margin-bottom: 200px;
+	
 }
 
 button {
@@ -61,12 +63,15 @@ button {
 button:hover {
 	width : 80%;
 	font-style: normal;
-	font-weight: 300;
-	font-size: 16px;
+	font-weight: 500;
+	font-size: 17px;
 	line-height: 80%;
-	color: black;
-	border: 1px solid black;
+	color: #1A271D;
+	border: 1px solid #1A271D;
 	background-color: transparent;
+}
+a{
+	text-decoration: none;
 }
 
 .a-brand-title,.a-tit{ /*헤이얼스란 */
@@ -86,8 +91,12 @@ button:hover {
 	line-height: 28px;
 	text-align: center;
 	margin-bottom: 50px;
+}
+.team-text{
+padding : 10px; 
 
 }
+
 #ourservices{
 	background-color: #F5EDE2;
 }
@@ -124,8 +133,8 @@ button:hover {
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 40px;
-	color: black;
-	border: 1px solid black;
+	color: #1A271D;
+	border: 1px solid #1A271D;
 	margin-top: 80px;
 	margin-bottom: 80px;
 	width: 200px;
@@ -138,8 +147,8 @@ button:hover {
 	font-size: 20px;
 	line-height: 40px;
 	color:white;
-	border: 1px solid black;
-	background-color: black;
+	border: 1px solid #1A271D;
+	background-color: #1A271D;
 }
 
 
@@ -148,17 +157,16 @@ button:hover {
 	width : 300px;
 	height : 270px;
 }
-#mem1{
-	width : 320px;	
-	height : 270px;
-}
+
 #name{
 	text-align: center;
+	font-size: 30px;
 }
 
 
 #member,#intro-text{
 	text-align: center;
+	
 }
 
 #team-tit{ 
@@ -168,15 +176,17 @@ button:hover {
 	line-height: 67px;
 	text-align: center;
 	margin-top: 100px;
-	margin-bottom: 100px;
+	margin-bottom: 70px;
 }
 #member{
-	border: 1px solid black;
+	border : 0.2px solid #DCDCDC;
 	width : 25%;
 	height : 50%;
 	display : inline-block;
 	margin : 30px;
 	overflow: hidden;
+	box-shadow : 7px 7px 7px grey;
+	width : 100px;
 }
 
 

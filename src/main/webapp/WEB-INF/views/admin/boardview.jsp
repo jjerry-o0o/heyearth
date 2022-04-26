@@ -39,8 +39,15 @@
 			
 		$("#comment_btn").on("click", function(){
 			alert("댓글이 작성되었습니다.");
-			
-			insert();
+			$.ajax({
+				type:"post",
+				url:"/insertcomment",
+				data : {"id" : $(".id").val(), "c_comment" : $("#c_comment").val(), "b_no" : $(".b_no").val()},
+				success:function(data){
+					$("#list_div").empty();
+					selectlist();
+				}
+			});
 		});
 
 	});
@@ -100,7 +107,6 @@
 
 	<c:if test="${sessionScope.session_id != null }">
 		<div class="cinput_div">
-			<h3>댓글입력창</h3>
 			<textarea id="c_comment" name="c_comment" placeholder="댓글을 입력해주세요"></textarea>
 			<button id ="comment_btn" class="button">작성</button>
 			<input type="hidden" class="id" name="id" value="${sessionScope.session_id }">
@@ -109,10 +115,11 @@
 	</c:if>
 	
 	<div id="list_div">
-		<div id='comment'>
+		<div class='comment'>
 			<input type="hidden" class="id" name="id" value="${sessionScope.session_id }">
 			<input type="hidden" class="b_no" name="b_no" value="${dto.b_no }">
 			<table id='comment_tb' class='comment'>
+				<tr class='tr2'> <th class='th2'>내용</th> <th class='th2'>작성자</th> <th class='th2'>작성일</th></tr>
 			</table>
 		</div>
 	</div>

@@ -50,14 +50,20 @@ public class MemberController {
 	}
 	
 	//로그인 기능 구현 컨트롤러
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value={"/login","/loginCheck"}, method=RequestMethod.POST)
 	public ModelAndView loginmember(String id, String pw, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		MemberDTO userdto = service.loginmember(id, pw);
+		
 		if(userdto == null) { //로그인 실패인 경우
 			mv.addObject("msg", "일치하는 정보가 없습니다");
 			mv.setViewName("member/login");
-		}else { //로그인 성공인 경우
+		}else if(userdto.admin == 1){ //관리자 로그인인 경우
+			HttpSession session = request.getSession();
+			session.setAttribute("session_id", userdto.getId());
+			mv.setViewName("admin/adminmain");
+		}
+		else { // 로그인 성공인 경우	
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
 			mv.setViewName("main");
@@ -72,7 +78,7 @@ public class MemberController {
 		if(session != null) {
 			session.invalidate();
 		}
-		return "main";
+		return "redirect:/";
 	}
 	
 	//마이페이지 DB연결
@@ -87,8 +93,6 @@ public class MemberController {
 	@RequestMapping(value="/pwck", method=RequestMethod.POST)
 	public @ResponseBody int pwck(@RequestParam(value="pw2") String pw) {
 		int result = service.pwck(pw);
-		System.out.println(pw);
-		System.out.println(result);
 		return result;
 	}
 	
@@ -107,14 +111,18 @@ public class MemberController {
 	
 	//마이페이지 회원탈퇴
 	@RequestMapping("/deletemember")
-	public String deleteresult(String id) {
-		int result = service.deletemember(id);
+	public String deleteresult(@RequestParam(value="id") String id,HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
 		
+		String withdrawId = id+"(탈퇴한 회원)";
+		int result = service.deletemember(id, withdrawId);
+		System.out.println(result);
 		if(result == 1) {
-			return "redirect:/"; 
+			session.invalidate();
+			return "redirect:/main"; 
+		}else {
+			return "redirect:/mypage/mypage"; 
 		}
-		return "redirect:/mypage/mypage"; 
-		
 	}
 	
 }

@@ -2,28 +2,40 @@
 	font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
+
+
 button { 
 	font-style: normal;
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 40px;
-	color: white;
+	color: #F6F5F0;
 	background-color: #1A271D;
 	border: 1px solid #1A271D;
 	margin-bottom: 80px;
 	display: inline-block;
 	
 }
-button:hover {
+button:hover{
 	font-style: normal;
-	font-weight: 300;
+	font-weight: 700;
 	font-size: 16px;
 	line-height: 40px;
-	color: black;
+	color: #1A271D;
 	border: 1px solid #1A271D;
 	background-color: transparent;
+
 }
-.m-carbon-title { /* 메인1 - 탄소발자국을 아세요? */
+
+
+
+.together { /*메인1- TOGETHER */
+	width: 150px;
+	margin : auto;
+	display : block;
+}
+
+.m-carbon-title{ /* 메인1 - 탄소발자국을 아세요? */
 	font-style: normal;
 	font-weight: 600;
 	font-size: 30px;
@@ -31,24 +43,44 @@ button:hover {
 	text-align: center;
 	margin-top: 100px;
 	margin-bottom: 70px;
-	
+	height: 3em; /* 애니메이션 높이 */
+    overflow-y: hidden;
+    display: block;
+     text-align : center;
 }
-
-.m-carbon-text {/* 메인1-탄소 간략소개 */
-	font-style: normal;
-	font-weight: 400;
+.m-carbon-title .child{
+	font-size: 2em;/* 애니메이션 높이 */
+    font-weight: bold;
+    line-height: 1;
+    animation-name: grow;
+    animation-duration: 1s;/* 애니메이션 시간 */
+}
+.m-carbon-text{
+	font-size:1em;/* 애니메이션 높이 */
+    font-weight: bold;
+    line-height: 1;
+    animation-name: grow;
+    animation-duration: 3s;
+}
+.m-carbon-text .child {
+    font-size: 1em;/* 애니메이션 높이 */
+    font-weight: bold;
+/*     line-height: 1; */
+    animation-name: grow;
+    animation-duration: 3s;/* 애니메이션 시간 */
+/* font-weight: 400; */
 	font-size: 20px;
 	line-height: 22px;
 	text-align: center;
 	line-height: 1.5;
 	margin-bottom: 70px;
 }
-
-#together { /*메인1- TOGETHER */
-	width: 150px;
-	margin : auto;
-	display : block;
+/* 키프레임 애니메이션 */
+@keyframes grow {
+    from { transform: translateY(3em) }/* 애니메이션 높이 */
+    to { transform: translateY(0) }
 }
+
 
 #aff-imges {/*메인2 제휴사*/
 	margin: 100px;
@@ -59,7 +91,7 @@ button:hover {
 }
 
 .affiliates { /*메인2 제휴사 이미지*/
-	background-color: #F5EDE2;
+	background-color:#F6F5F0;
 }
 
 #aff-text { /*메인2 제휴사*/
@@ -67,8 +99,19 @@ button:hover {
 	margin: 5% auto 10px;
 	color:  #1A271D;
 }
+#m-image{
+	text-align: center;
+	margin: auto;
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 80px;
+	
+}
 
-#m-image, #main-logo {
+.m-carbon-wrapper{
+background: #F3EADF;
+}
+#main-logo {
 	width: 60%;
 	height: 60%;
 	text-align: center;
@@ -78,51 +121,51 @@ button:hover {
 	margin-bottom: 8S0px;
 }
 
-.m-container {
+
+#circle_div {
+	margin: 0 auto;
+	padding: 0 20px;
 	display: flex;
-	position: relative;
-	align-items: center;
 	justify-content: center;
-	margin-top: 45px;
-	margin-bottom: 65px;
-	
+	margin-bottom : 80px;
 }
 
-.carbon {
-	display: inline-block;
-	border: 1px dotted black;
-	width: 200px;
-	height: 100px;
-	margin: 30px;
+.circle {
+	border: 1px dotted #006400;
+	border-radius: 50%;
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: calc(12em/ 0.7);
+	height: 90px;
+}
+
+.ourdata {
 	text-align: center;
-}
-
-#carbon-t{
+	vertical-align: middle;
+	font-size: 50px;
 	font-weight: bold;
-	margin-top: 30px;
-	display: inline-block;
-	margin: 10px;
-	text-align: center;
-	margin-bottom: 3px;
-	font-size: 15px;
 }
 
-carbon{
-		text-align: center;
-		vertical-align : middle;
-		font-size: 50px;
-		font-weight: bold;
-}
-carbon-data{
+#info_div {
+	width: 80%;
+	margin: 20px auto;
 	text-align: center;
-		vertical-align : middle;
-		font-size: 50px;
-		font-weight: bold;
+	padding: 20px;
 }
-
+.data_info {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin: 10px auto;
+	font-weight: bold;
+	font-size: large;
+	margin-bottom : 50px;
+}
 hr {
 	size: 0.5;
-	color: blcak;
+	color: black;
 	width: 2000px;
 	margin-top: 60px;
 }
@@ -132,11 +175,9 @@ hr {
 	margin-bottom: 100px;
 }
 
-.m-about-text, m-mission-text {
+.m-about-text{
 	text-align: center;
 }
-
-
 
 #m-a-t-b {  /*about 텍스트*/
 	font-size: 20px;
@@ -150,22 +191,29 @@ hr {
 	margin-bottom: 40px;
 }
 
-.m-zeroshop-title, .m-mission-title{
+.m-zeroshop-title{
 	font-style: normal;
 	font-weight: 600;
 	font-size: 30px;
 	line-height: 67px;
 	text-align: center;
-	margin-top: 80px;
-	margin-bottom : 40px;
+	margin-top: 110px;
+	margin-bottom : 70px;
 }
-
+.m-mission-title{
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 67px;
+	text-align: center;
+	margin-top: 110px;
+	margin-bottom : 70px;
+}
 .m-zeroshop-text,.m-mission-text {
 	font-style: normal;
 	font-size: 20px;
 	text-align: center;
 	margin-top: 10px;
-	margin-bottom : 100px;
 }
 .m-mission, .m-zeroshop {
 	position: relative;
@@ -190,7 +238,7 @@ hr {
 #m-mission-each, #m-zeroshop-each {
 	display: inline-block;
 	border: 1px solid black;
-/* 	margin: 50px 30px 30px; */
+	margin: 50px 30px 30px;
 }
 
 #m-zeroshop-each {
@@ -201,7 +249,7 @@ hr {
 .swiper-wrapper {
 	text-align : center;
 }
-/* h1{ */
-/* 	margin-top : 40px; */
-/* 	margin-bottom : 40px; */
-/* } */
+.swiper{
+	margin-bottom : 100px;
+	margin-top : 70px;
+}

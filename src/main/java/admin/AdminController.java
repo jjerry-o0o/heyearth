@@ -1,6 +1,8 @@
 package admin;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
@@ -279,6 +281,7 @@ public class AdminController {
 		adminservice.adminmembercarbon(code);
 		// (3) grade 줄어들수도..?
 		
+		
 		// 리뷰 삭제하기
 		adminservice.adminreviewdel(code);
 		
@@ -536,27 +539,49 @@ public class AdminController {
 			boardinfo.setB_img("none");
 		}*/
 		
-		List<CommentDTO> commentlist = adminservice.commentlist(code);
-		List<CommentDTO> recommentlist = adminservice.recommentlist(code);
-		
-		mv.addObject("commentlist",commentlist);
-		mv.addObject("recommentlist",recommentlist);
 		mv.addObject("boardinfo",boardinfo);
 		mv.setViewName("admin/admincomment");
 		return mv;
 	}
 	
 	@RequestMapping("/admincommentinsert")
-	public String admincommentinsert(String c_comment, String id, int b_no ) {
+	@ResponseBody
+	public void admincommentinsert(String c_comment, String id, int b_no ) {
 		CommentDTO dto = new CommentDTO();
 		dto.setB_no(b_no);
 		dto.setC_comment(c_comment);
 		dto.setId(id);
 		adminservice.admincommentinsert(dto);
-		
-		return "redirect:/admincomment";
 	}
 
+	@RequestMapping("/admincommentlist")
+	@ResponseBody
+	public List<CommentDTO> admincommentlist(int b_no){
+		
+		List<CommentDTO> dto = adminservice.commentlist(b_no);
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
+		for(int i=0;i<dto.size();i++) {
+			String currentDate = dateFormat.format(dto.get(i).getC_regdate());
+			dto.get(i).setRegdate(currentDate);			
+		}
+		
+		return dto;
+		
+	}
+	
+	@RequestMapping("/admincommentupdate")
+	@ResponseBody
+	public void admincommentupdate(int c_index, String c_comment) {
+		System.out.println("변경");
+		adminservice.admincommentupdate(c_index,c_comment);
+	}
+	
+	@RequestMapping("/admincommentdelete")
+	@ResponseBody
+	public void admincommentdelete(int c_index) {
+		adminservice.admincommentdelete(c_index);
+	}
 	
 	
 	
@@ -690,10 +715,12 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/adminmemberboarddel")
-	public String memberboarddel(int code) {
+	public String memberboarddel(int code) throws UnsupportedEncodingException {
 		BoardDTO dto = adminservice.adminboardinfo(code);
 		adminservice.adminboarddel(code);
-		return "redirect:/adminmemberboard?id="+dto.getId();
+		String id = dto.getId();
+		id = URLEncoder.encode(id,"UTF-8");
+		return "redirect:/adminmemberboard?id="+id;
 	}
 	
 	@RequestMapping("/adminmemberboardmod")
@@ -732,13 +759,15 @@ public class AdminController {
 		
 		adminservice.updateboard(dto);
 		
-		return "redirect:/adminmemberboard?id="+dto.getId();
+		String id= dto.getId();
+		id = URLEncoder.encode(id,"UTF-8");
+		
+		return "redirect:/adminmemberboard?id="+id;
 	}
 	
 	@RequestMapping("/adminmembermissiondel")
-	public String membermissiondel(int code) {
+	public String membermissiondel(int code) throws UnsupportedEncodingException {
 		String id = adminservice.idtopcode(code);
-		int m_code = adminservice.mcodetopcode(code);
 		// 리뷰를 삭제하면 
 		// (1) 멤버의 point 줄어들고
 		adminservice.adminmemberpoint(code);
@@ -749,6 +778,7 @@ public class AdminController {
 		// 리뷰 삭제하기
 		adminservice.adminreviewdel(code);
 		
+		id = URLEncoder.encode(id,"UTF-8");
 		
 		return "redirect:/adminmembermission?id="+id;
 	}
@@ -787,7 +817,10 @@ public class AdminController {
 		
 		adminservice.updatereview(dto);
 		
-		return "redirect:/adminmembermission?id="+dto.getId();
+		String id = dto.getId();
+		id = URLEncoder.encode(id,"utf-8");
+		
+		return "redirect:/adminmembermission?id="+id;
 	}
 	
 	

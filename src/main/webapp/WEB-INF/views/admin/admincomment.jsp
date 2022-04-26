@@ -46,44 +46,16 @@
 </div>
 <h2 id="c_title">댓글</h2>
 <div id="c_container">
-	<form action="admincommentinsert" method="post">
-	<input type="text" id="comment" name="c_comment" placeholder="댓글을 입력해주세요" required="required">
-	<input type="hidden" name="id" value="${sessionScope.session_id }">
-	<input type="hidden" name="b_no" value="${boardinfo.b_no }">
-	<input type="submit" id="cinput_btn" value="등록">
-	</form>
+	<input type="text" id="c_comment" placeholder="댓글을 입력해주세요" required="required">
+	<input class="id" type="hidden" id="id" value="${sessionScope.session_id }">
+	<input class="b_no" type="hidden" id="b_no" value="${boardinfo.b_no }">
+	<input type="button" id="cinput_btn" value="작성">
+
 </div>
 <hr>
-<div class="container">
-	<table class="commentList">
-		<c:forEach items="${commentlist}" var="commentlist">
-			<tbody class="cmt-content${commentlist.c_index }">
-				<tr class="left-section">
-					<td class="left-info-id">
-						${commentlist.id }
-					</td>
-					<td class="left-info-date">
-					 	${commentlist.c_regdate }
-					</td>
-				</tr>
-				<tr class="right-section">
-					<td class="right-info-btn">
-						<input class="commentbtn" id="recommentbtn" type="button" value="답변">
-					</td>
-					<td class="right-info-btn">
-						<input class="commentbtn" id="commentmodbtn" type="button" value="수정">
-					</td>
-					<td class="right-info-btn">
-						<input class="commentbtn" id="commentmodbtn" type="button" value="삭제">
-					</td>
-				</tr>
-			</tbody>
-			<tbody>
-				<tr class="cmt-content${commentlist.c_index }">
-					<td class="comment-content">${commentlist.c_comment}</td>
-				</tr>
-			</tbody>
-		</c:forEach>
+<div class="container" id="list_div">
+	<table id="comment_tb" class="commentList">
+		<tr class='tr2'> <th class='th2'>내용</th> <th class='th2'>작성자</th> <th class='th2'>작성일</th></tr>
 	</table>
 </div>
 <div class='adminbtn'>

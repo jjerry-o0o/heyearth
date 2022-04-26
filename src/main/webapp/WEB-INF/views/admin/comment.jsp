@@ -1,3 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="java.util.Date"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>게시물 수정 | heyEarth</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/board/boardview.css" />
+
+<script src="jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		selectlist();
+		
+		$("#comment_btn").on("click", function(){
+			alert("댓글이 작성되었습니다.");
+			$.ajax({
+				type:"post",
+				url:"/insertcomment",
+				data : {"id" : $(".id").val(), "c_comment" : $("#c_comment").val(), "b_no" : $(".b_no").val()},
+				success:function(data){
+					$("#comment_tb").empty();
+					selectlist();
+				}
+			});
+		});
+	});
+		
 	function selectlist(){
 		$.ajax({
 			type:"get",
@@ -22,22 +57,8 @@
 		});
 	}
 	
-		
-	function insert(){
-		$.ajax({
-			type:"post",
-			url:"/insertcomment",
-			data : {"id" : $(".id").val(), "c_comment" : $("#c_comment").val(), "b_no" : $(".b_no").val()},
-			success:function(){
-				$("#c_comment").val("");
-				$("#comment_tb").empty();
-				selectlist();
-			}
-		});
-	}
-	
 	function alter(i){
-		$("#alter_div"+i).append("<form class='calter_div'><h3 class='comment_h'>'"+$("#c_comment"+i).val()+"'을<br>수정중입니다.</h3>"
+		$("#alter_div"+i).append("<form class='calter_div'>"
 		+ "<textarea class='a_comment' id='a_comment"+i+"' name='c_comment' placeholder='"+ $("#c_comment"+i).val() +"' rows='3' cols='50'></textarea>"
 		+ "<input type='hidden' id='a_index"+i+"' name='c_index' value='"+ $("#c_index"+i).val() +"'>"
 		+ "<input type='button' class='button' id='alter"+i+"' value='수정등록' onclick='update("+i+")'>"
@@ -52,8 +73,7 @@
 			url:"/updatecomment",
 			data : {"c_index" : $("#a_index"+i).val(), "c_comment" : $("#a_comment"+i).val()},
 			success:function(){
-				$(".alter_div").empty();
-				$("#comment_tb").empty();
+				$(".comment").empty();
 				selectlist();
 			}
 		});
@@ -73,3 +93,30 @@
 			}
 		});
 	}
+</script>
+
+</head>
+
+<body>
+
+ 	<c:if test="${sessionScope.session_id != null }">
+		<div class="cinput_div">
+			<textarea id="c_comment" name="c_comment" placeholder="댓글을 입력해주세요"></textarea>
+			<button id ="comment_btn" class="button">작성</button>
+			<input type="hidden" class="id" name="id" value="${sessionScope.session_id }">
+			<input type="hidden" class="b_no" name="b_no" value="${dto.b_no }">
+		</div>
+	</c:if>
+	
+	<div id="list_div">
+		<div id='comment'>
+			<input type="hidden" class="id" name="id" value="${sessionScope.session_id }">
+			<input type="hidden" class="b_no" name="b_no" value="${dto.b_no }">
+			<table id='comment_tb' class='comment'>
+			</table>
+		</div>
+	</div>
+
+</body>
+
+</html>

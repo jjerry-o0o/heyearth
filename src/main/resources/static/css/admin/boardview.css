@@ -126,7 +126,6 @@
 		text-align: center;
 	}
 	.button{
-		width:84px;
 		text-align : center;
 		border: 2px solid #1A271D;
 		border-radius: 5px;
@@ -179,16 +178,6 @@
 	.td2:nth-child(4){
 		width : 5%;
 	}
-	.td2:nth-child(5){
-		width : 5%;
-	}
 	.td2:last-child{
 		width : 5%;
-	}
-	.comment_h{
-		text-align: center;
-	}
-	.calter_div{
-		width : 80%;
-		border: 1px dashed gray;
 	}
