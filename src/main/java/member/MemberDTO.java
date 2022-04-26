@@ -14,8 +14,15 @@ public class MemberDTO {
 	MultipartFile image;
 	String newpw;
 	String newpwck;
+	String del;
 	
 
+	public String getDel() {
+		return del;
+	}
+	public void setDel(String del) {
+		this.del = del;
+	}
 	public String getNewpw() {
 		return newpw;
 	}

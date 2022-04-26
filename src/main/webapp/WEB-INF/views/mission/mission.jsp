@@ -40,12 +40,11 @@
 		
 		<!-- 단체 미션 -->
 			<div id=group_div>
-				<h3>모집 단체</h3>
+				<h3>모집중인 단체미션</h3>
 				<c:forEach items="${gilist }" var="row">
 					<div class="missionlist">
 						<div style="display: inline-block">
-							<a href="mission_detail/${row.m_code}"><img width=250px
-								height=250px
+							<a href="mission_detail/${row.m_code}"><img class="img_list"
 								src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 						</div>
 						<div style="display: inline-block">
@@ -65,9 +64,12 @@
 								<c:if test="${(regDate2 - toDate2) == 1}">
 									<strong style="color: orange">내일 미션이 진행됩니다! 오늘 안으로 신청해주세요</strong>
 								</c:if>
+								<c:if test="${(regDate2 - toDate2) < 1}">
+									<strong style="color: orange">내일 미션이 진행됩니다! 오늘 안으로 신청해주세요</strong>
+								</c:if>
 								
 							<!--  미션 간략 정보 -->	
-								<li><h3>${row.m_name }</h3></li>
+								<li><a href="mission_detail/${row.m_code}"><h3>${row.m_name }</h3></a></li>
 								<li>장소 : ${row.m_location }</li>
 								<li>포인트 : ${row.m_point }p</li>
 								<li>탄소배출감소량 : ${row.m_carbon }g</li>
@@ -92,12 +94,11 @@
 			
 		<!-- 상시 미션 -->
 			<div id=solo_div style="display: none">
-				<h3>모집 상시</h3>
+				<h3>모집중인 상시미션</h3>
 				<c:forEach items="${silist }" var="row">
 					<div class="missionlist">
 						<div style="display: inline-block">
-							<a href="mission_detail/${row.m_code}"><img width=250px
-								height=250px
+							<a href="mission_detail/${row.m_code}"><img class="img_list"
 								src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 						</div>
 						<div style="display: inline-block">
@@ -106,7 +107,7 @@
 						<!--  미션 간략 정보 -->	
 							<ul class="list">
 								<li style="color: green"><strong>지금 당장 미션을 수행해보세요!</strong></li>
-								<li><h3>${row.m_name }</h3></li>
+								<li><a href="mission_detail/${row.m_code}"><h3>${row.m_name }</h3></a></li>
 								<li>포인트 : ${row.m_point }p</li>
 								<li>탄소배출감소량 : ${row.m_carbon }g</li>
 							</ul>
@@ -124,8 +125,7 @@
 				<c:forEach items="${gelist }" var="row">
 					<div class="missionlist">
 						<div style="display: inline-block">
-							<a href="mission_detail/${row.m_code}"><img width=250px
-								height=250px
+							<a href="mission_detail/${row.m_code}"><img class="img_list"
 								src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 						</div>
 						<div style="display: inline-block">
@@ -146,8 +146,7 @@
 				<c:forEach items="${selist }" var="row">
 					<div class="missionlist">
 						<div style="display: inline-block">
-							<a href="mission_detail/${row.m_code}"><img width=250px
-								height=250px
+							<a href="mission_detail/${row.m_code}"><img class="img_list"
 								src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 						</div>
 						<div style="display: inline-block">
@@ -156,7 +155,7 @@
 						<!--  미션 간략 정보 -->
 							<ul class="list">
 								<li style="color: blue"><strong>종료된 미션입니다</strong></li>
-								<li><h3>${row.m_name }</h3></li>
+								<li><a href="mission_detail/${row.m_code}"><h3>${row.m_name }</h3></a></li>
 								<li>포인트 : ${row.m_point }</li>
 								<li>탄소배출감소량 : ${row.m_carbon }</li>
 							</ul>

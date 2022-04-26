@@ -17,7 +17,7 @@ public class MissionDTO {
 	int p_star;
 	String star;
 	String p_review;
-	String p_code;
+	int p_code;
 	String id;
 	String p_photo;
 	int p_complete;
@@ -56,10 +56,10 @@ public class MissionDTO {
 		this.id = id;
 	}
 	
-	public String getP_code() {
+	public int getP_code() {
 		return p_code;
 	}
-	public void setP_code(String p_code) {
+	public void setP_code(int p_code) {
 		this.p_code = p_code;
 	}
 	public int getP_star() {

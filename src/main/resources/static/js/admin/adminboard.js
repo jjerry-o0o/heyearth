@@ -69,6 +69,7 @@ $(document).ready(function(){
 					$("#adminnoticetable").append("<tr><td class='tabname'>"+ result[i].b_title +"</td>" +
 					"<td class='tabname'>" +result[i].id + "</td>" +
 					"<td class='tabname'>" + result[i].regdate + "</td>" +
+					"<td><input class='tabmodbtn' id='comment' type='button' value='댓글작성' onclick='comment("+result[i].b_no + ")'></td>" +
 					"<td><input class='tabmodbtn' id='boardmod' type='button' value='수정' onclick='boardmod("+ result[i].b_no +")'></td>"+
 					"<td><input class='tabdelbtn' id='boarddel' type='button' value='삭제' onclick='boarddel("+ result[i].b_no +")'></td></tr>");
 				}

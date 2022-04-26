@@ -14,8 +14,9 @@
 <!-- 단체 미션 신청하기(환경지킴이 모달창에서) -->
 <!--  1. insert --> 
 	<insert id="participation_register" parameterType="participationdto">
-        insert into participation ( p_code, id, m_code, p_friends)
-        values ( p_code, #{id}, #{m_code}, #{p_friends} )
+        insert into participation (  id, m_code, p_friends)
+        select #{id}, #{m_code}, #{p_friends}
+  from dual where not exists(select * from participation where id = #{id} and m_code = #{m_code});
     </insert>
 <!-- 2. mission 최대인원 수정 -->
     <update id="participation_register2" parameterType="participationdto">             
@@ -27,8 +28,9 @@
 <!-- 상시 미션 신청&완료하기(환경지킴이 모달창에서) -->
 <!--  1. insert --> 
 	<insert id="participation_register_complete" parameterType="participationdto">
-        insert into participation ( p_code, id, m_code, p_friends,  p_photo, p_complete)
-        values ( p_code, #{id}, #{m_code}, 1, #{p_photo}, 1)
+        insert into participation (  id, m_code, p_friends,  p_photo, p_complete)
+        select #{id}, #{m_code}, 1, #{p_photo}, 1
+  from dual where not exists(select * from participation where id = #{id} and m_code = #{m_code});
     </insert>
 <!-- 2. 등급 변경 -->
     <update id="participation_register_complete2" parameterType="participationdto">             

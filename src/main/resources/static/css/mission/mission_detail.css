@@ -4,8 +4,8 @@ li {
 	list-style: none;
 }
 .p_img{
-width:100px;
-height:100px;
+width:200px;
+height:200px;
 }
 .modal-overlay, .modal-overlay2 {
 	width: 100%;
@@ -45,4 +45,51 @@ height:100px;
 	float: right;
 	padding-right: 10px;
 	cursor: pointer;
+}
+.review_list{
+	display: grid; 
+grid-template-columns: 20% auto 20%; 
+margin-left: auto; 
+margin-right: auto; 
+margin-bottom: 20px; 
+width: 70%; 
+border: 0 solid white;
+border-radius: 20px;		
+background-color:white;
+}
+.review_box{
+	margin-top: 20px; 
+	margin-bottom: 50px; 
+	text-align: center;
+	
+}
+.redcard{
+	padding-left : 14px;
+	padding-right : 14px;
+	padding-top : 3px;
+	padding-bottom : 3px;
+	border:2px solid #1A271D;
+	font-size: 16px;
+	color: #F6F5F0;
+	background-color : #1A271D;
+	cursor:pointer;
+}
+.redcard:hover{
+	background-color : white;
+	color: #1A271D;
+}
+.register{
+	padding-left : 14px;
+	padding-right : 14px;
+	padding-top : 3px;
+	padding-bottom : 3px;
+	border:2px solid #1A271D;
+	font-size: 16px;
+	color: #F6F5F0;
+	background-color : #1A271D;
+	cursor:pointer;
+}
+.register:hover{
+	background-color : white;
+	color: #1A271D;
 }
