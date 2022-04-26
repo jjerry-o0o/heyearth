@@ -49,4 +49,7 @@ public interface BoardDAO {
 	
 	//게시물검색
 	public List<BoardDTO> findList(Map<String, String> data);
+	
+	//id로 작성한 게시물 조회
+	public List<BoardDTO> myboardlist(String id);
 }

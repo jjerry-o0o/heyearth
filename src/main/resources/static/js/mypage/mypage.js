@@ -181,6 +181,32 @@ function solodetail(code){
 
 }
 
+/*작성 게시물 조회 기능*/
+
+function boardlist(){
+	var id = document.getElementById("profil_div").name;
+	
+	$.ajax({
+		url : "/myboardlist",
+		type : "post",
+		data : {"id" : id},
+		success: function(data){
+			$("#mymenu_div").empty();
+			
+			$("#mymenu_div").html("<table id='boardlist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
+			+ "<th class='board_th'>제목</th><th class='board_th'>작성일</th><th class='board_th'>조회수</th></tr>");
+			for(var i = 0; i < data.length; i++){
+				$("#board_tbody").append("<tr class='board_tr'><td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_no+"</td>"
+				+ "<td class='board_td' ><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_type+"</td>"
+				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_title+"</td>"
+				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_regdate+"</td>"
+				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_view+"</td></tr>");
+			};
+			$("#mymenu_div").append("</table>");
+		}
+	}); //ajax end
+}
+
 
 
 function myboard(){

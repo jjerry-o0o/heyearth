@@ -14,108 +14,11 @@
 <!-- js -->
 <script type="text/javascript" src="/js/mypage/mypage.js"></script>
 <script src="jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+	});
+</script>
 
-<style>
-	section{
-		width : 90%;
-		margin : 20px auto;
-		padding : 20px;
-		color : #1A271D;
-	}
-	h1{
-		text-align: center;
-	}
-	h3{
-		text-align: center;
-	}
-	#menu{
-		display: flex;
-		align-content: center;
-	}
-	#mymenu_div{
-		width : 70%;
-		height : 500px;
-		margin : 10px;
-		padding : 10px;
-		border : 1px dashed gray;
-	}
-	#menu_table{
-		border-collapse: collapse;
-		width : 30%;
-		margin : 10px;
-		padding : 10px;
-		border : 2px solid #1A271D;
-	}
-	tr{
-		border-bottom: 1px solid gray;
-		height:20%;
-	}
-	tr:first-child{
-		height : 30%;
-	}
-	tr:last-child{
-		border-style: none;
-	}
-	tr:hover{
-		background-color: #1A271D;
-		color : white;
-	}
-	#profil_div{
-		width : 100%;
-		height : 170px;
-		margin-top: 10px;
-		border-style: none;
-		background-color: #F6F5F0;
-		color: #1A271D;
-		font-size: large;
-		font-weight: bold;
-	}
-	#profil_div:hover{
-		background-color: #1A271D;
-		color : #F6F5F0;
-	}
-	#name{
-		width : 50%;
-		display: inline-block;
-		text-align: center;
-		margin : 0px;
-		padding:10px 0px;
-		vertical-align: middle;
-	}
-	#point {
-		font-size: large;
-		text-align: center;
-		border: 1px solid gray;
-		border-radius : 10px;
- 		margin : 0px 0px;
-		padding : 5px 0px;
-		width: 30%;
-		background-color: #F6F5F0;
-		color : black;
-	}
-	#pointP p{
-		margin: 0px 0px;
-	}
-	#carbon{
-		font-size: large;
-		text-align: center;
-		border: 1px solid gray;
-		border-radius : 10px;
- 		margin : 0px 0px; 
-		padding : 5px 0px;
-		width: 30%;
-		background-color: #F6F5F0;
-		color : black;
-	}
-	#carbonP p{
-		margin: 0px 0px;
-	}
-	#successP{
-		font-size: 25px;
-		text-align: center;
-		margin-top: 200px;
-	}
-</style>
 </head>
 <body>
 	<!-- header import -->
@@ -127,22 +30,22 @@
 	<div id="menu">
 	
 		<table id="menu_table">
-			<tr>
-				<td>
+			<tr class="menu_tr">
+				<td class="menu_td">
 					<input type=button id="profil_div" name="${sessionScope.session_id}" value="${sessionScope.session_id}님의 정보" onclick = "profil_div()" checked="checked"/>
 				</td>
 			</tr>
-			<tr>
+			<tr class="menu_tr">
 				<td id="m_mission" class="btn">
 					<input type=button id="mymission" value="나의 활동" onclick = "mymission()">
 				</td>
 			</tr>
-			<tr>
+			<tr class="menu_tr">
 				<td id="m_board" class="btn">
-					<input type=button id="myboard" value="작성 게시글" onclick = "myboard()">
+					<input type=button id="myboard_btn" value="작성게시물" onclick="boardlist()">
 				</td>
 			</tr>
-			<tr>
+			<tr class="menu_tr">
 				<td id="m_guide" class="btn">
 					<input type=button id="myguide" value="자주 보는 배출가이드" onclick = "myguide()">
 				</td>
@@ -154,6 +57,11 @@
 				<div id="updateDiv">
 				</div>
 				<div id="myMissionDiv">
+				</div>
+				
+				<div id="myboardlist_div">
+					<table id="boardlist_tb">
+					</table>
 				</div>
 			</form>
 		</div>
