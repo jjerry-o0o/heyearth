@@ -85,15 +85,6 @@ h3 {
 	background-color: #F3EADF;
 	padding : 10px;
 }
-.board_th:first-child{
-	width : 10%;
-}
-.board_th:nth-child(2){
-	width : 10%;
-}
-
-
-
 #menu_table {
 	border-collapse: collapse;
 	width: 30%;
