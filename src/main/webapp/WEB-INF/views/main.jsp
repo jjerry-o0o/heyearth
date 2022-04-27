@@ -26,7 +26,7 @@
 	$(document).ready(function() {
 		$('.slider').slick({
 			autoplay : true,
-			autoplaySpeed : 7000,
+			autoplaySpeed : 2000,
 			slidesToShow : 4,
 			slidesToScroll : 1,
 		});
@@ -34,7 +34,7 @@
 
 		const swiper = new Swiper('.swiper', {
 			autoplay : {
-				delay : 5000,
+				delay : 3000,
 			},
 			loop : true,
 			navigation : {
