@@ -36,7 +36,7 @@
 					name="p_friends" id="p_friends"> <input type="hidden"
 					name="p_complete" id="p_complete"> <input name="p_photo"
 					type="hidden" id="p_photo"> <input name="image"
-					id="input-image" type="file" accept="image/*"> <input
+					id="input-image" type="file" accept="image/*"  required> <input
 					class="back" type="button" value="취소"> <input type='submit'
 					id='complete' value="인증완료!">
 			</form>
@@ -52,9 +52,9 @@
 			<div id="register_contents2"></div>
 			<form name=form3 method=post
 				action='${pageContext.request.contextPath}/review'>
-				<input type=hidden name=p_code id=p_code2> <input
-					name=p_star type=number id=p_star><br> <input
-					name=p_review type=text placeholder="자유롭게 후기를 적어주세요!" id=p_review>
+				별점 <input type=hidden name=p_code id=p_code2> <input
+					name=p_star type=number id=p_star min="1" max="5" step="1" value="5" required>
+<br> <textarea name=p_review rows="5" cols="20" placeholder="자유롭게 후기를 적어주세요!" id=p_review required></textarea>
 				<input class=back type=button value=취소> <input type=submit
 					id=review value=리뷰완료!>
 			</form>

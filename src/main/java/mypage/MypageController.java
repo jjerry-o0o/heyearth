@@ -1,6 +1,9 @@
 package mypage;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -10,9 +13,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import board.BoardDTO;
 import participation.ParticipationDTO;
 import participation.ParticipationService;
 import participation.ParticipationServiceImpl;
@@ -31,23 +38,7 @@ public class MypageController {
 		return "/mypage/mypage";
 	}
 	
-	  //나의 가이드 목록
-		 @RequestMapping("/myguide")
-	     public ModelAndView list(HttpSession session, ModelAndView mv) {
-
-			Map<String, Object> map = new HashMap<>();
-			String id = (String) session.getAttribute("session_id");
-			if (id != null) {
-				java.util.List<MyguideDTO> list = myguideservice.guide_list(id);
-				map.put("list", list);
-				mv.setViewName("mypage/myguide");
-				mv.addObject("map", map);
-				return mv;
-			} else {
-				return new ModelAndView("member/login", "", null);
-			}
-		 }
-		 
+	 
 	  //나의 가이드 스크랩
 		 @RequestMapping("/guide_insert")
 			public ModelAndView register(@ModelAttribute MyguideDTO dto, HttpSession session, ModelAndView mv) {
@@ -58,6 +49,8 @@ public class MypageController {
 				dto.setId(id);
 				int result = myguideservice.guide_insert(dto);
 				System.out.println(result);
+				System.out.println("====");
+				mv.addObject("dto", dto);
 				mv.addObject("result", result);
 				mv.setViewName("recycling/recycling");
 				return mv;
@@ -68,8 +61,21 @@ public class MypageController {
 					@RequestMapping("delete_guide")
 					public String delete(@RequestParam int mg_code, MyguideDTO dto) {
 						myguideservice.delete(mg_code); 
-						return "redirect:/myguide";
+						return "redirect:/mypage";
 					}
+					
+					
+					
+					 //나의 가이드 목록
+					@RequestMapping(value="/myguide", method = RequestMethod.POST)
+					 @ResponseBody
+					 public List <MyguideDTO> guide_list(@RequestParam String id) {
+						List<MyguideDTO> list = myguideservice.guide_list(id);
+				
+							return list;
+					}
+					 
+					 
 
 
 }//Controller
