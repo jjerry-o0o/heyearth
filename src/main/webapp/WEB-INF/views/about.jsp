@@ -179,10 +179,12 @@
 					<div class="team-text">
 						<h2 id="name">신미래</h2>
 						<p>
-							Team Leader <br>
+							<strong><span style="color :#000080;" >Team Leader</span></strong> <br>
 							
-							<br> 지구용사 5인조의 팀 리더.<br>무슨 역할을 했다고 쓸까요 야호<br>
-							<br>
+							<br> 로그인, 회원가입 서비스 설계 및 구현<br>
+							분리배출 가이드 사물인식 AI사용 설계 및 구현<br>
+							마이페이지 구현<br><br>
+							
 						</p>
 						<a href="https://www.linkedin.com/in/mirae-shin-66b833238/"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
 						<a href="https://github.com/jjerry-o0o"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
@@ -193,9 +195,9 @@
 					<div class="team-text">
 						<h2 id="name">이민아</h2>
 						<p>
-							A Reliable Helper <br> <br>지구용사 5인조의 든든한 조력자.<br>무슨
-							역할을 했다고 쓸까요 야호<br>
-							<br>
+							<strong><span style="color :#000080;" >A Reliable Helper</span></strong> <br><br> 지도 API를 활용한 주변 가게 찾기 기능 구현<br>
+							지역별 가게찾기 서비스 설계 및 구현<br>관리자 페이지 설계 및 구현<br><br>
+							
 						</p>
 						<a href=""><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
 						<a href=""><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
@@ -207,9 +209,8 @@
 					<div class="team-text">
 						<h2 id="name">문소영</h2>
 						<p>
-							R&R Manager<br> <br> 지구용사 5인조의 R&R 매니저<br>무슨 역할을
-							했다고 쓸까요 야호<br>
-							<br>
+							<strong><span style="color :#000080;" >R&R Manager</span></strong><br><br> 메인 페이지 UI 설계 및 제작<br>브랜드 소개 전체 UI설계 및 제작<br>챗봇API 구현 및 네이버 톡톡 연계
+							<br><br>
 						</p>
 						<a href="https://www.linkedin.com/in/soyoung-moon-b9a915237/"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
 						<a href="https://github.com/moonjubilees"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
@@ -220,9 +221,8 @@
 					<div class="team-text">
 						<h2 id="name">윤이나</h2>
 						<p>
-							Time Manager<br> <br> 지구용사 5인조의 든든한 조력자.<br>무슨 역할을
-							했다고 쓸까요 야호<br>
-							<br>
+							<strong><span style="color :#000080;" >Time Manager</span></strong><br> <br>게시판,댓글 서비스 설계 및 구현
+							<br>탄소배출량 상세페이지 설계 및 구현<br>챗봇 API 구현 및 네이버 톡톡 연계<br><br>
 						</p>
 						<a href="http://www.linkedin.com/in/yina-yoon"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
 						<a href="https://github.com/YooniqueEque"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
@@ -233,9 +233,10 @@
 					<div class="team-text">
 						<h2 id="name">박희영</h2>
 						<p>
-							Passion Manager<br> <br> 지구용사 5인조의 든든한 조력자.<br>무슨
-							역할을 했다고 쓸까요 야호<br>
-							<br>
+							<strong><span style="color :#000080;" >Passion Manager</span></strong><br> <br> 환경지킴이 활동중 기능 및 페이지 구현<br>
+							나의 미션 기능 및 페이지 구현 <br>
+							헤더&푸터 적용
+							<br><br>
 						</p>
 						<a href="http://www.linkedin.com/in/heeyoung-park"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
 						<a href="https://github.com/heeyoung0101"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
