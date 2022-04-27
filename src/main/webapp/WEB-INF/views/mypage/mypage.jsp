@@ -73,6 +73,8 @@ $(document).ready(function (){
 				</div>
 				<div id="myboardlist_div">
 				</div>
+				<div id="myguidelist_div">
+				</div>
 		</div>
 		
 				<div id="modal" class="modal-overlay">

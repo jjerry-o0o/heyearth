@@ -16,7 +16,8 @@
 <script>
 $(document).ready(function(){
 	$(".insert").on("submit", function(){
-		if($(this).children("input[name=result]").val() == 0){		
+		alert($("#result").val());
+		if($("#result").val() == '0'){		
 		alert("이미 스크랩하셨습니다!");
 		}else{
 		alert("스크랩되었습니다!");
@@ -83,7 +84,7 @@ $(document).ready(function(){
 					<form name="form" method="post" class="insert"
 				action="${pageContext.request.contextPath}/guide_insert">
 				<input type="hidden" id="r_code" name="r_code">
-				<input type="hidden" id="result" name="result" value="${result }">
+				<input type="hidden" id="result" name="result" value="${result}">
 				
 					<input class="scrap" type='submit' value='★'>
 				

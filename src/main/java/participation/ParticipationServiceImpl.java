@@ -66,6 +66,12 @@ public class ParticipationServiceImpl implements ParticipationService {
 	        return dao.mymission_detail(p_code);    
 	    }
 
+		@Override
+		public void redcard(ParticipationDTO dto) {//레드카드
+			dao.redcard(dto);
+		}
+		
+
 	 
 	
 }//ServiceImpl Class end
