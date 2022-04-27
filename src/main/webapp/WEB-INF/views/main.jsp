@@ -75,7 +75,7 @@
 			<div>
 				<div>
 					<p class="data_info">
-						줄인 탄소량
+						감소시킨 탄소량
 					</p>
 				</div>
 				<div class="circle">
@@ -86,11 +86,11 @@
 			<div>
 				<div>
 					<p class="data_info">
-						1인당 평균 참여횟수
+						미션 참여 총 인원
 					</p>
 				</div>
 				<div class="circle">
-					<p class="ourdata">${everPart}</p>
+					<p class="ourdata">${totalPart  }</p>
 					<br> / 명
 				</div>
 
@@ -98,15 +98,16 @@
 			<div>
 				<div>
 					<p class="data_info">
-						미션 총 인원
+						1인당 평균 미션 참여횟수
 					</p>
 				</div>
 				<div class="circle">
-					<p class="ourdata">${totalPart  }</p>
+					<p class="ourdata">${everPart}</p>
 					<br> / 회
 				</div>
 
 			</div>
+			
 		</div>
 	
 

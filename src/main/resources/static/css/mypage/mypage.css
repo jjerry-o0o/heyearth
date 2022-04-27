@@ -27,9 +27,13 @@ h3 {
 	padding: 10px;
 	border: 1px dashed gray;
 }
+#myboardlist_div{
+	display: flex;
+	justify-content: center;
+}
 #boardlist_tb{
 	border-collapse: collapse;
-	width : 100%;
+	width : 90%;
 	margin: 10px;
 	padding: 10px;
 	border: 1px solid gray;
@@ -40,14 +44,8 @@ h3 {
 }
 .board_th{
 	background-color: #F3EADF;
+	padding : 10px;
 }
-.board_th:first-child{
-	width : 10%;
-}
-.board_th:nth-child(2){
-	width : 10%;
-}
-
 #menu_table {
 	border-collapse: collapse;
 	width: 30%;
@@ -68,10 +66,6 @@ h3 {
 #menu_tr {
 	border-bottom: 1px solid gray;
 	height: 20%;
-}
-
-#menu_tr:first-child {
-	height: 30%;
 }
 
 #menu_tr:last-child {
