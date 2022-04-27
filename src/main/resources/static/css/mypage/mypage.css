@@ -92,13 +92,13 @@ h3 {
 	padding: 10px;
 	border: 2px solid #1A271D;
 }
-.board_a{
+a{
 	text-decoration: none;
 }
-.board_a:visited{
+a:visited{
 	color : black;
 }
-.board_a:link{
+a:link{
 	color : black;
 }
 
@@ -378,4 +378,9 @@ h3 {
     height: 400px;
     position: relative;
     padding: 10px;
+}
+
+/*스크롤바 숨기기*/
+::-webkit-scrollbar {
+	display: none;
 }

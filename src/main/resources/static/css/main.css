@@ -2,9 +2,6 @@
 * { /*사이트 전체 폰트 통일*/
 	font-family: 'IBM Plex Sans KR', sans-serif;
 }
-
-
-
 button { 
 	font-style: normal;
 	font-weight: 400;
@@ -250,4 +247,8 @@ hr {
 .swiper{
 	margin-bottom : 100px;
 	margin-top : 70px;
+}
+
+.list{
+	height : 200px;
 }

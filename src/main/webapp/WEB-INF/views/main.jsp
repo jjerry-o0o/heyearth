@@ -186,8 +186,8 @@
 							</div>
 							<div id="m-zeroshop-text">
 								<div class="list">
-									<h3>${row.s_name }</h3>
-									<p>
+									<h3 class="listcontent">${row.s_name }</h3>
+									<p class="listcontent">
 										${row.s_location }<br>☎ ${row.s_call }
 									</p>
 
@@ -224,8 +224,8 @@
 							</div>
 							<div id="m-mission-text">
 								<div class="list">
-									<h3>${row.m_name }</h3>
-									<p>
+									<h3 class="listcontent">${row.m_name }</h3>
+									<p class="listcontent">
 										함께 하길 기다리고 있어요!<br> <br> 장소 : ${row.m_location }<br>
 										날짜 : ${row.m_date }
 									</p>
@@ -245,8 +245,8 @@
 							</div>
 							<div id="m-mission-text">
 								<div class="list">
-									<h3>${row.m_name }</h3>
-									<p>
+									<h3 class="listcontent">${row.m_name }</h3>
+									<p class="listcontent">
 										지금 당장 미션을 수행해보세요!<br> <br> 포인트 : ${row.m_point }<br>
 										탄소배출감소량 : ${row.m_carbon }
 									</p>
@@ -264,3 +264,6 @@
 <!-- footer import -->
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 <!-- end of footer import -->
+
+
+
