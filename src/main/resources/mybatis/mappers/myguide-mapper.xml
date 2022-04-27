@@ -5,7 +5,7 @@
 <mapper namespace="mypage.MyguideDAO">
 <!-- 나의 가이드 목록 --> 
 	<select id="guide_list" parameterType="String" resultType = "myguidedto">
-		 select mg_code, g.id as id, r.r_code as r_code, r_name, r_photo, r_way
+		 select mg_code, g.id as id, r.r_code as r_code, r_class, r_name, r_photo, r_way
  	 from member m, myguide g, recycling r
    		where m.id =g.id and g.r_code = r.r_code and g.id=#{id};
 	</select>	
@@ -20,4 +20,4 @@
     <delete id="delete">
         delete from myguide where mg_code=#{mg_code}
     </delete>
-    </mapper>
+  </mapper>

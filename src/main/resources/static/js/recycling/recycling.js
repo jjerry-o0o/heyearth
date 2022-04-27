@@ -108,6 +108,7 @@ function recyclingway(r_code){
 			
 			$("#modalupper").html("<img id='modalimg' src='img/"+rdto.r_photo+"'>");
 			$("#modalh2").text(rdto.r_name);
+			
 			$("#modalcontent").text("분류 : " + rdto.r_name + "<br>");
 			$("#modalcontent").text("배출 방법 : " + rdto.r_way);
 			$("#r_code").val(rdto.r_code);

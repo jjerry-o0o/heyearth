@@ -14,7 +14,7 @@ window.onload = function() {
 	//3자리-3~4자리-4자리
 	const phonePattern = /^\d{3}-\d{3,4}-\d{4}$/;	
 	nicknamebtn.onclick = nicknameCheck;
-	submit.onclick = phoneCheck;
+	submit.onclick = allCheck;
 	
 	function nicknameCheck() {
 		let nicknameInput = nickname.value;
@@ -61,11 +61,7 @@ window.onload = function() {
 		let pwInput = pw.value;
 		let pwckInput = pwck.value;		
 
-		/*if(pwckInput == ""){
-			$("#pwckerror").html('비밀번호를 입력해주세요');
-			pwck.focus();
-			return false;
-		}else */if(pwInput != pwckInput){
+		if(pwInput != pwckInput){
 			$("#pwckerror").html('비밀번호가 일치하지 않습니다');
 			pwck.focus();
 			return false;
@@ -75,9 +71,6 @@ window.onload = function() {
 	}
 	
 	function phoneCheck() {
-		nicknameCheck();
-		pwCheck();
-		pwckCheck();
 		
 		let phoneInput = phone.value;
 		let phoneCheck = phonePattern.test(phoneInput);
@@ -87,6 +80,16 @@ window.onload = function() {
 			return false;
 		}else{
 			$("#phoneerror").html('');
+		}
+	}
+	
+	function allCheck() {
+		var result2 = nicknameCheck();
+		var result3 = pwCheck();
+		var result4 = pwckCheck();
+		
+		if(result2==false || result3==false || result4==false){
+			return false;
 		}
 	}
 	

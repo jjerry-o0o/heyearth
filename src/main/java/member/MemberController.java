@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,25 +51,23 @@ public class MemberController {
 	}
 	
 	//로그인 기능 구현 컨트롤러
-	@RequestMapping(value={"/login","/loginCheck"}, method=RequestMethod.POST)
-	public ModelAndView loginmember(String id, String pw, HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String loginmember(String id, String pw, HttpServletRequest request, Model model) {
 		MemberDTO userdto = service.loginmember(id, pw);
 		
 		if(userdto == null) { //로그인 실패인 경우
-			mv.addObject("msg", "일치하는 정보가 없습니다");
-			mv.setViewName("member/login");
+			model.addAttribute("msg", "일치하는 정보가 없습니다");
+			return "member/login";
 		}else if(userdto.admin == 1){ //관리자 로그인인 경우
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
-			mv.setViewName("admin/adminmain");
+			return "admin/adminmain";
 		}
 		else { // 로그인 성공인 경우	
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
-			mv.setViewName("main");
+			return "redirect:/";
 		}
-		return mv;
 	}
 	
 	//로그아웃 기능 구현 컨트롤러

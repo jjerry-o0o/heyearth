@@ -78,5 +78,13 @@
         update participation 
         set p_star = #{p_star}, p_review = #{p_review} 
         where p_code = #{p_code};
-    </update>    
+    </update> 
+    
+     
+<!-- 레드카드 -->    
+     <update id="redcard" parameterType="participationdto">             
+        update participation
+       set p_redcard = #{p_redcard} + 1
+       where p_code = #{p_code};
+    </update>      
 </mapper>

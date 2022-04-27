@@ -18,14 +18,14 @@
 </head>
 <body>
 <div class="zero_search">
-		<input type="button" id="zerosearch1" name="findid" value = "지역으로 검색"onclick="search(1)" checked="checked" autofocus>
+		<input type="button" id="zerosearch2" name="findid" value = "내 주변에서 검색"onclick="search(2)" checked="checked" autofocus>
 		  
-		<input type="button" id="zerosearch2" name="findid" value = "내 주변에서 검색" onclick="search(2)">
+		<input type="button" id="zerosearch1" name="findid" value = "지역으로 검색" onclick="search(1)">
 </div>
 <br>
 <br>
 <div class="zero_body">
-	<div id="searchLoc">
+	<div id="searchLoc" style="display:none;">
 		<div id="loc_menu">
 			<label for="location" class="Locmenu">지역 선택</label>
 			<select name="bigloc" id="bigloc">
@@ -55,7 +55,7 @@
 		</div>
 	</div>
 	
-	<div id="searchMy" style="display:none;">
+	<div id="searchMy">
 		<h2 class="maptitle">지구를 지키는 가게들</h2>
 		<p>(반경 10km이내의 가게들만 표시됩니다.)</p>
 		<div id="mapname">

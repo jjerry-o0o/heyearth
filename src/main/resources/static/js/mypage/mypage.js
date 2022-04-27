@@ -7,8 +7,13 @@ function profil_div(){
 		data: {"id" : id},
 		type: 'get',
 		success: function(userdto){
+			//$("#mymenu_div").empty();
+			//$("#updateDiv").empty();
+			$("#myMissionDiv").empty();
+			$("#myboardlist_div").empty();
 			
-			$("#updateDiv").html("<div id=pointP><p>보유 포인트</p></div>");
+			$("#updateDiv").html("<div id=")
+			$("#updateDiv").append("<div id=pointP><p>보유 포인트</p></div>");
 			$("#updateDiv").append("<div id=point>"+userdto.point+" p"+"</div><br>");
 			$("#updateDiv").append("<div id=carbonP><p>탄소 배출량</p></div>");
 			$("#updateDiv").append("<div id=carbon>"+userdto.carbon+"</div><br>");
@@ -30,7 +35,7 @@ function profil_div(){
 			$("#updateDiv").append("<div id=update><input id='submit' type='submit' value='회원정보 수정'></div>");
 			$("#updateDiv").append("<div id=withdraw><input type='button' id='withdrawbtn' value='회원탈퇴' onclick='withdraw()'></div>");
 			
-			document.getElementById("pwckbtn").onclick = pwck;
+			document.getElementById("pwckbtn").onclick = pwck();
 			document.getElementById("submit").onclick = pwUpdate(userdto);
 			
 		}//success end
@@ -129,57 +134,41 @@ function mymission(){
 		type: "get",
 		
 		success: function(list){
+			//$("#mymenu_div").empty();
+			$("#updateDiv").empty();
+			//$("#myMissionDiv").empty();
+			$("#myboardlist_div").empty();
+			var complete = "";
 			
-			$("#mymenu_div").html("<p>진행중인 환경 지킴이 활동</p>");
-			$("#mymenu_div").append("<hr>");
 			
-			for(var i=0; i<list.length; i++){
-				//
-				if(list[i].p_complete == 0){
-					$("#mymenu_div").append("<div><a href='mission_detail/"+list[i].m_code+"'><img src=img/"+list[i].m_photo+" width=100px height=100px>"+list[i].m_name+"</a></div>");
-					$("#mymenu_div").append("<div><button class=mymissionbtn onclick='solodetail("+list[i].m_code+")'>신청내역 조회</button></div>");
-					$("#mymenu_div").append("<div id=modal2><div id=modalh22></div></div>")
-				}
-			}//for
 			
-			$("#mymenu_div").append("<p>진행완료한 환경 지킴이 활동</p>");
-			$("#mymenu_div").append("<hr>");
+			$("#myMissionDiv").html("<table id='missionlist_tb'><tbody id='mission_tbody'><tr class='mission_tr'>"
+			+"<th class='mission_th'>활동 코드</th><th class='mission_th'>활동명</th><th class='mission_th'>포인트</th>"
+			+ "<th class='mission_th'>탄소배출 감소량</th><th class='mission_th'>진행여부</th></tr>");
 			
-			for(var i=0; i<list.length; i++){
+			for(var i = 0; i < list.length; i++){
+				
 				if(list[i].p_complete == 1){
-					$("#mymenu_div").append("<div><a href='mission_detail/"+list[i].m_code+"'><img src=img/"+list[i].m_photo+" width=100px height=100px>"+list[i].m_name+"</a></div>");
-					$("#mymenu_div").append("<div><button class=mymissionbtn onclick='solodetail("+list[i].m_code+")'>신청내역 조회</button></div>");
+					complete = "YES";
+				}else{
+					complete = "NO";
 				}
-			}
+				
+				$("#mission_tbody").append("<tr class='mission_tr'><td class='mission_td'><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+list[i].m_code+"</td>"
+				+ "<td class='mission_td' ><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+list[i].m_name+"</td>"
+				+ "<td class='mission_td'><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+list[i].m_point+"</td>"
+				+ "<td class='mission_td'><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+list[i].m_carbon+"</td>"
+				+ "<td class='mission_td'><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+complete+"</td></tr>");
+			};
+			$("#mymenu_div").append("</table>");
+			
 		}//seccess
 	});
 	
 	
 }
 
-function solodetail(code){
-	alert(code);
-	$.ajax({
-		url : "/solodetail",
-		type : "get",
-		data : {"m_code" : code},
-		success : function(solo){
-			var modal = document.getElementById("modal");
-			modal.style.display = "flex";
-			
-			$('html').scrollTop(0);
-			$("#modalh2").text(solo.m_name);
-			$("#modalcontent").html("사진을 찍고 미션을 완료해주세요.<br><br>");
-			$("#modalcontent").append("포인트 획득: " + solo.m_point + "<br>");
-			$("#modalcontent").append("탄소배출 감소량 : " + solo.m_carbon + "g<br>");
-			$("#modalcontent").append("미션방법 : " + solo.m_inform + "<br>");
-			$("#modalcontent").append("<span style='color:orange'>인증 사진을 올려주세요!</span><br>");
-			$("#modalcontent").append("<img class=p_img id=previewimg><br>");
-			$("#p_photo").val(solo.p_photo); 
-		}
-	});
 
-}
 
 /*작성 게시물 조회 기능*/
 
@@ -191,18 +180,20 @@ function boardlist(){
 		type : "post",
 		data : {"id" : id},
 		success: function(data){
-			$("#mymenu_div").empty();
+			$("#updateDiv").empty();
+			$("#myMissionDiv").empty();
+			$("#myguidelist_div").empty();
 			
-			$("#mymenu_div").html("<table id='boardlist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
+			$("#myboardlist_div").html("<table id='guidelist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
 			+ "<th class='board_th'>제목</th><th class='board_th'>작성일</th><th class='board_th'>조회수</th></tr>");
 			for(var i = 0; i < data.length; i++){
 				$("#board_tbody").append("<tr class='board_tr'><td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_no+"</td>"
 				+ "<td class='board_td' ><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_type+"</td>"
 				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_title+"</td>"
-				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_regdate+"</td>"
+				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].regdate+"</td>"
 				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_view+"</td></tr>");
 			};
-			$("#mymenu_div").append("</table>");
+			$("#myboardlist_div").append("</table>");
 		}
 	}); //ajax end
 }
@@ -213,21 +204,31 @@ function myboard(){
 	alert('myboard hi');
 }
 
-function myguide(){
-	alert('myguide hi');
-}
 
-$(document).ready(function (){
+
+/*작성 게시물 조회 기능*/
+
+function myguide(){
+	var id = document.getElementById("profil_div").name;
 	
-//모달창 닫기
-	$("#modal").on("click",function(){
-		document.getElementById("modal").style.display = "none";
-	});
-	
-	modal.addEventListener("click", e => {
-		const evTarget = e.target
-		if(evTarget.classList.contains("modal-overlay")) {
-			modal.style.display = "none";
+	$.ajax({
+		url : "/myguide",
+		type : "post",
+		data : {"id" : id},
+		success: function(data){
+			$("#updateDiv").empty();
+			$("#myMissionDiv").empty();
+			$("#myboardlist_div").empty();
+			
+			$("#myguidelist_div").html("<table cellspacing=0 cellpadding=0 id='boardlist_tb'><tbody id='board_tbody'>"
+			+ "<th class='board_th'>사진</th><th class='board_th'>분류</th><th class='board_th''>배출 방법</th><th class='board_th'>삭제</th></tr>");
+			for(var i = 0; i < data.length; i++){
+				$("#board_tbody").append("<tr class='board_tr'><td class='board_td'><img width=100px; height=100px; id='modalimg' src='img/"+data[i].r_photo+"'></td>"
+				+ "<td class='board_td' height=50 valign=top>"+data[i].r_name+data[i].r_name+"</td>"
+				+ "<td class='board_td'  height=50 valign=top><div style='overflow-y: scroll; width:200;  height:100; padding:4px; font-size:30px;'>"+data[i].r_way+"</div></td>"
+				+ "<td class='board_td'  height=50 valign=top><a href='delete_guide?mg_code="+data[i].mg_code+"&r_code="+data[i].r_code+"'>삭제하기</a></td></tr>");
+			};
+			$("#myguidelist").append("</table>");
 		}
-	});
-});
+	}); //ajax end
+}
