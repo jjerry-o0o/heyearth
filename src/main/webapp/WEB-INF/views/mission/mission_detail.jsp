@@ -54,7 +54,7 @@
 				<input type="hidden" name="p_complete" value=1> <input
 					type="hidden" name="m_point" value="${group.m_point}"> <input
 					type="hidden" name="m_carbon" value="${group.m_carbon}"> <input
-					name="image" id="input-image" type="file" accept="image/*">
+					name="image" id="input-image" type="file" accept="image/*"  required>
 					<br>
 				<input type='submit' id='register_complete' class="register" value='참가하기'>
 			</form>
@@ -132,6 +132,10 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 
 			<c:forEach items="${review }" var="row">
 		<div class="review_list">
+		<c:if test="${row.p_redcard >=2 }">
+		<div></div><div><span style="display:inline-block;color:green; padding-top:60px;height:100px;font-size:20px; font-weight: 500;">레드카드를 받아 숨김처리된 리뷰입니다</span></div><div></div>
+		</c:if>
+		<c:if test="${row.p_redcard < 2 }">
 				<div style="padding-top:20px; padding-bottom:20px;">
 					
 					<img width=200px height=200px
@@ -178,8 +182,13 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 				<span
 						style="border-radius: 3px; display: inline-block; padding: auto; width: 25px; height: 25px; background-color:#F7e600;; color: black; font-size: 20px; font-weight: large;">${row.grade }</span>
 					<span style="font-size: 20px; font-weight: 600"> ${row.id } </span><br>
-					<br><input type=button value=신고하기 class="redcard">
+					<br><form action="${pageContext.request.contextPath}/redcard">
+					<input type=hidden name="p_code" value="${row.p_code }">
+					<input type=hidden name="p_redcard" value="${row.p_redcard }">
+					<input type=submit value=신고하기 class="redcard">
+					</form>
 				</div>
+		</c:if>
 		</div>
 			</c:forEach>
 	</div>

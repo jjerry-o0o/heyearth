@@ -144,5 +144,11 @@ public class ParticipationController {
 		service.participation_review(dto); // 리뷰제출
 		return "redirect:/participation";
 	}
+	// 레드카드
+	@RequestMapping("/redcard")
+	public String redcard(ParticipationDTO dto) {
+		service.redcard(dto);
+		return "redirect:/mission";
+	}
 
 }// Controller end

@@ -47,10 +47,8 @@ public class MainController {
 		
 		int sum = carbonlist.stream().mapToInt(Integer::intValue).sum();
 		
-		int n = 2;
-		double n2 = Math.pow(10.0, n);
 		double e = (double)sum/1000;
-		double r = Math.round((e*n2)/n2);
+		String result = String.format("%.2f", e);
      
 		
 		int totalPart = carbonservice.partCount();
@@ -61,7 +59,7 @@ public class MainController {
 	        mav.addObject("gilist", missionservice.missionlist_group_ing());     
 	        mav.addObject("silist", missionservice.missionlist_solo_ing());     
 	        mav.addObject("zeroshoplist", zero_service.zeroshoplist());
-	        mav.addObject("sum", r);
+	        mav.addObject("sum", result);
 	        mav.addObject("totalPart", totalPart);
 	        mav.addObject("everPart", everPart);
 	        

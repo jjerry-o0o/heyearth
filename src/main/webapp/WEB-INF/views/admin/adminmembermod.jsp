@@ -26,12 +26,12 @@
 		<tr><td>등급</td><td><input id="grade" name="grade" class="admintd" type="number" value="${memberinfo.grade}" min="1" max="5" required></td></tr>
 		<tr><td>포인트</td><td><input id="point" name="point" class="admintd" type="number" value="${memberinfo.point}" min="0" required></td></tr>
 		<tr><td>감소시킨 탄소배출량</td><td><input id="carbon" name="carbon" class="admintd" type="number" value="${memberinfo.carbon}" min="0" required></td></tr>
-		<tr><td>사진</td>
+		<%-- <tr><td>사진</td>
 		<td>
 		<img id="previewimg">
 		<input id="photo" name="photo" type="hidden" value=${memberinfo.photo }>
 		<input id="imageremove" type="button" value="이미지 삭제">
-		<input name="image" id="input-image" class="admintd" type="file" accept="image/*"></td></tr>
+		<input name="image" id="input-image" class="admintd" type="file" accept="image/*"></td></tr> --%>
 	</table>
 </div>
 <div class='adminbtn'>

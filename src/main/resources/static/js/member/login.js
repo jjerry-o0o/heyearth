@@ -27,9 +27,7 @@ window.onload = function() {
 			return false;
 		}
 		
-/*		$.ajax({
-			url: "/loginCheck"
-		});*/
+
 		
 	}
 	

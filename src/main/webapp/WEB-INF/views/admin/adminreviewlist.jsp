@@ -17,7 +17,7 @@
 <body>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<h1 class='adminmain'>리뷰 관리 페이지입니다.</h1><br>
+<h1 class='adminmain'>'리뷰 관리' 페이지입니다.</h1><br>
 
 <div class='admincontext'>
 	<c:forEach items="${reviewlist}" var="reviewlist">

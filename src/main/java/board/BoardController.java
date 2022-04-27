@@ -74,9 +74,9 @@ public class BoardController {
 		
 		
 		List<BoardDTO> findlist = boardservice.findList(type, keyword);
-					model.addAttribute("boardlist", findlist);
-					
-		System.out.println("컨트롤러 : " + type + " / " + keyword);
+		
+		model.addAttribute("boardlist", findlist);
+		model.addAttribute("url", "find");		
 		
 		return "/board/boardlist";
 	}
@@ -168,6 +168,18 @@ public class BoardController {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
 			String currentDate = dateFormat.format(date);
 			list.get(i).setRegdate(currentDate);
+			
+			System.out.println(list.get(i).getB_type());
+			
+			if(list.get(i).getB_type().equals("not")) {
+				list.get(i).setB_type("공지사항");
+			}
+			else if(list.get(i).getB_type().equals("que")) {
+				list.get(i).setB_type("질문");
+			}
+			else if(list.get(i).getB_type().equals("req")) {
+				list.get(i).setB_type("요청");
+			}
 		}
 		
 		return list;
