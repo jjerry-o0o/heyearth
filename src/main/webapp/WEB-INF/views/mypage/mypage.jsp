@@ -15,8 +15,20 @@
 <script type="text/javascript" src="/js/mypage/mypage.js"></script>
 <script src="jquery-3.6.0.min.js"></script>
 <script>
-	$(document).ready(function() {
-	});
+$(document).ready(function (){
+	
+	//모달창 닫기
+		$("#modal").on("click",function(){
+			document.getElementById("modal").style.display = "none";
+		});
+		
+		modal.addEventListener("click", e => {
+			const evTarget = e.target
+			if(evTarget.classList.contains("modal-overlay")) {
+				modal.style.display = "none";
+			}
+		});
+});
 </script>
 
 </head>
@@ -56,14 +68,11 @@
 			<form action="/update" method="post">
 				<div id="updateDiv">
 				</div>
+			</form>
 				<div id="myMissionDiv">
 				</div>
-				
 				<div id="myboardlist_div">
-					<table id="boardlist_tb">
-					</table>
 				</div>
-			</form>
 		</div>
 		
 				<div id="modal" class="modal-overlay">
