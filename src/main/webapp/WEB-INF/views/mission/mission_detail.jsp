@@ -68,10 +68,10 @@ grid-template-columns: 40% auto; width:70%; margin-left: auto;
 margin-right: auto; 
 margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px; padding-left:10px; padding-right:20px; ">
 		<div>
-		<img width=500px height=500px
+		<img width=100% height=100%
 					src="<%=request.getContextPath()%>/img/${group.m_photo}">
 					</div>
-					<div style="text-align:left; margin-left:100px;">
+					<div style="text-align:left; margin-left:30px;">
 					<div style=" margin-left:40px;padding-top:30px; ">
 			<jsp:useBean id="toDate" class="java.util.Date" />
 			<fmt:parseDate var="regDate" value="${group.m_date }"
@@ -98,7 +98,7 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 				<li>장소 : ${group.m_location }</li>
 				<li>포인트 획득 : ${group.m_point }p</li>
 				<li>탄소 배출 감소량 : ${group.m_carbon }g</li>
-				<c:if test="${(regDate2 - toDate2) > 0 }">
+				<c:if test="${(regDate2 - toDate2) >= 0 }">
 					<c:if test="${group.m_type == 'solo'}">
 					<br>
 						<li><input type="button" value="상시미션신청하기" class="register" id="solodetail"
@@ -117,7 +117,7 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 						</c:if>
 					</c:if>
 				</c:if>
-				<c:if test="${regDate2 <= toDate2 }">
+				<c:if test="${(regDate2 - toDate2) <0 }">
 					<li style="color: blue"><strong>이미 마감된 미션입니다. 다음 모집 때
 							함께해요!</strong></li>
 				</c:if>
@@ -136,9 +136,9 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 		<div></div><div><span style="display:inline-block;color:green; padding-top:60px;height:100px;font-size:20px; font-weight: 500;">레드카드를 받아 숨김처리된 리뷰입니다</span></div><div></div>
 		</c:if>
 		<c:if test="${row.p_redcard < 2 }">
-				<div style="padding-top:20px; padding-bottom:20px;">
+				<div style="padding-top:10px;padding-left:10px; ">
 					
-					<img width=200px height=200px
+					<img width=100% height=200px
 						src="<%=request.getContextPath()%>/img/${row.p_photo}">
 				</div>
 				<div  style="padding-top:20px; padding-bottom:20px;">
@@ -192,10 +192,10 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 		</div>
 			</c:forEach>
 	</div>
-	<c:forEach items="${map.list }" var="star">
+	<%-- <c:forEach items="${map.list }" var="star">
 		<div>별점 : ${star.p_star}</div>
 	</c:forEach>
-	별점 준 사람 수 : ${map.count }
+	별점 준 사람 수 : ${map.count } --%>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
