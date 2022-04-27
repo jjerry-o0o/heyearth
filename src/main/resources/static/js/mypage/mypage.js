@@ -221,14 +221,16 @@ function myguide(){
 			$("#myboardlist_div").empty();
 			
 			$("#myguidelist_div").html("<table cellspacing=0 cellpadding=0 id='boardlist_tb'><tbody id='board_tbody'>"
-			+ "<th class='board_th'>사진</th><th class='board_th'>분류</th><th class='board_th''>배출 방법</th><th class='board_th'>삭제</th></tr>");
+			+ "<th class='board_th'>사진</th><th class='board_th'>분류</th><th class='board_th' style=' width:50%;'>배출 방법</th><th class='board_th' style=' width:10%;'></th></tr>");
 			for(var i = 0; i < data.length; i++){
-				$("#board_tbody").append("<tr class='board_tr'><td class='board_td'><img width=100px; height=100px; id='modalimg' src='img/"+data[i].r_photo+"'></td>"
-				+ "<td class='board_td' height=50 valign=top>"+data[i].r_name+data[i].r_name+"</td>"
-				+ "<td class='board_td'  height=50 valign=top><div style='overflow-y: scroll; width:200;  height:100; padding:4px; font-size:30px;'>"+data[i].r_way+"</div></td>"
-				+ "<td class='board_td'  height=50 valign=top><a href='delete_guide?mg_code="+data[i].mg_code+"&r_code="+data[i].r_code+"'>삭제하기</a></td></tr>");
+				$("#board_tbody").append("<tr class='board_tr'><td class='board_td' style=' padding:20px 10px ;'><img width=100px; height=100px; id='modalimg' src='img/"+data[i].r_photo+"'></td>"
+				+ "<td class='board_td' style='height=50; valign=top; padding:20px 10px ;'>"+data[i].r_class+"<br><hr>"+data[i].r_name+"</td>"
+				+ "<td class='board_td'  style='height=50; valign=top; padding:20px 10px ;'><div style='overflow-y: scroll;'>"+data[i].r_way+"</div></td>"
+				+ "<td class='board_td'  style='height=50; valign=top; padding:20px 10px ;'><a href='delete_guide?mg_code="+data[i].mg_code+"&r_code="+data[i].r_code+"' style='text-decoration : underline;'>삭제</a></td></tr>");
 			};
-			$("#myguidelist").append("</table>");
+			$("#myguidelist_div").append("</table>");
 		}
 	}); //ajax end
 }
+
+
