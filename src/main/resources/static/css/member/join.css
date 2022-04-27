@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
+
 #jointitle {
+	margin-top: 100px;
 	margin-bottom: 10px;
 }
 
@@ -12,6 +14,7 @@ input {
 	width: 200px;
 	height: 30px;
 	margin-bottom: 10px;
+	border: 1px solid #1A271D;
 }
 
 #nickname {
@@ -21,6 +24,23 @@ input {
 
 #nicknamebtn {
 	width: 70px;
-	height: 30px;	
+	height: 34px;
+	color : #f6f5f0;
+	background-color: #1A271D;	
 }
 
+#nicknamebtn:hover {
+	background-color: #f6f5f0;
+	color : black;
+}
+
+#submit {
+	width: 206px;
+	height: 34px;
+	color : #f6f5f0;
+	background-color: #1A271D;	
+}
+#submit:hover {
+	background-color: #f6f5f0;
+	color : black;
+}

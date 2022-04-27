@@ -12,7 +12,7 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 <c:if test="${result == 1}">
-<p id=joinresult>${userdto.id}님 회원가입 완료되었습니다.</p>
+<p id=joinresult><span id=spanid>${userdto.id}</span>님 회원가입 완료되었습니다.</p>
 </c:if>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
