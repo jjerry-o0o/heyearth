@@ -221,7 +221,7 @@
 	</select>
 	
 	<update id="updatemember" parameterType="memberdto">
-		update member set photo=#{photo}, grade=#{grade}, point=#{point}, carbon=#{carbon} where id=#{id};
+		update member set grade=#{grade}, point=#{point}, carbon=#{carbon} where id=#{id};
 	</update>
 	
 	<select id="idtopcode" parameterType="int" resultType="String">
@@ -230,6 +230,9 @@
 	
 	
 	
+	<select id="adminid" resultType="String">
+		select id from member where admin=1;
+	</select>
 	
 	<select id="admininfo" resultType="memberdto" parameterType="String">
 		select * from member where id=#{id};

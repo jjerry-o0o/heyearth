@@ -83,6 +83,9 @@ public interface AdminDAO {
 	public void updatemember(MemberDTO dto);
 	public String idtopcode(int p_code);
 	
+	/*세션아이디 관리*/
+	public List<String> adminid();
+	
 	
 	/*관리자 마이페이지*/
 	public MemberDTO admininfo(String id);

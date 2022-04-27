@@ -331,6 +331,16 @@ public class AdminServiceImpl implements AdminService {
 	
 	
 	
+	
+	
+	
+	/*세션 아이디 관리*/
+	@Override
+	public List<String> adminid() {
+		return admindao.adminid();
+	}
+	
+	
 
 	
 	

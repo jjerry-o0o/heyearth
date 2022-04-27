@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h1 class='adminmain'>게시판 관리 페이지입니다.</h1><br>
+<h1 class='adminmain'>'게시판 관리' 페이지입니다.</h1><br>
 <br>
 <div class="board_choose">
 		<input type="button" id="notice" name="notice" value = "공지사항" onclick="board(1)" checked="checked" autofocus>
