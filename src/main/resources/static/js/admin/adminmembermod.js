@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	const inputImage = document.getElementById("input-image")
+	/*const inputImage = document.getElementById("input-image")
 	inputImage.addEventListener("change", e => {
     	readImage(e.target);
     	$("#previewimg").show();
@@ -12,12 +12,12 @@ $(document).ready(function(){
 		$("#input-image").val("");
 		$("#imageremove").hide();
 	});
-	
+	*/
 	
 	$("#memberback").on('click',function(){
 		location.href = "adminmember";
 	});
-	
+	/*
 	if($("#photo").val() != "none"){
 		$("#previewimg").attr("src","img/"+$("#photo").val());
 		$("#previewimg").show();
@@ -25,7 +25,7 @@ $(document).ready(function(){
 	}else{
 		$("#previewimg").hide();
 		$("#imageremove").hide();
-	}
+	}*/
 	
 })
 

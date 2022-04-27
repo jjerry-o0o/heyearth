@@ -608,9 +608,9 @@ public class AdminController {
 	public ModelAndView membermod(String id) {
 		ModelAndView mv = new ModelAndView();
 		MemberDTO memberinfo = adminservice.adminmembermod(id);
-		if(memberinfo.getPhoto() == null) {
+		/*if(memberinfo.getPhoto() == null) {
 			memberinfo.setPhoto("none");
-		}
+		}*/
 		
 		mv.addObject("memberinfo", memberinfo);
 		mv.setViewName("admin/adminmembermod");
@@ -694,7 +694,7 @@ public class AdminController {
 	
 	@RequestMapping("/adminmembermodinfo")
 	public String adminmembermodinfo(@ModelAttribute("") MemberDTO dto) throws Exception{
-		MultipartFile mf = dto.getImage();
+		/*MultipartFile mf = dto.getImage();
 		
 		if(!mf.isEmpty()) {			
 			Path currentPath = Paths.get(""); 
@@ -707,7 +707,7 @@ public class AdminController {
 		}
 		else if(dto.getPhoto().equals("none")) {
 			dto.setPhoto(null);
-		}
+		}*/
 		
 		adminservice.updatemember(dto);
 		

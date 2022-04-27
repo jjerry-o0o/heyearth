@@ -23,12 +23,12 @@ body{
 	border : 2px #1A271D solid;
 }
 
-#zerosearch2{
+#zerosearch1{
 	background-color : #f6f5f0;
 	color : #1A271D;
 }
 
-#zerosearch1{
+#zerosearch2{
 	background-color : #1A271D;
 	color : #f6f5f0;
 }
@@ -97,14 +97,16 @@ body{
 	width : 400px;
 	height : 280px;
 	margin-top : 10px;
-	margin-right : 15px;
-	margin-left : 15px;
+	margin-right : 10px;
+	margin-left : 20px;
 	margin-bottom : 20px;
 	padding-top : 20px;
 	padding-left : 15px;
 	padding-right : 15px;
 	display : inline-block;
-	border : 2px solid #C7C1B8;
+	/*border : 2px solid #C7C1B8;*/
+	border : 1px solid #1A271D;
+	background-color : #FFFFFF;
 }
 
 .Zeroshopimg{
@@ -134,8 +136,9 @@ body{
 .Loczeroshop:hover{
 	background-color : #FFFFFF;
 	font-weight: 700;
-	border : 4px solid #C7C1B8;
-	border-width : 4px;
+	/*border : 4px solid #C7C1B8;
+	border-width : 4px;*/
+	border : 2px solid #1A271D;
 }
 
 .modal-overlay{
@@ -159,14 +162,15 @@ body{
 }
 
 .modal-window{
-	background-color : #81A88A;
+	/*background-color : #81A88A;*/
+	background-color : #F3EADF;
 	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
     -webkit-backdrop-filter: blur( 13.5px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 400px;
-    height: 500px;
+    height: 550px;
     position: relative;
     padding: 10px;
 }
@@ -174,7 +178,8 @@ body{
 .modaltitle {
 	margin-top : 35px;
     padding-left: 10px;
-    color : #F6F5F0;
+    /*color : #F6F5F0;*/
+    color : #1A271D;
     margin-left : 10px;
 }
 
@@ -188,14 +193,15 @@ body{
     padding-right: 10px;
     cursor: pointer;
     font-weight : bold;
-    color : #FFFFFF;
+    color : #1A271D;
     font-size : 18px;
 }
 
 .modalcontent{
 	margin-top: 20px;
     padding: 0px 10px;
-    color: #F6F5F0;
+    /*color: #F6F5F0;*/
+    color : #1A271D;
     margin-left : 10px;
 }
 
@@ -217,6 +223,7 @@ body{
 	margin-right: 20px;
 	margin-left : 20px;
 	line-height: 35px;
+	border : 0;
 }
 
 #modalsite:hover, #modalmap:hover{
@@ -268,7 +275,9 @@ a {
 .mapzeroshop{
 	width : 420px;
 	
-	border : 4px dashed #C7C1B8;
+	/*border : 4px dashed #C7C1B8;*/
+	border : 1px solid #1A271D;
+	background-color : #FFFFFF;
 	margin-bottom : 50px;
 	padding-top : 20px;
 	padding-left : 30px;

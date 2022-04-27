@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h1 class='adminmain'>이건 어떻게 버릴까? 관리 페이지입니다.</h1><br>
+<h1 class='adminmain'>'이건 어떻게 버릴까?' 관리 페이지입니다.</h1><br>
 
 <div>
 <input class="addbtn" id='guideadd' type='button' value='등록하기' onclick='guideinsert()'>

@@ -18,7 +18,7 @@
 <body>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<h1 class='adminmain'>'환경 지킴이 모집중' 등록하기</h1><br>
+<h1 class='adminmain'>'환경 지킴이 모집중' 수정하기</h1><br>
 <form action='adminmissionmodinfo' method='post' enctype="multipart/form-data">
 <input name="m_code" type="hidden" value=${missioninfo.m_code}>
 <input id="m_type" name="m_type" type="hidden" value="${missioninfo.m_type }">
