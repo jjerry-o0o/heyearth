@@ -1,4 +1,5 @@
-* { /*»çÀÌÆ® ÀüÃ¼ ÆùÆ® ÅëÀÏ*/
+@charset "UTF-8";
+* { /*ì‚¬ì´íŠ¸ ì „ì²´ í°íŠ¸ í†µì¼*/
 	font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
@@ -29,13 +30,13 @@ button:hover{
 
 
 
-.together { /*¸ŞÀÎ1- TOGETHER */
+.together { /*ë©”ì¸1- TOGETHER */
 	width: 150px;
 	margin : auto;
 	display : block;
 }
 
-.m-carbon-title{ /* ¸ŞÀÎ1 - Åº¼Ò¹ßÀÚ±¹À» ¾Æ¼¼¿ä? */
+.m-carbon-title{ /* ë©”ì¸1 - íƒ„ì†Œë°œìêµ­ì„ ì•„ì„¸ìš”? */
 	font-style: normal;
 	font-weight: 600;
 	font-size: 30px;
@@ -43,31 +44,31 @@ button:hover{
 	text-align: center;
 	margin-top: 100px;
 	margin-bottom: 70px;
-	height: 3em; /* ¾Ö´Ï¸ŞÀÌ¼Ç ³ôÀÌ */
+	height: 3em; /* ì• ë‹ˆë©”ì´ì…˜ ë†’ì´ */
     overflow-y: hidden;
     display: block;
      text-align : center;
 }
 .m-carbon-title .child{
-	font-size: 2em;/* ¾Ö´Ï¸ŞÀÌ¼Ç ³ôÀÌ */
+	font-size: 2em;/* ì• ë‹ˆë©”ì´ì…˜ ë†’ì´ */
     font-weight: bold;
     line-height: 1;
     animation-name: grow;
-    animation-duration: 1s;/* ¾Ö´Ï¸ŞÀÌ¼Ç ½Ã°£ */
+    animation-duration: 1s;/* ì• ë‹ˆë©”ì´ì…˜ ì‹œê°„ */
 }
 .m-carbon-text{
-	font-size:1em;/* ¾Ö´Ï¸ŞÀÌ¼Ç ³ôÀÌ */
+	font-size:1em;/* ì• ë‹ˆë©”ì´ì…˜ ë†’ì´ */
     font-weight: bold;
     line-height: 1;
     animation-name: grow;
     animation-duration: 3s;
 }
 .m-carbon-text .child {
-    font-size: 1em;/* ¾Ö´Ï¸ŞÀÌ¼Ç ³ôÀÌ */
+    font-size: 1em;/* ì• ë‹ˆë©”ì´ì…˜ ë†’ì´ */
     font-weight: bold;
 /*     line-height: 1; */
     animation-name: grow;
-    animation-duration: 3s;/* ¾Ö´Ï¸ŞÀÌ¼Ç ½Ã°£ */
+    animation-duration: 3s;/* ì• ë‹ˆë©”ì´ì…˜ ì‹œê°„ */
 /* font-weight: 400; */
 	font-size: 20px;
 	line-height: 22px;
@@ -75,14 +76,14 @@ button:hover{
 	line-height: 1.5;
 	margin-bottom: 70px;
 }
-/* Å°ÇÁ·¹ÀÓ ¾Ö´Ï¸ŞÀÌ¼Ç */
+/* í‚¤í”„ë ˆì„ ì• ë‹ˆë©”ì´ì…˜ */
 @keyframes grow {
-    from { transform: translateY(3em) }/* ¾Ö´Ï¸ŞÀÌ¼Ç ³ôÀÌ */
+    from { transform: translateY(3em) }/* ì• ë‹ˆë©”ì´ì…˜ ë†’ì´ */
     to { transform: translateY(0) }
 }
 
 
-#aff-imges {/*¸ŞÀÎ2 Á¦ÈŞ»ç*/
+#aff-imges {/*ë©”ì¸2 ì œíœ´ì‚¬*/
 	margin: 100px;
 }
 #aff-img{
@@ -90,11 +91,11 @@ button:hover{
 	height : 20%;
 }
 
-.affiliates { /*¸ŞÀÎ2 Á¦ÈŞ»ç ÀÌ¹ÌÁö*/
+.affiliates { /*ë©”ì¸2 ì œíœ´ì‚¬ ì´ë¯¸ì§€*/
 	background-color:#F6F5F0;
 }
 
-#aff-text { /*¸ŞÀÎ2 Á¦ÈŞ»ç*/
+#aff-text { /*ë©”ì¸2 ì œíœ´ì‚¬*/
 	text-align: center;
 	margin: 5% auto 10px;
 	color:  #1A271D;
@@ -179,12 +180,12 @@ hr {
 	text-align: center;
 }
 
-#m-a-t-b {  /*about ÅØ½ºÆ®*/
+#m-a-t-b {  /*about í…ìŠ¤íŠ¸*/
 	font-size: 20px;
 	color : #1A271D;
 }
 
-#about { /*about ¹öÆ°*/
+#about { /*about ë²„íŠ¼*/
 	margin-top: 60px;
 	width: 150px;
 	font-size: 20px;
@@ -239,9 +240,6 @@ hr {
 	display: inline-block;
 	border: 1px solid black;
 	margin: 50px 30px 30px;
-}
-
-#m-zeroshop-each {
 	max-width: 100%;
 	height: auto;
 }

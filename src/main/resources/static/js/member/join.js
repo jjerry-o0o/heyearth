@@ -84,14 +84,15 @@ window.onload = function() {
 	}
 	
 	function allCheck() {
-		var result2 = nicknameCheck();
-		var result3 = pwCheck();
-		var result4 = pwckCheck();
-		
-		if(result2==false || result3==false || result4==false){
-			return false;
-		}
-	}
+    	var result2 = nicknameCheck();
+      	var result3 = pwCheck();
+      	var result4 = pwckCheck();
+      	var result5 = phoneCheck();
+      
+      	if(result2==false || result3==false || result4==false || result5==false){
+         	return false;
+      	}
+   	}
 	
 	
 }

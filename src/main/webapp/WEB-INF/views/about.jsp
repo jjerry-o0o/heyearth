@@ -199,8 +199,8 @@
 							지역별 가게찾기 서비스 설계 및 구현<br>관리자 페이지 설계 및 구현<br><br>
 							
 						</p>
-						<a href=""><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
-						<a href=""><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
+						<a href="https://www.linkedin.com/in/%EB%AF%BC%EC%95%84-%EC%9D%B4-784178239/"><img src="img/about-linkedin.png" style="width: 10%; height: 10%">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a href="https://github.com/minah13"><img src="img/about-github1.png" style="width: 7.5%; height: 7.5%"></a>
 
 					</div>
 				</div>
