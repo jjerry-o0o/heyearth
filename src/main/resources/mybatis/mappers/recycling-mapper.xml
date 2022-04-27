@@ -15,4 +15,6 @@
 	<select id="recyclinghowtoway" resultType="recyclingdto" parameterType="int">
 		select * from recycling where r_code=#{r_code};
 	</select>
+	
+	
 </mapper>

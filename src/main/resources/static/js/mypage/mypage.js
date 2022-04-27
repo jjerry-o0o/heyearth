@@ -30,7 +30,7 @@ function profil_div(){
 			$("#updateDiv").append("<div id=update><input id='submit' type='submit' value='회원정보 수정'></div>");
 			$("#updateDiv").append("<div id=withdraw><input type='button' id='withdrawbtn' value='회원탈퇴' onclick='withdraw()'></div>");
 			
-			document.getElementById("pwckbtn").onclick = pwck;
+			document.getElementById("pwckbtn").onclick = pwck();
 			document.getElementById("submit").onclick = pwUpdate(userdto);
 			
 		}//success end
@@ -191,18 +191,20 @@ function boardlist(){
 		type : "post",
 		data : {"id" : id},
 		success: function(data){
-			$("#mymenu_div").empty();
+			$("#updateDiv").empty();
+			$("#myMissionDiv").empty();
+			$("#myguidelist_div").empty();
 			
-			$("#mymenu_div").html("<table id='boardlist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
+			$("#myboardlist_div").html("<table id='guidelist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
 			+ "<th class='board_th'>제목</th><th class='board_th'>작성일</th><th class='board_th'>조회수</th></tr>");
 			for(var i = 0; i < data.length; i++){
 				$("#board_tbody").append("<tr class='board_tr'><td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_no+"</td>"
 				+ "<td class='board_td' ><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_type+"</td>"
 				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_title+"</td>"
-				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_regdate+"</td>"
+				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].regdate+"</td>"
 				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_view+"</td></tr>");
 			};
-			$("#mymenu_div").append("</table>");
+			$("#myboardlist_div").append("</table>");
 		}
 	}); //ajax end
 }
@@ -213,21 +215,31 @@ function myboard(){
 	alert('myboard hi');
 }
 
-function myguide(){
-	alert('myguide hi');
-}
 
-$(document).ready(function (){
+
+/*작성 게시물 조회 기능*/
+
+function myguide(){
+	var id = document.getElementById("profil_div").name;
 	
-//모달창 닫기
-	$("#modal").on("click",function(){
-		document.getElementById("modal").style.display = "none";
-	});
-	
-	modal.addEventListener("click", e => {
-		const evTarget = e.target
-		if(evTarget.classList.contains("modal-overlay")) {
-			modal.style.display = "none";
+	$.ajax({
+		url : "/myguide",
+		type : "post",
+		data : {"id" : id},
+		success: function(data){
+			$("#updateDiv").empty();
+			$("#myMissionDiv").empty();
+			$("#myboardlist_div").empty();
+			
+			$("#myguidelist_div").html("<table cellspacing=0 cellpadding=0 id='boardlist_tb'><tbody id='board_tbody'>"
+			+ "<th class='board_th'>사진</th><th class='board_th'>분류</th><th class='board_th''>배출 방법</th><th class='board_th'>삭제</th></tr>");
+			for(var i = 0; i < data.length; i++){
+				$("#board_tbody").append("<tr class='board_tr'><td class='board_td'><img width=100px; height=100px; id='modalimg' src='img/"+data[i].r_photo+"'></td>"
+				+ "<td class='board_td' height=50 valign=top>"+data[i].r_name+data[i].r_name+"</td>"
+				+ "<td class='board_td'  height=50 valign=top><div style='overflow-y: scroll; width:200;  height:100; padding:4px; font-size:30px;'>"+data[i].r_way+"</div></td>"
+				+ "<td class='board_td'  height=50 valign=top><a href='delete_guide?mg_code="+data[i].mg_code+"&r_code="+data[i].r_code+"'>삭제하기</a></td></tr>");
+			};
+			$("#myguidelist").append("</table>");
 		}
-	});
-});
+	}); //ajax end
+}
