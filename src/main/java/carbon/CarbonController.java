@@ -23,17 +23,15 @@ public class CarbonController {
 		
 		int sum = carbonlist.stream().mapToInt(Integer::intValue).sum();
 		
-		int n = 2;
-		double n2 = Math.pow(10.0, n);
 		double e = (double)sum/1000;
-		double result = Math.round((e*n2)/n2);
+		String result = String.format("%.2f", e);
 
 		
 		int totalPart = carbonservice.partCount();
 		
 		int everPart = (int)totalPart/carbonservice.memberCount();
 		
-		model.addAttribute("sum", Math.round(sum*100)/100.0);
+		model.addAttribute("sum", result);
 
 		model.addAttribute("totalPart", totalPart);
 		model.addAttribute("everPart", everPart);

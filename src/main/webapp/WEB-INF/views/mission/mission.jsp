@@ -74,7 +74,8 @@
 								<li>포인트 : ${row.m_point }p</li>
 								<li>탄소배출감소량 : ${row.m_carbon }g</li>
 							
-							<!--  단체 미션 남은 인원별 문구 -->		
+							<!--  단체 미션 남은 인원별 문구 -->	
+							<c:if test="${(regDate2 - toDate2) > 0}">	
 								<c:if test="${row.m_personnel > 5}">
 									<li>모집인원이 ${row.m_personnel }명 남았습니다</li>
 								</c:if>
@@ -85,6 +86,7 @@
 								<c:if test="${row.m_personnel == 0}">
 									<li><strong style="color: green">정원이 다 찼습니다. 다른
 											참여자가 취소시 신청할 수 있습니다.</strong></li>
+								</c:if>
 								</c:if>
 							</ul>
 						</div>

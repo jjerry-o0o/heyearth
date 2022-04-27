@@ -40,7 +40,7 @@
     
 <!-- 미션 상세페이지의 리뷰 목록 -->
 	<select id = "missionreview" parameterType="String" resultType = "missiondto">
-    select m.m_code, m_name, p_star,p_code, p_photo, p_review, m_date, m_location, p.id, p_complete, b.grade, b.id, g.g_code
+    select m.m_code, m_name, p_star,p_code, p_photo, p_review, m_date, m_location, p.id, p_redcard, p_complete, b.grade, b.id, g.g_code
     from participation p, mission m, member b, grade g
     where m.m_code = p.m_code and p_complete = 1 and p.id = b.id and g.g_code = b.grade and m_name like CONCAT('%',#{m_name},'%')
     order by p_code desc;
@@ -51,5 +51,7 @@
     where m.m_code = p.m_code and p_complete = 1 and p_star != 0 and m_name like CONCAT('%',#{m_name},'%')
     order by p_code;
     </select>   
+
+
     
 </mapper>

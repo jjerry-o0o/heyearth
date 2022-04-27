@@ -22,7 +22,14 @@ public class ParticipationDTO {
 	int m_personnel;//미션 최대 인원
 	MultipartFile image;
 	int grade;
-	
+int p_redcard;
+
+	public int getP_redcard() {
+	return p_redcard;
+}
+public void setP_redcard(int p_redcard) {
+	this.p_redcard = p_redcard;
+}
 	public int getGrade() {
 		return grade;
 	}

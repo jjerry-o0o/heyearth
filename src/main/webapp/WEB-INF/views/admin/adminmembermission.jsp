@@ -28,11 +28,14 @@
 <div class="admincontext">
 	<div id="groupmissionpage">
 		<c:forEach items="${missionlist}" var="missionlist">
+		
 			<c:if test="${missionlist.m_type == 'group' }">
 				<c:if test="${missionlist.m_name != 'none'}">		
 					<div class='review'>
+	 
 						<div class='reviewinfo'><img class='reviewimg' src="img/${missionlist.p_photo }"></div>
 						<div class='reviewinfo'><span class='reviewmission'>${missionlist.m_name }</span><br>
+						받은 신고 수 : <span style="color:red;font-size:20px; font-weight:700;">${missionlist.p_redcard }</span><br>
 						날짜 : ${missionlist.m_date }<br>
 						장소 : ${missionlist.m_location }<br>
 						<c:if test="${missionlist.p_star != 0 }">

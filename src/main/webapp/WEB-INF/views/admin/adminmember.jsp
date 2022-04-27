@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h1 class='adminmain'>회원 관리 페이지입니다.</h1><br>
+<h1 class='adminmain'>'회원 관리' 페이지입니다.</h1><br>
 
 <div class='admincontext'>
 	<table class='adminlisttable'>

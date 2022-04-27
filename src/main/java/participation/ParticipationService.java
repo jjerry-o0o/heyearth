@@ -16,6 +16,7 @@ public interface ParticipationService {
 	  public void participation_review(ParticipationDTO dto); //미션 리뷰쓰기
 	 
 	  public ParticipationDTO mymission_detail(int p_code);//나의 미션 상세페이지
+	  public void redcard(ParticipationDTO dto); //레드카드
 	  
 	 
 }//Service Class end

@@ -159,6 +159,8 @@ public class RecyclingController {
 	@ResponseBody
 	public RecyclingDTO recyclingway(int r_code) {
 		System.out.println(r_code);
+		
+		
 		return recyclingservice.recyclingway(r_code);
 	}
 	
