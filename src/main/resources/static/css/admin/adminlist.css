@@ -4,6 +4,7 @@ body{
 	background-color : #F6F5F0;
 	color : #1A271D;
 	font-family: 'IBM Plex Sans KR', sans-serif;
+	min-width: 1400px;
 }
 
 .adminmain{

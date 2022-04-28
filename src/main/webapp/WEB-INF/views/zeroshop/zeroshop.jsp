@@ -17,6 +17,13 @@
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=27lk7yjxzo"></script>
 </head>
 <body>
+
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
+
 <div class="zero_search">
 		<input type="button" id="zerosearch2" name="findid" value = "내 주변에서 검색"onclick="search(2)" checked="checked" autofocus>
 		  

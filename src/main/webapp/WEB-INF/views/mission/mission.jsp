@@ -15,6 +15,13 @@
 </head>
 
 <body>
+
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
+
 <!--  오늘 날짜 -->
 	<jsp:useBean id="toDate" class="java.util.Date" />
 	<fmt:parseNumber value="${toDate.time / (1000*60*60*24)}"

@@ -24,6 +24,12 @@
 </head>
 <body>
 
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
+
 	<!-- header import -->
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	<!-- end of header import -->

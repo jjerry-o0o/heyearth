@@ -1,3 +1,6 @@
+body{
+	min-width: 1400px;
+}
 .a-m-section {
 	width: 100%;
 	height: 100%;
@@ -11,17 +14,19 @@
 	background-color: #F5EDE2;
 /* 	margin : 30px auto; */
 	vertical-align: middle;
-/* 	display : flex; */
+	display : flex;
+	justify-content: center;
 }
 .a-text{
-	width : 50%;
+	width : 80%;
 }
 .a-img1{
-	width : 80%;
-/* 	display : inline-block; */
-	margin-left : 25%;
+	width : 100%;
+	display : flex;
+	margin :auto;
+	align-content: center;
+	justify-content: center;
 }
-
 .a-m-text1 {
 	width: 80%;
 	padding : 20px;
@@ -74,7 +79,7 @@ a{
 	text-decoration: none;
 }
 
-.a-brand-title,.a-tit{ /*ÇìÀÌ¾ó½º¶õ */
+.a-brand-title,.a-tit{ /*ï¿½ï¿½ï¿½Ì¾ó½º¶ï¿½ */
 	font-style: normal;
 	font-weight: 600;
 	font-size: 30px;
@@ -110,7 +115,7 @@ padding : 10px;
 }
 .all-divider{
 	/*position : relative;*/
-	width : 70%;
+	width : 90%;
 	padding : 20px 40px;
 	margin : 20px auto;
 	align-content: center;

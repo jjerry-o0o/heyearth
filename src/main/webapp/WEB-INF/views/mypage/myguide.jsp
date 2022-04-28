@@ -13,6 +13,13 @@
 </head>
 <body>
 
+
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
+
 <div style="text-align: center; margin-bottom:50px;">
 <h2>나의 가이드</h2>
 <h3></h3><br><br>
