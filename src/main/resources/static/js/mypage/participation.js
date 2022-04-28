@@ -136,6 +136,7 @@ modal3.addEventListener("click", e => {
 	}
 });
 
+//리뷰쓰기 최대 test 조정
 $('#p_review').on('keyup', function() {
         if($(this).val().length > 200) {
 	 alert("글자수는 200자로 제한됩니다!");  

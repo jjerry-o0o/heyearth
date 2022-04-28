@@ -50,7 +50,7 @@
 				<h3>모집중인 단체미션</h3>
 				<c:forEach items="${gilist }" var="row">
 					<div class="missionlist">
-						<div style="display: inline-block; padding-top:10px;padding-left:5px;">
+						<div class="submissionlist">
 							<a href="mission_detail/${row.m_code}"><img class="img_list"
 								src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 						</div>
@@ -105,7 +105,7 @@
 				<h3>모집중인 상시미션</h3>
 				<c:forEach items="${silist }" var="row">
 					<div class="missionlist">
-						<div style="display: inline-block; padding-top:10px;padding-left:5px;">
+						<div class="submissionlist">
 							<a href="mission_detail/${row.m_code}"><img class="img_list"
 								src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 						</div>
@@ -132,7 +132,7 @@
 			<!--  단체 미션 -->
 				<c:forEach items="${gelist }" var="row">
 					<div class="missionlist">
-						<div style="display: inline-block; padding-top:10px;padding-left:5px;">
+						<div class="submissionlist">
 							<a href="mission_detail/${row.m_code}"><img class="img_list"
 								src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 						</div>
