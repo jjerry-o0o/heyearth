@@ -66,6 +66,7 @@ $(document).ready(function(){
 			<div id=way>
 				<div id=waynoti></div>
 				<div id=wayradio></div>
+				<br><br>
 				<p id=wayp></p>
 			</div>
 
