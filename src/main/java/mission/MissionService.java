@@ -12,5 +12,6 @@ public interface MissionService {
 	public MissionDTO missiongroup(int m_code);
 	public List<MissionDTO> missionreview(String m_name);
 	public List<MissionDTO> missionreview2(String m_name);
+	public List<MissionDTO> missioncheck(String m_name);//미션 체크
 		
 }//Service Class end

@@ -23,7 +23,10 @@ public class ParticipationServiceImpl implements ParticipationService {
 	  @Override public void participation_register(ParticipationDTO dto) {//미션 신청하기
 	  dao.participation_register(dto); 
 	  }
-	  
+	  @Override
+	  public List<ParticipationDTO> participation_check(String id){
+		  return dao.participation_check(id);
+	  };
 	  @Override public void participation_register_complete(ParticipationDTO dto) {//미션 신청하기(상시)
 		  dao.participation_register_complete(dto); 
 	  }

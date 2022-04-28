@@ -23,7 +23,7 @@ function solodetail(code){
 		success : function(solo){
 			document.getElementById("modal2").style.display = "flex";
 			$('html').scrollTop(0);
-			$("#modalh22").text(solo.m_name);
+			$("#modalh3").text(solo.m_name);
 			$("#register_contents2").html("포인트 획득<span style='font-weight:700; font-size:20px;'> " + solo.m_point + "p</span><br>");
 			$("#register_contents2").append("탄소배출 감소량 <span style='font-weight:700; font-size:20px;'>" + solo.m_carbon + "g</span><br>");
 			$("#register_contents2").append("미션방법 <span style='font-weight:700; font-size:20px;'>" + solo.m_inform + "</span><br><br>");

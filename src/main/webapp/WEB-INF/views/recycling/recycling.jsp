@@ -17,13 +17,8 @@
 <script src="/js/recycling/recycling.js"></script>
 <script>
 $(document).ready(function(){
-	$(".insert").on("submit", function(){
-		alert($("#result").val());
-		if($("#result").val() == '0'){		
-		alert("이미 스크랩하셨습니다!");
-		}else{
-		alert("스크랩되었습니다!");
-		}
+	$(".scrap").on("click", function(){
+		alert('마이페이지에서 즐겨찾는 배출가이드를 확인해주세요!'); 
 	});
 	});
 </script>
@@ -93,14 +88,17 @@ $(document).ready(function(){
 				<div class="close-area" id="modalclose">X</div>
 				<div class="modalupper" id="modalupper"></div>
 				<div class="modaltitle">
+					<c:if test="${sessionScope.session_id != null }">				
+						
 					<form name="form" method="post" class="insert"
 						action="${pageContext.request.contextPath}/guide_insert">
 						<input type="hidden" id="r_code" name="r_code"> 
-						<input type="hidden" id="result" name="result" value="${result }">
 
 						<input class="scrap" type='submit' value='★'>
 
 					</form>
+							</c:if>
+						
 					<h2 class="modalh2" id="modalh2"></h2>
 				</div>
 				<div class="modalcontent" id="modalcontent"></div>

@@ -1,13 +1,14 @@
 @charset "UTF-8";
 
 .my_img{
-width:200px; 
-height:200px; 
+width:250px; 
+height:250px; 
 }
 .my_mission{
 margin-left:10px; 
 width:80%; 
 border:3px solid #1A271D;
+background-color:white;
 }
 .modal-overlay, .modal-overlay2{
 	width : 100%;
@@ -30,15 +31,16 @@ border:3px solid #1A271D;
 }
 
 .modal-window, .modal-window2{
-	background-color :  #F6F5F0;
-	color:#1A271D;
+	text-align:center;
+	color: #1A271D ;
+	background-color : #F3EADF;
 	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
     -webkit-backdrop-filter: blur( 13.5px );
     border-radius: 10px;
-    border: 5px solid #1A271D;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 400px;
-    height: 500px;
+    height: 550px;
     position: relative;
     padding: 10px;
 }
@@ -49,6 +51,22 @@ border:3px solid #1A271D;
     cursor: pointer;
 }
 .p_img{
-width:100px;
-height:100px;
+width:200px;
+height:200px;
+}
+.button{
+	padding-left : 14px;
+	padding-right : 14px;
+	padding-top : 3px;
+	padding-bottom : 3px;
+	border:3px solid #F6F5F0;
+	font-size: 16px;
+	color: #1A271D;
+	border-radius:5px;
+	background-color : #F6F5F0;
+	cursor:pointer;
+}
+.button:hover{
+	background-color : #1A271D;
+	color: #F6F5F0;
 }

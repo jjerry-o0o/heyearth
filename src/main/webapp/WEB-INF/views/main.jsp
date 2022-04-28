@@ -217,7 +217,7 @@
 					<div class="swiper-slide" id="m-zeroshop-db">
 						<div id="m-mission-each">
 							<div id="m-mission-img">
-								<a href="mission_group/${row.m_code}"> <img width=270px
+								<a href="mission_detail/${row.m_code}"> <img width=270px
 									height=270px
 									src="<%=request.getContextPath()%>/img/${row.m_photo}">
 								</a>
@@ -239,7 +239,7 @@
 					<div class="swiper-slide" id="m-zeroshop-db">
 						<div id="m-mission-each">
 							<div id="m-mission-img">
-								<a href="mission_group/${row.m_code}"><img width=270px
+								<a href="mission_detail/${row.m_code}"><img width=270px
 									height=270px
 									src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 							</div>
