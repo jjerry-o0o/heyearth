@@ -34,6 +34,12 @@
 </head>
 <body>
 
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
+
 <section class="boardSection">
 	<div id="b_title">
 		<div id="find_div">
