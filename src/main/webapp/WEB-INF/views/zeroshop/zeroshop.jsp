@@ -57,7 +57,7 @@
 	
 	<div id="searchMy">
 		<h2 class="maptitle">지구를 지키는 가게들</h2>
-		<p>(반경 10km이내의 가게들만 표시됩니다.)</p>
+		<p class="mapinform">(반경 10km이내의 가게들만 표시됩니다.)</p>
 		<div id="mapname">
 			<img src='img/loading.png' class='maploading'>
 		</div>

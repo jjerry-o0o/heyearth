@@ -46,6 +46,10 @@ body{
 	
 }
 
+#loc_context{
+	text-align :center;
+}
+
 .Locmenu{
 	font-size:20px;
 	font-weight: 500;
@@ -236,6 +240,12 @@ body{
 	text-align : center;
 }
 
+/* body 스크롤 방지용 */
+.stop-scroll{
+  height: 100%;
+  overflow: hidden;
+}
+
 a {
 	text-decoration: none;
 	color : #1A271D;
@@ -244,36 +254,45 @@ a {
 #searchMy{
 	margin-left : auto;
 	margin-right : auto;
-	width : 90%;
+	width : 100%;
 	margin-bottom : 70px;
+	text-align :center;
 }
 
 #mapname{
+	text-align : left;
 	margin-left:0;
-	width:35%;
+	width:30%;
 	height : 600px;
 	display : inline-block;
 	vertical-align : top;
 	overflow : auto;
+	padding-right : 1%;
 	border-right : 2px solid #C7C1B8;
 }
 
 
 #map{
-	margin-left : 30px;
+	margin-left : 5%;
 	height : 600px;
-	width : 850px;
+	width : 800px;
 	display : inline-block;
 	border : 2px solid #C7C1B8;
 }
 
 .maptitle{
 	margin-bottom : 50px;
+	text-align : left;
+	margin-left : 10%;
+}
+.mapinform{
+	text-align : left;
+	margin-left : 10%;
 }
 
 
 .mapzeroshop{
-	width : 420px;
+	width : 90%;
 	
 	/*border : 4px dashed #C7C1B8;*/
 	border : 1px solid #1A271D;
@@ -298,7 +317,7 @@ a {
 
 .mapzeroshopimg{
 	margin-top : 15px;
-	width : 380px;
+	width : 90%;
 	height : 200px;
 }
 
