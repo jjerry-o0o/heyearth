@@ -112,8 +112,8 @@ public class MemberController {
 	@RequestMapping("/deletemember")
 	public String deleteresult(@RequestParam(value="id") String id,HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
-		
-		String withdrawId = id+"(탈퇴한 회원)";
+		int delnum = service.deletenum() + 1;
+		String withdrawId = "탈퇴한 회원"+delnum;
 		int result = service.deletemember(id, withdrawId);
 		System.out.println(result);
 		if(result == 1) {

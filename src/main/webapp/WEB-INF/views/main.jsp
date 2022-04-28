@@ -184,7 +184,7 @@
 					<div class="swiper-slide" id="m-zeroshop-db">
 						<div id="m-zeroshop-each">
 							<div id="m-zeroshop-img">
-								<a href="zeroshop_group/${row.s_code}"> <img width=270px
+								<a href="${row.s_url }" target='_blank'> <img width=270px
 									height=270px
 									src="<%=request.getContextPath()%>/img/${row.s_photo}">
 								</a>

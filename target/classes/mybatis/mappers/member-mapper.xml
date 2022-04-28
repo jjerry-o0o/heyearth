@@ -38,8 +38,12 @@
 		delete from member where id=#{id};
 	</delete> -->
 	
+	<select id="deletenum" resultType="int">
+		select count(*) from member where del = 'Y';
+	</select>
+	
 	<update id="deletemember" parameterType="String">
-		update member set id = #{withdrawId} where id=#{id};
+		update member set id = #{withdrawId},del="Y" where id=#{id};
 	</update>
 
 </mapper>

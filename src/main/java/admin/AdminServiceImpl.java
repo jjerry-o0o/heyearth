@@ -292,8 +292,13 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	@Override
-	public void adminmemberdel(String id) {
-		admindao.adminmemberdel(id);
+	public int admindeletenum() {
+		return admindao.admindeletenum();
+	}
+
+	@Override
+	public void adminmemberdel(String id, String withdrawId) {
+		admindao.adminmemberdel(id, withdrawId);
 	}
 
 	@Override
