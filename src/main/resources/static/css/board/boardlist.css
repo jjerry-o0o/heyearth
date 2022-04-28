@@ -1,4 +1,7 @@
 @charset "UTF-8";
+	body{
+		min-width: 1400px;
+	}
 
 	#b_title{
 		margin-top : 50px;

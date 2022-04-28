@@ -15,6 +15,12 @@
 </head>
 <body>
 
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
+
 <!-- 미션 인증 -->
 	<div id="modal" class="modal-overlay">
 		<div class="modal-window">

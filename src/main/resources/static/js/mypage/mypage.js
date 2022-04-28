@@ -229,7 +229,7 @@ function myguide(){
 				$("#board_tbody").append("<tr class='board_tr'><td class='board_td' style=' padding:20px 10px ;'><img width=100px; height=100px; id='modalimg' src='img/"+data[i].r_photo+"'></td>"
 				+ "<td class='board_td' style='height=50; valign=top; padding:20px 10px ;'>"+data[i].r_class+"<br><hr>"+data[i].r_name+"</td>"
 				+ "<td class='board_td'  style='height=50; valign=top; padding:20px 10px ;'><div style='overflow-y: scroll;'>"+data[i].r_way+"</div></td>"
-				+ "<td class='board_td'  style='height=50; valign=top; padding:20px 10px ;'><a href='delete_guide?mg_code="+data[i].mg_code+"&r_code="+data[i].r_code+"' style='text-decoration : underline;'>삭제</a></td></tr>");
+				+ "<td class='board_td'  style='height=50; valign=top; padding:20px 10px ;'><a href='delete_guide?mg_code="+data[i].mg_code+"&r_code="+data[i].r_code+"'  class='board_a' style='text-decoration : underline;'>삭제</a></td></tr>");
 			};
 			$("#myguidelist_div").append("</table>");
 		}
