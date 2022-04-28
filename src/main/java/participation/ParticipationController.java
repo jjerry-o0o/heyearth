@@ -103,6 +103,7 @@ public class ParticipationController {
 		service.participation_register2(dto); // 미션 테이블 수정(참가인원)
 		return "redirect:/participation";
 	}
+	
 
 	// 단체 미션 취소하기
 	@RequestMapping("delete")

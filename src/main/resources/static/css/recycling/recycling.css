@@ -2,6 +2,7 @@
 
 body{
 	font-family: 'IBM Plex Sans KR', sans-serif;
+	min-width: 1400px;
 }
 
 hr{
@@ -32,6 +33,7 @@ background-repeat: no-repeat;
 }
 .rec-img{
 	width : 100%;
+	margin-top: 150px;
 }
 #img{
 /* 	padding-top : 50px; */
@@ -208,7 +210,7 @@ background-repeat: no-repeat;
 
 /* 모달창 */
 .modal-window{
-	background-color : #81A88A;
+	background-color : #F3EADF;
 	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
     -webkit-backdrop-filter: blur( 13.5px );
@@ -238,7 +240,7 @@ background-repeat: no-repeat;
 .scrap{
 	cursor: pointer;
 	border: 0 solid black; 
-	background-color: #81A88A; 
-	color:yellow;
+	background-color: #F3EADF; 
+	color:ORANGE;
 	font-size:30px;
 }

@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+body{
+	min-width: 1400px;
+}
 section {
 	width: 90%;
 	margin: 20px auto;
@@ -104,13 +106,13 @@ h3 {
 	padding: 10px;
 	border: 2px solid #1A271D;
 }
-a{
+.board_a{
 	text-decoration: none;
 }
-a:visited{
+.board_a:visited{
 	color : black;
 }
-a:link{
+.board_a:link{
 	color : black;
 }
 
