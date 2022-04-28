@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	
 	$("#missionback").one('click',function(){
 		location.href = "adminmission";
 	});
