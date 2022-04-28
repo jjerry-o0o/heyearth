@@ -43,10 +43,7 @@
 							<input type="radio" id="req" name="b_type" value="req"> 
 							요청
 						</label>
-						<label for="all">
-							<input type="radio" id="all" name="b_type" value="all"> 
-							전체
-						</label>
+						
 					</div>
 				</td>
 			</tr>

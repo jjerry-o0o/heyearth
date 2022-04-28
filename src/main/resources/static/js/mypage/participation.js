@@ -31,6 +31,7 @@ window.onload = function(){
 	}
 };
 
+
 //이미지 업로드
 $(document).ready(function(){
 	$(".back").one('click',function(){
@@ -72,16 +73,12 @@ function mymissiondetail(code){
 		success : function(mymission){
 			document.getElementById("modal").style.display = "flex";
 			$("#modalh2").text("미션인증하기");
-			$("#register_contents").html(mymission.id + "님, 사진을 찍고 미션을 완료해주세요.<br><br>");
 			$('html').scrollTop(0);
-			$("#register_contents").append("미션이름 : " + mymission.m_name + "<br>");
+			$("#register_contents").html("<span style='font-weight:700;font-size:18px;'>" + mymission.m_name + "</span><br>");
 			$("#register_contents").append("미션방법 : " + mymission.m_inform + "<br>");
-			$("#register_contents").append("<span style='color:orange'>인증 사진을 올려주세요!</span><br>");
-			$("#register_contents").append("탄소배출량을 이만큼 감소할 수 있어요 : " + mymission.m_carbon + "g<br>");
-			$("#register_contents").append("포인트를 이만큼 얻을 수 있어요 : " + mymission.m_point + "p<br>");
-			$("#register_contents").append("나의 현재 포인트 : " + mymission.point + "p<br>");
-			$("#register_contents").append("나의 현재 탄소배출량 : " + mymission.carbon + "g<br>");
-			$("#register_contents").append("미션 완료 ?: " + mymission.p_complete + "<br>");
+			$("#register_contents").append("탄소배출감소량 : <span style='font-weight:700;font-size:18px;'>" + mymission.m_carbon + "g</span><br>");
+			$("#register_contents").append("획득 포인트 : <span style='font-weight:700;font-size:18px;'>" + mymission.m_point + "p</span><br>");
+			$("#register_contents").append("<br><span style='color:olive;font-weight:700;font-size:18px;'>인증 사진을 올려주세요!</span><br>");
 			$("#register_contents").append("<img class=p_img id=previewimg><br>");
 			$("#p_code").val(mymission.p_code);
 			$("#id").val(mymission.id);
@@ -108,8 +105,8 @@ function mymissiondetail2(code){
 			document.getElementById("modal3").style.display = "flex";
 			$("#modalh4").text("리뷰작성하기");
 			$('html').scrollTop(0);
-			$("#register_contents2").html("이번 " +myreview.m_name+" 미션은 어떠셨나요?<br>");
-			$("#register_contents2").append(myreview.id+"님의 후기가 궁금해요!<br>");
+			$("#register_contents2").html("<span style='font-weight:700;font-size:18px;'>" +myreview.m_name+"</span> 미션은 어떠셨나요?<br>");
+			$("#register_contents2").append("<span style='font-weight:700;font-size:18px;'>"+myreview.id+"</span>님의 후기가 궁금해요!<br>");
 			$("#p_code2").val(myreview.p_code); 
 			$("#p_star").val(myreview.p_star); 
 			$("#p_review").val(myreview.p_review);
@@ -138,5 +135,13 @@ modal3.addEventListener("click", e => {
     	modal3.style.display = "none";
 	}
 });
+
+$('#p_review').on('keyup', function() {
+        if($(this).val().length > 200) {
+	 alert("글자수는 200자로 제한됩니다!");  
+            $(this).val($(this).val().substring(0, 200));
+        }
+    });
+    
 }); // document ready end
 
