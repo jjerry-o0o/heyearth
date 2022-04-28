@@ -6,18 +6,21 @@
 			dataType: "json",
 			success:function(data){
 				
-				$("#comment_tb").append("<tr class='tr2'> <th class='th2'>내용</th> <th class='th2'>작성자</th> <th class='th2'>작성일</th></tr>");
+				if(data.length !=0){
+					$("#comment_tb").append("<tr class='tr2'> <th class='th2'>내용</th> <th class='th2'>작성자</th> <th class='th2'>작성일</th></tr>");
 				
-				for(var i =0; i<data.length; i++){
-					$("#comment_tb").append("<tr class='tr2' id='tr2"+i+"'><td class='td2'><input type='hidden' id='c_comment"+i+"' value='"+data[i].c_comment+"'>"+ data[i].c_comment+"</td> <td class='td2'>"+ data[i].id+"</td><td class='td2'>"+data[i].regdate+"</td></tr>");
-					
-					if($(".id").val() == data[i].id){
-						$("#tr2"+i).append("<td class='td2'><button class='button' id='alter_btn"+i+"' onclick='alter("+i+")'>수정</button></td>"
-						 + "<td class='td2'><button class='button' id='delete_btn"+i+"' onclick='remove("+i+")'>삭제</button></td>");
-					}
-					
-					$("#list_div").append("<input type='hidden' id='c_index"+i+"' name='c_index' value='"+ data[i].c_index+"'><div class='alter_div' id='alter_div"+i+"'></div>");
-				};
+					for(var i =0; i<data.length; i++){
+						$("#comment_tb").append("<tr class='tr2' id='tr2"+i+"'><td class='td2'><input type='hidden' id='c_comment"+i+"' value='"+data[i].c_comment+"'>"+ data[i].c_comment+"</td> <td class='td2'>"+ data[i].id+"</td><td class='td2'>"+data[i].regdate+"</td></tr>");
+						
+						if($(".id").val() == data[i].id){
+							$("#tr2"+i).append("<td class='td2'><button class='button' id='alter_btn"+i+"' onclick='alter("+i+")'>수정</button></td>"
+							 + "<td class='td2'><button class='button' id='delete_btn"+i+"' onclick='remove("+i+")'>삭제</button></td>");
+						}
+						
+						$("#list_div").append("<input type='hidden' id='c_index"+i+"' name='c_index' value='"+ data[i].c_index+"'><div class='alter_div' id='alter_div"+i+"'></div>");
+					};
+				}
+				
 			}
 		});
 	}

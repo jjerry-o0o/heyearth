@@ -9,8 +9,6 @@
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
-<script src="js/about.js"></script>
-
 <script src="/jquery-3.6.0.min.js"></script>
 <title>About | HeyEarth</title>
 
@@ -18,7 +16,7 @@
 	$(document).ready(function() {
 		const swiper = new Swiper('.swiper', {
 			autoplay : {
-				delay : 1000,
+				delay : 2000,
 			},
 			loop : true,
 			navigation : {
@@ -43,6 +41,12 @@
 
 </head>
 <body>
+
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
 
 	<div class="a-m-section">
 		<!-- 환경이야기 -->
@@ -102,7 +106,7 @@
 				<div class="a-s-t">
 					<button type="button" id="a-s-t"
 						onclick="location.href='/zeroshop'">
-						<strong>제로웨이스트샵 정보</strong>
+						<strong>제로웨이스트샵<br>정보</strong>
 					</button>
 
 				</div>
@@ -120,7 +124,7 @@
 				</div>
 				<div class="a-s-t">
 					<button type="button" id="a-s-t" onclick="location.href='/mission'">
-						<strong>환경보호 프로그램</strong>
+						<strong>환경보호<br>프로그램</strong>
 					</button>
 
 				</div>
@@ -138,7 +142,7 @@
 				<div class="a-s-t">
 					<button type="button" id="a-s-t"
 						onclick="location.href='/recycling'">
-						<strong>분리배출 가이드</strong>
+						<strong>분리배출<br>가이드</strong>
 					</button>
 
 				</div>
@@ -155,7 +159,7 @@
 				</div>
 				<div class="a-s-t">
 					<button type="button" id="a-s-t" onclick="location.href='/carbon'">
-						<strong>함께 줄인 탄소배출량</strong>
+						<strong>함께 줄인<br>탄소배출량</strong>
 					</button>
 				</div>
 				<div id="ser-text">
