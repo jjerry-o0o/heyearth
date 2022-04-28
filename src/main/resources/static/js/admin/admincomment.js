@@ -14,7 +14,7 @@ $(document).ready(function(){
 				url:"/admincommentinsert",
 				data : {"c_comment" : $("#c_comment").val(),"id" : $("#id").val(),  "b_no" : $("#b_no").val()},
 				success:function(){
-					$("#c_comment").empty();
+					$("#c_comment").val("");
 					$("#comment_tb").empty();
 					selectlist();
 				}

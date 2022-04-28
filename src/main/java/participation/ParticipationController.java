@@ -19,26 +19,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-
 @Controller
 public class ParticipationController {
 
 	@Autowired
 	@Qualifier("participationservice")
 	ParticipationService service = new ParticipationServiceImpl();
-	
-	
-	 @RequestMapping("/missioncomplete")
-	 public String missioncomplete(){			 
-			return "/mypage/missioncomplete";
-	 }
-	 
-	//나의 미션 목록
-	 @RequestMapping(value= "/participation")
-     public ModelAndView list(HttpSession session, ModelAndView mv) {
+
+	@RequestMapping("/missioncomplete")
+	public String missioncomplete() {
+		return "/mypage/missioncomplete";
+	}
+
+	// 참가미션 - 나의 미션 목록
+	@RequestMapping(value = "/participation")
+	public ModelAndView list(HttpSession session, ModelAndView mv) {
 
 		Map<String, Object> map = new HashMap<>();
-		String id = (String) session.getAttribute("session_id");//사용자 id 받아옴
+		String id = (String) session.getAttribute("session_id");// 사용자 id 받아옴
 		if (id != null) {
 			List<ParticipationDTO> list = service.participation_list(id);
 
@@ -50,27 +48,21 @@ public class ParticipationController {
 		} else {
 			return new ModelAndView("member/login", "", null);
 		}
-	 }
-	 
-	//마이페이지 - 나의 미션 목록
-	@RequestMapping(value= "/participation2")
+	}
+
+	// 마이페이지 - 나의 미션 목록
+	@RequestMapping(value = "/participation2")
 	@ResponseBody
-    public List<ParticipationDTO> mymissionlist(@RequestParam(value="id") String id) {
-		
-		//ModelAndView mv = new ModelAndView();
+	public List<ParticipationDTO> mymissionlist(@RequestParam(value = "id") String id) {
+
 		List<ParticipationDTO> list = service.participation_list(id);
-		
-		//ParticipationDTO listget = list.get(0);
-		
-		//mv.addObject("list", list);
-		//mv.setViewName("mypage/mypage");
 		return list;
 	}
-	 
+
 	// 상시 미션 등록&인증하기
 	@RequestMapping("/register_complete")
-	public String register_complete(@ModelAttribute ParticipationDTO dto, HttpSession session) throws Exception { 
-		String id = (String) session.getAttribute("session_id");//사용자 id 받아옴
+	public String register_complete(@ModelAttribute ParticipationDTO dto, HttpSession session) throws Exception {
+		String id = (String) session.getAttribute("session_id");
 		if (id == null) {
 			return "member/login";
 		}
@@ -94,7 +86,7 @@ public class ParticipationController {
 	// 단체 미션 등록하기
 	@RequestMapping("/register")
 	public String register(@ModelAttribute ParticipationDTO dto, HttpSession session) {
-		String id = (String) session.getAttribute("session_id");// 사용자 id 받아옴
+		String id = (String) session.getAttribute("session_id");
 		if (id == null) {
 			return "member/login";
 		}
@@ -103,7 +95,6 @@ public class ParticipationController {
 		service.participation_register2(dto); // 미션 테이블 수정(참가인원)
 		return "redirect:/participation";
 	}
-	
 
 	// 단체 미션 취소하기
 	@RequestMapping("delete")
@@ -145,10 +136,11 @@ public class ParticipationController {
 		service.participation_review(dto); // 리뷰제출
 		return "redirect:/participation";
 	}
+
 	// 레드카드
 	@RequestMapping("/redcard")
 	public String redcard(ParticipationDTO dto) {
-		service.redcard(dto);
+		service.redcard(dto); // 신고 횟수 누적
 		return "redirect:/mission";
 	}
 
