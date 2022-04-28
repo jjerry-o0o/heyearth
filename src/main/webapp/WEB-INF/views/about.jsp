@@ -8,9 +8,6 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
-<script src="js/about.js"></script>
-
 <script src="/jquery-3.6.0.min.js"></script>
 <title>About | HeyEarth</title>
 
@@ -102,13 +99,13 @@
 				<div class="a-s-t">
 					<button type="button" id="a-s-t"
 						onclick="location.href='/zeroshop'">
-						<strong>제로웨이스트샵 정보</strong>
+						<strong>제로웨이스트샵 <br>정보</strong>
 					</button>
 
 				</div>
 				<div id="ser-text">
 					<p>
-						내가 지정한 위치를 기반으로 <br>가까운 제로웨이스트샵을 안내해줍니다.
+						내 위치 기반으로 가까운 <br>제로웨이스트샵을 안내해줍니다.
 					</p>
 				</div>
 			</div>
@@ -120,13 +117,13 @@
 				</div>
 				<div class="a-s-t">
 					<button type="button" id="a-s-t" onclick="location.href='/mission'">
-						<strong>환경보호 프로그램</strong>
+						<strong>환경보호 <br>프로그램</strong>
 					</button>
 
 				</div>
 				<div id="ser-text">
 					<p>
-						환경보호를 할 수 있는<br>프로그램이 준비되어 있습니다.
+						환경보호를 할 수<br> 있는프로그램이<br> 준비되어 있습니다.
 					</p>
 				</div>
 			</div>
@@ -138,13 +135,13 @@
 				<div class="a-s-t">
 					<button type="button" id="a-s-t"
 						onclick="location.href='/recycling'">
-						<strong>분리배출 가이드</strong>
+						<strong>분리배출 <br>가이드</strong>
 					</button>
 
 				</div>
 				<div id="ser-text">
 					<p>
-						다양한 방법으로 내가 버릴 물품의<br>분리배출 방법을 안내해드립니다.
+						다양한 방법으로 내가<br> 버릴 물품의 분리배출<br> 방법을 안내해드립니다.
 					</p>
 				</div>
 			</div>
@@ -155,12 +152,12 @@
 				</div>
 				<div class="a-s-t">
 					<button type="button" id="a-s-t" onclick="location.href='/carbon'">
-						<strong>함께 줄인 탄소배출량</strong>
+						<strong>함께 줄인 <br>탄소배출량</strong>
 					</button>
 				</div>
 				<div id="ser-text">
 					<p>
-						헤이얼스와 함께하는 분들이 줄인<br>탄소배출량을 나타냅니다.
+						헤이얼스 회원들이<br> 줄인 탄소배출량을<br> 나타냅니다.
 					</p>
 				</div>
 			</div>
