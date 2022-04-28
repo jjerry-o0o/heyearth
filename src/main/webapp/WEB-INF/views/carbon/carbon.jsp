@@ -35,119 +35,15 @@
 				});
 			});
 </script>
-<style>
-section {
-	color: #1A271D;
-}
 
-#info_div {
-	width: 80%;
-	margin: 20px auto;
-	text-align: center;
-	padding: 20px;
-}
-
-#data_div {
-	width: 80%;
-	margin: 20px auto;
-	text-align: center;
-	padding: 20px;
-}
-
-#btn_div {
-	width: 80%;
-	margin: 20px auto;
-	text-align: center;
-	padding: 20px;
-}
-
-.imgs {
-	width: 100%;
-	height: width*0.4;
-	margin: auto;
-	object-position: center;
-}
-
-.fade-slide {
-	width: 100%;
-	margin: auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	position: relative;
-}
-
-#other {
-	
-}
-
-#infotitle {
-	font-size: 2.5em;
-}
-
-#datatitle {
-	font-size: 2.5em;
-}
-
-#infocontent {
-	width: 90%;
-	padding: 20px;
-	margin: 20px auto;
-	text-align: center;
-	align-items: center;
-}
-
-#circle_div {
-	margin: 0 auto;
-	padding: 0 20px;
-	display: flex;
-	justify-content: center;
-}
-
-.circle {
-	border: 2px dotted #1A271D;
-	border-radius: 50%;
-	margin: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: calc(12em/ 0.7);
-	height: calc(8em/ 0.7);
-}
-
-.ourdata {
-	text-align: center;
-	vertical-align: middle;
-	font-size: 50px;
-	font-weight: bold;
-}
-
-#go_btn {
-	border: 2px solid #1A271D;
-	border-radius: 5px;
-	padding: 15px 30px;
-	margin: 10px auto;
-	text-align: center;
-	font-size: x-large;
-	font-weight: 400;
-	color: #1A271D
-}
-
-#go_btn:hover {
-	background-color: #1A271D;
-	color: white;
-}
-
-.data_info {
-	text-align: center;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	margin: 10px auto;
-	font-weight: bold;
-	font-size: large;
-}
-</style>
 </head>
 <body>
+
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
 	<!-- header import -->
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 	<!-- end of header import -->

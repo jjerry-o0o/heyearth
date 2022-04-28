@@ -25,7 +25,7 @@ public class AdminInterceptor implements HandlerInterceptor{
 		// true면 진입/false면 진입하지 않음
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("session_id");
-		System.out.println("preHandle실행");
+		//System.out.println("preHandle실행");
 		List<String> adminid = adminservice.adminid();
 		if(id == null) {
 			response.sendRedirect(request.getContextPath()+"/");

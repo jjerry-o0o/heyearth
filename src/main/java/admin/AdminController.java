@@ -38,14 +38,15 @@ public class AdminController {
 	AdminService adminservice = new AdminServiceImpl();
 	
 	
-	/*관리자 메인*/
+	/* 1.관리자 메인 */
 	@RequestMapping("/adminmain")
 	public String adminmain() {
 		return "admin/adminmain";
 	}
 	
 	
-	/*제로샵 관리*/
+	/* 2.제로샵 관리 */
+	/*제로샵 관리 메인*/
 	@RequestMapping("/adminzeroshop")
 	public ModelAndView adminzeroshop() {
 		ModelAndView mv = new ModelAndView();
@@ -55,12 +56,14 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*제로샵 삭제*/
 	@RequestMapping("/adminzeroshopdel")
 	public String zeroshopdel(int code) {
 		adminservice.adminzeroshopdel(code);
 		return "redirect:/adminzeroshop";
 	}
 	
+	/*제로샵 수정 페이지 띄우기*/
 	@RequestMapping("/adminzeroshopmod")
 	public ModelAndView zeroshopmod(int code) {
 		ModelAndView mv = new ModelAndView();
@@ -70,41 +73,44 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*도로명주소 팝업 띄우기*/
 	@RequestMapping("/jusoPopup")
 	public String jusoPopup() {
 		return "admin/jusoPopup";
 	}
 	
+	/*제로샵 수정*/
 	@RequestMapping("/adminzeroshopmodinfo")
 	public String adminzeroshopmodinfo(@ModelAttribute("") ZeroshopDTO dto) throws Exception{
 		MultipartFile mf = dto.getImage();
 		
+		// 이미지 파일이 있을때
 		if(!mf.isEmpty()) {			
 			Path currentPath = Paths.get(""); 
 			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
 			path = path.replace("\\", "/");
 
 			File serverfile = new File(path + mf.getOriginalFilename());
-			mf.transferTo(serverfile);
-			dto.setS_photo(mf.getOriginalFilename());
+			mf.transferTo(serverfile);						// 서버에 이미지 저장
+			dto.setS_photo(mf.getOriginalFilename());		// s_photo도 해당 이미지명으로 값 변경
 		}
 		
 		String[] address = dto.getS_location().split(" ");
 		boolean checkloc = adminservice.checkloccode(address[0], address[1]);
-		if(!checkloc) { // location db에 이미 정보가 있음
-			adminservice.insertloc(address[0], address[1]);
+		if(!checkloc) { 									// location db에 해당 지역정보가 없다면
+			adminservice.insertloc(address[0], address[1]);			// location 테이블에 지역정보 저장
 		}
 		
-		int l_code = adminservice.loccode(address[0], address[1]);
+		int l_code = adminservice.loccode(address[0], address[1]);	// 지역정보에 맞는 지역번호 가져오기
 		dto.setL_code(l_code);
 		
-		if(dto.getS_call().length() == 0) {
+		if(dto.getS_call().length() == 0) {					// 전화번호를 입력받지 않았다면
 			dto.setS_call(null);
 		}
-		if(dto.getS_close().length() == 0) {
+		if(dto.getS_close().length() == 0) {				// 휴무일을 입력받지 않았다면
 			dto.setS_close(null);
 		}
-		if(dto.getS_hour().length() == 0) {
+		if(dto.getS_hour().length() == 0) {					// 영업시간을 입력받지 않았다면
 			dto.setS_hour(null);
 		}
 		
@@ -113,44 +119,47 @@ public class AdminController {
 		return "redirect:/adminzeroshop";
 	}
 	
+	/* 제로샵 등록 페이지 띄우기*/
 	@RequestMapping("/adminzeroshopinsert")
 	public String zeroshopinsert() {
 		return "admin/adminzeroshopinsert";
 	}
 	
+	/*제로샵 등록*/
 	@RequestMapping("/adminzeroshopinsertinfo")
 	public String adminzeroshopinsertinfo(@ModelAttribute("") ZeroshopDTO dto) throws Exception{
 		MultipartFile mf = dto.getImage();
 		
+		// 이미지 파일이 있을때
 		if(!mf.isEmpty()) {			
 			Path currentPath = Paths.get(""); 
 			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
 			path = path.replace("\\", "/");
 			
 			File serverfile = new File(path + mf.getOriginalFilename());
-			mf.transferTo(serverfile);
-			dto.setS_photo(mf.getOriginalFilename());
+			mf.transferTo(serverfile);						// 서버에 이미지 저장
+			dto.setS_photo(mf.getOriginalFilename());		// s_photo도 해당 이미지명으로 설정
 		}else {
-			dto.setS_photo("zeroshop1.jpg");
+			dto.setS_photo("zeroshop1.jpg");				// 이미지 파일을 받아오지 않았을때 기본 이미지 설정
 		}
 		
 		String[] address = dto.getS_location().split(" ");
 		boolean checkloc = adminservice.checkloccode(address[0], address[1]);
-		if(!checkloc) { // location db에 이미 정보가 있음
-			adminservice.insertloc(address[0], address[1]);
+		if(!checkloc) { 									// location db에 해당 지역정보가 없다면
+			adminservice.insertloc(address[0], address[1]);			// location 테이블에 지역정보 저장
 		}
 		
-		int l_code = adminservice.loccode(address[0], address[1]);
+		int l_code = adminservice.loccode(address[0], address[1]);	// 지역정보에 맞는 지역번호 가져오기
 		dto.setL_code(l_code);
 		
 		
-		if(dto.getS_call().length() == 0) {
+		if(dto.getS_call().length() == 0) {					// 전화번호를 입력받지 않았다면
 			dto.setS_call(null);
 		}
-		if(dto.getS_close().length() == 0) {
+		if(dto.getS_close().length() == 0) {				// 휴무일을 입력받지 않았다면
 			dto.setS_close(null);
 		}
-		if(dto.getS_hour().length() == 0) {
+		if(dto.getS_hour().length() == 0) {					// 영업시간을 입력받지 않았다면
 			dto.setS_hour(null);
 		}
 		
@@ -162,7 +171,8 @@ public class AdminController {
 	
 	
 	
-	/*미션 관리*/
+	/* 3.미션 관리 */
+	/*미션 관리 메인*/
 	@RequestMapping("/adminmission")
 	public ModelAndView adminmission() {
 		ModelAndView mv = new ModelAndView();
@@ -172,18 +182,21 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*미션 관리 메인(ajax로 상시미션/단체미션 리스트 뿌려주기)*/
 	@RequestMapping("/adminmissionlist")
 	@ResponseBody
 	public List<MissionDTO> adminmissionlist(String m_type){
 		return adminservice.adminmissionlist(m_type);
 	}
 	
+	/*미션 삭제*/
 	@RequestMapping("/adminmissiondel")
 	public String missiondel(int code) {
 		adminservice.adminmissiondel(code);
 		return "redirect:/adminmission";
 	}
 	
+	/*미션 수정 페이지 띄우기*/
 	@RequestMapping("/adminmissionmod")
 	public ModelAndView missionmod(int code) {
 		ModelAndView mv = new ModelAndView();
@@ -193,15 +206,18 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*미션 등록 페이지 띄우기*/
 	@RequestMapping("/adminmissioninsert")
 	public String missioninsert() {
 		return "admin/adminmissioninsert";
 	}
 	
+	/*미션 수정*/
 	@RequestMapping("/adminmissionmodinfo")
 	public String adminmissionmodinfo(@ModelAttribute("") MissionDTO dto) throws Exception{
 		MultipartFile mf = dto.getImage();
 		
+		// 이미지 파일이 있을때
 		if(!mf.isEmpty()) {			
 			Path currentPath = Paths.get(""); 
 			String path = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/"; 
@@ -212,8 +228,8 @@ public class AdminController {
 			dto.setM_photo(mf.getOriginalFilename());
 		}
 		
-		if(dto.getM_name().equals("direct")) {
-			dto.setM_name(dto.getSelboxDirect());
+		if(dto.getM_name().equals("direct")) {				// 미션명을 직접입력한 경우
+			dto.setM_name(dto.getSelboxDirect());			// selbox에 입력된 값으로 미션명 저장
 		}
 		
 		adminservice.updatemission(dto);
@@ -221,6 +237,7 @@ public class AdminController {
 		return "redirect:/adminmission";
 	}
 	
+	/*미션 등록*/
 	@RequestMapping("/adminmissioninsertinfo")
 	public String adminmissioninsertinfo(@ModelAttribute("") MissionDTO dto) throws Exception{
 		MultipartFile mf = dto.getImage();
@@ -235,8 +252,8 @@ public class AdminController {
 			dto.setM_photo(mf.getOriginalFilename());
 		}
 		
-		if(dto.getM_name().equals("direct")) {
-			dto.setM_name(dto.getSelboxDirect());
+		if(dto.getM_name().equals("direct")) {				// 미션명을 직접입력한 경우		
+			dto.setM_name(dto.getSelboxDirect());			// selbox에 입력된 값으로 미션명 저장
 		}
 		
 		adminservice.insertmission(dto);
@@ -244,12 +261,14 @@ public class AdminController {
 		return "redirect:/adminmission";
 	}
 	
+	/*DB에 저장된 단체미션 이름 리스트 가져오기*/
 	@RequestMapping("/missionname")
 	@ResponseBody
 	public List<String> missionname(String m_type){
 		return adminservice.missionname(m_type);
 	}
 	
+	/*미션명에 맞는 미션정보 가져오기*/
 	@RequestMapping("/missioninfo1")
 	@ResponseBody
 	public MissionDTO missioninfo1(String m_type, String m_name) {
@@ -271,16 +290,14 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*리뷰 삭제*/
 	@RequestMapping("/adminreviewdel")
 	public String reviewdel(int code) {
 		int m_code = adminservice.mcodetopcode(code);
-		// 리뷰를 삭제하면 
-		// (1) 멤버의 point 줄어들고
+		// 멤버의 point 줄어들기
 		adminservice.adminmemberpoint(code);
-		// (2) carbon 줄어들고
+		// 멤버의 carbon 줄어들기
 		adminservice.adminmembercarbon(code);
-		// (3) grade 줄어들수도..?
-		
 		
 		// 리뷰 삭제하기
 		adminservice.adminreviewdel(code);
@@ -289,6 +306,7 @@ public class AdminController {
 		return "redirect:/adminmissionreview?code="+m_code;
 	}
 	
+	/*리뷰 수정 페이지 띄우기*/
 	@RequestMapping("/adminreviewmod")
 	public ModelAndView reviewmod(int code) {
 		ModelAndView mv = new ModelAndView();
@@ -299,6 +317,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*리뷰 수정*/
 	@RequestMapping("/adminreviewmodinfo")
 	public String adminreviewmodinfo(@ModelAttribute("") MissionDTO dto) throws Exception{
 		MultipartFile mf = dto.getImage();
@@ -331,7 +350,8 @@ public class AdminController {
 	
 	
 	
-	/*가이드 관리*/
+	/* 4.가이드 관리 */
+	/*가이드 관리 메인*/
 	@RequestMapping("/adminguide")
 	public ModelAndView adminguide() {
 		ModelAndView mv = new ModelAndView();
@@ -341,12 +361,14 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*가이드 삭제*/
 	@RequestMapping("/adminguidedel")
 	public String guidedel(int code) {
 		adminservice.adminguidedel(code);
 		return "redirect:/adminguide";
 	}
 	
+	/*가이드 수정 페이지 띄우기*/
 	@RequestMapping("/adminguidemod")
 	public ModelAndView guidemod(int code) {
 		ModelAndView mv = new ModelAndView();
@@ -356,17 +378,20 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*가이드 등록 페이지 띄우기*/
 	@RequestMapping("/adminguideinsert")
 	public String guideinsert() {
 		return "admin/adminguideinsert";
 	}
 	
+	/*가이드 분류명 리스트 보여주기*/
 	@RequestMapping("/guideclasslist")
 	@ResponseBody
 	public List<String> guideclasslist(){
 		return adminservice.guideclasslist();
 	}
 	
+	/*가이드 등록*/
 	@RequestMapping("/adminguideinsertinfo")
 	public String adminguideinsertinfo(@ModelAttribute("") RecyclingDTO dto) throws Exception{
 		MultipartFile mf = dto.getImage();
@@ -392,6 +417,7 @@ public class AdminController {
 		return "redirect:/adminguide";
 	}
 	
+	/*가이드 수정*/
 	@RequestMapping("/adminguidemodinfo")
 	public String adminguidemodinfo(@ModelAttribute("") RecyclingDTO dto) throws Exception{
 		MultipartFile mf = dto.getImage();
@@ -419,7 +445,8 @@ public class AdminController {
 	
 	
 	
-	/*게시판 관리*/
+	/* 5.게시판 관리 */
+	/*게시판 관리 메인*/
 	@RequestMapping("/adminboard")
 	public ModelAndView adminboard() throws ParseException {
 		ModelAndView mv = new ModelAndView();
@@ -434,6 +461,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*게시판 관리 메인(ajax:게시판 분류별 리스트 보여주기)*/
 	@RequestMapping("/adminboardlist")
 	@ResponseBody
 	public List<BoardDTO> adminboardlist(String b_type){
@@ -446,12 +474,14 @@ public class AdminController {
 		return boardlist;
 	}
 	
+	/*게시물 삭제*/
 	@RequestMapping("/adminboarddel")
 	public String boarddel(int code) {
 		adminservice.adminboarddel(code);
 		return "redirect:/adminboard";
 	}
 	
+	/*게시물 수정 페이지 띄우기*/
 	@RequestMapping("/adminboardmod")
 	public ModelAndView boardmod(int code) {
 		ModelAndView mv = new ModelAndView();
@@ -469,11 +499,13 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*게시물 등록 페이지 띄우기*/
 	@RequestMapping("/adminboardinsert")
 	public String boardinsert() {
 		return "admin/adminboardinsert";
 	}
 	
+	/*게시물 등록*/
 	@RequestMapping("/adminboardinsertinfo")
 	public String adminboardinsertinfo(@ModelAttribute("") BoardDTO dto, HttpServletRequest request) throws Exception{
 		MultipartFile mf = dto.getFile();
@@ -500,6 +532,7 @@ public class AdminController {
 		return "redirect:/adminboard";
 	}
 	
+	/*게시물 수정*/
 	@RequestMapping("/adminboardmodinfo")
 	public String adminboardmodinfo(@ModelAttribute("") BoardDTO dto) throws Exception{
 		MultipartFile mf = dto.getFile();
@@ -527,7 +560,8 @@ public class AdminController {
 	
 	
 	
-	/*댓글관리*/
+	/* 6.댓글관리 */
+	/*댓글 관리 메인*/
 	@RequestMapping("/admincomment")
 	public ModelAndView admincomment(int code) {
 		ModelAndView mv = new ModelAndView();
@@ -544,6 +578,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*댓글 등록*/
 	@RequestMapping("/admincommentinsert")
 	@ResponseBody
 	public void admincommentinsert(String c_comment, String id, int b_no ) {
@@ -554,6 +589,7 @@ public class AdminController {
 		adminservice.admincommentinsert(dto);
 	}
 
+	/*게시물별 댓글 보여주기*/
 	@RequestMapping("/admincommentlist")
 	@ResponseBody
 	public List<CommentDTO> admincommentlist(int b_no){
@@ -570,13 +606,14 @@ public class AdminController {
 		
 	}
 	
+	/*댓글 수정*/
 	@RequestMapping("/admincommentupdate")
 	@ResponseBody
 	public void admincommentupdate(int c_index, String c_comment) {
-		System.out.println("변경");
 		adminservice.admincommentupdate(c_index,c_comment);
 	}
 	
+	/*댓글 삭제*/
 	@RequestMapping("/admincommentdelete")
 	@ResponseBody
 	public void admincommentdelete(int c_index) {
@@ -588,7 +625,8 @@ public class AdminController {
 	
 	
 	
-	/*회원 관리*/
+	/* 7.회원 관리 */
+	/*회원 관리 메인*/
 	@RequestMapping("/adminmember")
 	public ModelAndView adminmember() {
 		ModelAndView mv = new ModelAndView();
@@ -598,12 +636,16 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*회원 탈퇴*/
 	@RequestMapping("/adminmemberdel")
 	public String memberdel(String id) {
-		adminservice.adminmemberdel(id);
+		int delnum = adminservice.admindeletenum() + 1;
+		String withdrawId = "탈퇴한 회원"+delnum;
+		adminservice.adminmemberdel(id, withdrawId);
 		return "redirect:/adminmember";
 	}
 	
+	/*회원 정보 수정 페이지 띄우기*/
 	@RequestMapping("/adminmembermod")
 	public ModelAndView membermod(String id) {
 		ModelAndView mv = new ModelAndView();
@@ -617,6 +659,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*회원이 쓴 게시물 페이지 띄우기*/
 	@RequestMapping("/adminmemberboard")
 	public ModelAndView memberboard(String id) {
 		ModelAndView mv = new ModelAndView();
@@ -637,16 +680,7 @@ public class AdminController {
 		return mv;
 	}
 	
-	/*
-	@RequestMapping("/adminmembercomment")
-	public ModelAndView membercomment(String id) {
-		ModelAndView mv = new ModelAndView();
-		List<CommentDTO> commentlist = adminservice.adminmembercomment(id);
-		mv.addObject("commentlist",commentlist);
-		mv.setViewName("admin/adminmembercomment");
-		return mv;
-	}*/
-	
+	/*회원이 참여한 미션&리뷰 페이지 띄우기*/
 	@RequestMapping("/adminmembermission")
 	public ModelAndView membermission(String id) {
 		ModelAndView mv = new ModelAndView();
@@ -679,6 +713,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*회원이 쓴 게시물 페이지 띄우기*/
 	@RequestMapping("/adminmemberboardlist")
 	@ResponseBody
 	public List<BoardDTO> adminmemberboardlist(String b_type, String id){
@@ -692,6 +727,7 @@ public class AdminController {
 		return boardlist;
 	}
 	
+	/*회원 정보 수정*/
 	@RequestMapping("/adminmembermodinfo")
 	public String adminmembermodinfo(@ModelAttribute("") MemberDTO dto) throws Exception{
 		/*MultipartFile mf = dto.getImage();
@@ -714,6 +750,7 @@ public class AdminController {
 		return "redirect:/adminmember";
 	}
 	
+	/*회원이 쓴 게시물 삭제*/
 	@RequestMapping("/adminmemberboarddel")
 	public String memberboarddel(int code) throws UnsupportedEncodingException {
 		BoardDTO dto = adminservice.adminboardinfo(code);
@@ -723,6 +760,7 @@ public class AdminController {
 		return "redirect:/adminmemberboard?id="+id;
 	}
 	
+	/*회원이 쓴 게시물 수정 페이지 띄우기*/
 	@RequestMapping("/adminmemberboardmod")
 	public ModelAndView memberboardmod(int code) {
 		ModelAndView mv = new ModelAndView();
@@ -740,6 +778,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*회원이 쓴 게시물 수정*/
 	@RequestMapping("/adminmemberboardmodinfo")
 	public String adminmemberboardmodinfo(@ModelAttribute("") BoardDTO dto) throws Exception{
 		MultipartFile mf = dto.getFile();
@@ -765,6 +804,7 @@ public class AdminController {
 		return "redirect:/adminmemberboard?id="+id;
 	}
 	
+	/*회원이 쓴 리뷰 삭제*/
 	@RequestMapping("/adminmembermissiondel")
 	public String membermissiondel(int code) throws UnsupportedEncodingException {
 		String id = adminservice.idtopcode(code);
@@ -783,6 +823,7 @@ public class AdminController {
 		return "redirect:/adminmembermission?id="+id;
 	}
 	
+	/*회원이 참여한 미션&리뷰 수정 페이지 띄우기*/
 	@RequestMapping("/adminmembermissionmod")
 	public ModelAndView membermissionmod(int code) {
 		ModelAndView mv = new ModelAndView();
@@ -793,6 +834,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*회원이 참여한 미션&리뷰 수정*/
 	@RequestMapping("/adminmembermissionmodinfo")
 	public String adminmembermissionmodinfo(@ModelAttribute("") MissionDTO dto) throws Exception{
 		MultipartFile mf = dto.getImage();
@@ -830,7 +872,8 @@ public class AdminController {
 	
 	
 	
-	/*관리자마이페이지 관리*/
+	/* 8.관리자마이페이지 관리 */
+	/*관리자 마이페이지 메인*/
 	@RequestMapping("/adminmypage")
 	public ModelAndView adminmypage(HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
@@ -839,9 +882,6 @@ public class AdminController {
 		if(admininfo.getPhone()==null) {
 			admininfo.setPhone("-");
 		}
-		/*
-		 * if(admininfo.getPhoto()==null) { admininfo.setPhoto("member.png"); }
-		 */
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("admininfo",admininfo);
@@ -849,6 +889,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*관리자 마이페이지 수정 페이지 띄우기*/
 	@RequestMapping("/admininfoupdate")
 	public ModelAndView admininfoupdate(HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
@@ -867,19 +908,9 @@ public class AdminController {
 		return mv;
 	}
 	
+	/*관리자 정보 수정*/
 	@RequestMapping("/adminmypagemodinfo")
 	public String adminmypagemodinfo(@ModelAttribute("") MemberDTO dto,HttpServletRequest request) throws Exception {
-		/*
-		 * MultipartFile mf = dto.getImage();
-		 * 
-		 * if(!mf.isEmpty()) { Path currentPath = Paths.get(""); String path =
-		 * currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/";
-		 * path = path.replace("\\", "/");
-		 * 
-		 * File serverfile = new File(path + mf.getOriginalFilename());
-		 * mf.transferTo(serverfile); dto.setPhoto(mf.getOriginalFilename()); }
-		 */
-		
 		
 		if(dto.getPw().length()==0) {
 			String pw = adminservice.searchpw(dto.getId());

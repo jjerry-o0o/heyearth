@@ -29,6 +29,14 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+
+
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
+
 	<!-- 그룹미션 참가하기 -->
 
 	<div id="modal" class="modal-overlay">
@@ -61,12 +69,12 @@ $(document).ready(function(){
 				action="${pageContext.request.contextPath}/register_complete"
 				enctype="multipart/form-data">
 				<input type="hidden" name="m_code" value="${group.m_code }">
-				<input name="p_photo" type="hidden" id="p_photo"> <input
-					name="id" type="hidden" id="id" value="${sessionScope.session_id}">
-				<input type="hidden" name="p_complete" value=1> <input
-					type="hidden" name="m_point" value="${group.m_point}"> <input
-					type="hidden" name="m_carbon" value="${group.m_carbon}"> <input
-					name="image" id="input-image" type="file" accept="image/*"  required>
+				<input name="p_photo" type="hidden" id="p_photo">
+				<input name="id" type="hidden" id="id" value="${sessionScope.session_id}">
+				<input type="hidden" name="p_complete" value=1>
+				<input type="hidden" name="m_point" value="${group.m_point}">
+				<input type="hidden" name="m_carbon" value="${group.m_carbon}">
+				<input name="image" id="input-image" type="file" accept="image/*"  required>
 					<br><br>
 				<input type='submit' id='register_complete' class="register" value='참가하기'>
 			</form>

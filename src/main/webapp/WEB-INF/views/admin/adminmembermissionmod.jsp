@@ -32,6 +32,7 @@
 		<c:if test="${reviewinfo.m_location != '어디서나'}">
 			<tr><td>날짜</td><td>${reviewinfo.m_location }</td></tr>
 		</c:if>
+		<tr><td>신고 횟수</td><td><input id="p_redcard" name="p_redcard" class="admintd" type="number" value="${reviewinfo.p_redcard }" min="0" max="5"></td></tr>
 		<tr><td>별점</td><td><input id="star" name="star" class="admintd" type="number" value="${reviewinfo.p_star}" min="1" max="5"></td></tr>
 		<tr><td>리뷰</td><td><textarea id="p_review" name="p_review" class="admintd">${reviewinfo.p_review}</textarea></td></tr>
 		<tr><td>인증사진</td>

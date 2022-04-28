@@ -28,6 +28,7 @@ function zeroshopdetail(code){
 		data : {"scode" : code},
 		success : function(result){
 			document.getElementById("modal").style.display = "flex";
+			document.body.classList.add("stop-scroll");
 			$("#modalupper").html("<img id='modalimg' src='img/"+result.s_photo+"' onerror=\"this.src='/img/noimage.jpg'\">");
 			$("#modalh2").text(result.s_name);
 			$("#modalcontent").html("분류 : " + result.s_inform + "<br>");
@@ -122,6 +123,7 @@ $(document).ready(function(){
 	// 모달창 닫기버튼
 	$("#modalclose").on("click",function(){
 		document.getElementById("modal").style.display = "none";
+		document.body.classList.remove("stop-scroll");
 	});
 	
 	// 모달창 외부클릭시 모달창 닫기
@@ -129,6 +131,7 @@ $(document).ready(function(){
     	const evTarget = e.target
     	if(evTarget.classList.contains("modal-overlay")) {
         	modal.style.display = "none";
+        	document.body.classList.remove("stop-scroll");
     	}
 	});
 	
