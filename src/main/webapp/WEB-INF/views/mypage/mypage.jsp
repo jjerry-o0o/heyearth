@@ -14,22 +14,7 @@
 <!-- js -->
 <script type="text/javascript" src="/js/mypage/mypage.js"></script>
 <script src="jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function (){
-	
-	//모달창 닫기
-		$("#modal").on("click",function(){
-			document.getElementById("modal").style.display = "none";
-		});
-		
-		modal.addEventListener("click", e => {
-			const evTarget = e.target
-			if(evTarget.classList.contains("modal-overlay")) {
-				modal.style.display = "none";
-			}
-		});
-});
-</script>
+
 
 </head>
 <body>
@@ -44,6 +29,7 @@ $(document).ready(function (){
 		<table id="menu_table">
 			<tr class="menu_tr">
 				<td class="menu_td">
+					<span id=grade></span>
 					<input type=button id="profil_div" name="${sessionScope.session_id}" value="${sessionScope.session_id}님의 정보" onclick = "profil_div()" checked="checked"/>
 				</td>
 			</tr>
@@ -76,23 +62,6 @@ $(document).ready(function (){
 				<div id="myguidelist_div">
 				</div>
 		</div>
-		
-				<div id="modal" class="modal-overlay">
-					<div class="modal-window">
-					<div class="close-area" id="modalclose">X</div>
-						<div class="modalupper" id="modalupper">
-							
-						</div>
-							<div class="modaltitle">
-								<h2 class="modalh2" id="modalh2"></h2>
-							</div>
-						<div class="modalcontent" id="modalcontent">
-						</div>
-						
-						<div id="modalbtn">
-						</div>
-					</div>
-				</div>
 	</div>
 </section>
 	

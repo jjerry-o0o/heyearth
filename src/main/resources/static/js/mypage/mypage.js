@@ -1,4 +1,4 @@
-
+/*나의 정보 ajax*/
 function profil_div(){
 	var id = document.getElementById("profil_div").name;
 	//alert(id);
@@ -12,11 +12,13 @@ function profil_div(){
 			$("#myMissionDiv").empty();
 			$("#myboardlist_div").empty();
 			
-			$("#updateDiv").html("<div id=")
+			$("#updateDiv").html("<div id=gradeP><p>"+userdto.id+"님의 등급</p></div>");
+			$("#updateDiv").append("<div id=grade>"+userdto.grade+" 등급"+"</div><br>");
+			
 			$("#updateDiv").append("<div id=pointP><p>보유 포인트</p></div>");
 			$("#updateDiv").append("<div id=point>"+userdto.point+" p"+"</div><br>");
 			$("#updateDiv").append("<div id=carbonP><p>탄소 배출량</p></div>");
-			$("#updateDiv").append("<div id=carbon>"+userdto.carbon+"</div><br>");
+			$("#updateDiv").append("<div id=carbon>"+userdto.carbon+" g</div><br>");
 			$("#updateDiv").append("<div id='updateId'><p>닉네임</p><p id=userid>&nbsp"+userdto.id+"</p></div>");
 			$("#updateDiv").append("<hr>");
 			
@@ -35,13 +37,14 @@ function profil_div(){
 			$("#updateDiv").append("<div id=update><input id='submit' type='submit' value='회원정보 수정'></div>");
 			$("#updateDiv").append("<div id=withdraw><input type='button' id='withdrawbtn' value='회원탈퇴' onclick='withdraw()'></div>");
 			
-			document.getElementById("pwckbtn").onclick = pwck();
+			document.getElementById("pwckbtn").onclick = pwck;
 			document.getElementById("submit").onclick = pwUpdate(userdto);
 			
 		}//success end
 	});//ajax end
 }//profil_div end
 
+/*나의 정보 - 비밀번호 확인*/
 function pwck() {
 	var pw2 = document.getElementById("pw2").value;
 	/*var pw2 = $("#pw2").val();*/
@@ -57,7 +60,7 @@ function pwck() {
 		$("#pwerror").html('4자 이상, 영문+숫자로 입력해주세요');
 		document.getElementById("pw2").focus();
 		return false;
-		}else if(result == 1){
+		}else if(result >= 1){
 			$("#pwerror").html('비밀번호가 확인되었습니다.');
 			//alert("비밀번호가 확인되었습니다.")
 		}else{
@@ -70,6 +73,7 @@ function pwck() {
 	});//ajax
 }//function end
 
+/*나의 정보 비밀번호 변경*/
 function pwUpdate(userdto){
 	pwck();
 	var pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
@@ -110,6 +114,7 @@ function pwUpdate(userdto){
 	
 }
 
+/*나의 정보 - 회원 탈퇴 기능*/
 function withdraw(){
 	//alert('정상적으로 탈퇴되었습니다');
 	var id = document.getElementById("hiddenUserId").value;
@@ -124,6 +129,7 @@ function withdraw(){
 	});//ajax
 }
 
+/*나의 활동 ajax*/
 function mymission(){
 
 	//location.href = "participation";
@@ -145,7 +151,7 @@ function mymission(){
 			
 			$("#myMissionDiv").html("<table id='missionlist_tb'><tbody id='mission_tbody'><tr class='mission_tr'>"
 			+"<th class='mission_th'>활동 코드</th><th class='mission_th'>활동명</th><th class='mission_th'>포인트</th>"
-			+ "<th class='mission_th'>탄소배출 감소량</th><th class='mission_th'>진행여부</th></tr>");
+			+ "<th class='mission_th'>탄소배출 감소량</th><th class='mission_th'>진행여부</th><th class='mission_th'>리뷰작성</th></tr>");
 			
 			for(var i = 0; i < list.length; i++){
 				
@@ -159,9 +165,10 @@ function mymission(){
 				+ "<td class='mission_td' ><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+list[i].m_name+"</td>"
 				+ "<td class='mission_td'><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+list[i].m_point+"</td>"
 				+ "<td class='mission_td'><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+list[i].m_carbon+"</td>"
-				+ "<td class='mission_td'><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+complete+"</td></tr>");
+				+ "<td class='mission_td'><a class='mission_a' href='/mission_detail/"+list[i].m_code+"'>"+complete+"</td>"
+				+ "<td class='mission_td'><input type='button' value='리뷰작성' id='reviewbtn' onclick='review()'></td></tr>");
 			};
-			$("#mymenu_div").append("</table>");
+			$("#myMissionDiv").append("</table>");
 			
 		}//seccess
 	});
@@ -169,10 +176,12 @@ function mymission(){
 	
 }
 
-
+/*나의 활동 - 리뷰작성*/
+function review() {
+	location.href = "participation";
+}
 
 /*작성 게시물 조회 기능*/
-
 function boardlist(){
 	var id = document.getElementById("profil_div").name;
 	
@@ -201,14 +210,7 @@ function boardlist(){
 
 
 
-function myboard(){
-	alert('myboard hi');
-}
-
-
-
-/*작성 게시물 조회 기능*/
-
+/*자주보는 배출가이드 기능*/
 function myguide(){
 	var id = document.getElementById("profil_div").name;
 	
