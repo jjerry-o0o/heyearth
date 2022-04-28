@@ -46,7 +46,7 @@
 				type : 'bullets',
 				clickable : true,
 			},
-			slidesPerView : 5,
+			slidesPerView : 4,
 			slidesPerGroup : 1,
 		});
 	});
@@ -54,7 +54,10 @@
 
 </head>
 <body>
-
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
 
 	<!-- 메인1 탄소 -->
 	<div class="m-carbon-wrapper">
@@ -133,7 +136,7 @@
 		<a href="https://jigubyulstore.com/"><img src="img/main-aff8.png" id="main-aff" style="width: %; height: %;"></a>
 		<a href="https://www.thanksto.co.kr/"><img src="img/main-aff4.png" id="main-aff" style="width: 20%; height: 20%;"></a>
 		<a href="https://www.instagram.com/dam_a_store/"><img src="img/main-aff6.png" id="main-aff" style="width: 15%; height: 15%;"></a>
-		<a href="https://www.instagram.com/b.green_official/"><img src="img/main-aff5.png" id="main-aff" style="width: %; height: %;"></a>
+		<!-- <a href="https://www.instagram.com/b.green_official/"><img src="img/main-aff5.png" id="main-aff" style="width: %; height: %;"></a> -->
 		<a href="https://zerothings.co.kr/"><img src="img/main-aff7.png" id="main-aff" style="width: 20%; height: 20%;"></a>
 		<a href="https://almang.modoo.at/"><img src="img/main-aff2.png" id="main-aff" style="width: 10%; height: 10%;" ></a>
 		<a href="https://www.jigushop.co.kr/"><img src="img/main-aff3.png" id="main-aff" style="width: 15%; height: 20%;"></a>
@@ -147,6 +150,8 @@
 
 
 	<!-- 메인3 About 연결 -->
+	
+
 
 	<div class="m-about" style="background: #F3EADF;">
 		<img src="img/main2.png" id="main-logo"
@@ -217,7 +222,7 @@
 					<div class="swiper-slide" id="m-zeroshop-db">
 						<div id="m-mission-each">
 							<div id="m-mission-img">
-								<a href="mission_group/${row.m_code}"> <img width=270px
+								<a href="mission_detail/${row.m_code}"> <img width=270px
 									height=270px
 									src="<%=request.getContextPath()%>/img/${row.m_photo}">
 								</a>
@@ -239,7 +244,7 @@
 					<div class="swiper-slide" id="m-zeroshop-db">
 						<div id="m-mission-each">
 							<div id="m-mission-img">
-								<a href="mission_group/${row.m_code}"><img width=270px
+								<a href="mission_detail/${row.m_code}"><img width=270px
 									height=270px
 									src="<%=request.getContextPath()%>/img/${row.m_photo}"></a>
 							</div>

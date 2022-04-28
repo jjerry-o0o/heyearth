@@ -17,18 +17,20 @@
 <script src="/js/recycling/recycling.js"></script>
 <script>
 $(document).ready(function(){
-	$(".insert").on("submit", function(){
-		alert($("#result").val());
-		if($("#result").val() == '0'){		
-		alert("이미 스크랩하셨습니다!");
-		}else{
-		alert("스크랩되었습니다!");
-		}
+	$(".scrap").on("click", function(){
+		alert('마이페이지에서 즐겨찾는 배출가이드를 확인해주세요!'); 
 	});
 	});
 </script>
 </head>
 <body>
+
+
+<!-- Talk Talk Banner Script start -->
+	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
+<!-- Talk Talk Banner Script end -->
+
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 	
@@ -74,17 +76,17 @@ $(document).ready(function(){
 
 	<div id=recyclingKeyword style="display: none;">
 		<div id="keywords">
-			<input type="button" value="종이류" onclick=r_class(1)> <input
-				type="button" value="유리병" onclick=r_class(2)> <input
-				type="button" value="금속캔" onclick=r_class(3)> <input
-				type="button" value="플라스틱류" onclick=r_class(4)> <input
-				type="button" value="비닐류" onclick=r_class(5)> <input
-				type="button" value="스티로품류" onclick=r_class(6)><br> <input
-				type="button" value="의류 및 원단류" onclick=r_class(7)> <input
-				type="button" value="전지류" onclick=r_class(8)> <input
-				type="button" value="형광등" onclick=r_class(9)> <input
-				type="button" value="고철류" onclick=r_class(10)> <input
-				type="button" value="기타" onclick=r_class(11)>
+			<input type="button" value="종이류" onclick=r_class(1)>
+			<input type="button" value="유리병" onclick=r_class(2)>
+			<input type="button" value="금속캔" onclick=r_class(3)>
+			<input type="button" value="플라스틱류" onclick=r_class(4)>
+			<input type="button" value="비닐류" onclick=r_class(5)>
+			<input type="button" value="스티로품류" onclick=r_class(6)><br>
+			<input type="button" value="의류 및 원단류" onclick=r_class(7)>
+			<input type="button" value="전지류" onclick=r_class(8)>
+			<input type="button" value="형광등" onclick=r_class(9)>
+			<input type="button" value="고철류" onclick=r_class(10)>
+			<input type="button" value="기타" onclick=r_class(11)>
 		</div>
 		<div id=previewbox></div>
 
@@ -93,18 +95,19 @@ $(document).ready(function(){
 				<div class="close-area" id="modalclose">X</div>
 				<div class="modalupper" id="modalupper"></div>
 				<div class="modaltitle">
+					<c:if test="${sessionScope.session_id != null }">				
+						
 					<form name="form" method="post" class="insert"
 						action="${pageContext.request.contextPath}/guide_insert">
 						<input type="hidden" id="r_code" name="r_code"> 
-						<input type="hidden" id="result" name="result" value="${result }">
 
 						<input class="scrap" type='submit' value='★'>
-
 					</form>
+							</c:if>
+						
 					<h2 class="modalh2" id="modalh2"></h2>
 				</div>
 				<div class="modalcontent" id="modalcontent"></div>
-
 				<div id="modalbtn"></div>
 			</div>
 		</div>

@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+body{
+	min-width: 1400px;
+}
 
 #jointitle {
 	margin-top: 100px;

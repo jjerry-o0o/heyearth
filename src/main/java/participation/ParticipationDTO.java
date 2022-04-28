@@ -13,6 +13,12 @@ public class ParticipationDTO {
 	int m_point;//미션 포인트
 	int point;//나의 포인트
 	String m_inform;//미션 정보
+	public String getM_location() {
+		return m_location;
+	}
+	public void setM_location(String m_location) {
+		this.m_location = m_location;
+	}
 	int m_carbon; //미션 탄소배출량
 	int carbon; //내가 줄인 탄소배출량
 	int p_complete; //미션 완료 여부
@@ -23,7 +29,15 @@ public class ParticipationDTO {
 	MultipartFile image;
 	int grade;
 int p_redcard;
+String m_type;
+String m_location;
 
+	public String getM_type() {
+	return m_type;
+}
+public void setM_type(String m_type) {
+	this.m_type = m_type;
+}
 	public int getP_redcard() {
 	return p_redcard;
 }

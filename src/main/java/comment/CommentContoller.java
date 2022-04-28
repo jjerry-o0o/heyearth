@@ -56,9 +56,4 @@ public class CommentContoller {
 	public void deleteComment(@RequestParam int c_index) {
 		commentservice.deleteComment(c_index);
 	}
-
-	@RequestMapping("/comment")
-	public String comment() {
-		return "/comment/comment";
-	}
 }
