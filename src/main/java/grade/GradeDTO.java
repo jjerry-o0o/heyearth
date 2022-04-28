@@ -1,9 +1,9 @@
 package grade;
 
 public class GradeDTO {
-	int g_code;
-	int g_start;
-	int g_end;
+	int g_code; //등급 
+	int g_start; //탄소배출감소량 시작
+	int g_end; //탄소배출감소량 끝
 	
 	
 	public GradeDTO() {

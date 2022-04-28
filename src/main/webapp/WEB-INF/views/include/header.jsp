@@ -28,6 +28,7 @@
 <!-- 로그인 후 오른쪽 상단 메뉴-->
 		<c:if test="${sessionScope.session_id != null }">
 			<div class="JoinLogin">
+			
 		    <a class="header_j" style="margin-right:30px;" href="${pageContext.request.contextPath}/mypage">What's Up, <span class="whatsup_id">${sessionScope.session_id}</span> !</a>
 			<a class="header_j" href="${pageContext.request.contextPath}/mypage">마이페이지</a>&nbsp;/
 			<a class="header_j" href="${pageContext.request.contextPath}/logout" onclick="alert('로그아웃 되었습니다.');">로그아웃</a>
@@ -49,7 +50,6 @@
 				<li class="header_lib"><a  class="header_b" href="${pageContext.request.contextPath}/boardlist">게시판</a></li>
 		   </ul>
 	</nav>
-<!-- 	<hr style=" color:#F6F5F0"> -->
 </header>
 </body>
 </html>

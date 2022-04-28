@@ -18,11 +18,6 @@
         select #{id}, #{m_code}, #{p_friends}
   from dual where not exists(select * from participation where id = #{id} and m_code = #{m_code});
     </insert>
-<!-- 참가미션 확인 -->    
-    <select id="participation_check" resultType ="participationdto">
-      select * from participation
-  where id = #{id} and m_code = #{m_code};
-    </select>
 <!-- 2. mission 최대인원 수정 -->
     <update id="participation_register2" parameterType="participationdto">             
         update mission
@@ -35,7 +30,6 @@
 	<insert id="participation_register_complete" parameterType="participationdto">
         insert into participation (  id, m_code, p_friends,  p_photo, p_complete)
         values (#{id}, #{m_code}, 1, #{p_photo}, 1)
-
     </insert>
 <!-- 2. 등급 변경 -->
     <update id="participation_register_complete2" parameterType="participationdto">             

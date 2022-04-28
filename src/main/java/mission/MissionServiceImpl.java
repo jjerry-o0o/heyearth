@@ -46,7 +46,7 @@ public class MissionServiceImpl implements MissionService {
 		return dao.missionreview2(m_name);    
 	}
 	@Override
-	public List<MissionDTO> missioncheck(String m_name) {//리뷰 목록2
+	public List<MissionDTO> missioncheck(String m_name) {//미션 체크
 		return dao.missioncheck(m_name);    
 	}
 	

@@ -44,6 +44,9 @@ margin:0;
 	    width: 190px;
 	    border-radius: 10px;
 }
+
+
+
 .header_b { /*같은 a태그인데 게시판메뉴만 정렬이 너무 오른쪽으로 가서 따로 정렬*/
 	text-decoration: none;
 		font-weight: 500;
@@ -94,16 +97,6 @@ nav .header_ul> .header_lib {/*같은 li태그인데 게시판메뉴만 정렬�
 
 .whatsup_id{/*What's Up oo !*/ 
 	font-weight: 800;
+	color:#F3EADF;
 	
 }
-
-
-
-/* @font-face {
-    font-family: '양진체';
-    src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}*/
- 
-
