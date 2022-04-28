@@ -600,7 +600,9 @@ public class AdminController {
 	
 	@RequestMapping("/adminmemberdel")
 	public String memberdel(String id) {
-		adminservice.adminmemberdel(id);
+		int delnum = adminservice.admindeletenum() + 1;
+		String withdrawId = "탈퇴한 회원"+delnum;
+		adminservice.adminmemberdel(id, withdrawId);
 		return "redirect:/adminmember";
 	}
 	

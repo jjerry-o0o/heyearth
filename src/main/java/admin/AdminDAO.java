@@ -75,7 +75,8 @@ public interface AdminDAO {
 	
 	/*회원 관리*/
 	public List<MemberDTO> adminmemberlist();
-	public void adminmemberdel(String id);
+	public int admindeletenum();
+	public void adminmemberdel(String id, String withdrawId);
 	public List<BoardDTO> adminmemberboard(String id);
 	public List<MissionDTO> adminmembermission(String id);
 	public List<BoardDTO> adminmemberboardlist(BoardDTO dto);
