@@ -35,7 +35,7 @@
 		<table id="menu_table">
 			<tr class="menu_tr">
 				<td class="menu_td">
-					<span id=grade></span>
+			
 					<input type=button id="profil_div" name="${sessionScope.session_id}" value="${sessionScope.session_id}님의 정보" onclick = "profil_div()" checked="checked"/>
 				</td>
 			</tr>
