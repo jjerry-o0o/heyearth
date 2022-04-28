@@ -181,7 +181,11 @@ $(document).ready(function (){
 				var wayp = document.createElement("p");
 				waydiv.appendChild(wayp);
 				wayp.id = "wayp";
-				$("#wayp").text("배출방법 : "+dto.r_way);
+				if(dto.r_way == undefined){
+					$("#wayp").text("배출방법 : 아직 해당 분류의 배출 방법이 정리되지 않았습니다");
+				}else{
+					$("#wayp").text("배출방법 : "+dto.r_way);
+				}
 				//wayp.innerText("배출방법 : "+dto.r_way);
 				//alert("배출방법 : "+dto.r_way);
 			}//inner2 success
