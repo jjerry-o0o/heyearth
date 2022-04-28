@@ -25,6 +25,7 @@
 			<div class='review'>
 				<div class='reviewinfo'><img class='reviewimg' src="img/${reviewlist.p_photo }"></div>
 				<div class='reviewinfo'>닉네임 : ${reviewlist.id }<br>
+				받은 신고 수 : <span style="color:red;font-size:20px; font-weight:700;">${reviewlist.p_redcard }</span><br>
 				<c:if test="${reviewlist.p_star != 0 }">
 					별점 : ${reviewlist.p_star }<br>
 				</c:if>

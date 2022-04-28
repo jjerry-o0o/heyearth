@@ -38,11 +38,18 @@ public class MemberServiceImpl implements MemberService{
 	public int pwck(String pw) {
 		return memberdao.pwck(pw);
 	}
-
+	
+	@Override
+	public int deletenum() {
+		return memberdao.deletenum();
+	}
+	
 	@Override
 	public int deletemember(String id, String withdrawId) {
 		return memberdao.deletemember(id, withdrawId);
 	}
+
+
 	
 	
 }

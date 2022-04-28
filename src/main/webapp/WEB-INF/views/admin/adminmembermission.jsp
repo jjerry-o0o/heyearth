@@ -69,6 +69,7 @@
 					<div class='review'>
 						<div class='reviewinfo'><img class='reviewimg' src="img/${missionlist.p_photo }"></div>
 						<div class='reviewinfo'><span class='reviewmission'>${missionlist.m_name }</span><br>
+						받은 신고 수 : <span style="color:red;font-size:20px; font-weight:700;">${missionlist.p_redcard }</span><br>
 						<c:if test="${missionlist.p_star != 0 }">
 							별점 : ${missionlist.p_star }<br>
 						</c:if>

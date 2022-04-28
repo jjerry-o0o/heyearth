@@ -1,11 +1,17 @@
 @charset "UTF-8";
-
+body{
+	min-width: 1400px;
+}
 li {
 	list-style: none;
 }
 .p_img{
 width:200px;
 height:200px;
+}
+
+#modalh2{
+	margin-top:150px;
 }
 .modal-overlay, .modal-overlay2 {
 	width: 100%;
@@ -27,17 +33,18 @@ height:200px;
 }
 
 .modal-window, .modal-window2 {
-	background-color: #F6F5F0;
-	backdrop-filter: blur(13.5px);
-	-webkit-backdrop-filter: blur(13.5px);
-	border-radius: 10px;
-	border: 5px solid #1A271D;
-	width: 400px;
-	height: 500px;
-	position: relative;
-	padding: 10px;
+	text-align:center;
 	color: #1A271D ;
-	box-shadow:0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	background-color : #F3EADF;
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 400px;
+    height: 550px;
+    position: relative;
+    padding: 10px;
 }
 
 .close-area, .close-area2 {
@@ -51,8 +58,10 @@ height:200px;
 grid-template-columns: 20% auto 20%; 
 margin-left: auto; 
 margin-right: auto; 
+margin-bottom: 10px; 
 /* margin-bottom: 20px;  */
 width: 70%; 
+background-color: white;
 border: 1px solid #1A271D;
 /* border-radius: 20px; */		
 /* background-color:white; */
@@ -61,22 +70,8 @@ border: 1px solid #1A271D;
 	margin-top: 20px; 
 	margin-bottom: 20px; 
 	text-align: center;
+
 	
-}
-.redcard{
-	padding-left : 14px;
-	padding-right : 14px;
-	padding-top : 3px;
-	padding-bottom : 3px;
-	border:2px solid #1A271D;
-	font-size: 16px;
-	color: #F6F5F0;
-	background-color : #1A271D;
-	cursor:pointer;
-}
-.redcard:hover{
-	background-color : white;
-	color: #1A271D;
 }
 .register{
 	padding-left : 14px;
@@ -92,4 +87,20 @@ border: 1px solid #1A271D;
 .register:hover{
 	background-color : white;
 	color: #1A271D;
+}
+.redcard{
+	padding-left : 14px;
+	padding-right : 14px;
+	padding-top : 3px;
+	padding-bottom : 3px;
+	border:2px solid #F6F5F0;
+	font-size: 16px;
+	color: #1A271D;
+	border-radius:5px;
+	background-color : #F6F5F0;
+	cursor:pointer;
+}
+.redcard:hover{
+	background-color : #1A271D;
+	color: #F6F5F0;
 }

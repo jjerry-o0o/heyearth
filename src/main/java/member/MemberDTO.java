@@ -16,6 +16,8 @@ public class MemberDTO {
 	String newpwck;
 	String del;
 	
+	
+	
 
 	public String getDel() {
 		return del;
