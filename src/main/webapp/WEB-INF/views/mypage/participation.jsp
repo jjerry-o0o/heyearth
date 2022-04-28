@@ -35,9 +35,8 @@
 					name="m_personnel" id="m_personnel"> <input type="hidden"
 					name="p_friends" id="p_friends"> <input type="hidden"
 					name="p_complete" id="p_complete"> <input name="p_photo"
-					type="hidden" id="p_photo"> <input name="image"
-					id="input-image" type="file" accept="image/*"  required> <input
-					class="back" type="button" value="취소"> <input type='submit'
+					type="hidden" id="p_photo"> <input name="image" 
+					id="input-image" type="file" accept="image/*"  required>  <br><br><input type='submit' class="button"
 					id='complete' value="인증완료!">
 			</form>
 		</div>
@@ -52,61 +51,97 @@
 			<div id="register_contents2"></div>
 			<form name=form3 method=post
 				action='${pageContext.request.contextPath}/review'>
-				별점 <input type=hidden name=p_code id=p_code2> <input
+				<br>별점 <input type=hidden name=p_code id=p_code2> <input
 					name=p_star type=number id=p_star min="1" max="5" step="1" value="5" required>
-<br> <textarea name=p_review rows="5" cols="20" placeholder="자유롭게 후기를 적어주세요!" id=p_review required></textarea>
-				<input class=back type=button value=취소> <input type=submit
+<br><br> <textarea  name=p_review rows="10" cols="40" placeholder="자유롭게 후기를 적어주세요! 글자수는 200자로 제한됩니다." id=p_review required></textarea><br>
+				<br><input type=submit class="button"
 					id=review value=리뷰완료!>
 			</form>
 
 		</div>
 	</div>
 	<div style="text-align: center; margin-bottom: 50px;">
-		<h2>나의 미션</h2>
-		<h3>${map.count}개의미션 진행중</h3>
+		<h2>나의 참가 미션</h2>
 		<br>
-		<br>
+		<br> 
+
+
 
 	<!-- 내가 신청한 미션 목록 -->
+	<div class="complete">
 		<c:forEach var="row" items="${map.list}">
 			<div class="my_mission"
-				style="display: grid; grid-template-columns: 30% auto; margin-left: auto; margin-right: auto; margin-bottom: 10px; width: 60%; border: 3px solid #1A271D;">
-				<div style="display: inline-block">
+				style="display: grid; grid-template-columns: 30% auto; margin-left: auto; margin-right: auto;margin-bottom: 10px; width: 60%; border: 3px solid #1A271D;">
+				<div style="display: inline-block; padding-top:10px;padding-left:10px;">
 					<c:if test="${row.p_photo == null }">
 						<img class="my_img"
 							src="<%=request.getContextPath()%>/img/nophoto.jpg">
 						<br>
-						<a href="delete?p_code=${row.p_code}&m_code=${row.m_code}">미션
-							취소</a>
-						<br>
-						<input type="button" value="인증하기" id="mymission_detail"
+						<a style="display:inline-block;text-decoration-line:none; "class="button" href="delete?p_code=${row.p_code}&m_code=${row.m_code}">미션취소</a>
+						<input type="button" class="button" value="인증하기" id="mymission_detail"
 							onclick="mymissiondetail(${row.p_code})">
 					</c:if>
 					<c:if test="${row.p_photo != null }">
 						<input id="hiddenphoto${row.p_code }" type="hidden"
 							value="img/${row.p_photo}">
-						<canvas width="250px" height="250px" id="myCanvas${row.p_code }"></canvas>
+						<canvas width="250px" height="250px" id="myCanvas${row.p_code }"></canvas><br>
 						<span style="font-size: large; font-weight: 700; color: green;">${row.m_point}p</span> 포인트를 획득했습니다.<br>
 						<span style="font-size: large; font-weight: 700; color: green;">${row.m_carbon }g</span>의 탄소배출량을 줄였습니다.<br>
 						<c:if test="${row.p_review == null }">
-							<input type="button" value="리뷰작성" id="mymission_review"
+							<input type="button" class="button" value="리뷰작성" id="mymission_review"
 								onclick="mymissiondetail2(${row.p_code})">
 						</c:if>
-						<c:if test="${row.p_review != null }">
-							<span style="font-size: large; font-weight: 700; color: orange;">내
-								별점은 ${row.p_star}점!</span>
-							<br>
-		     나의 리뷰는 : ${row.p_review}<br>
-						</c:if>
+						
 					</c:if>
 				</div>
-				<div style="display: inline-block">
+				<div style="display: inline-block;padding-right:10px;margin-left:10px;">
 					<h3>${row.m_name}</h3>
-					미션 참가 코드 : ${row.p_code}<br> 미션 완료? : ${row.p_complete}<br>
+					<c:if test="${row.m_type == 'solo' }">
+					</c:if>
+					<c:if test="${row.m_type == 'group' }">
 					미션 날짜 : ${row.m_date}<br>
+					미션 장소 : ${row.m_location}<br><br>
+					</c:if>
+					<div></div>
+	<c:if test="${row.p_review != null }">
+							<c:if test="${row.p_star == 1 }">
+							<img width=35px height=22px
+								src="<%=request.getContextPath()%>/img/star1.png">
+							<br>
+						</c:if>
+						<c:if test="${row.p_star == 2 }">
+							<img width=150px height=25px
+								src="<%=request.getContextPath()%>/img/star2.png">
+							<br>
+						</c:if>
+						<c:if test="${row.p_star == 3 }">
+							<img width=150px height=25px
+								src="<%=request.getContextPath()%>/img/star3.png">
+							<br>
+						</c:if>
+						<c:if test="${row.p_star == 4 }">
+							<img width=150px height=25px
+								src="<%=request.getContextPath()%>/img/star4.png">
+							<br>
+						</c:if>
+						<c:if test="${row.p_star == 5 }">
+							<img width=150px height=25px
+								src="<%=request.getContextPath()%>/img/star5.png">
+							<br>
+						</c:if>
+							
+						</c:if>				
+					<c:if test="${row.p_review != null }">
+							<span style="font-size: large; font-weight: 700; color: black;">리뷰 : </span> ${row.p_review}<br>
+						</c:if>
+					<c:if test="${row.p_review == null }">
+							<br><br><span style="font-size: large; font-weight: 700; color: black;">리뷰를 작성해주세요! </span><br>
+						</c:if>
 				</div>
 			</div>
 		</c:forEach>
+		</div>
+		
 	</div>
 </body>
 </html>

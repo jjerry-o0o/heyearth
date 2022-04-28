@@ -57,7 +57,7 @@ public class MypageController {
 				/* "redirect:/recycling"; */
 			}
 		 
-		// 스크랩 삭제하기
+	       	// 스크랩 삭제하기
 					@RequestMapping(value="/delete_guide", method=RequestMethod.POST)
 					@ResponseBody
 					public String delete(@RequestParam int mg_code, MyguideDTO dto) {

@@ -16,5 +16,6 @@ public interface MissionDAO {
 	public MissionDTO missiongroup(int m_code);//단체미션 상세페이지
 	public List<MissionDTO> missionreview(String m_name);//리뷰 목록
 	public List<MissionDTO> missionreview2(String m_name);//리뷰 목록2
+	public List<MissionDTO> missioncheck(String m_name);//미션 체크
 
 }//DAO end
