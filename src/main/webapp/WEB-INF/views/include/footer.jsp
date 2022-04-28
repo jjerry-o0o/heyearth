@@ -9,13 +9,11 @@
 </head>
 <body class="footer_body">
 
-<!-- 푸터 아직 미완입니다,,,! -->
 <footer>
 
 <!-- 푸터 왼쪽 -->
 <div class="footer_left">
-	<h3>Hey, Earth</h3>
-		
+	<h3>Hey, Earth</h3>		
 </div>
 
 <!-- 푸터 오른쪽 -->
@@ -25,7 +23,7 @@
 <span >지구용사 5인조</span> - 문소영 박희영 신미래 윤이나 이민아
 </div>
 
-<!-- 인스타그램 벡터로고/연결 --><!-- 다음에 크기 변형 등 애니메이션 추가 -->
+<!-- 인스타그램 벡터로고/연결 -->
 <div class="insta">
 	<?xml version="1.0" encoding="UTF-8" standalone="no"?><a target="_blank" href="https://www.instagram.com/explore/tags/%EC%A0%9C%EB%A1%9C%EC%9B%A8%EC%9D%B4%EC%8A%A4%ED%8A%B8/">
 		<svg width="30px" height="30px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
