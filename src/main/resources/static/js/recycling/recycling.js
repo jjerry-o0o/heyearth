@@ -207,5 +207,10 @@ $(document).ready(function (){
 		}
 	});
 	
+//스크랩 alert	
+	$(".scrap").on("click", function(){
+		alert('마이페이지에서 즐겨찾는 배출가이드를 확인해주세요!'); 
+	});
+	
 });//ready
 

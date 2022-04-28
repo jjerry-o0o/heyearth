@@ -15,13 +15,7 @@
 <link href="css/recycling/recycling.css" rel="stylesheet">
 <script src="jquery-3.6.0.min.js"></script>
 <script src="/js/recycling/recycling.js"></script>
-<script>
-$(document).ready(function(){
-	$(".scrap").on("click", function(){
-		alert('마이페이지에서 즐겨찾는 배출가이드를 확인해주세요!'); 
-	});
-	});
-</script>
+
 </head>
 <body>
 
@@ -96,15 +90,15 @@ $(document).ready(function(){
 				<div class="close-area" id="modalclose">X</div>
 				<div class="modalupper" id="modalupper"></div>
 				<div class="modaltitle">
-					<c:if test="${sessionScope.session_id != null }">				
-						
+				
+			<!-- 로그인시 스크랩 하기 -->					
+				<c:if test="${sessionScope.session_id != null }">									
 					<form name="form" method="post" class="insert"
 						action="${pageContext.request.contextPath}/guide_insert">
 						<input type="hidden" id="r_code" name="r_code"> 
-
 						<input class="scrap" type='submit' value='★'>
 					</form>
-							</c:if>
+			    </c:if>
 						
 					<h2 class="modalh2" id="modalh2"></h2>
 				</div>

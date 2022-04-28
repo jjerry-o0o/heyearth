@@ -47,7 +47,7 @@ public class MissionController {
 		   
 		   mav.addObject("group",missionservice.missiongroup(m_code));//미션 상세페이지 목록
 		   mav.addObject("review",missionservice.missionreview(dto.getM_name()));//리뷰 목록
-		   mav.addObject("check",missionservice.missioncheck(dto.getM_name()));//미션 중복 체크
+		   mav.addObject("check",missionservice.missioncheck(dto.getM_name()));//미션 중복 체크(해당 미션 신청한 모든 참가목록)
 		  
 		   mav.setViewName("mission/mission_detail");
 		   Map<String, Object> map = new HashMap<>();
@@ -66,8 +66,6 @@ public class MissionController {
 	    }
 
 
-	
-	
 	    //단체 미션 신청하기 모달창
 		@RequestMapping("/groupdetail")
 		@ResponseBody
