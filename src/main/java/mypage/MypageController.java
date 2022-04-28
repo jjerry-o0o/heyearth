@@ -58,8 +58,7 @@ public class MypageController {
 			}
 		 
 	       	// 스크랩 삭제하기
-					@RequestMapping(value="/delete_guide", method=RequestMethod.POST)
-					@ResponseBody
+					@RequestMapping(value="/delete_guide")
 					public String delete(@RequestParam int mg_code, MyguideDTO dto) {
 						myguideservice.delete(mg_code); 
 						return "redirect:/mypage";
