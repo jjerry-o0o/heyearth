@@ -79,7 +79,14 @@
             <optional>true</optional>
         </dependency>
 
-
+        <!-- 강사님이 주신 소스에서 추가 -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-gcp-starter-vision</artifactId>
+		    <version>1.2.8.RELEASE</version>
+			
+		    
+		</dependency>
 
 
         <dependency>
