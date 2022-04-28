@@ -61,6 +61,18 @@ h3 {
 	color:black;
 	text-decoration: none;
 }
+/*리뷰작성 버튼*/
+#reviewbtn{
+	background-color: #f6f5f0;
+	color : black;
+	border: 1px solid #1A271D;
+}
+#reviewbtn:hover {
+	background-color: #1A271D;
+	color : #f6f5f0;	
+}
+
+
 /* 작성게시물 테이블 */
 #boardlist_tb{
 	border-collapse: collapse;
@@ -156,6 +168,22 @@ a:link{
 	margin: 0px 0px;
 }
 
+#grade {
+	font-size: large;
+	text-align: center;
+	border: 1px solid gray;
+	border-radius: 10px;
+	margin: 0px 0px;
+	padding: 5px 0px;
+	width: 30%;
+	background-color: #F6F5F0;
+	color: black;
+}
+
+#gradeP p {
+	margin: 0px 0px;
+}
+
 #carbon {
 	font-size: large;
 	text-align: center;
@@ -179,7 +207,7 @@ a:link{
 }
 
 /* 미래님 구현 부분 */
-
+/*나의 정보*/
 #profileP p{
 	margin-top: 0px;
 	margin-bottom: 10px;
