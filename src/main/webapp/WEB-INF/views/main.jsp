@@ -89,12 +89,12 @@
 			<div>
 				<div>
 					<p class="data_info">
-						미션 참여 총 인원
+						총 미션참여 횟수
 					</p>
 				</div>
 				<div class="circle">
 					<p class="ourdata">${totalPart  }</p>
-					<br> / 명
+					<br> / 회
 				</div>
 
 			</div>

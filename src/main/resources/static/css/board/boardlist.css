@@ -58,8 +58,7 @@
 		border : none;
 	}
 	#content_td:hover{
-		background-color: #1A271D;
-		color : white;
+		background-color: #F3EADF;
 	}
 	.titlea{
 		text-decoration: none;
@@ -71,7 +70,7 @@
 		color : black;
 	}
 	.titlea:hover{
-		color : white;
+		color : black;
 		font-weight: bold;
 	}
 	#b_type{

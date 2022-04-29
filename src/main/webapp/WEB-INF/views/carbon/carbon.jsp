@@ -86,11 +86,11 @@
 				<div>
 					<div class="circle">
 						<p class="ourdata">${totalPart }</p>
-						<br> / 명
+						<br> / 회
 					</div>
 					<div>
 						<p class="data_info">
-							헤이얼스와<br>함께한 지구용사들
+							지구용사들의 <br>총 미션참여 횟수
 						</p>
 					</div>
 				</div>
