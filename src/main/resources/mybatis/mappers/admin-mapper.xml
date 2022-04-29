@@ -195,7 +195,7 @@
 	
 	
 	<select id="adminmemberlist" resultType="memberdto">
-		select * from member where admin != 1 order by del asc, id ;
+		select * from member where admin != 1 order by del desc, id ;
 	</select>
 	
 	<select id="admindeletenum" resultType="int">

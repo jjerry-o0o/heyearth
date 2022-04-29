@@ -118,6 +118,11 @@ function recyclingway(r_code){
 
 
 $(document).ready(function (){
+	
+	$("#search2").on("click", function(){
+	$("#previewbox").empty();
+	});
+
 
 $("#search2").on("click", function(){
 	$("#previewbox").empty();
