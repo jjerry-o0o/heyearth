@@ -85,7 +85,7 @@
 			<tr>
 				<th>첨부 이미지</th>
 				<td>
-					<c:if test="${dto.b_img != null }">
+					<c:if test="${dto.b_img != null || dto.b_img != ''}">
 						<input type="button" id="closeup" value="이미지확대">
 						<input type="button" id="closeof" value="이미지축소"><br>
 						<img src="/img/${dto.b_img }" id="upload_img"><br>

@@ -101,7 +101,7 @@
 							<c:if test="${board.b_type =='que'}">질문</c:if> 
 							<c:if test="${board.b_type =='req'}">요청</c:if> 
 						</td>
-						<td><a href="/boardview?b_no=${board.b_no }" class="titlea"> ${board.b_title } </a></td>
+						<td>${board.b_title }</td>
 						<td>${board.id }</td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd HH-mm-ss" value="${board.b_regdate }" /></td>
 						<td>${board.b_view }</td>

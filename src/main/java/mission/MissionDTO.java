@@ -1,6 +1,6 @@
 package mission;
 
-import java.sql.Date;//맞나..?
+import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,15 +14,15 @@ public class MissionDTO {
 	int m_carbon; //미션 탄소배출감소량
 	int m_point; //미션 포인트
 	int m_personnel; //미션 인원
-	int p_star;
+	int p_star; //참가미션 별점
+	String p_review; //참가미션 리뷰
+	int p_code; //참가미션코드
+	String id; //닉네임
+	String p_photo; //미션 인증 사진
+	int p_complete; //미션 완료 여부
+	int grade; //회원 등급
+	int p_redcard;//참가미션 레드카드
 	String star;
-	String p_review;
-	int p_code;
-	String id;
-	String p_photo;
-	int p_complete;
-	int grade;
-	int p_redcard;
 
 	public int getP_redcard() {
 		return p_redcard;
