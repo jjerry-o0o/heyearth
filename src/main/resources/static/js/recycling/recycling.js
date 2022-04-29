@@ -211,6 +211,9 @@ $(document).ready(function (){
 	$(".scrap").on("click", function(){
 		alert('마이페이지에서 즐겨찾는 배출가이드를 확인해주세요!'); 
 	});
-	
+	$("#search2").on("click", function(){
+$("#previewbox").empty();
+});
+
 });//ready
 
