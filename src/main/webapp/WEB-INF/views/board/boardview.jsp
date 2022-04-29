@@ -82,8 +82,7 @@
 			<th class="th1">내용</th>
 			<td class="td1"><textarea id="view_textarea" rows="20" readonly="readonly">${dto.b_content }</textarea></td>
 		</tr>
-		<c:if test="${dto.b_img != null}">
-			<tr class="tr1">
+<c:if test="${dto.b_img != null}">			<tr class="tr1">
 				<th class="th1">첨부 이미지</th>
 				<td class="td1">
 					<input type="button" id="closeup" value="이미지확대">

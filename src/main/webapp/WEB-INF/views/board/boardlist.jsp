@@ -88,7 +88,7 @@
 							<c:if test="${board.b_type =='que'}">질문</c:if> 
 							<c:if test="${board.b_type =='req'}">요청</c:if> 
 						</td>
-						<td>${board.b_title } </td>
+						<td>${board.b_title }</td>
 						<td>${board.id }</td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd HH-mm-ss" value="${board.b_regdate }" /></td>
 						<td>${board.b_view }</td>
