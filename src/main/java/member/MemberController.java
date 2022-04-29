@@ -40,7 +40,7 @@ public class MemberController {
 		int result = service.joinmember(dto);
 		mv.addObject("userdto", dto);
 		mv.addObject("result", result);
-		mv.setViewName("member/joinresult");
+		mv.setViewName("member/login");
 		return mv;
 	}
 	
