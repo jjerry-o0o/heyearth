@@ -86,6 +86,9 @@ public class BoardController {
 			img.transferTo(serverfile);
 			dto.setB_img(originname);
 		}
+		else {
+			dto.setB_img(null);
+		}
 		
 		boardservice.insertBoard(dto);
 		
@@ -115,6 +118,9 @@ public class BoardController {
 					
 			img.transferTo(serverfile);
 			dto.setB_img(originname);
+		}
+		else {
+			dto.setB_img(null);
 		}
 		
 		boardservice.updateBoard(dto);
