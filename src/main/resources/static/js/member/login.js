@@ -30,10 +30,6 @@ window.onload = function() {
 			pw.focus();
 			return false;
 		}
-		
-
-		
 	}
-	
-
 }
+

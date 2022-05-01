@@ -81,8 +81,6 @@ public class RecyclingController {
 
 	@ResponseBody
 	public Map<String, Float> extractLabels(@RequestParam("savedFileName") String savedFileName) {
-		// imageUrl = "http://localhost:8080/img/main-polarbear.jpg";
-
 		String imageUrl = "http://localhost:8080/upload/" + savedFileName;
 		AnnotateImageResponse response = this.cloudVisionTemplate
 				.analyzeImage(this.resourceLoader.getResource(imageUrl), Type.LABEL_DETECTION);
@@ -92,16 +90,11 @@ public class RecyclingController {
 					throw new IllegalStateException(String.format("Duplicate key %s", u));
 				}, LinkedHashMap::new));
 
-		// map.addAttribute("annotations", imageLabels);
-		// map.addAttribute("imageUrl", imageUrl);
-
-		// Map<String, Float> resultmap = (Map<String, Float>) map.get("annotations");
 		Set<String> keys = imageLabels.keySet();
 		for (String k : keys) {
 			System.out.println(k + ":" + imageLabels.get(k));
 		}
 		System.out.println("체크");
-		// System.out.println("이미지 라벨"+imageLabels);
 
 		return imageLabels;
 	}

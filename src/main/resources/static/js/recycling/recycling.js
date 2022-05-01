@@ -154,6 +154,7 @@ $("#search2").on("click", function(){
 			success: function(imageLabels){
 				$("#waynoti").html("※원하는 분류항목이 나오지 않은 경우 재촬영한 사진을 업로드 해주세요※<br>")
 				$("#wayradio").html('');
+				$("#wayp").empty();
 				for( var k in imageLabels){
 					if(imageLabels[k] >= 0.80){
 						$("#wayradio").append("<input class='radio' type='radio' name='labels' value='"+k+"'>"+k);
@@ -184,6 +185,7 @@ $("#search2").on("click", function(){
 				var wayp = document.createElement("p");
 				waydiv.appendChild(wayp);
 				wayp.id = "wayp";
+				
 				if(dto.r_way == undefined){
 					$("#wayp").text("배출방법 : 아직 해당 분류의 배출 방법이 정리되지 않았습니다");
 				}else{
