@@ -194,7 +194,9 @@ function boardlist(){
 			$("#myMissionDiv").empty();
 			$("#myguidelist_div").empty();
 			
-			$("#myboardlist_div").html("<table id='guidelist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
+			$("#myboardlist_div").html("<div id='mb_btn_div'><input type='button' id='board_btn' class='mb_btns' value='작성 게시물' onclick='boardlist()' checked='checked' autofocus>"
+			+ "<input type='button' id='comment_btn' class='mb_btns' value='작성 댓글' onclick='commentlist()'></div> <br>"
+			+ "<div id='myboardlist_div1'><table id='guidelist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
 			+ "<th class='board_th'>제목</th><th class='board_th'>작성일</th><th class='board_th'>조회수</th></tr>");
 			for(var i = 0; i < data.length; i++){
 				$("#board_tbody").append("<tr class='board_tr'><td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_no+"</td>"
@@ -203,9 +205,48 @@ function boardlist(){
 				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].regdate+"</td>"
 				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_view+"</td></tr>");
 			};
-			$("#myboardlist_div").append("</table>");
+			$("#myboardlist_div").append("</table> </div>");
 		}
 	}); //ajax end
+	
+	document.getElementById("board_btn").style.backgroundColor = "#1A271D";
+	document.getElementById("comment_btn").style.backgroundColor = "#f6f5f0";
+	document.getElementById("board_btn").style.color = "#f6f5f0";
+	document.getElementById("comment_btn").style.color = "#1A271D";
+}
+
+function commentlist(){
+	var id = document.getElementById("profil_div").name;
+	
+	$.ajax({
+		url : "/mycommentlist",
+		type : "post",
+		data : {"id" : id},
+		success: function(data){
+			$("#updateDiv").empty();
+			$("#myMissionDiv").empty();
+			$("#myguidelist_div").empty();
+			$("#myboardlist_div").empty();
+			
+			$("#myboardlist_div").html("<div id='mb_btn_div'><input type='button' id='board_btn' class='mb_btns' value='작성 게시물' onclick='boardlist()' checked='checked' autofocus>"
+			+ "<input type='button' id='comment_btn' class='mb_btns' value='작성 댓글' onclick='commentlist()'></div> <br>"
+			+ "<div id='myboardlist_div1'><table id='guidelist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
+			+ "<th class='board_th'>제목</th><th class='board_th'>작성일</th><th class='board_th'>조회수</th></tr>");
+			for(var i = 0; i < data.length; i++){
+				$("#board_tbody").append("<tr class='board_tr'><td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_no+"</td>"
+				+ "<td class='board_td' ><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_type+"</td>"
+				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_title+"</td>"
+				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].regdate+"</td>"
+				+ "<td class='board_td'><a class='board_a' href='/boardview?b_no="+data[i].b_no+"'>"+data[i].b_view+"</td></tr>");
+			};
+			$("#myboardlist_div").append("</table> </div>");
+		}
+	}); //ajax end
+
+	document.getElementById("comment_btn").style.backgroundColor = "#1A271D";
+	document.getElementById("board_btn").style.backgroundColor = "#f6f5f0";
+	document.getElementById("comment_btn").style.color = "#f6f5f0";
+	document.getElementById("board_btn").style.color = "#1A271D";
 }
 
 
