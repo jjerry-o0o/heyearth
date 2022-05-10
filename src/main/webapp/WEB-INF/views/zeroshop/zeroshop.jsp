@@ -25,7 +25,7 @@
 
 
 <div class="zero_search">
-		<input type="button" id="zerosearch2" name="findid" value = "내 주변에서 검색"onclick="search(2)" checked="checked" autofocus>
+		<input type="button" id="zerosearch2" name="findid" value = "내 주변에서 검색" onclick="search(2)" checked="checked" autofocus>
 		  
 		<input type="button" id="zerosearch1" name="findid" value = "지역으로 검색" onclick="search(1)">
 </div>

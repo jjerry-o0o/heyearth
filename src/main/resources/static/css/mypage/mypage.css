@@ -54,7 +54,7 @@ h3 {
 	display: flex;
 	justify-content: center;
 }
-#myboardlist_div{
+#myboardlist_div1{
 	display: flex;
 	justify-content: center;
 }
@@ -115,10 +115,35 @@ h3 {
 .board_a:link{
 	color : black;
 }
+.mb_btns{
+	padding-left : 25px;
+	padding-right : 25px;
+	padding-top : 7px;
+	padding-bottom : 7px;
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right:20px;
+	font-weight : 400;
+	outline : 0;
+	border : 2px #1A271D solid;
+}
+.mb_btns:hover {
+	cursor : pointer;	
+}
 
-#menu_tr {
-	border-bottom: 1px solid gray;
-	height: 20%;
+#mb_btn_div{
+	text-align: center;
+	margin : 0 auto;
+}
+
+#board_btn{
+	background-color : #1A271D;
+	color : #f6f5f0;
+}
+
+#comment_btn {
+	background-color : #f6f5f0;
+	color : #1A271D;
 }
 
 #menu_tr:last-child {

@@ -52,7 +52,7 @@ function zeroshopdetail(code){
 $(document).ready(function(){
 	
 	// 광역시/도 버튼 클릭
-	$("#bigloc").one('click',function(){
+	$("#bigloc").on('click',function(){
 		$.ajax({
 			url : "/bigloc",
 			type : "get",
