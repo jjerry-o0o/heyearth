@@ -19,4 +19,5 @@ public interface MemberDAO {
 	public int pwck(String pw);
 	public int deletenum();
 	public int deletemember(String id, String withdrawId);
+	public String findid(String phone);
 }

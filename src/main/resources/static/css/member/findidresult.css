@@ -1,0 +1,31 @@
+@charset "UTF-8";
+body{
+	min-width: 1400px;
+}
+
+#findidform {
+	text-align: center;
+}
+
+#findidtitle {
+	margin-top: 100px;
+	margin-bottom: 10px;
+}
+
+
+
+#joinbtn, #loginbtn {
+	width: 206px;
+	height: 34px;
+	color : #f6f5f0;
+	background-color: #1A271D;	
+}
+#joinbtn:hover {
+	background-color: #f6f5f0;
+	color : black;
+}
+
+#loginbtn:hover {
+	background-color: #f6f5f0;
+	color : black;
+}
