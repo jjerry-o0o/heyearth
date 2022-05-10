@@ -44,7 +44,9 @@
 					name="m_carbon" id="m_carbon"> <input type="hidden"
 					name="m_personnel" id="m_personnel"> <input type="hidden"
 					name="p_friends" id="p_friends"> <input type="hidden"
-					name="p_complete" id="p_complete"> <input name="p_photo"
+					name="p_complete" id="p_complete"> <input type="hidden"
+					name="p_completedate" id="p_completedate"> <input type="hidden"
+					name="m_date" id="m_date"> <input name="p_photo"
 					type="hidden" id="p_photo"> <input name="image"
 					id="input-image" type="file" accept="image/*" required> <br>
 				<br>
@@ -121,6 +123,8 @@
 						<c:if test="${row.p_photo != null }">
 							<input id="hiddenphoto${row.p_code }" type="hidden"
 								value="img/${row.p_photo}">
+							<input id="hiddendate${row.p_code }" type="hidden"
+								value="${row.p_completedate}">
 							<canvas width="250px" height="250px" id="myCanvas${row.p_code }"></canvas>
 							<br>
 							<span style="font-size: large; font-weight: 700; color: green;">${row.m_point}p</span> 포인트를 획득했습니다.<br>
@@ -136,10 +140,11 @@
 						style="display: inline-block; padding-right: 10px; margin-left: 10px;">
 						<h3>${row.m_name}</h3>
 						<c:if test="${row.m_type == 'solo' }">
+						${row.p_completedate}
 						</c:if>
 						<c:if test="${row.m_type == 'group' }">
-					미션 날짜 : ${row.m_date}<br>
-					미션 장소 : ${row.m_location}<br>
+					${row.p_completedate} / 
+					 ${row.m_location}<br>
 							<br>
 						</c:if>
 						<div></div>

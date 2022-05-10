@@ -15,6 +15,14 @@ public class MemberDTO {
 	String newpw;
 	String newpwck;
 	String del;
+int redcard; //회원 레드카드
+	
+	public int getRedcard() {
+		return redcard;
+	}
+	public void setRedcard(int redcard) {
+		this.redcard = redcard;
+	}
 	
 	
 	
