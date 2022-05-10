@@ -72,9 +72,9 @@
 	
 	
 	<select id="missionreviewlist" resultType="missiondto" parameterType="int">
-		select m.m_code as m_code, m_name, p_star,p_code, p_photo, p_review, id,p_redcard
-    	from participation p, mission m 
-    	where m.m_code = p.m_code and p.m_code = #{m_code} and p_complete = 1;
+			select m.m_code as m_code, m_name, p_star,p_code, p_photo, p_review, p.id,p_redcard,mem.redcard
+    	from participation p, mission m, member mem 
+    	where m.m_code = p.m_code and p.m_code = #{m_code} and p_complete = 1 and p.id = mem.id;
 		
 	</select>
 	
@@ -107,6 +107,12 @@
 	<delete id="adminreviewdel" parameterType="int">
 		delete from participation where p_code=#{p_code};
 	</delete>
+	
+	<update id="adminreviewdel2" parameterType="int">
+		 update member m, participation p 
+		 set m.redcard = m.redcard+1 
+		 where p.id = m.id and p.p_code=#{p_code};
+	</update>
 	
 	<select id="adminreviewinfo" parameterType="int" resultType="missiondto">
 		select p_code,id,p.m_code as m_code,p_complete,p_star,p_review,p_photo,m_name,m_type,m_location,m_date,p_redcard

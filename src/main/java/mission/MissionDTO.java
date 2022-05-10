@@ -22,6 +22,21 @@ public class MissionDTO {
 	int p_complete; //미션 완료 여부
 	int grade; //회원 등급
 	int p_redcard;//참가미션 레드카드
+	String p_completedate;//미션완료 날짜
+	int redcard; //회원 레드카드
+	
+	public int getRedcard() {
+		return redcard;
+	}
+	public void setRedcard(int redcard) {
+		this.redcard = redcard;
+	}
+	public String getP_completedate() {
+		return p_completedate;
+	}
+	public void setP_completedate(String p_completedate) {
+		this.p_completedate = p_completedate;
+	}
 	String star;
 
 	public int getP_redcard() {

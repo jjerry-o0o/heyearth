@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import board.BoardDTO;
+import member.MemberDTO;
 import participation.ParticipationDTO;
 import participation.ParticipationService;
 import participation.ParticipationServiceImpl;
@@ -33,10 +34,7 @@ public class MypageController {
 	
 
 	
-	@RequestMapping("/mypage")
-	public String mypage() {
-		return "/mypage/mypage";
-	}
+
 	
 	 
 	  //나의 가이드 스크랩
