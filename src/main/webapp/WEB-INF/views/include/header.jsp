@@ -45,6 +45,7 @@
 			<ul class="header_ul">
 				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/about">헤이얼스란?</a></li>
 				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/zeroshop">지구를 돕는 가게 찾기</a></li>
+				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/zerokit">제로키트 구매</a></li>
 				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/mission">환경 지킴이 모집중</a></li>
 				<li class="header_li"><a class="header_a" href="${pageContext.request.contextPath}/recycling">이건 어떻게 버릴까?</a></li>
 				<li class="header_lib"><a  class="header_b" href="${pageContext.request.contextPath}/boardlist">게시판</a></li>
