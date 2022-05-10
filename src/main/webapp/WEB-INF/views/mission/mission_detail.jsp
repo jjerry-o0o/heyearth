@@ -228,10 +228,10 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 
 					</c:if>
 				</div>
-				<div  style="padding-top:70px;">
+				<div  style="padding-top:60px;">
 				<span
 						style="border-radius: 3px; display: inline-block; padding: auto; width: 25px; height: 25px; background-color:#F7e600;; color: black; font-size: 20px; font-weight: large;">${row.grade }</span>
-					<span style="font-size: 18px; font-weight: 600"> ${row.id } </span><br>
+					<span style="font-size: 18px; font-weight: 600"> ${row.id } <br>${row.p_completedate }<br></span>
 					<br><form action="${pageContext.request.contextPath}/redcard">
 					<input type=hidden name="p_code" value="${row.p_code }">
 					<input type=hidden name="p_redcard" value="${row.p_redcard }">

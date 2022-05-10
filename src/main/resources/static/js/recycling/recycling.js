@@ -185,6 +185,7 @@ $("#search2").on("click", function(){
 				var wayp = document.createElement("p");
 				waydiv.appendChild(wayp);
 				wayp.id = "wayp";
+				
 				if(dto.r_way == undefined){
 					$("#wayp").text("배출방법 : 아직 해당 분류의 배출 방법이 정리되지 않았습니다");
 				}else{

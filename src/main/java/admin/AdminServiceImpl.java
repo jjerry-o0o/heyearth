@@ -164,6 +164,10 @@ public class AdminServiceImpl implements AdminService {
 	public void adminreviewdel(int p_code) {
 		admindao.adminreviewdel(p_code);
 	}
+	@Override
+	public void adminreviewdel2(int p_code) {
+		admindao.adminreviewdel2(p_code);
+	}
 	
 	@Override
 	public MissionDTO adminreviewinfo(int p_code) {

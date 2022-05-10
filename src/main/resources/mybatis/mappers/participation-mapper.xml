@@ -6,7 +6,7 @@
 
 <!-- 나의 참가 미션 목록(나의 미션) -->
 	<select id="participation_list" parameterType="String" resultType = "participationdto">
-		 select p_code, p.id as id, s.m_code as m_code, m_name, m_photo, p_friends, p_star, p_review, p_complete, p_photo, m_date, m_carbon, m_point, m_personnel,m_type, m_location
+		 select p_code, p.id as id, s.m_code as m_code, m_name, m_photo, p_friends, p_star, p_review, p_complete, p_photo, m_date, m_carbon, m_point, m_personnel,m_type, m_location, p_completedate
  	 from member m, participation p, mission s
    		where p.id =m.id and s.m_code = p.m_code and p.id=#{id} order by p_code desc;
 	</select>	
@@ -28,8 +28,8 @@
 <!-- 상시 미션 신청&완료하기(환경지킴이 모달창에서) -->
 <!--  1. insert --> 
 	<insert id="participation_register_complete" parameterType="participationdto">
-        insert into participation (  id, m_code, p_friends,  p_photo, p_complete)
-        values (#{id}, #{m_code}, 1, #{p_photo}, 1)
+        insert into participation (  id, m_code, p_friends,  p_photo, p_complete, p_completedate)
+        values (#{id}, #{m_code}, 1, #{p_photo}, 1, now())
     </insert>
 <!-- 2. 등급 변경 -->
     <update id="participation_register_complete2" parameterType="participationdto">             
@@ -60,7 +60,7 @@
 <!-- 1. participation 테이블 변경(미션완료, 인증사진) -->
 	<update id="participation_complete" parameterType="participationdto">
         update participation 
-        set p_complete = 1, p_photo = #{p_photo} 
+        set p_complete = 1, p_photo = #{p_photo}, p_completedate = #{m_date}
         where p_code = #{p_code};
     </update>    
 <!-- 2. member 테이블 변경(포인트, 탄소배출량) -->

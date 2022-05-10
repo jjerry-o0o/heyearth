@@ -147,8 +147,6 @@ function mymission(){
 			$("#myguidelist_div").empty();
 			var complete = "";
 			
-			
-			
 			$("#myMissionDiv").html("<table id='missionlist_tb'><tbody id='mission_tbody'><tr class='mission_tr'>"
 			+"<th class='mission_th'>활동 코드</th><th class='mission_th'>활동명</th><th class='mission_th'>포인트</th>"
 			+ "<th class='mission_th'>탄소배출 감소량</th><th class='mission_th'>진행여부</th><th class='mission_th'>리뷰작성</th></tr>");
@@ -171,10 +169,8 @@ function mymission(){
 			$("#myMissionDiv").append("</table>");
 			
 		}//seccess
-	});
-	
-	
-}
+	});//ajax
+}//function
 
 /*나의 활동 - 리뷰작성*/
 function review() {

@@ -49,6 +49,11 @@ public class MemberServiceImpl implements MemberService{
 		return memberdao.deletemember(id, withdrawId);
 	}
 
+	@Override
+	public String findid(String phone) {
+		return memberdao.findid(phone);
+	}
+
 
 	
 	

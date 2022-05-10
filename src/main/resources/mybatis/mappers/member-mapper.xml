@@ -45,5 +45,10 @@
 	<update id="deletemember" parameterType="String">
 		update member set id = #{withdrawId},del="Y" where id=#{id};
 	</update>
+	
+	<!-- 닉네임 찾기 -->
+	<select id="findid" resultType="String" parameterType="String">
+		select id from member where phone=#{phone};	
+	</select>
 
 </mapper>

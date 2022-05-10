@@ -80,6 +80,17 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/mypage")
+	public ModelAndView mypagealert(String id, HttpSession session) {
+		id = (String) session.getAttribute("session_id");
+			MemberDTO userdto = service.memberView(id);
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("userdto", userdto);
+			System.out.println("dd");
+			mv.setViewName("mypage/mypage");
+			return mv;
+	}
+	
 	//마이페이지 DB연결
 	@GetMapping("modifymypage")
 	@ResponseBody
@@ -124,4 +135,21 @@ public class MemberController {
 		}
 	}
 	
+	//닉네임 찾기 화면 뷰 컨트롤러
+	@RequestMapping("findid")
+	public String findidform() {
+		return "member/findid";
+	}
+
+	//닉네임 찾기 기능 구현
+	@RequestMapping(value="findid", method=RequestMethod.POST)
+	public ModelAndView findid(@RequestParam(value="phone") String phone) {
+		ModelAndView mv = new ModelAndView();
+		String userid = service.findid(phone);
+		System.out.println(userid);
+		mv.addObject("userid",userid);
+		mv.setViewName("member/findidresult");
+		return mv;
+	}
+
 }
