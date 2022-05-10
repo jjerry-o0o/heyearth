@@ -45,6 +45,7 @@ public interface AdminDAO {
 	public List<GradeDTO> membergradelist();
 	public void adminmembergrade(int p_code, int grade);
 	public void adminreviewdel(int p_code);
+	public void adminreviewdel2(int p_code);
 	public MissionDTO adminreviewinfo(int p_code);
 	public void updatereview(MissionDTO dto);
 	public int mcodetopcode(int p_code);

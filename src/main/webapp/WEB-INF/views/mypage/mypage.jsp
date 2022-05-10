@@ -14,7 +14,20 @@
 <!-- js -->
 <script type="text/javascript" src="/js/mypage/mypage.js"></script>
 <script src="jquery-3.6.0.min.js"></script>
-
+<script>
+$(document).ready(function(){
+	if($("#redcard").val() == 1){
+		alert("한 번의 레드카드를 받았습니다.");
+	}else if($("#redcard").val() == 2){
+		alert("두 번의 레드카드를 받아 모든 포인트가 소멸되었습니다.");
+	}
+	else if($("#redcard").val() == 3){
+		alert("세 번의 레드카드를 받아 강퇴 처리중입니다.");
+	}else{
+		
+	}
+});
+</script>
 
 </head>
 <body>
@@ -27,18 +40,15 @@
 	<!-- header import -->
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	<!-- end of header import -->
-
 <section class="boardSection">
+<input type="hidden" id="redcard" name="redcard" value="${userdto.redcard }">
 	<h1>What's up ${sessionScope.session_id} !</h1>
 	<div id="menu">
 	
 		<table id="menu_table">
 			<tr class="menu_tr">
 				<td class="menu_td">
-<<<<<<< HEAD
-			
-=======
->>>>>>> branch 'soyoung' of https://github.com/moonjubilees/heyearth.git
+
 					<input type=button id="profil_div" name="${sessionScope.session_id}" value="${sessionScope.session_id}님의 정보" onclick = "profil_div()" checked="checked"/>
 				</td>
 			</tr>

@@ -2,6 +2,7 @@
 window.onload = function(){
     var imageArr = []; 
     var contextArr = []; 
+    var dateArr = [];
 	
     for(let i=0; i<100; i++){
     var canvas = document.getElementById("myCanvas"+i);
@@ -12,7 +13,9 @@ window.onload = function(){
     var imageObj = new Image();
    
     imageObj.src = document.getElementById("hiddenphoto"+i).value;
+    var date = document.getElementById("hiddendate"+i).value;
     imageArr.push(imageObj);
+    dateArr.push(date);
 	}
 	}
     for(let i=0; i<100; i++){
@@ -27,6 +30,10 @@ window.onload = function(){
     	        contexts.strokeStyle = '#1A271D';
     	        contexts.lineWidth = 3;
     	        contexts.strokeText("COMPLETE", 10, 130);
+
+    	        contexts.font = "bold 18px 'IBM Plex Sans KR'";
+    	        contexts.fillStyle="#000000";
+    	        contexts.fillText(dateArr[i], 140, 150);
     	    }
 	}
 };
@@ -91,6 +98,8 @@ function mymissiondetail(code){
 			$("#p_friends").val(mymission.p_friends); 
 			$("#p_complete").val(mymission.p_complete); 
 			$("#p_photo").val(mymission.p_photo); 
+			$("#p_completedate").val(mymission.p_completedate); 
+			$("#m_date").val(mymission.m_date); 
 		}
 	});
 }

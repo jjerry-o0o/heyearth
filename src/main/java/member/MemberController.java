@@ -80,6 +80,17 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/mypage")
+	public ModelAndView mypagealert(String id, HttpSession session) {
+		id = (String) session.getAttribute("session_id");
+			MemberDTO userdto = service.memberView(id);
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("userdto", userdto);
+			System.out.println("dd");
+			mv.setViewName("mypage/mypage");
+			return mv;
+	}
+	
 	//마이페이지 DB연결
 	@GetMapping("modifymypage")
 	@ResponseBody
