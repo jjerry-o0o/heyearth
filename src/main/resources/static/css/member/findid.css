@@ -1,0 +1,33 @@
+@charset "UTF-8";
+body{
+	min-width: 1400px;
+}
+
+#findidform {
+	text-align: center;
+}
+
+#findidtitle {
+	margin-top: 100px;
+	margin-bottom: 10px;
+}
+
+
+
+input {
+	width: 200px;
+	height: 30px;
+	margin-bottom: 10px;
+	border: 1px solid #1A271D;
+}
+
+#submit {
+	width: 206px;
+	height: 34px;
+	color : #f6f5f0;
+	background-color: #1A271D;	
+}
+#submit:hover {
+	background-color: #f6f5f0;
+	color : black;
+}
