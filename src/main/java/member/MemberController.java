@@ -124,4 +124,21 @@ public class MemberController {
 		}
 	}
 	
+	//닉네임 찾기 화면 뷰 컨트롤러
+	@RequestMapping("findid")
+	public String findidform() {
+		return "member/findid";
+	}
+
+	//닉네임 찾기 기능 구현
+	@RequestMapping(value="findid", method=RequestMethod.POST)
+	public ModelAndView findid(@RequestParam(value="phone") String phone) {
+		ModelAndView mv = new ModelAndView();
+		String userid = service.findid(phone);
+		System.out.println(userid);
+		mv.addObject("userid",userid);
+		mv.setViewName("member/findidresult");
+		return mv;
+	}
+
 }
