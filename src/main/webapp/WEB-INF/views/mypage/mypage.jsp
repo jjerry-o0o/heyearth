@@ -58,7 +58,7 @@ $(document).ready(function(){
 			</tr>
 			<tr class="menu_tr">
 				<td id="m_board" class="btn">
-					<input type=button id="myboard_btn" value="작성게시물" onclick="boardlist()">
+					<input type=button id="myboard_btn" value="작성게시물 및 댓글" onclick="boardlist()">
 				</td>
 			</tr>
 			<tr class="menu_tr">

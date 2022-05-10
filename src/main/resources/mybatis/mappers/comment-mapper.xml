@@ -30,4 +30,8 @@
 		DELETE FROM comment WHERE c_index=#{c_index}
 	</delete>
 	
+	<select id="mycommentlist" parameterType="String" resultType="commentdto">
+		SELECT * FROM comment WHERE id = #{id}
+	</select>
+	
 </mapper>
