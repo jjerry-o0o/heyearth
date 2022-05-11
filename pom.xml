@@ -102,9 +102,8 @@
 		    <artifactId>auto-value-annotations</artifactId>
 		    <version>1.7.4</version>
 		</dependency> -->
-        
+		
     </dependencies>
-    
     <build>
         <plugins>
             <plugin>
@@ -117,7 +116,7 @@
     <dependencyManagement>
                         
         <dependencies>
-
+		
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
