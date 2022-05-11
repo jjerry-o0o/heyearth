@@ -8,7 +8,7 @@
 <!-- CSS, JavaScript -->
 <link rel="stylesheet" type="text/css" href="css/member/findid.css">
 <script src="/jquery-3.6.0.min.js"></script>
-<script src="/js/member/login.js"></script>
+<script src="/js/member/findid.js"></script>
 
 </head>
 <body>
@@ -18,7 +18,7 @@
 		<p id=findidtitle>닉네임 찾기</p>
 			
 		<form action="findid" method="post">
-			<input id="phone" type="text" name="phone" placeholder=" 전화번호" autofocus>
+			<input id="phone" type="text" name="phone" placeholder=" 전화번호 (ex.010-1234-1234)" autofocus>
 				<div id=phoneerror></div>
 			<input id="submit" type="submit" value="닉네임 찾기">
 		</form>

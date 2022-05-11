@@ -32,3 +32,13 @@ input {
 	background-color: #f6f5f0;
 	color : black;
 }
+
+#findid {
+	color : black;
+	text-decoration: none;
+}
+
+#findpw {
+	color : black;
+	text-decoration: none;	
+}
