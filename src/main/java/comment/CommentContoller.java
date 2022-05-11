@@ -1,6 +1,7 @@
 package comment;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import board.BoardDTO;
 
 @Controller
 public class CommentContoller {
@@ -55,5 +58,20 @@ public class CommentContoller {
 	@ResponseBody
 	public void deleteComment(@RequestParam int c_index) {
 		commentservice.deleteComment(c_index);
+	}
+	
+	@RequestMapping(value="/mycommentlist", method = RequestMethod.POST)
+	@ResponseBody
+	public List<CommentDTO> mycommentlist(@RequestParam String id) {
+		List<CommentDTO> list = commentservice.mycommentlist(id);
+		
+		for(int i=0; i <list.size(); i++) {
+			Date date = list.get(i).getC_regdate();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
+			String currentDate = dateFormat.format(date);
+			list.get(i).setRegdate(currentDate);
+		}
+		
+		return list;
 	}
 }

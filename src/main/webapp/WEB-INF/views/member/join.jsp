@@ -26,6 +26,7 @@
 				<div id=pwckerror></div>
 			<input id="phone" type="text" name="phone" placeholder=" 전화번호 (ex.010-1234-1234)"><br>
 				<div id=phoneerror></div>
+			<input id="phonebtn" type="button" value="전화번호 중복확인"><br>
 			<input id="submit" type="submit" value="회원가입">
 		</form>
 	</div>

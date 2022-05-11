@@ -8,7 +8,7 @@
 <!-- CSS, JavaScript -->
 <link rel="stylesheet" type="text/css" href="css/member/findidresult.css">
 <script src="/jquery-3.6.0.min.js"></script>
-<script src="/js/member/login.js"></script>
+<script src="/js/member/findidresult.js"></script>
 
 </head>
 <body>
@@ -26,6 +26,7 @@
 		</c:if>
 		<c:if test="${userid != null and !userid.contains('탈퇴')}">
 			닉네임 찾기 결과는 '${userid}' 입니다.<br>
+			<button id="joinbtn" hidden=hidden>회원가입 하러가기</button>
 			<button id="loginbtn">로그인 하러가기</button>
 		</c:if>
 	</div>
