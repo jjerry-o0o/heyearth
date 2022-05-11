@@ -24,6 +24,8 @@ input {
 	height: 30px;
 }
 
+
+
 #nicknamebtn {
 	width: 70px;
 	height: 34px;
@@ -32,6 +34,17 @@ input {
 }
 
 #nicknamebtn:hover {
+	background-color: #f6f5f0;
+	color : black;
+}
+
+#phonebtn {
+	width: 206px;
+	height: 34px;
+	color : #f6f5f0;
+	background-color: #1A271D;	
+}
+#phonebtn:hover {
 	background-color: #f6f5f0;
 	color : black;
 }

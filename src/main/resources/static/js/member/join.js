@@ -70,17 +70,33 @@ window.onload = function() {
 		}
 	}
 	
+	phonebtn.onclick = phoneCheck;
+
 	function phoneCheck() {
 		
 		let phoneInput = phone.value;
 		let phoneCheck = phonePattern.test(phoneInput);
-		if(!phoneCheck || phoneInput == ""){
-			$("#phoneerror").html('전화번호를 입력해주세요');
-			phone.focus();
-			return false;
-		}else{
-			$("#phoneerror").html('');
-		}
+		
+		$.ajax({
+			url : "/phoneCheck" ,
+			type : "post" ,
+			data : {"phone" : phoneInput} ,
+			
+			success : function(cnt){
+				if(!phoneCheck || phoneInput == ""){
+					$("#phoneerror").html('전화번호를 형식에 맞게 입력해주세요');
+					phone.focus();
+					return false;
+				}else if(cnt == 0){
+					$("#phoneerror").html('사용 가능한 전화번호입니다');
+				}else if(cnt == 1) {
+					$("#phoneerror").html('중복된 전화번호입니다');
+				}else{
+					$("#phoneerror").html('');
+				}
+			}//success end
+		})//ajax end
+		
 	}
 	
 	function allCheck() {
