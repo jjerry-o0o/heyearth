@@ -154,6 +154,7 @@ $("#search2").on("click", function(){
 			success: function(imageLabels){
 				$("#waynoti").html("※원하는 분류항목이 나오지 않은 경우 재촬영한 사진을 업로드 해주세요※<br>")
 				$("#wayradio").html('');
+				$("#wayp").empty();
 				for( var k in imageLabels){
 					if(imageLabels[k] >= 0.80){
 						$("#wayradio").append("<input class='radio' type='radio' name='labels' value='"+k+"'>"+k);
