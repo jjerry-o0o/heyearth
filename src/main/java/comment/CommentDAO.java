@@ -18,4 +18,7 @@ public interface CommentDAO {
 	public void deleteComment(int c_index);
 	
 	public int countComment();
+	
+	//내가 작성한 댓글 조회
+	public List<CommentDTO> mycommentlist(String id);
 }

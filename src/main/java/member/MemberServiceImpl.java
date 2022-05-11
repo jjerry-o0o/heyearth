@@ -54,6 +54,16 @@ public class MemberServiceImpl implements MemberService{
 		return memberdao.findid(phone);
 	}
 
+	@Override
+	public int phoneCheck(String phone) {
+		return memberdao.phoneCheck(phone);
+	}
+
+	@Override
+	public String findpw(String id, String phone) {
+		return memberdao.findpw(id, phone);
+	}
+
 
 	
 	
