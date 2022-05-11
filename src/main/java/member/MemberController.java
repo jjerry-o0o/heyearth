@@ -27,7 +27,7 @@ public class MemberController {
 		return "member/join";
 	}
 	
-	//회원가입 - 닉네임 체크 컨트롤러
+	//회원가입 - 닉네임 중복체크 컨트롤러
 	@RequestMapping(value="/nicknameCheck", method=RequestMethod.POST)
 	public @ResponseBody int nicknameCheck(@RequestParam(value="id") String id) {
 		return service.nicknameCheck(id);
@@ -42,6 +42,13 @@ public class MemberController {
 		mv.addObject("result", result);
 		mv.setViewName("member/login");
 		return mv;
+	}
+	
+	//회원가입 - 전화번호 중복 체크 컨트롤러
+	@RequestMapping(value="/phoneCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public int phoneCheck(@RequestParam(value="phone") String phone) {
+		return service.phoneCheck(phone);
 	}
 	
 	//로그인 뷰 컨트롤러
@@ -149,6 +156,22 @@ public class MemberController {
 		System.out.println(userid);
 		mv.addObject("userid",userid);
 		mv.setViewName("member/findidresult");
+		return mv;
+	}
+	
+	//비밀번호 찾기 화면 뷰 컨트롤러
+	@RequestMapping("findpw")
+	public String findpwform() {
+		return "member/findpw";
+	}
+	
+	//비밀번호 찾기 기능 구현
+	@RequestMapping(value="findpw", method=RequestMethod.POST)
+	public ModelAndView findpw(@RequestParam(value="id") String id, @RequestParam(value="phone") String phone) {
+		ModelAndView mv = new ModelAndView();
+		String pw = service.findpw(id, phone);
+		mv.addObject("userpw", pw);
+		mv.setViewName("member/findpwresult");
 		return mv;
 	}
 
