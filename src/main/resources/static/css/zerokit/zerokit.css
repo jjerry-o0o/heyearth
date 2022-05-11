@@ -1,1 +1,22 @@
 @charset "UTF-8";
+
+.intro-text{
+	text-align: center;
+	padding-top : 100px;
+	padding-bottom: 100px;
+	background-color: #F5EDE2;
+	margin-bottom : 60px;
+}
+
+.grid{
+	display : flex;
+	flex-wrap : wrap;
+	flex-direction : row;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.kit-img img {
+	display : block;
+	
+}

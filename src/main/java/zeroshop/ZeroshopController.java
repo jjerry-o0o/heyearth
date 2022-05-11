@@ -109,6 +109,9 @@ public class ZeroshopController {
 		if(!noll.isEmpty()) {
 			for(ZeroshopDTO dto : noll) {
 				String[] result = addresstoll(dto.s_location);
+				System.out.println(dto.s_name);
+				//System.out.println(result[0]);
+				//System.out.println(result[1]);
 				ZeroshopDTO newdto = new ZeroshopDTO();
 				newdto.setS_code(dto.s_code);
 				newdto.setLatitude(Double.parseDouble(result[0]));
@@ -181,7 +184,7 @@ public class ZeroshopController {
 			result[1] = s1;
 			
 		}catch(Exception e){
-			
+			System.out.println("변환실패");
 		}
 		return result;
 	}  // addresstoll end

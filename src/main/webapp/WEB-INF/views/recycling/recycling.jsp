@@ -25,7 +25,7 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 	
-	<div class=intro-text style="height : 70%;">
+	<div class=intro-text>
 <!-- 		<img id =img1" src="img/recyle-1.png"> -->
 		<h1>Welcome Guide!</h1>
 		<br>

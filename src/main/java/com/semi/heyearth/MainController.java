@@ -41,6 +41,7 @@ public class MainController {
        return "about";
     }
 	
+	
 	@RequestMapping("/") 
 	 public ModelAndView mainlist(ModelAndView mav) {
 		
