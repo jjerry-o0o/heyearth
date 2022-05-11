@@ -29,8 +29,8 @@
 				<div id=pwerror></div>
 			<input id="submit" type="submit" value="로그인">
 		</form>
-		<a href=${pageContext.request.contextPath}/findid>닉네임 찾으러 가기</a> &nbsp | &nbsp
-		<a href=/member/findid>비밀번호 찾으러 가기</a>
+		<a href=${pageContext.request.contextPath}/findid id=findid>닉네임 찾으러 가기</a> &nbsp | &nbsp
+		<a href=${pageContext.request.contextPath}/findpw id=findpw>비밀번호 찾으러 가기</a>
 	</div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

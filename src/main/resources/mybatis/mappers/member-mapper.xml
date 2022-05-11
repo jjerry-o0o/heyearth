@@ -2,8 +2,9 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
+
 <mapper namespace="member.MemberDAO">
+	
 	<!-- 회원가입 관련 매퍼 -->
 	<insert id="joinmember" parameterType="memberdto">
 		insert into member(id, pw, phone) values(#{id}, #{pw}, #{phone});
@@ -32,12 +33,7 @@
 	<update id="updatemember" parameterType="String">
 		update member set pw=#{newpw}, phone=#{phone} where id=#{id};
 	</update>
-	
-	<!-- 회원 탈퇴 --> 
-	<!-- <delete id="deletemember" parameterType="String">
-		delete from member where id=#{id};
-	</delete> -->
-	
+
 	<select id="deletenum" resultType="int">
 		select count(*) from member where del = 'Y';
 	</select>
@@ -50,5 +46,14 @@
 	<select id="findid" resultType="String" parameterType="String">
 		select id from member where phone=#{phone};	
 	</select>
-
+	
+	<!-- 전화번호 중복 체크 -->
+	<select id="phoneCheck" resultType="int" parameterType="String">
+		select count(*) from member where phone=#{phone};
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="findpw" resultType="String" parameterType="String">
+		select pw from member where id=#{id} and phone=#{phone};
+	</select>
 </mapper>
