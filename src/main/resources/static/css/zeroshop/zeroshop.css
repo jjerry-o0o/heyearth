@@ -11,7 +11,7 @@ body{
 	text-align : center;
 }
 
-#zerosearch1, #zerosearch2{
+#zerosearch1, #zerosearch2,#zerosearch3{
 	padding-left : 25px;
 	padding-right : 25px;
 	padding-top : 7px;
@@ -24,7 +24,7 @@ body{
 	border : 2px #1A271D solid;
 }
 
-#zerosearch1{
+#zerosearch1,#zerosearch3{
 	background-color : #f6f5f0;
 	color : #1A271D;
 }
@@ -34,20 +34,25 @@ body{
 	color : #f6f5f0;
 }
 
-#zerosearch1:hover, #zerosearch2:hover{
+#zerosearch1:hover, #zerosearch2:hover,#zerosearch3:hover{
 	cursor : pointer;
 }
 
-#loc_menu, #loc_context{
+#loc_menu, #loc_context,#name_context{
 	
 	margin-left : auto;
 	margin-right : auto;
-	width : 85%;
+	width : 95%;
 	margin-bottom : 50px;
 	
 }
 
-#loc_context{
+#loc_menu{
+	margin-left : 200px;
+	margin-top : 50px;
+}
+
+#loc_context,#name_context{
 	text-align :center;
 }
 
@@ -236,7 +241,7 @@ body{
 	font-weight: bold;
 }
 
-#modalbtn{
+#modalbtn,#modalbtn2{
 	margin-top : 20px;
 	text-align : center;
 }
@@ -270,6 +275,11 @@ a {
 	overflow : auto;
 	padding-right : 1%;
 	border-right : 2px solid #C7C1B8;
+}
+
+#loadingmap{
+	width : 85%;
+	height : 400px;
 }
 
 
@@ -337,4 +347,91 @@ a {
 
 .iw_inner{
 	padding : 10px;
+}
+
+
+
+.zeroshopnamesearch{
+	width : 70px;
+	height: 70px;
+	display : inline-block;
+	border : none;
+	background-color : #F6F5F0;
+	vertical-align: top;
+}
+
+#zeroshopnamesearch:hover{
+	cursor : pointer;
+}
+
+
+#name_menu{
+	width : 85%;
+	margin-left : auto;
+	margin-right : auto;
+	margin-top : 50px;
+	vertical-align: top;
+	text-align : center;
+}
+
+#zeroshopname{
+	width : 50%;
+	display:inline-block;
+	border : 1px solid black;
+	background-color : white;
+	border-radius : 15px;
+}
+
+#zeroshopnameinput{
+	width : 90%;
+	height : 70px;
+	font-size : 22px;
+	display : inline-block;
+	margin-right : 30px;
+	border : none;
+}
+
+#zeroshopnameinput:focus{
+	outline:none;
+}
+
+#zeroshopnamebottom{
+	width : 90%;
+	font-size : 20px;
+	text-align : center;
+	margin-left : auto;
+	margin-right:auto;
+	padding-right : 100px;
+}
+
+.namecontext{
+	width : 100%;
+	height : 40px;
+	margin-left : 10px;
+	padding-left : 30px;
+	background-color : white;
+	text-align : left;
+}
+
+.namecontext:hover{
+	background-color : #F6F5F0;
+	font-weight : 500;
+	cursor : pointer;
+}
+
+#zeroshopscbtn{
+	width : 60px;
+	height : 60px;
+}
+
+
+
+#name_context_title{
+	margin-top : 100px;
+	text-align : center;
+	margin-bottom : 50px;
+}
+
+.nameresult{
+	font-weight : 400;
 }
