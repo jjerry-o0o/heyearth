@@ -126,6 +126,44 @@ public class BoardServiceImpl implements BoardService{
 		
 		return boarddao.findList(data);
 	}
+	
+	@Override
+	public int executefind(Model model, String pagenum, String contentnum){
+		Criteria pagemaker = new Criteria();
+		
+		int cpagenum = Integer.parseInt(pagenum);
+		int ccontentnum = Integer.parseInt(contentnum);
+		
+		List<BoardDTO> list = null;
+		
+		pagemaker.setTotalcount(boarddao.testCount());
+		pagemaker.setPagenum(cpagenum-1);
+		
+		pagemaker.setContentnum(ccontentnum);
+		pagemaker.setCurrentblock(cpagenum);
+		
+		pagemaker.setLastblock(pagemaker.getTotalcount());
+		
+		pagemaker.prevnext(cpagenum);
+		pagemaker.setStartPage(pagemaker.getCurrentblock());
+		
+		pagemaker.setEndPage(pagemaker.getLastblock(), pagemaker.getCurrentblock());
+		
+		if(ccontentnum ==5) {
+			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*5, pagemaker.getContentnum());	
+		}
+		else if(ccontentnum == 10) {
+			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*10, pagemaker.getContentnum());
+		}
+		else if(ccontentnum ==15) {
+			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*15, pagemaker.getContentnum());
+		}
+		
+		model.addAttribute("test", list);
+		model.addAttribute("page", pagemaker);
+		
+		return cpagenum ;
+	}
 
 	@Override
 	public List<BoardDTO> myboardlist(String id) {
