@@ -45,6 +45,13 @@
 	</table>
 </div>
 <h2 id="c_title">댓글</h2>
+
+<div class="container" id="list_div">
+	
+</div>
+<br>
+<hr>
+<br>
 <div id="c_container">
 	<input type="text" id="c_comment" placeholder="댓글을 입력해주세요" required="required">
 	<input class="id" type="hidden" id="id" value="${sessionScope.session_id }">
@@ -52,12 +59,7 @@
 	<input type="button" id="cinput_btn" value="작성">
 
 </div>
-<hr>
-<div class="container" id="list_div">
-	<table id="comment_tb" class="commentList">
-		<tr class='tr2'> <th class='th2'>내용</th> <th class='th2'>작성자</th> <th class='th2'>작성일</th></tr>
-	</table>
-</div>
+
 <div class='adminbtn'>
 <input class="adminback" id="boardback" type="button" value="목록으로">
 </div>

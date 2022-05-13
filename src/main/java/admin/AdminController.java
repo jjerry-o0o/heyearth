@@ -639,10 +639,12 @@ public class AdminController {
 	
 	/*회원 탈퇴*/
 	@RequestMapping("/adminmemberdel")
-	public String memberdel(String id) {
-		int delnum = adminservice.admindeletenum() + 1;
-		String withdrawId = "탈퇴한 회원"+delnum;
-		adminservice.adminmemberdel(id, withdrawId);
+	public String memberdel(String id,String delreason) {
+		/*
+		 * int delnum = adminservice.admindeletenum() + 1; 
+		 * String withdrawId ="탈퇴한 회원"+delnum;
+		 */
+		adminservice.adminmemberdel(id, delreason);
 		return "redirect:/adminmember";
 	}
 	

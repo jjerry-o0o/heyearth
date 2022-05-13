@@ -96,6 +96,12 @@ td:not(first-child){
 	margin-right : auto;
 	text-align:left;
 	height : 70px;
+	margin-bottom : 100px;
+}
+
+hr{
+	color : gray;
+	width : 70%;
 }
 
 #c_title{
@@ -107,10 +113,10 @@ td:not(first-child){
 
 #c_comment{
 	background-color :white;
-	width : 70%;
-	height: 35px;
+	width : 80%;
+	height: 50px;
 	margin-right : 20px;
-	font-size : 14px;
+	font-size : 18px;
 	border-style: 1px solid #1A271D;
 	resize: none;
 	overflow: auto;
@@ -120,20 +126,104 @@ td:not(first-child){
 }
 
 #cinput_btn{
-	height : 40px;
-	width : 50px;
-	font-size : 13px;
+	height : 50px;
+	width : 80px;
+	font-size : 16px;
 	border : 1px #1A271D solid;
+	background-color : #1A271D;
+	color : #f6f5f0;
 }
 
 #cinput_btn:hover{
-	background-color : #1A271D;
-	color : #f6f5f0;
 	cursor : pointer;
 }
 
+/*comment css다시 작성*/
+#list_div{
+	
+	width : 60%;
+	margin-left : auto;
+	margin-right: auto;
+}
+.comment{
+	background-color : white;
+	border-radius:10px;
+	border : 1px solid gray;
+	width : 100%;
+	margin-top : 5px;
+	margin-bottom:5px;
+	margin-right : auto;
+	margin-left : auto;
+}
+.c_writer{
+	margin-top : 10px;
+	margin-left : 10px;
+	margin-right :2px;
+	display:inline-block;
+	font-weight : 500;
+	font-size : 15px;
+}
+.c_date{
+	margin-top : 10px;
+	margin-left : 2px;
+	display : inline-block;
+	font-size : 13px;
+}
+.c_btn{
+	margin-top : 10px;
+	margin-right : 10px;
+	float :right;
+	display : inline-block;
+}
+.c_content{
+	margin-top : 10px;
+	margin-bottom : 10px;
+	margin-left : 10px;
+	font-size : 20px;
+}
+.button{
+	margin-left :5px;
+	border : none;
+	color : blue;
+}
 
-#comment_tb{
+.button:hover{
+	cursor :pointer;
+}
+
+.a_comment{
+	border-style: 1px solid gray;
+	width: 72%;
+	height : 40px;
+	display: inline-block;
+	background-color: white;
+	margin : 10px 20px;
+	font-size : 16px;
+}
+
+.a_comment:focus{
+	border : none;
+}
+
+.a_comment_title{
+	margin-left : 20px;
+	color : gray;
+}
+
+.altbutton{
+	height : 35px;
+	width : 70px;
+	font-size : 15px;
+	border : 1px #8D9A99 solid;
+	background-color : #8D9A99;
+	color : #f6f5f0;
+	margin-left : 10px;
+}
+.altbutton:hover{
+	cursor : pointer;
+}
+
+/* #comment_tb{
 	width : 65%;
 	margin-left : auto;
 	margin-right : auto;
@@ -143,7 +233,7 @@ td:not(first-child){
 	text-align: center;
 }
 
-/* comment css 추가*/
+comment css 추가
 
 	.cinput_div{
 		width : 80%;
@@ -176,7 +266,7 @@ td:not(first-child){
 		text-align : center;
 		border: 2px solid #1A271D;
 		border-radius: 5px;
-		/*padding : 5px 10px;*/
+		padding : 5px 10px;
 		display: inline-block;
 		margin-top:auto;
 		margin-bottom:auto;
@@ -225,4 +315,4 @@ td:not(first-child){
 	}
 	.td3{
 		background-color : white;
-	}
+	} */

@@ -63,7 +63,7 @@ public interface AdminService {
 	/*회원 관리*/
 	public List<MemberDTO> adminmemberlist();
 	public int admindeletenum();
-	public void adminmemberdel(String id, String withdrawId);
+	public void adminmemberdel(String id, String delreason);
 	public List<BoardDTO> adminmemberboard(String id);
 	public List<MissionDTO> adminmembermission(String id);
 	public List<BoardDTO> adminmemberboardlist(String b_type, String id);

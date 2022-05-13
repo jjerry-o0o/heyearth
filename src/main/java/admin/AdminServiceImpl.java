@@ -301,8 +301,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public void adminmemberdel(String id, String withdrawId) {
-		admindao.adminmemberdel(id, withdrawId);
+	public void adminmemberdel(String id, String delreason) {
+		admindao.adminmemberdel(id, delreason);
 	}
 
 	@Override

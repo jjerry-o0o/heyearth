@@ -33,20 +33,28 @@ $(document).ready(function(){
 			data : {"b_no" : $("#b_no").val()},
 			success:function(data){
 				
-				$("#comment_tb").html("<tr class='tr2'> <th class='th2'>내용</th> <th class='th2'>작성자</th> <th class='th2'>작성일</th></tr>");
+				$("#list_div").empty();
 				
 				for(var i =0; i<data.length; i++){
 					if(data[i].c_order == 0){						
-						$("#comment_tb").append("<tr class='tr2' id='tr2"+i+"'><td class='td2'><input type='hidden' id='c_comment"
-						+i+"' value='"+data[i].c_comment+"'>"+ data[i].c_comment+"</td> <td class='td2'>"+ data[i].id+
-						"</td><td class='td2'>"+data[i].regdate+"</td></tr><tr class='tr3' id='tr3"+i+"'></tr>");
+						$("#list_div").append("<div class='comment' id='comment"+i+"'>"+
+							"<div id='c_writer"+i+"' class='c_writer'>"+data[i].id+"</div>&nbsp; | &nbsp;"+
+							"<div id='c_date+"+i+"' class='c_date'>"+data[i].regdate + "</div>"+
+							"<div id='c_btn"+i+"' class='c_btn'>"+
+								"<button class='button' id='alter_btn"+i+"' onclick='alter("+i+")'>수정</button>"+
+								"<button class='button' id='delete_btn"+i+"' onclick='remove("+i+")'>삭제</button>"+
+							"</div>"+
+							"<div class='c_content' id='c_content"+i+"'>"+
+								"<input type='hidden' id='c_comment"+i+"' value='"+data[i].c_comment+"'>"+ data[i].c_comment+
+							"</div>"+
+							"<div class='c_mod' id='c_mod"+i+"'></div>"+
+						"</div>");
+							
 						
-						$("#tr2"+i).append("<td class='td2'><button class='button' id='alter_btn"+i+"' onclick='alter("+i+")'>수정</button></td>"
-							 + "<td class='td2'><button class='button' id='delete_btn"+i+"' onclick='remove("+i+")'>삭제</button></td>");
 						
-						$("#tr3"+i).append("<td class='td3' colspan='5'><input type='hidden' id='c_index"+i+"' name='c_index' value='"+ data[i].c_index+"'><div class='alter_div' id='alter_div"+i+"'></div></td>");
+						$("#c_mod"+i).append("<input type='hidden' id='c_index"+i+"' name='c_index' value='"+ data[i].c_index+"'><div class='alter_div' id='alter_div"+i+"'></div>");
 						$("#alter_div"+i).hide();
-						$("#tr3"+i).hide();
+						$("#c_mod"+i).hide();
 					}
 				};
 			}
@@ -55,12 +63,14 @@ $(document).ready(function(){
 	
 	function alter(i){
 		$("#alter_div"+i).html("<form class='calter_div'>"
-		+ "<textarea class='a_comment' id='a_comment"+i+"' name='c_comment' placeholder='"+ $("#c_comment"+i).val() +"' rows='1' cols='50'></textarea>"
+		+ "<div class='a_comment_title'>댓글 수정중..</div>"
+		+ "<input class='a_comment' id='a_comment"+i+"' name='c+comment' placeholder='"+ $("#c_comment"+i).val()+"'>"
 		+ "<input type='hidden' id='a_index"+i+"' name='c_index' value='"+ $("#c_index"+i).val() +"'>"
-		+ "<input type='button' class='button' id='alter"+i+"' value='수정등록' onclick='update("+i+")'>"
+		+ "<input type='button' class='altbutton' id='alter"+i+"' value='수정등록' onclick='update("+i+")'>"
+		+ "<input type='button' class='altbutton' id='back"+i+"' value='수정취소' onclick='updateback("+i+")'>"
 		+ "</form>");
 		$("#alter_div"+i).show();
-		$("#tr3"+i).show();
+		$("#c_mod"+i).show();
 	}
 	
 	function update(i){
@@ -77,6 +87,11 @@ $(document).ready(function(){
 				selectlist();
 			}
 		});
+	}
+	
+	function updateback(i){
+		$("#alter_div"+i).hide();
+		$("#c_mod"+i).hide();
 	}
 
 	
