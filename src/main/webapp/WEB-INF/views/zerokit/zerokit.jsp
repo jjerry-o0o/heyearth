@@ -18,6 +18,7 @@
 
 
 <div class=intro-text>
+
 	<h1>지속가능한 제로웨이스트 키트</h1>
 	<br>
 	<p>
@@ -61,3 +62,4 @@
 <!-- footer import -->
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 <!-- end of footer import -->
+

@@ -110,5 +110,4 @@ window.onload = function() {
 		}
 	}
 	
-	
 }

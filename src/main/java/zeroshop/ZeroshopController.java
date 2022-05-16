@@ -109,7 +109,7 @@ public class ZeroshopController {
 		if(!noll.isEmpty()) {
 			for(ZeroshopDTO dto : noll) {
 				String[] result = addresstoll(dto.s_location);
-				System.out.println(dto.s_name);
+				//System.out.println(dto.s_name);
 				//System.out.println(result[0]);
 				//System.out.println(result[1]);
 				ZeroshopDTO newdto = new ZeroshopDTO();
@@ -127,6 +127,20 @@ public class ZeroshopController {
 	@ResponseBody
 	public List<ZeroshopDTO> zeroshoplist(double latitude, double longitude){
 		List<ZeroshopDTO> zeroshop = zero_service.allzeroshop();
+		return zeroshop;
+	}
+	
+	@RequestMapping("/searchzeroshopname")
+	@ResponseBody
+	public List<ZeroshopDTO> searchzeroshopname(String s_name){
+		String name = s_name.replaceAll(" ","");
+		List<ZeroshopDTO> zeroshop = zero_service.namesearch(name);
+		if(zeroshop.isEmpty()) {
+			ZeroshopDTO dto = new ZeroshopDTO();
+			dto.setS_name("none");
+			zeroshop.add(dto);
+		}
+		
 		return zeroshop;
 	}
 	

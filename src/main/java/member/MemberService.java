@@ -15,4 +15,9 @@ public interface MemberService {
 	public String findid(String phone);
 	public int phoneCheck(String phone);
 	public String findpw(String id, String phone);
+	
+	// 마지막 접속일 저장
+	public void joindate(String id);
+	// 탈퇴 이유 알려주기
+	public String delreason(String del_code);
 }

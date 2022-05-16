@@ -26,7 +26,7 @@ public interface BoardService {
 	
 	//페이징
 	public int execute(Model model, String pagenum, String contentnum);
-	
+	public int executefind(Model model, String pagenum, String contentnum);
 	
 	//댓글
 	public boolean addComment(CommentDTO dto);

@@ -60,6 +60,11 @@
 		<include refid="search"></include>
 	</select>
 	
+	<select id="findCount" parameterType="map" resultType="boarddto">
+		SELECT count(*) FROM board
+		<include refid="search"></include>
+	</select>
+	
 	<sql id="search">
 		<choose>
 			<when test="type.equals('all')">

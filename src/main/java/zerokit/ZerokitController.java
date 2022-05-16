@@ -19,9 +19,6 @@ public class ZerokitController {
 	@Qualifier("zerokitservice")
 	ZerokitService zerokitservice = new ZerokitServiceImpl();
 
-//	@Qualifier("zerokitservice")
-//	ZerokitService zerokitservice;
-
 	// 제로키트 페이지
 //	@GetMapping("/zerokit")
 //	public String zerokitlist() {
@@ -45,7 +42,15 @@ public class ZerokitController {
 	        return mav;  
 	    }
 
-
+	// 제로키트 목록
+	// 환경지킴이 미션 목록
+	@RequestMapping("/zerokit")
+	public ModelAndView zerokitlist(ModelAndView mav) {
+		mav.setViewName("zerokit/zerokit");
 	
+		 mav.addObject("zerokitlist", zerokitservice.zerokitlist());//모집 단체 목록
+		 System.out.println("---");
+		return mav;
+	}
 
 }

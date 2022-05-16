@@ -26,6 +26,12 @@
 		order by m_code;
 	</select>
 	
+<!-- 제로웨이스트샵 인증 미션 -->
+	<select id="missionlist_zero"  resultType = "missiondto">
+		select * from mission
+		where m_type = 'zero'
+	</select>
+	
 <!-- 마감된 상시미션 목록 -->
 	<select id="missionlist_solo_end"  resultType = "missiondto">
 		select * from mission

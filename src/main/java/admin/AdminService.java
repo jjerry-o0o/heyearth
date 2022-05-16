@@ -35,6 +35,7 @@ public interface AdminService {
 	public void adminmembercarbon(int p_code);
 	public void adminreviewdel(int p_code);
 	public void adminreviewdel2(int p_code);
+	public void adminreviewdel3(int p_code);
 	public MissionDTO adminreviewinfo(int p_code);
 	public void updatereview(MissionDTO dto);
 	public int mcodetopcode(int p_code);
@@ -59,11 +60,13 @@ public interface AdminService {
 	public void admincommentinsert(CommentDTO dto);
 	public void admincommentupdate(int c_index, String c_comment);
 	public void admincommentdelete(int c_index);
+	public List<CommentDTO> recomment(int c_index);
+	public void adminrecommentinsert(CommentDTO dto);
 	
 	/*회원 관리*/
 	public List<MemberDTO> adminmemberlist();
 	public int admindeletenum();
-	public void adminmemberdel(String id, String withdrawId);
+	public void adminmemberdel(String id, String delreason);
 	public List<BoardDTO> adminmemberboard(String id);
 	public List<MissionDTO> adminmembermission(String id);
 	public List<BoardDTO> adminmemberboardlist(String b_type, String id);

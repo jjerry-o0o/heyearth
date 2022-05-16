@@ -41,6 +41,7 @@ public interface BoardDAO {
 	
 	//게시물 페이징
 	public int testCount();
+	public int findCount();
 	
 	//댓글
 	public boolean addComment(CommentDTO dto);

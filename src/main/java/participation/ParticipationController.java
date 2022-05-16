@@ -139,9 +139,9 @@ public class ParticipationController {
 
 	// 레드카드
 	@RequestMapping("/redcard")
-	public String redcard(ParticipationDTO dto) {
+	public String redcard(ParticipationDTO dto, int m_code) {
 		service.redcard(dto); // 신고 횟수 누적
-		return "redirect:/mission";
+		return "redirect:/mission_detail/"+m_code;
 	}
 
 }// Controller end

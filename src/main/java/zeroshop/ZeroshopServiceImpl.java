@@ -56,6 +56,11 @@ public class ZeroshopServiceImpl implements ZeroshopService{
 	public List<ZeroshopDTO> zeroshoplist() {
 		return zerodao.zeroshoplist();
 	}
+
+	@Override
+	public List<ZeroshopDTO> namesearch(String s_name) {
+		return zerodao.namesearch(s_name);
+	}
 	
 	
 }
