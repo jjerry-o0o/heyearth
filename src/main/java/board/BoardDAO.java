@@ -31,7 +31,7 @@ public interface BoardDAO {
 	//리스트
 	public List<BoardDTO> selectBoardList(BoardDTO dto);
 	public List<BoardDTO> selectBoardListPage(int page, int contentnum);
-	 
+	public List<BoardDTO> selectBoardFindListPage(int page, int contentnum);
 	
 	//글 총갯수
 	public void boardCount(BoardDTO dto);
