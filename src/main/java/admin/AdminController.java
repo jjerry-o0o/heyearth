@@ -621,6 +621,36 @@ public class AdminController {
 		adminservice.admincommentdelete(c_index);
 	}
 	
+	/*대댓글 보여주기*/
+	@RequestMapping("/adminrecomment")
+	@ResponseBody
+	public List<CommentDTO> adminrecomment(int c_index){
+		List<CommentDTO> dto = adminservice.recomment(c_index);
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");		
+		for(int i=0;i<dto.size();i++) {
+			String currentDate = dateFormat.format(dto.get(i).getC_regdate());
+			dto.get(i).setRegdate(currentDate);			
+		}
+		if(dto.size()==0) {
+			dto = null;
+		}
+		
+		return dto;
+	}
+	
+	/* 대댓글 작성 */
+	@RequestMapping("/adminrecommentinsert")
+	@ResponseBody
+	public void adminrecommentinsert(String c_comment, String id, int b_no, int c_order ) {
+		CommentDTO dto = new CommentDTO();
+		dto.setB_no(b_no);
+		dto.setC_comment(c_comment);
+		dto.setId(id);
+		dto.setC_order(c_order);
+		adminservice.adminrecommentinsert(dto);
+	}
+	
 	
 	
 	

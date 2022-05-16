@@ -154,6 +154,10 @@ hr{
 	margin-bottom:5px;
 	margin-right : auto;
 	margin-left : auto;
+	padding-top : 5px;
+	padding-right : 5px;
+	padding-left : 5px;
+	padding-bottom : 5px;
 }
 .c_writer{
 	margin-top : 10px;
@@ -182,9 +186,10 @@ hr{
 	font-size : 20px;
 }
 .button{
-	margin-left :5px;
+	margin-left :10px;
 	border : none;
 	color : blue;
+	margin-bottom : 10px;
 }
 
 .button:hover{
@@ -214,8 +219,8 @@ hr{
 	height : 35px;
 	width : 70px;
 	font-size : 15px;
-	border : 1px #8D9A99 solid;
-	background-color : #8D9A99;
+	border : 1px #1A271D solid;
+	background-color : #1A271D;
 	color : #f6f5f0;
 	margin-left : 10px;
 }
@@ -223,96 +228,138 @@ hr{
 	cursor : pointer;
 }
 
-/* #comment_tb{
-	width : 65%;
-	margin-left : auto;
-	margin-right : auto;
-	border-collapse: collapse;
-	margin-bottom : 50px;
-	border: 1px solid gray;
-	text-align: center;
+
+
+/* 대댓글 */
+
+.button1{
+	margin-left :15px;
+	border : none;
+	color : blue;
+	margin-bottom : 10px;
+	font-size : 15px;
 }
 
-comment css 추가
+.button1:hover{
+	cursor :pointer;
+}
 
-	.cinput_div{
-		width : 80%;
-		height : 100px;
-		margin : 20px auto;
-		display : flex;
-		align-items : center;
-		justify-content: center;
-		text-align: center;
-	}
-	.btn_div{
-		width : 80%;
-		margin : 0px auto;
-		display : flex;
-		align-items : center;
-		justify-content: center;
-		text-align: center;
-	}
-	.alter_div{
-		width : 100%;
-		height : 30px;
-		margin : 5px auto;
-		display : flex;
-		align-items : center;
-		justify-content: center;
-		text-align: center;
-		display : inline-block;
-	}
-	.button{
-		text-align : center;
-		border: 2px solid #1A271D;
-		border-radius: 5px;
-		padding : 5px 10px;
-		display: inline-block;
-		margin-top:auto;
-		margin-bottom:auto;
-		height : 80%;
-		
-	}
-	.button:hover{
-		background-color: #1A271D;
-		color:white;
-	}
-	
-	.a_comment{
-		border-style: 1px solid #1A271D;
-		resize: none;
-		width: 80%;
-		height : 20px;
-		overflow: auto;
-		display: inline-block;
-		background-color: #F6F5F0;
-		margin : 0px 20px;
-	}
-	
-	.tr2{
-		border: 1px dashed gray;
-	}
-	.td2{
-		width : 20%;
-		border: 1px dashed gray;
-		padding-left : 8px;
-		padding-right : 8px;
-	}
-	.th2{
-		width : 20%;
-		border-right: 1px solid gray;
-		border-bottom: 1px solid gray;
-	}
-	.td2:nth-child(4){
-		width : 6%;
-	}
-	.td2:last-child{
-		width : 6%;
-	}
-	.td2:first-child{
-		width : 30%;
-		background-color : white;
-	}
-	.td3{
-		background-color : white;
-	} */
+.rec_newcomment{
+	width : 90%;
+	margin-right : 15px;
+	height : 30px;
+}
+
+.rec_insert{
+	margin-top : 10px;
+	margin-bottom:10px;
+	margin-left : auto;
+	margin-right : auto;
+	width : 90%;
+}
+
+.rec_insertbtn{
+	height : 30px;
+	width : 50px;
+	background-color : #1A271D;
+	color : #f6f5f0;
+}
+
+.rec_insertbtn:hover{
+	cursor : pointer;
+}
+
+#recommenthr{
+	color : gray;
+	width : 90%;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+
+.re_comment_title{
+	margin-left : 40px;
+	color : gray;
+}
+
+.c_img{
+	color : gray;
+	width : 50px;
+	height : 50px;
+	margin-left : 20px;
+	display : inline-block;
+	vertical-align: top;
+	margin-top : 10px;
+}
+
+.recomment{
+	margin-left : 10px;
+	margin-right : 10px;
+	border-radius:10px;
+	border : 1px solid gray;
+	margin-top:10px;
+	margin-bottom:10px;
+	width : 85%;
+	display : inline-block;
+}
+.rec_writer{
+	margin-top : 10px;
+	margin-left : 10px;
+	margin-right :2px;
+	display:inline-block;
+	font-weight : 500;
+	font-size : 12px;
+}
+.rec_date{
+	margin-top : 10px;
+	margin-left : 2px;
+	display : inline-block;
+	font-size : 11px;
+}
+.rec_btn{
+	margin-top : 10px;
+	margin-right : 10px;
+	float :right;
+	display : inline-block;
+}
+
+.rebutton{
+	margin-left :5px;
+	border : none;
+	color : blue;
+	margin-bottom : 10px;
+	font-size : 12px;
+}
+.rebutton:hover{
+	cursor: pointer;
+}
+.rec_content{
+	margin-top : 10px;
+	margin-bottom : 10px;
+	margin-left : 10px;
+	font-size : 15px;
+}
+
+
+.re_comment_title2{
+	margin-top : 20px;
+	margin-bottom : 10px;
+	margin-left : 10px;
+	color : gray;
+}
+
+.rea_comment{
+	margin-left : 10px;
+	width : 70%;
+	margin-bottom : 10px;
+	margin-right : 20px;
+}
+
+.realtbutton{
+	margin-right : 10px;
+	background-color : #1A271D;
+	color : #f6f5f0;
+}
+
+.realtbutton:hover{
+	cursor : pointer;
+}

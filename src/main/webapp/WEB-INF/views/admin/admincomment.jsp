@@ -21,6 +21,7 @@
 <h1 class='adminmain'>댓글 작성&수정하기</h1><br>
 <div class='admincontext'>
 	<table class='adminmodinserttable'>
+		<input type='hidden' id="b_no" value="${boardinfo.b_no }">
 		<c:if test="${boardinfo.b_type == 'not' }">
 			<tr><td>분류</td><td>공지</td></tr>
 		</c:if>

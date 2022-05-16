@@ -196,6 +196,14 @@
 	<delete id="admincommentdelete" parameterType="int">
 		delete from comment where c_index=#{c_index};
 	</delete>
+	
+	<select id="recomment" parameterType="int" resultType="commentdto">
+		select * from comment where c_order=#{c_index};
+	</select>
+	
+	<insert id="adminrecommentinsert" parameterType="commentdto">
+		insert into comment(b_no,id,c_comment,c_order,c_regdate) values (#{b_no},#{id},#{c_comment},#{c_order},now());
+	</insert>
 
 
 	

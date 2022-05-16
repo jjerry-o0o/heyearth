@@ -72,6 +72,8 @@ public interface AdminDAO {
 	public void admincommentinsert(CommentDTO dto);
 	public void admincommentupdate(CommentDTO dto);
 	public void admincommentdelete(int c_index);
+	public List<CommentDTO> recomment(int c_index);
+	public void adminrecommentinsert(CommentDTO dto);
 	
 	
 	/*회원 관리*/

@@ -282,7 +282,15 @@ public class AdminServiceImpl implements AdminService {
 		admindao.admincommentdelete(c_index);
 	}
 	
+	@Override
+	public List<CommentDTO> recomment(int c_index) {
+		return admindao.recomment(c_index);
+	}
 	
+	@Override
+	public void adminrecommentinsert(CommentDTO dto) {
+		admindao.adminrecommentinsert(dto);
+	}
 	
 	
 	
@@ -370,6 +378,7 @@ public class AdminServiceImpl implements AdminService {
 	public String searchpw(String id) {
 		return admindao.searchpw(id);
 	}
+
 
 
 
