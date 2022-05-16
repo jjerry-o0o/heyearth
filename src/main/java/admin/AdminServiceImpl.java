@@ -168,6 +168,10 @@ public class AdminServiceImpl implements AdminService {
 	public void adminreviewdel2(int p_code) {
 		admindao.adminreviewdel2(p_code);
 	}
+	@Override
+	public void adminreviewdel3(int p_code) {
+		admindao.adminreviewdel3(p_code);
+	}
 	
 	@Override
 	public MissionDTO adminreviewinfo(int p_code) {

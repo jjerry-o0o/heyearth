@@ -97,7 +97,7 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 			<jsp:useBean id="toDate" class="java.util.Date" />
 			<fmt:parseDate var="regDate" value="${group.m_date }"
 				pattern="yyyy-MM-dd" />
-			<c:if test="${group.m_type == 'solo'}">
+			<c:if test="${group.m_type == 'solo' || group.m_type == 'zero'}">
 			</c:if> 
 			<c:if test="${group.m_type == 'group'}">
 			<span style="font-weight:500; font-size:18px;">미션일 <fmt:formatDate value="${regDate}" pattern="yyyy-MM-dd" />
@@ -112,7 +112,7 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 				<c:if test="${group.m_type == 'group'}">
 				<li>지구용사들과 함께하는 단체 미션입니다. 미션 전날까지 신청을 완료해주세요!</li>							
 				</c:if>
-				<c:if test="${group.m_type == 'solo'}">
+				<c:if test="${group.m_type == 'solo' || group.m_type == 'zero'}">
 				<li>지금 바로 신청가능한 상시 미션입니다.</li>
 				</c:if>
 				<hr>
@@ -124,11 +124,15 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 				<li>포인트 획득 : ${group.m_point }p</li>
 				<li>탄소 배출 감소량 : ${group.m_carbon }g</li>
 				<c:if test="${(regDate2 - toDate2) >= 0 }">
-					<c:if test="${group.m_type == 'solo'}">
+					<c:if test="${group.m_type == 'solo' || group.m_type == 'zero'}">
 					<br>
-						<c:if test="${sessionScope.session_id != null }">				
+						<c:if test="${sessionScope.session_id != null && group.m_type == 'solo' }">				
 						<li><input type="button" value="상시미션신청하기" class="register" id="solodetail"
 							onclick="solodetail(${group.m_code})"></li>
+							</c:if>
+							<c:if test="${sessionScope.session_id != null && group.m_type == 'zero' }">				
+						<li><input type="button" value="제로웨이스트샵 인증하기" class="register" id="zeromission"
+							onclick="zeromission(${group.m_code})"></li>
 							</c:if>
 						<c:if test="${sessionScope.session_id == null }">				
 						<li><input type="button" value="로그인 하고 미션 신청하기" class="register" id="login"
@@ -234,6 +238,7 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 					<span style="font-size: 18px; font-weight: 600"> ${row.id } <br>${row.p_completedate }<br></span>
 					<br><form action="${pageContext.request.contextPath}/redcard">
 					<input type=hidden name="p_code" value="${row.p_code }">
+					<input type=hidden name="m_code" value="${row.m_code }">
 					<input type=hidden name="p_redcard" value="${row.p_redcard }">
 					<input type=submit value=인증사진신고하기 class="redcard">
 					</form>
