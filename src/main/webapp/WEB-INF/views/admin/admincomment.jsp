@@ -21,6 +21,7 @@
 <h1 class='adminmain'>댓글 작성&수정하기</h1><br>
 <div class='admincontext'>
 	<table class='adminmodinserttable'>
+		<input type='hidden' id="b_no" value="${boardinfo.b_no }">
 		<c:if test="${boardinfo.b_type == 'not' }">
 			<tr><td>분류</td><td>공지</td></tr>
 		</c:if>
@@ -45,6 +46,13 @@
 	</table>
 </div>
 <h2 id="c_title">댓글</h2>
+
+<div class="container" id="list_div">
+	
+</div>
+<br>
+<hr>
+<br>
 <div id="c_container">
 	<input type="text" id="c_comment" placeholder="댓글을 입력해주세요" required="required">
 	<input class="id" type="hidden" id="id" value="${sessionScope.session_id }">
@@ -52,12 +60,7 @@
 	<input type="button" id="cinput_btn" value="작성">
 
 </div>
-<hr>
-<div class="container" id="list_div">
-	<table id="comment_tb" class="commentList">
-		<tr class='tr2'> <th class='th2'>내용</th> <th class='th2'>작성자</th> <th class='th2'>작성일</th></tr>
-	</table>
-</div>
+
 <div class='adminbtn'>
 <input class="adminback" id="boardback" type="button" value="목록으로">
 </div>

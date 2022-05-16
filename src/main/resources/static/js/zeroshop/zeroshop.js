@@ -286,7 +286,7 @@ $(document).ready(function(){
 				type : "get",
 				data : {"s_name":shopname},
 				success : function(result){
-					$("#name_context_title").html("<h1 class='nameresult'>'"+shopname+"'에 대한 가게명 검색결과입니다.</h1>");
+					$("#name_context_title").html("<h1 class='nameresult'>'"+shopname+"'에 대한 검색결과입니다.</h1>");
 					$("#zeroshopnameinput").val("");
 					if(result[0].s_name == "none"){
 						$("#name_context").html("<div class='Nozeroshop' style='margin-top:200px; margin-bottom:200px'>존재하는 가게가 없습니다.</div>");
