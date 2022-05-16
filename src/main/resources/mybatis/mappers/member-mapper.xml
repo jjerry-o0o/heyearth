@@ -7,7 +7,7 @@
 	
 	<!-- 회원가입 관련 매퍼 -->
 	<insert id="joinmember" parameterType="memberdto">
-		insert into member(id, pw, phone) values(#{id}, #{pw}, #{phone});
+		insert into member(id, pw, phone,lastjoin) values(#{id}, #{pw}, #{phone},DATE_FORMAT(now(), '%Y-%m-%d'));
 	</insert>
 	
 	<select id="nicknameCheck" resultType="int" parameterType="String">
@@ -55,5 +55,15 @@
 	<!-- 비밀번호 찾기 -->
 	<select id="findpw" resultType="String" parameterType="String">
 		select pw from member where id=#{id} and phone=#{phone};
+	</select>
+	
+	<!-- 마지막 접속일 저장 -->
+	<update id="joindate" parameterType="String">
+		update member set lastjoin= DATE_FORMAT(now(), '%Y-%m-%d') where id=#{id};
+	</update>
+	
+	<!-- 탈퇴된 이유 알려주기 -->
+	<select id="delreason" parameterType="String" resultType="String">
+		select reason from delreason where del_code=#{del_code};
 	</select>
 </mapper>

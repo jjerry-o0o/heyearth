@@ -25,9 +25,12 @@
 
 
 <div class="zero_search">
-		<input type="button" id="zerosearch2" name="findid" value = "내 주변에서 검색" onclick="search(2)" checked="checked" autofocus>
+		<input type="button" id="zerosearch2" name="findid" value = "내 주변에서 검색"onclick="search(2)" checked="checked" autofocus>
 		  
 		<input type="button" id="zerosearch1" name="findid" value = "지역으로 검색" onclick="search(1)">
+		
+		<input type="button" id="zerosearch3" name="findid" value = "이름으로 검색" onclick="search(3)">
+
 </div>
 <br>
 <br>
@@ -45,7 +48,7 @@
 		</div>
 		<div id="loc_context">
 		</div>
-		<div id="modal" class="modal-overlay" id="modal">
+		<div id="modal" class="modal-overlay">
 			<div class="modal-window">
 			<div class="close-area" id="modalclose">X</div>
 				<div class="modalupper" id="modalupper">
@@ -66,9 +69,42 @@
 		<h2 class="maptitle">지구를 지키는 가게들</h2>
 		<p class="mapinform">(반경 10km이내의 가게들만 표시됩니다.)</p>
 		<div id="mapname">
-			<img src='img/loading.png' class='maploading'>
+			<img id="loadingmap" src='img/loading1.png' class='maploading'>
 		</div>
 		<div id="map"></div>
+	</div>
+	
+	<div id="searchName" style="display:none;">
+		<div id="name_menu">
+			<div id="zeroshopname">
+				<input id="zeroshopnameinput" type="text" placeholder="가게 이름을 입력해주세요." required>
+				<div id="zeroshopnamebottom"></div>
+			</div>
+			<button class="zeroshopnamesearch" id="zeroshopnamesearch">
+				<img id='zeroshopscbtn' src="img/search.png">
+			</button>
+			
+			
+		</div>
+		<div id="name_context_title"></div>
+		<div id="name_context">
+			
+		</div>
+		<div id="modal2" class="modal-overlay">
+			<div class="modal-window">
+			<div class="close-area" id="modalclose2">X</div>
+				<div class="modalupper" id="modalupper2">
+					
+				</div>
+					<div class="modaltitle">
+						<h2 class="modalh2" id="modalh22"></h2>
+					</div>
+				<div class="modalcontent" id="modalcontent2">
+				</div>
+				<div id="modalbtn2">
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <script>

@@ -16,4 +16,5 @@ public interface ZeroshopDAO {
 	public void setlatlong(ZeroshopDTO dto);
 	public List<ZeroshopDTO> allzeroshop();
 	public List<ZeroshopDTO> zeroshoplist();
+	public List<ZeroshopDTO> namesearch(String s_name);
 }

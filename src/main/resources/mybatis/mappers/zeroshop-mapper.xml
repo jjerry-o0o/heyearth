@@ -39,4 +39,8 @@
 		select * from zeroshop;
 	</select>
 	
+	<select id="namesearch" parameterType="String" resultType="zeroshopdto">
+		select * from zeroshop where replace(s_name," ","") like concat('%',#{s_name},'%') order by s_name;
+	</select>
+	
 </mapper>

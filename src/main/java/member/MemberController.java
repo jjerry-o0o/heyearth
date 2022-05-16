@@ -69,10 +69,18 @@ public class MemberController {
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
 			return "admin/adminmain";
+		}else if(!userdto.del.equals("Y") && !userdto.del.equals("N")) {
+			int delnum = service.deletenum() + 1;
+			String withdrawId = "탈퇴한 회원"+delnum;
+			service.deletemember(id, withdrawId);
+			String delreason = service.delreason(userdto.del);
+			model.addAttribute("del",delreason);
+			return "member/login";
 		}
 		else { // 로그인 성공인 경우	
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
+			service.joindate(userdto.getId());
 			return "redirect:/";
 		}
 	}
