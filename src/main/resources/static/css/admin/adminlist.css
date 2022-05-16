@@ -145,3 +145,101 @@ td{
 	color:#F6F5F0;
 	
 }
+
+
+/* 모달 위한 CSS*/
+.modal-overlay{
+	width : 100%;
+	height : 100%;
+	position : absolute;
+	left : 0;
+	top : 0;
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	justify-content : center;
+	
+	background : rgba(0,0,0, 0.5);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display : none;
+}
+
+.modal-window{
+	/*background-color : #81A88A;*/
+	background-color : white;
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 500px;
+    height: 350px;
+    position: relative;
+    padding: 10px;
+}
+
+.modaltitle {
+	margin-top : 60px;
+    padding-left: 10px;
+    /*color : #F6F5F0;*/
+    color : #1A271D;
+    margin-left : 10px;
+}
+
+.modalh1{
+	font-weight: bold;
+}
+
+.close-area{
+	display: inline;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+    font-weight : bold;
+    color : #1A271D;
+    font-size : 18px;
+}
+
+.modalcontent{
+	margin-top: 20px;
+    padding: 0px 10px;
+    /*color: #F6F5F0;*/
+    color : #1A271D;
+    margin-left : 10px;
+}
+
+.modalbtn{
+	background-color : #F6F5F0;
+	width : 100px;
+	height : 40px;
+	display : inline-block;
+	text-align : center;
+	font-size: 20px;
+	margin-right: 20px;
+	margin-left : 20px;
+	line-height: 35px;
+	border : 0;
+	margin-top : 20px;
+	text-align:center;
+}
+
+.modalbtn:hover{
+	cursor : pointer;
+	font-weight: bold;
+}
+
+/* body 스크롤 방지용 */
+.stop-scroll{
+  height: 100%;
+  overflow: hidden;
+}
+
+.delreason{
+	margin-top : 10px;
+	margin-bottom : 10px;
+	
+}

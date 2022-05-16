@@ -64,6 +64,16 @@ public class MemberServiceImpl implements MemberService{
 		return memberdao.findpw(id, phone);
 	}
 
+	@Override
+	public void joindate(String id) {
+		memberdao.joindate(id);
+	}
+
+	@Override
+	public String delreason(String del_code) {
+		return memberdao.delreason(del_code);
+	}
+
 
 	
 	
