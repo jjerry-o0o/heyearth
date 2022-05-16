@@ -103,6 +103,23 @@
 		<!-- 상시 미션 -->
 			<div id=solo_div style="display: none">
 				<h3>모집중인 상시미션</h3>
+				<div class="missionlist">
+						<div class="submissionlist">
+							<a href="mission_detail/${zero.m_code}"><img class="img_list"
+								src="<%=request.getContextPath()%>/img/${zero.m_photo}"></a>
+						</div>
+						<div style="display: inline-block">
+							<br><br>
+							
+						<!--  미션 간략 정보 -->	
+							<ul class="list">
+								<li style="color: green"><strong>특별 미션!</strong></li>
+								<li><a href="mission_detail/${zero.m_code}"><h3>${zero.m_name }</h3></a></li>
+								<li>포인트 : ${zero.m_point }p</li>
+								<li>탄소배출감소량 : ${zero.m_carbon }g</li>
+							</ul>
+						</div>
+					</div>
 				<c:forEach items="${silist }" var="row">
 					<div class="missionlist">
 						<div class="submissionlist">

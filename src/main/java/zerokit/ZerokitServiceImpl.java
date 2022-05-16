@@ -1,6 +1,8 @@
 package zerokit;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -9,8 +11,20 @@ import org.springframework.stereotype.Service;
 public class ZerokitServiceImpl implements ZerokitService{
 	
 	@Autowired
-	@Qualifier("recyclingdao")
+	@Qualifier("zerokitdao")
 	public ZerokitDAO zerokitdao;
+
+	@Override
+	public ZerokitDTO zerokit(int k_code) {
+		return zerokitdao.zerokit(k_code);
+	}
+
+	@Override
+	public List<ZerokitDTO> zerokitlist() {
+		return zerokitdao.zerokitlist();
+	}
+	
+	
 	
 	
 }

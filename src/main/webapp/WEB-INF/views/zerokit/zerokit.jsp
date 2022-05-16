@@ -16,11 +16,8 @@
 
 </body>
 
-<!-- footer import -->
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-<!-- end of footer import -->
 
-<div class=intro-text style="height : 70%;">
+<div class=intro-text>
 		<h1>지속가능한 제로웨이스트 키트</h1>
 		<br>
 		<p>일상에서 자주 쓰는 물건들을 보다 지속가능한 모습을 갖춘 
@@ -31,4 +28,19 @@
 			<br><br>
 		</p>
 	</div>
+	
+	<div style="display:inline-block; width:350px; height:350px;">
+	<c:forEach items="${zerokitlist }" var="zerokit">
+	<div style="display:inline-block; width:100px; height:100px;background-color: gold;border:1px solid black; ">
+	${zerokit.k_code}
+	${zerokit.k_name}
+	<a href=${zerokit.k_url }>제로샵</a><br>
+	</div>
+	</c:forEach>
+	</div>
+
 </html>
+	
+<!-- footer import -->
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<!-- end of footer import -->

@@ -35,6 +35,7 @@ public class MissionController {
 	        mav.addObject("gelist", missionservice.missionlist_group_end());//마감 단체 목록
 	        mav.addObject("silist", missionservice.missionlist_solo_ing());//모집 상시 목록
 	        mav.addObject("selist", missionservice.missionlist_solo_end());//마감 상시 목록 
+	        mav.addObject("zero", missionservice.missionlist_zero());//제로웨이스트샵 인증 미션 
 	        return mav;  
 	    }
 	
@@ -79,6 +80,22 @@ public class MissionController {
 		public MissionDTO missionsolo(int m_code) {
 			return missionservice.missiongroup(m_code);
 		}
+		
+		//제로 미션 신청하기 모달창
+		@RequestMapping("/zeromission")
+		@ResponseBody
+		public MissionDTO zeromission(int m_code) {
+			return missionservice.missiongroup(m_code);
+		}
 
+		//영수증 OCR 분석
+		/*
+		 * @RequestMapping("/ocrresult") public ModelAndView ocrresult(String fontfile){
+		 * fontfile = "rec3.jpg"; String json = ((MissionServiceImpl)
+		 * missionservice).test(fontfile); ModelAndView mv = new ModelAndView();
+		 * mv.addObject("ocrresult", json); mv.setViewName("mission/ocrresult"); return
+		 * mv; }
+		 */
+		 
 			
 }//Controller end

@@ -19,6 +19,7 @@
 	<typeAlias type="carbon.CarbonDTO" alias="carbondto"/>
 	<typeAlias type="mypage.MyguideDTO" alias="myguidedto"/>
 	<typeAlias type="grade.GradeDTO" alias="gradedto"/>
+	<typeAlias type="zerokit.ZerokitDTO" alias="zerokitdto"/>
 </typeAliases>
 
 </configuration>
