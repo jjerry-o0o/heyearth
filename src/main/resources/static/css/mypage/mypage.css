@@ -76,7 +76,7 @@ h3 {
 
 
 /* 작성게시물 테이블 */
-#boardlist_tb{
+#boardlist_tb, #guidelist_tb, #commentlist_tb{
 	border-collapse: collapse;
 	width : 90%;
 	margin: 10px;
@@ -84,18 +84,50 @@ h3 {
 	border: 1px solid gray;
 	text-align: center;
 }
-#guidelist_tb{
-	border-collapse: collapse;
-	width : 90%;
-	margin: 10px;
-	padding: 10px;
-	border: 1px solid gray;
-	text-align: center;
+
+#commentlist_tb{
+	table-layout: fixed;
 }
+
 .board_tr:hover{
 	background-color: #F3EADF;
 }
-.board_th{
+
+.board_th:first-child{
+	width : 60px;
+}
+.board_th:nth-child(2){
+	width : 60px;
+}
+.board_th:nth-child(4){
+	width : 200px;
+}
+.board_th:last-child{
+	width : 60px;
+}
+
+.comment_td:nth-child(3){
+	word-wrap : break-word;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+
+.comment_tr:hover{
+	background-color: #F3EADF;
+}
+.comment_th:first-child{
+	width : 60px;
+}
+.comment_th:nth-child(2){
+	width : 100px;
+}
+.comment_th:nth-child(4){
+	width : 200px;
+}
+.comment_th:last-child{
+	width : 80px;
+}
+.board_th, .comment_th{
 	background-color: #F3EADF;
 	padding : 10px;
 }
@@ -105,15 +137,6 @@ h3 {
 	margin: 10px;
 	padding: 10px;
 	border: 2px solid #1A271D;
-}
-.board_a{
-	text-decoration: none;
-}
-.board_a:visited{
-	color : black;
-}
-.board_a:link{
-	color : black;
 }
 .mb_btns{
 	padding-left : 25px;

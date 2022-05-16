@@ -43,6 +43,12 @@ public class CommentServiceImpl implements CommentService{
 		
 		return count;
 	}
+
+	@Override
+	public List<CommentDTO> mycommentlist(String id) {
+		
+		return commentdao.mycommentlist(id);
+	}
 	
 	
 

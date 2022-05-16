@@ -56,6 +56,7 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = CommentDAO.class)
 @MapperScan(basePackageClasses = MyguideDAO.class)
 @MapperScan(basePackageClasses = ZerokitDAO.class)
+
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

@@ -24,11 +24,23 @@ public class ZerokitController {
 //	public String zerokitlist() {
 //		return "zerokit/zerokit";
 //	}
-
-//	@RequestMapping(value = "/zerokit", method = RequestMethod.GET)
-//	public String zerokit() {
-//		return "zerokit/zerokit";
-//	}
+	
+//@RequestMapping(value = "/zerokit", method = RequestMethod.GET)
+//public String zerokit() {
+//	return "zerokit/zerokit";
+//}
+	
+	// 제로키트 목록
+	//환경지킴이 미션 목록
+	
+	
+	   @RequestMapping("/zerokit") 
+	   public ModelAndView zerokitlist(ModelAndView mav) {
+		   mav= new ModelAndView();
+	        mav.setViewName("zerokit/zerokit");
+	        mav.addObject("zerokitlist", zerokitservice.zerokitlist());//모집 단체 목록
+	        return mav;  
+	    }
 
 	// 제로키트 목록
 	// 환경지킴이 미션 목록

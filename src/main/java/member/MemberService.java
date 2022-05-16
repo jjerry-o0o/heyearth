@@ -13,4 +13,6 @@ public interface MemberService {
 	public int deletenum();
 	public int deletemember(String id, String withdrawId);
 	public String findid(String phone);
+	public int phoneCheck(String phone);
+	public String findpw(String id, String phone);
 }
