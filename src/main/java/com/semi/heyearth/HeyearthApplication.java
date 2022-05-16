@@ -52,10 +52,11 @@ import zeroshop.ZeroshopDAO;
 @MapperScan(basePackageClasses = AdminDAO.class)
 @MapperScan(basePackageClasses = CarbonDAO.class)
 @ComponentScan(basePackageClasses = CommentContoller.class)
+@ComponentScan(basePackageClasses = ZerokitController.class)
 @MapperScan(basePackageClasses = CommentDAO.class)
 @MapperScan(basePackageClasses = MyguideDAO.class)
 @MapperScan(basePackageClasses = ZerokitDAO.class)
-@ComponentScan(basePackageClasses = ZerokitController.class)
+
 public class HeyearthApplication {
 
 	public static void main(String[] args) {

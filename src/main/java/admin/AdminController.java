@@ -300,8 +300,9 @@ public class AdminController {
 		adminservice.adminmembercarbon(code);
 		// 멤버의 redcard 증가
 				adminservice.adminreviewdel2(code);
+				adminservice.adminreviewdel3(code);
 		// 리뷰 삭제하기
-		 adminservice.adminreviewdel(code); 
+		/* adminservice.adminreviewdel(code); */
 		
 		
 		return "redirect:/adminmissionreview?code="+m_code;
