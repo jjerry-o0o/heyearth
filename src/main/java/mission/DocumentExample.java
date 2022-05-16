@@ -9,70 +9,18 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
 
-@Service("missionservice")
-public class MissionServiceImpl implements MissionService {
+public class DocumentExample {
 
-	@Autowired
-	@Qualifier("missiondao")
-	public MissionDAO dao;
-	
-	@Override
-	public List<MissionDTO> missionlist_group_ing() {//모집중인 단체미션	목록
-			return dao.missionlist_group_ing();
-	    
-		}
-	@Override
-	public List<MissionDTO> missionlist_group_end() {//마감된 단체미션	목록
-		return dao.missionlist_group_end();
-		
-	}
-	@Override
-	public List<MissionDTO> missionlist_solo_ing() {//모집중인 싱시미션	목록	
-		return dao.missionlist_solo_ing();
-		
-	}
-	@Override
-	public List<MissionDTO> missionlist_solo_end() {//마감된 상시미션 목록	
-		return dao.missionlist_solo_end();
-		
-	}
-	@Override
-    public MissionDTO missiongroup(int m_code) {//미션 상세페이지
-        return dao.missiongroup(m_code);    
-    }
-	@Override
-	public List<MissionDTO> missionreview(String m_name) {//리뷰 목록
-		return dao.missionreview(m_name);    
-	}
-	@Override
-	public List<MissionDTO> missionreview2(String m_name) {//리뷰 목록2
-		return dao.missionreview2(m_name);    
-	}
-	@Override
-	public List<MissionDTO> missioncheck(String m_name) {//미션 체크
-		return dao.missioncheck(m_name);    
-	}
-	//제로웨이스트샵 인증 미션
-	@Override
-	public MissionDTO missionlist_zero() {
-		return dao.missionlist_zero();  
-	}
-	
 	@SuppressWarnings("unchecked")
-	public String test(String fontfile) {
-		StringBuffer response = new StringBuffer();
+	public static void main(String[] args) {
 		String apiURL = "https://7s2xksian5.apigw.ntruss.com/custom/v1/15736/175b50fa2856ddfecde058ac4bdc6c3fba076c35fa181d7edee2dcf7bf182593/document/receipt";
 		String secretKey = "TmN4QmF6dXFQZGRaUFRHblVOV3lnTlFJZ2JhclZ1VFU=";
-		String imageFile = "C:/Users/박희영/Desktop/프젝용업로드/" + fontfile;
+		String imageFile = "C:\\Users\\박희영\\Desktop\\프젝용업로드/rec.jpg";
 
 		try {
 			URL url = new URL(apiURL);
@@ -113,7 +61,7 @@ public class MissionServiceImpl implements MissionService {
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 			}
 			String inputLine;
-			
+			StringBuffer response = new StringBuffer();
 			while ((inputLine = br.readLine()) != null) {
 				response.append(inputLine);
 			}
@@ -123,7 +71,6 @@ public class MissionServiceImpl implements MissionService {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return response.toString();
 	}
 
 	private static void writeMultiPart(OutputStream out, String jsonMessage, File file, String boundary)
@@ -160,8 +107,4 @@ public class MissionServiceImpl implements MissionService {
 		out.flush();
 	}
 
-	
-}//ServiceImpl Class end
-	 
-
-
+}

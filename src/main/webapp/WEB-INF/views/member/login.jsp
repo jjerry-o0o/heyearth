@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/member/login.css">
 <script src="/jquery-3.6.0.min.js"></script>
 <script src="/js/member/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 <body>
@@ -32,7 +33,19 @@
 		<a href=${pageContext.request.contextPath}/findid id=findid>닉네임 찾으러 가기</a> &nbsp | &nbsp
 		<a href=${pageContext.request.contextPath}/findpw id=findpw>비밀번호 찾으러 가기</a>
 	</div>
-
+	<c:if test="${del != null}">
+		<script>
+		Swal.fire({ 
+			icon: 'error', // Alert 타입
+			title: '죄송합니다.', // Alert 제목 
+			text: '${del}', // Alert 내용 
+		}).then(function(){			
+			location.reload();
+		});
+		</script>
+		
+	</c:if>
+	
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

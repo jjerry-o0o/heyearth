@@ -1,5 +1,8 @@
 package member;
 
+
+import java.sql.Date;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class MemberDTO {
@@ -15,17 +18,23 @@ public class MemberDTO {
 	String newpw;
 	String newpwck;
 	String del;
-int redcard; //회원 레드카드
+	int redcard; //회원 레드카드
+	Date lastjoin;
+
 	
+	
+	public Date getLastjoin() {
+		return lastjoin;
+	}
+	public void setLastjoin(Date lastjoin) {
+		this.lastjoin = lastjoin;
+	}
 	public int getRedcard() {
 		return redcard;
 	}
 	public void setRedcard(int redcard) {
 		this.redcard = redcard;
 	}
-	
-	
-	
 
 	public String getDel() {
 		return del;

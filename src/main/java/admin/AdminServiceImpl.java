@@ -168,6 +168,10 @@ public class AdminServiceImpl implements AdminService {
 	public void adminreviewdel2(int p_code) {
 		admindao.adminreviewdel2(p_code);
 	}
+	@Override
+	public void adminreviewdel3(int p_code) {
+		admindao.adminreviewdel3(p_code);
+	}
 	
 	@Override
 	public MissionDTO adminreviewinfo(int p_code) {
@@ -282,7 +286,15 @@ public class AdminServiceImpl implements AdminService {
 		admindao.admincommentdelete(c_index);
 	}
 	
+	@Override
+	public List<CommentDTO> recomment(int c_index) {
+		return admindao.recomment(c_index);
+	}
 	
+	@Override
+	public void adminrecommentinsert(CommentDTO dto) {
+		admindao.adminrecommentinsert(dto);
+	}
 	
 	
 	
@@ -301,8 +313,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public void adminmemberdel(String id, String withdrawId) {
-		admindao.adminmemberdel(id, withdrawId);
+	public void adminmemberdel(String id, String delreason) {
+		admindao.adminmemberdel(id, delreason);
 	}
 
 	@Override
@@ -370,6 +382,7 @@ public class AdminServiceImpl implements AdminService {
 	public String searchpw(String id) {
 		return admindao.searchpw(id);
 	}
+
 
 
 

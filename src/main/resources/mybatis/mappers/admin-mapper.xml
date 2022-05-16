@@ -113,6 +113,18 @@
 		 set m.redcard = m.redcard+1 
 		 where p.id = m.id and p.p_code=#{p_code};
 	</update>
+
+	<update id="adminreviewdel3" parameterType="int">	
+		 update member m, participation p 
+		<choose>
+			<when test="redcard != null and redcard == 2">
+		 set m.point = 0 
+		</when>
+		<otherwise>
+		</otherwise>
+		</choose>
+		 where p.id = m.id and p.p_code=#{p_code};
+	</update>
 	
 	<select id="adminreviewinfo" parameterType="int" resultType="missiondto">
 		select p_code,id,p.m_code as m_code,p_complete,p_star,p_review,p_photo,m_name,m_type,m_location,m_date,p_redcard
@@ -196,12 +208,20 @@
 	<delete id="admincommentdelete" parameterType="int">
 		delete from comment where c_index=#{c_index};
 	</delete>
+	
+	<select id="recomment" parameterType="int" resultType="commentdto">
+		select * from comment where c_order=#{c_index};
+	</select>
+	
+	<insert id="adminrecommentinsert" parameterType="commentdto">
+		insert into comment(b_no,id,c_comment,c_order,c_regdate) values (#{b_no},#{id},#{c_comment},#{c_order},now());
+	</insert>
 
 
 	
 	
 	<select id="adminmemberlist" resultType="memberdto">
-		select * from member where admin != 1 order by del desc, id ;
+		select * from member where admin != 1 order by del, id ;
 	</select>
 	
 	<select id="admindeletenum" resultType="int">
@@ -209,7 +229,7 @@
 	</select>
 	
 	<update id="adminmemberdel" parameterType="String">
-		update member set id = #{withdrawId},del="Y" where id=#{id};
+		update member set del=#{delreason} where id=#{id};
 	</update>
 	
 	<select id="adminmemberboard" resultType="boarddto" parameterType="String">
@@ -231,7 +251,7 @@
 	</select>
 	
 	<update id="updatemember" parameterType="memberdto">
-		update member set grade=#{grade}, point=#{point}, carbon=#{carbon} where id=#{id};
+		update member set grade=#{grade}, point=#{point}, carbon=#{carbon},redcard=#{redcard} where id=#{id};
 	</update>
 	
 	<select id="idtopcode" parameterType="int" resultType="String">

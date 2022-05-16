@@ -108,7 +108,7 @@
 	</div>
 </div>
 <script>
-/* var map;
+var map;
 navigator.geolocation.getCurrentPosition(function(pos){
 	var latitude = pos.coords.latitude;   // 현재 위치 위도
 	var longitude = pos.coords.longitude;   // 현재 위치 경도
@@ -279,7 +279,7 @@ function getClickHandler(seq){
 		}
 	}
 }
- */
+
 </script>
 </body>
 </html>
