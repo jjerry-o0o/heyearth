@@ -68,7 +68,8 @@ public class MemberController {
 		}else if(userdto.admin == 1){ //관리자 로그인인 경우
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
-			return "admin/adminmain";
+			//return "admin/adminmain";
+			return "redirect:http://localhost:3000/adminmain";
 		}else if(!userdto.del.equals("Y") && !userdto.del.equals("N")) {
 			int delnum = service.deletenum() + 1;
 			String withdrawId = "탈퇴한 회원"+delnum;
