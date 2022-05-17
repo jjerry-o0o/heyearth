@@ -34,6 +34,11 @@
 		LIMIT #{page}, #{contentnum}
 	</select>
 	
+	<select id="selectBoardFindListPage" parameterType="int" resultType="boarddto">
+		SELECT * FROM board
+		<include refid="search"></include>
+	</select>
+	
 	<select id="testCount" resultType="int">
 		SELECT count(*) FROM board
 	</select>
@@ -74,9 +79,11 @@
 						OR b_content like CONCAT('%',#{keyword},'%') 
 						OR b_title like CONCAT('%',#{keyword},'%') 
 						ORDER BY b_type, b_regdate DESC
+						LIMIT #{page}, #{contentnum}
 					</when>
 					<otherwise>
 						ORDER BY b_type, b_regdate DESC
+						LIMIT #{page}, #{contentnum}
 					</otherwise>
 				</choose>
 			</when>
@@ -88,10 +95,12 @@
 						OR b_content like CONCAT('%',#{keyword},'%') 
 						OR b_title like CONCAT('%',#{keyword},'%'))
 						ORDER BY b_type, b_regdate DESC
+						LIMIT #{page}, #{contentnum}
 					</when>				
 					<otherwise>
 						WHERE b_type=#{type} 
 						ORDER BY b_type, b_regdate DESC
+						LIMIT #{page}, #{contentnum}
 					</otherwise>
 				</choose>
 			</otherwise>

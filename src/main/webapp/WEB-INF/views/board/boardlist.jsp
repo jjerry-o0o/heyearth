@@ -108,25 +108,21 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-			<tfoot>
-				<c:if test="${url != 'find'}">
+				<tfoot>
 					<tr id="pagination">
 						<td colspan="5">
-							<!-- paging -->
-							<c:if test="${page.prev }">
+							<!-- paging --> <c:if test="${page.prev }">
 								<a href="javascript:page(${page.getStartPage()-1});">&laquo;</a>
-							</c:if>
-							<c:forEach begin="${page.getStartPage() }" end="${page.getEndPage() }" var="idx">
-									<a href="javascript:page(${idx });" class="pagination">${idx }</a>
-							</c:forEach>
-							<c:if test="$page.next">
+							</c:if> <c:forEach begin="${page.getStartPage() }"
+								end="${page.getEndPage() }" var="idx">
+								<a href="javascript:page(${idx });" class="pagination">${idx }</a>
+							</c:forEach> <c:if test="$page.next">
 								<a href="javascript:page(${page.getEndPage()+1 });">&raquo;</a>
 							</c:if>
 						</td>
 					</tr>
-				</c:if>
-			</tfoot>
-		</table>
+				</tfoot>
+			</table>
 	</div>
 
 

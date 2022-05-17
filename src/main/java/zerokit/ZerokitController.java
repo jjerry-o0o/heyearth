@@ -29,7 +29,6 @@ public class ZerokitController {
 //public String zerokit() {
 //	return "zerokit/zerokit";
 //}
-	
 
 	// 제로키트 목록
 	// 환경지킴이 미션 목록
