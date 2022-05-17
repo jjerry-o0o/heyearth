@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import participation.ParticipationDTO;
 import participation.ParticipationService;
 import participation.ParticipationServiceImpl;
+import zeroshop.ZeroshopService;
+import zeroshop.ZeroshopServiceImpl;
 
 
 @Controller
@@ -25,6 +27,10 @@ public class MissionController {
 	@Autowired
 	@Qualifier("missionservice")
 	MissionService missionservice = new MissionServiceImpl();
+	
+	@Autowired
+	@Qualifier("zeroshopservice")
+	ZeroshopService service = new ZeroshopServiceImpl();
 	
 	
 	   //환경지킴이 미션 목록
@@ -57,7 +63,6 @@ public class MissionController {
 
 		   String id = (String) session.getAttribute("session_id");// 사용자 id 받아옴
 		   if (id == null) {
-			   System.out.println("노아이디");
 			} else {							   
 			   map.put("id", id);		 
 			   System.out.println("check");
@@ -82,20 +87,41 @@ public class MissionController {
 		}
 		
 		//제로 미션 신청하기 모달창
-		@RequestMapping("/zeromission")
-		@ResponseBody
-		public MissionDTO zeromission(int m_code) {
-			return missionservice.missiongroup(m_code);
-		}
+		/*
+		 * @RequestMapping("/zeromission")
+		 * 
+		 * @ResponseBody public MissionDTO zeromission(int m_code) { return
+		 * missionservice.missiongroup(m_code); }
+		 */
+		//제로 미션 신청하기 모달창
+		/*
+		 * @RequestMapping("/zeromission")
+		 * 
+		 * @ResponseBody public ModelAndView zeromission(int m_code, String fontfile) {
+		 * fontfile = "rec3.jpg"; String json =
+		 * ((MissionServiceImpl)missionservice).test(fontfile); ModelAndView mv = new
+		 * ModelAndView(); mv.addObject("ocrresult", json); mv.addObject("zero",
+		 * missionservice.missiongroup(m_code)); mv.setViewName("mission/ocrresult");
+		 * return mv; }
+		 */
 
 		//영수증 OCR 분석
+		
+		
+		
 		/*
-		 * @RequestMapping("/ocrresult") public ModelAndView ocrresult(String fontfile){
-		 * fontfile = "rec3.jpg"; String json = ((MissionServiceImpl)
-		 * missionservice).test(fontfile); ModelAndView mv = new ModelAndView();
-		 * mv.addObject("ocrresult", json); mv.setViewName("mission/ocrresult"); return
-		 * mv; }
+		 * @RequestMapping("/ocrresult") public ModelAndView ocrresult(int m_code,String
+		 * fontfile){ fontfile = "rec3.jpg"; String json =
+		 * ((MissionServiceImpl)missionservice).test(fontfile); ModelAndView mv = new
+		 * ModelAndView(); mv.addObject("ocrresult", json); mv.addObject("zero",
+		 * missionservice.missiongroup(m_code));
+		 * mv.addObject("shop",service.zeroshopname());
+		 * mv.setViewName("mission/ocrresult");
+		 * System.out.println(service.zeroshopname()); return mv; }
 		 */
+		 
+		 
+		 
 		 
 			
 }//Controller end

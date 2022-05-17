@@ -48,6 +48,11 @@ public class ZeroshopServiceImpl implements ZeroshopService{
 	}
 
 	@Override
+	public List<ZeroshopDTO> zeroshopname() {
+		return zerodao.zeroshopname();
+	}
+
+	@Override
 	public List<Integer> locidall(String big_loc) {
 		return zerodao.locidall(big_loc);
 	}
