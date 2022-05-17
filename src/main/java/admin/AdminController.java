@@ -37,12 +37,33 @@ public class AdminController {
 	@Qualifier("adminservice")
 	AdminService adminservice = new AdminServiceImpl();
 	
+	/* 0. react 이용 */
+	// react에게 session id 전송
+	@RequestMapping("/loginadmin")
+	@ResponseBody
+	public String adminlogin(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("session_id");
+		System.out.println(id);
+		return id;
+	}	
+	
+	// 제로샵 리스트 전송
+	@RequestMapping("/zeroshoplistadmin")
+	@ResponseBody
+	public List<ZeroshopDTO> zeroshoplistadmin(){
+		List<ZeroshopDTO> zeroshoplist = adminservice.adminzeroshoplist();
+		
+		return zeroshoplist;
+	}
+	
 	
 	/* 1.관리자 메인 */
 	@RequestMapping("/adminmain")
 	public String adminmain() {
 		return "admin/adminmain";
 	}
+
 	
 	
 	/* 2.제로샵 관리 */

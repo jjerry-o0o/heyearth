@@ -1,6 +1,8 @@
 package member;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +61,7 @@ public class MemberController {
 	
 	//로그인 기능 구현 컨트롤러
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String loginmember(String id, String pw, HttpServletRequest request, Model model) {
+	public String loginmember(String id, String pw, HttpServletRequest request, Model model, HttpServletResponse response) {
 		MemberDTO userdto = service.loginmember(id, pw);
 		
 		if(userdto == null) { //로그인 실패인 경우
@@ -68,6 +70,11 @@ public class MemberController {
 		}else if(userdto.admin == 1){ //관리자 로그인인 경우
 			HttpSession session = request.getSession();
 			session.setAttribute("session_id", userdto.getId());
+			Cookie idCookie = new Cookie("id",userdto.getId());
+			idCookie.setPath("/");
+			idCookie.setMaxAge(60*60*24);  // 하루 동안 유지
+			response.addCookie(idCookie);
+			
 			//return "admin/adminmain";
 			return "redirect:http://localhost:3000/adminmain";
 		}else if(!userdto.del.equals("Y") && !userdto.del.equals("N")) {
