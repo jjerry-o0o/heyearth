@@ -16,7 +16,14 @@
 	align-items: flex-start;
 }
 
-.kit-img img {
+.kit_img img {
 	display : block;
 	
 }
+.kitdetails{
+	box-shadow: 1px 1px 1px 1px gray;
+
+	
+}
+
+
