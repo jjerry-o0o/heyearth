@@ -150,13 +150,13 @@ public class BoardServiceImpl implements BoardService{
 		pagemaker.setEndPage(pagemaker.getLastblock(), pagemaker.getCurrentblock());
 		
 		if(ccontentnum ==5) {
-			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*5, pagemaker.getContentnum());	
+			list = boarddao.selectBoardFindListPage(pagemaker.getPagenum()*5, pagemaker.getContentnum());	
 		}
 		else if(ccontentnum == 10) {
-			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*10, pagemaker.getContentnum());
+			list = boarddao.selectBoardFindListPage(pagemaker.getPagenum()*10, pagemaker.getContentnum());
 		}
 		else if(ccontentnum ==15) {
-			list = boarddao.selectBoardListPage(pagemaker.getPagenum()*15, pagemaker.getContentnum());
+			list = boarddao.selectBoardFindListPage(pagemaker.getPagenum()*15, pagemaker.getContentnum());
 		}
 		
 		model.addAttribute("test", list);
