@@ -37,7 +37,8 @@
 	set grade = g.g_code
 	where id = #{id} and (carbon BETWEEN g.g_start AND g.g_end); 
     </update>
-    
+
+
     
 <!-- 단체 미션 취소하기(+모집인원 리셋) -->    
     <delete id="delete">
