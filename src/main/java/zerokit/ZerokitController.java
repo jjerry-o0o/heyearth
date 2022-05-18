@@ -25,10 +25,12 @@ public class ZerokitController {
 //		return "zerokit/zerokit";
 //	}
 	
-//@RequestMapping(value = "/zerokit", method = RequestMethod.GET)
-//public String zerokit() {
-//	return "zerokit/zerokit";
-//}
+@RequestMapping(value = "/zerokit", method = RequestMethod.GET)
+public ModelAndView zerokit(ModelAndView mav) {
+	 mav.setViewName("zerokit/zerokit");
+     mav.addObject("zerokitlist", zerokitservice.zerokitlist()); 
+     return mav;  
+}
 
 
 
