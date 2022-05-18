@@ -20,10 +20,13 @@
 	display : block;
 	
 }
+.kit-section{
+/* 	text-align: center; */
+}
 .kitdetails{
 	box-shadow: 1px 1px 1px 1px gray;
-
-	
+	width : 90%;
+	display : inline-block;
 }
 
 

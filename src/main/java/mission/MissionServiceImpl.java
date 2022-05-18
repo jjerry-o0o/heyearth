@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
@@ -61,18 +63,21 @@ public class MissionServiceImpl implements MissionService {
 	public List<MissionDTO> missioncheck(String m_name) {//미션 체크
 		return dao.missioncheck(m_name);    
 	}
-	//제로웨이스트샵 인증 미션
+	
+	//제로웨이스트샵 인증 미션 불러오기
 	@Override
 	public MissionDTO missionlist_zero() {
 		return dao.missionlist_zero();  
 	}
 	
+	//OCR Document 영수증 인식하기
 	@SuppressWarnings("unchecked")
 	public String test(String fontfile) {
 		StringBuffer response = new StringBuffer();
 		String apiURL = "https://7s2xksian5.apigw.ntruss.com/custom/v1/15736/175b50fa2856ddfecde058ac4bdc6c3fba076c35fa181d7edee2dcf7bf182593/document/receipt";
 		String secretKey = "TmN4QmF6dXFQZGRaUFRHblVOV3lnTlFJZ2JhclZ1VFU=";
-		String imageFile = "C:/Users/박희영/Desktop/프젝용업로드/" + fontfile;
+		Path currentPath = Paths.get("");
+		String imageFile = currentPath.toAbsolutePath().toString() + "/src/main/resources/static/img/" + fontfile;
 
 		try {
 			URL url = new URL(apiURL);

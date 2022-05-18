@@ -67,7 +67,7 @@
 			</div>
 		 </c:if>	 
 </div>
-	<a href="${pageContext.request.contextPath}/adminmain"><img class="header_img" src="${pageContext.request.contextPath}/img/logo.png"></a>
+	<a href="http://localhost:3000/adminmain"><img class="header_img" src="${pageContext.request.contextPath}/img/logo.png"></a>
 	
 
 <!-- 메뉴바 목록 -->
