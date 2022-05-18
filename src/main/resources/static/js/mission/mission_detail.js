@@ -36,7 +36,7 @@ function solodetail(code){
 
 //제로웨이스트샵 인증미션 모달창
 function zeromission(code){
-	location.href="/ocrresult?m_code=14";
+	location.href="/ocrresult2";
 }
 
 
