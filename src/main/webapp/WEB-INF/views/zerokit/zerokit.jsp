@@ -39,15 +39,18 @@
 				src="<%=request.getContextPath()%>/img/${zerokit.k_photo}"
 				style="cursor: pointer;" />
 		</div>
+		<div class ="kit-section">
 			<div class="kitdetails">
-					
+				
    					<p>${zerokit.k_name}</p><br>
    					<p>${zerokit.k_text}</p><br>
    					<a href ="${zerokit.k_url}" title="${zerokit.k_name}">
    				</a>
    				${zerokit.k_url}
-   				${zerokit.k_name}
    				
+   				
+   				
+   				</div>
 			</div>
 		
 
