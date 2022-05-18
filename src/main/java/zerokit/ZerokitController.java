@@ -30,6 +30,14 @@ public class ZerokitController {
 //	return "zerokit/zerokit";
 //}
 
+	   @RequestMapping("/zerokit") 
+	   public ModelAndView zerokitlist(ModelAndView mav) {
+	        mav.setViewName("zerokit/zerokit");
+	        mav.addObject("zerokit", zerokitservice.zerokitlist());//모집 단체 목록
+
+	        return mav;  
+	    }
+	
 
 
 }
