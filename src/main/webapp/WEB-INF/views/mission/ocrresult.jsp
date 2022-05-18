@@ -19,10 +19,21 @@ $(document).ready(function() {
 		var product = json.images[0].receipt.result.subResults[0].items[0].name.text;
 		var price = json.images[0].receipt.result.subResults[0].items[0].price.price.text;
 		var total = json.images[0].receipt.result.totalPrice.price.text;
+		
+		
 		$("#title").html("<h1>"+title+"</h1>");
+		$("#shop").val(title);
 		$("#title").append("<h2>"+product+"를 "+ price+"원 만큼 구매하셨습니다.</h2>");
 		$("#title").append("<h2>총 "+total+"원의 상품을 구매하셨습니다.</h2>");
 		});
+		
+</script>
+<script>
+let list = [];
+<c:forEach items="${shop }" var="row">
+list.push("${row.s_name}");
+</c:forEach>
+alert(list[0]);
 </script>
 </head>
 
@@ -35,7 +46,15 @@ $(document).ready(function() {
 <div id=title>
 
 </div>
-
+<div>
+<%-- 미션명 : ${zero.m_name } <br>
+<input id="shop" type=hidden>
+<c:forEach items="${shop }" var="row">
+<c:if test="${row.s_name == '지구랑가게' }">
+영수증과 일치하는 제로웨이스트샵 가게 이름 : ${row.s_name}
+</c:if>
+</c:forEach> --%>
+</div>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

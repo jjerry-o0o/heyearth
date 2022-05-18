@@ -36,22 +36,7 @@ function solodetail(code){
 
 //제로웨이스트샵 인증미션 모달창
 function zeromission(code){
-	$.ajax({
-		url : "/zeromission",
-		type : "get",
-		data : {"m_code" : code},
-		success : function(solo){
-			document.getElementById("modal2").style.display = "flex";
-			$('html').scrollTop(0);
-			$("#modalh3").text(solo.m_name);
-			$("#register_contents2").html("포인트 획득<span style='font-weight:700; font-size:20px;'> " + solo.m_point + "p</span><br>");
-			$("#register_contents2").append("탄소배출 감소량 <span style='font-weight:700; font-size:20px;'>" + solo.m_carbon + "g</span><br>");
-			$("#register_contents2").append("미션방법 <span style='font-weight:700; font-size:20px;'>" + solo.m_inform + "</span><br><br>");
-			$("#register_contents2").append("<span style='color:green'>사진을 찍고 미션을 완료해보세요!</span><br>");
-			$("#register_contents2").append("<img class=p_img id=previewimg><br>");
-			$("#p_photo").val(solo.p_photo); 
-		}
-	});
+	location.href="/ocrresult?m_code=14";
 }
 
 
