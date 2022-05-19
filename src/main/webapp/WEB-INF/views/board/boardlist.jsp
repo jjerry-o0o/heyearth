@@ -108,7 +108,7 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-				<c:if test="${method } !='find'">
+				<c:if test="${method != 'find'}">
 					<tfoot>
 						<tr id="pagination">
 							<td colspan="5">
