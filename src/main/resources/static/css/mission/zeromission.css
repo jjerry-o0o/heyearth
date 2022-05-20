@@ -1,0 +1,55 @@
+@charset "UTF-8";
+body{
+	min-width: 1400px;
+}
+label {
+	display: inline-block;
+	padding: 10px 80px;
+	color: black;
+	font-size: inherit;
+	font-weight: 400;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #f6f5f0;
+	cursor: pointer;
+	border: 2px solid #1A271D;
+	width: 137px;
+}
+
+label:hover {
+	background-color: #1A271D;
+	color: #f6f5f0;
+}
+
+label:active {
+	background-color: #1A271D;
+	color: #f6f5f0;
+}
+
+input[type="file"] { /* 파일 필드 숨기기 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+.button {
+	padding: 10px 100px;
+	font-size: inherit;
+	font-weight: 400;
+	line-height: normal;
+	background-color: #f6f5f0;
+	cursor: pointer;
+	border: 2px solid #1A271D;
+	margin: 10px auto;
+	width: 301px;
+}
+
+.button:hover {
+	background-color: #1A271D;
+	color: #f6f5f0;
+}

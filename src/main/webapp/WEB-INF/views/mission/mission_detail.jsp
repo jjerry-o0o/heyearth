@@ -50,6 +50,9 @@ $(document).ready(function(){
 				<input type="hidden" name="m_code" value="${group.m_code }">
 				<input type="hidden" name="result" id="result" value="${result }">
 				<input type="hidden" name="p_friends" value=1>
+				<input type="hidden" name="p_point" value="${group.m_point }"> 
+				<input type="hidden" name="p_location" value="${group.m_location }">
+				<input type="hidden" name="m_date" value="${group.m_date }">
 				
 				<div>
 				<br>
@@ -74,6 +77,8 @@ $(document).ready(function(){
 				<input type="hidden" name="p_complete" value=1>
 				<input type="hidden" name="m_point" value="${group.m_point}">
 				<input type="hidden" name="m_carbon" value="${group.m_carbon}">
+				<input type="hidden" name="p_location" value="${group.m_location}">
+				<input type="hidden" name="p_point" value="${group.m_point}">
 				<input name="image" id="input-image" type="file" accept="image/*"  required>
 					<br><br>
 				<input type='submit' id='register_complete' class="register" value='참가하기'>
@@ -118,10 +123,18 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 				<hr>
 				</div>
 				<ul>
+				<c:if test="${group.m_type == 'zero'}">
+				<li style="color: pink"><strong>★특별 미션!★</strong></li>
+				</c:if>
 				<li><h2>${group.m_name }</h2></li>
 				<li> ${group.m_inform }</li>
 				<li>장소 : ${group.m_location }</li>
+				<c:if test="${group.m_type == 'solo' || group.m_type == 'group'}">
 				<li>포인트 획득 : ${group.m_point }p</li>
+				</c:if>
+				<c:if test="${group.m_type == 'zero'}">
+				<li>포인트 획득 : 구매 금액의 10분의 1 적립</li>
+				</c:if>
 				<li>탄소 배출 감소량 : ${group.m_carbon }g</li>
 				<c:if test="${(regDate2 - toDate2) >= 0 }">
 					<c:if test="${group.m_type == 'solo' || group.m_type == 'zero'}">
@@ -247,10 +260,7 @@ margin-bottom: 20px;background-color: white; padding-top:10px;padding-bottom:5px
 		</div>
 			</c:forEach>
 	</div>
-	<%-- <c:forEach items="${map.list }" var="star">
-		<div>별점 : ${star.p_star}</div>
-	</c:forEach>
-	별점 준 사람 수 : ${map.count } --%>
+	
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
