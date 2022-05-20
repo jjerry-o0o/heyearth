@@ -34,11 +34,6 @@
 		LIMIT #{page}, #{contentnum}
 	</select>
 	
-	<select id="selectBoardFindListPage" parameterType="int" resultType="boarddto">
-		SELECT * FROM board
-		<include refid="search"></include>
-	</select>
-	
 	<select id="testCount" resultType="int">
 		SELECT count(*) FROM board
 	</select>
@@ -60,6 +55,11 @@
 		SELECT * FROM board WHERE id = #{id}
 	</select>
 	
+	<select id="findListPage" parameterType="map" resultType="boarddto">
+		SELECT * FROM board
+		<include refid="search2"></include>
+	</select>
+	
 	<select id="findList" parameterType="map" resultType="boarddto">
 		SELECT * FROM board
 		<include refid="search"></include>
@@ -71,6 +71,38 @@
 	</select>
 	
 	<sql id="search">
+		<choose>
+			<when test="type.equals('all')">
+				<choose>
+					<when test="!keyword.equals('')">
+						WHERE id like CONCAT('%',#{keyword},'%') 
+						OR b_content like CONCAT('%',#{keyword},'%') 
+						OR b_title like CONCAT('%',#{keyword},'%') 
+						ORDER BY b_type, b_regdate DESC
+					</when>
+					<otherwise>
+						ORDER BY b_type, b_regdate DESC
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				<choose>
+					<when  test="!keyword.equals('')">
+						WHERE b_type=#{type} AND
+						(id like CONCAT('%',#{keyword},'%') 
+						OR b_content like CONCAT('%',#{keyword},'%') 
+						OR b_title like CONCAT('%',#{keyword},'%'))
+						ORDER BY b_type, b_regdate DESC
+					</when>				
+					<otherwise>
+						WHERE b_type=#{type} 
+						ORDER BY b_type, b_regdate DESC
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="search2">
 		<choose>
 			<when test="type.equals('all')">
 				<choose>

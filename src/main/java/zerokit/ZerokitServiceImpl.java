@@ -23,6 +23,11 @@ public class ZerokitServiceImpl implements ZerokitService{
 	public List<ZerokitDTO> zerokitlist() {
 		return zerokitdao.zerokitlist();
 	}
+
+	@Override
+	public List<ZerokitDTO> zerokitdetail() {
+				return zerokitdao.zerokitdetail();
+	}
 	
 	
 	
