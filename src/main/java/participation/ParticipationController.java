@@ -111,7 +111,7 @@ public class ParticipationController {
 		return "redirect:/participation";
 	}
 	
-	// 제로웨이스트샵 인증 미션 등록&인증하기(수정중)
+	// 제로웨이스트샵 인증 미션 등록&인증하기
 	@RequestMapping("/register_complete2")
 	public String register_complete2(@ModelAttribute ParticipationDTO dto, HttpSession session) throws Exception {
 		String id = (String) session.getAttribute("session_id");
@@ -190,13 +190,13 @@ public class ParticipationController {
 	}
 	
 	// 제로웨이스트샵 인증 미션 상세 페이지
-	@RequestMapping(value = "/ocrresult2", method = RequestMethod.GET)
+	@RequestMapping(value = "/zeromission", method = RequestMethod.GET)
 	public String ocrresult2() {
-		return "mission/ocrresult2";
+		return "mission/zeromission";
 	}
 
 	// 영수증 사진 업로드
-	@RequestMapping(value = "/ocrresult2", method = RequestMethod.POST)
+	@RequestMapping(value = "/zeromission", method = RequestMethod.POST)
 		@ResponseBody
 		public String receiptupload(@RequestParam("uploadFile") MultipartFile uploadFile) throws IOException {
 			

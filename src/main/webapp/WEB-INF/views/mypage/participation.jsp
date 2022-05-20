@@ -46,7 +46,7 @@
 					name="p_friends" id="p_friends"> <input type="hidden"
 					name="p_complete" id="p_complete"> <input type="hidden"
 					name="p_completedate" id="p_completedate"> <input type="hidden"
-					name="m_date" id="m_date"> <input name="p_photo"
+					name="m_date" id="m_date">  <input name="p_photo"
 					type="hidden" id="p_photo"> <input name="image"
 					id="input-image" type="file" accept="image/*" required> <br>
 				<br>
@@ -127,7 +127,7 @@
 								value="${row.p_completedate}">
 							<canvas width="250px" height="250px" id="myCanvas${row.p_code }"></canvas>
 							<br>
-							<span style="font-size: large; font-weight: 700; color: green;">${row.m_point}p</span> 포인트를 획득했습니다.<br>
+							<span style="font-size: large; font-weight: 700; color: green;">${row.p_point}p</span> 포인트를 획득했습니다.<br>
 							<span style="font-size: large; font-weight: 700; color: green;">${row.m_carbon }g</span>의 탄소배출량을 줄였습니다.<br>
 							<c:if test="${row.p_review == null }">
 								<input type="button" class="button" value="리뷰작성"
@@ -144,7 +144,12 @@
 						</c:if>
 						<c:if test="${row.m_type == 'group' }">
 					${row.p_completedate} / 
-					 ${row.m_location}<br>
+					 ${row.p_location}<br>
+							<br>
+						</c:if>
+						<c:if test="${row.m_type == 'zero' }">
+					${row.p_completedate} / 
+					 ${row.p_location}<br>
 							<br>
 						</c:if>
 						<div></div>
