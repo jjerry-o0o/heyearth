@@ -113,9 +113,9 @@
 							
 						<!--  미션 간략 정보 -->	
 							<ul class="list">
-								<li style="color: green"><strong>특별 미션!</strong></li>
+								<li style="color: pink"><strong>★특별 미션!★</strong></li>
 								<li><a href="mission_detail/${zero.m_code}"><h3>${zero.m_name }</h3></a></li>
-								<li>포인트 : ${zero.m_point }p</li>
+								<li>포인트 : 구매 금액의 10분의 1 적립</li>
 								<li>탄소배출감소량 : ${zero.m_carbon }g</li>
 							</ul>
 						</div>
