@@ -31,45 +31,48 @@
 </div>
 
 
-<div class="kit_grid grid"
-	style="display: inline-block; width: 100%; text-align: center">
-	<c:forEach items="${zerokitlist }" var="zerokit">
+<div class="kit_grid grid" style="display: inline-block; width: 100%; text-align: center">
+	<c:forEach items="${zerokitlist }" var="zerokit" varStatus="status">
 		<div class="kit_img" style="display: inline-block;" >
-			<img class="eachimg" width=200px height=200px
+			<img class="eachimg" id=${status.current } width=200px height=200px
 				src="<%=request.getContextPath()%>/img/${zerokit.k_photo}"
-				style="cursor: pointer;" />
+				style="cursor: pointer;" onClick=detail() />
 		</div>
-		<div class ="kit-section">
-			<div class="kitdetails">
-				
-   					<p>${zerokit.k_name}</p><br>
-   					<p>${zerokit.k_text}</p><br>
-   					<a href ="${zerokit.k_url}" title="${zerokit.k_name}">
-   				</a>
-   				${zerokit.k_url}
-   				
-   				
-   				
-   				</div>
-			</div>
+		</c:forEach>
+		<div id='detail_div'></div>
 		
-
-	</c:forEach>
 </div>
 
 <script>
-$(document).ready(function(){
-	$("eachimg").show(); //기본값 보이기
-	$(".kitdetails").hide(); //기본값 숨기기
-	
-	//이미지 클릭 시 보이기 및 숨기기
-	$("div.kit_img").click(function(){
-		$(".kitdetails").show('fast');
+function detail(){
+	$.ajax({
+		url : /zerokitdetail,
+		data : ${zerokit.k_code},
+		success : function(list){
+			$("#detail_div").empty();
+			
+			if(list.lenght == ${k_code})
+			$("#detail_div").html("<p>")
+		}
 	});
 	
 	
-});
+};
+
+function detail(){
+	var code = document.getElementById("${status.current}").k_code;
+	
+	$.ajax({
+		url : ,
+		data : code,
+		type : post,
+		success : function(data){
+			$("#detail_div").html("<p>"+ data.k_ + "</p><br><p>" + data.k_);
+		}
+	})
+}
 </script>
+
 
 </html>
 
