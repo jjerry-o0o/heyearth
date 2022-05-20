@@ -31,11 +31,10 @@
 </div>
 
 
-<div class="kit_grid grid"
-	style="display: inline-block; width: 100%; text-align: center">
-	<c:forEach items="${zerokitlist }" var="zerokit">
+<div class="kit_grid grid" style="display: inline-block; width: 100%; text-align: center">
+	<c:forEach items="${zerokitlist }" var="zerokit" varStatus="status">
 		<div class="kit_img" style="display: inline-block;" >
-			<img class="eachimg" width=200px height=200px
+			<img class="eachimg" id=${status.current } width=200px height=200px
 				src="<%=request.getContextPath()%>/img/${zerokit.k_photo}"
 				style="cursor: pointer;" onClick=detail() />
 		</div>
@@ -47,8 +46,8 @@
 <script>
 function detail(){
 	$.ajax({
-		url : /zerokitdetail
-		data : ${zerokit.k_code}
+		url : /zerokitdetail,
+		data : ${zerokit.k_code},
 		success : function(list){
 			$("#detail_div").empty();
 			
@@ -56,8 +55,22 @@ function detail(){
 			$("#detail_div").html("<p>")
 		}
 	});
-}
+	
+	
+};
 
+function detail(){
+	var code = document.getElementById("${status.current}").k_code;
+	
+	$.ajax({
+		url : ,
+		data : code,
+		type : post,
+		success : function(data){
+			$("#detail_div").html("<p>"+ data.k_ + "</p><br><p>" + data.k_);
+		}
+	})
+}
 </script>
 
 

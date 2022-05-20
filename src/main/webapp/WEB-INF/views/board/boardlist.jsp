@@ -80,7 +80,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${boardlist }" var="board">
+				<c:forEach items="${findlist }" var="board">
 					<tr id="content_td" onClick="location.href='/boardview?b_no=${board.b_no }'">
 						<td>
 							<c:if test="${board.b_type =='all'}">전체</c:if> 
@@ -108,20 +108,25 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-				<tfoot>
-					<tr id="pagination">
-						<td colspan="5">
-							<!-- paging --> <c:if test="${page.prev }">
-								<a href="javascript:page(${page.getStartPage()-1});">&laquo;</a>
-							</c:if> <c:forEach begin="${page.getStartPage() }"
-								end="${page.getEndPage() }" var="idx">
-								<a href="javascript:page(${idx });" class="pagination">${idx }</a>
-							</c:forEach> <c:if test="$page.next">
-								<a href="javascript:page(${page.getEndPage()+1 });">&raquo;</a>
-							</c:if>
-						</td>
-					</tr>
-				</tfoot>
+				<c:if test="${method != 'find'}">
+					<tfoot>
+						<tr id="pagination">
+							<td colspan="5">
+								<!-- paging -->
+								<c:if test="${page.prev }">
+									<a href="javascript:page(${page.getStartPage()-1});">&laquo;</a>
+								</c:if>
+								<c:forEach begin="${page.getStartPage() }"
+									end="${page.getEndPage() }" var="idx">
+									<a href="javascript:page(${idx });" class="pagination">${idx }</a>
+								</c:forEach>
+								<c:if test="$page.next">
+									<a href="javascript:page(${page.getEndPage()+1 });">&raquo;</a>
+								</c:if>
+							</td>
+						</tr>
+					</tfoot>
+				</c:if>
 			</table>
 	</div>
 
