@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$("#previewimg").hide();
 	
 	$("#zeroshopback").on('click',function(){
-		location.href = "adminzeroshop";
+		location.href = "http://localhost:3000/adminzeroshop";
 	});
 	
 	const inputImage = document.getElementById("input-image")
