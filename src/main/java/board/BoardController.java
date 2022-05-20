@@ -40,15 +40,13 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/boardfind")
-	public String boardfind(@RequestParam String type, @RequestParam String keyword, 
-			Model model, BoardDTO dto, @RequestParam(defaultValue="1") String pagenum,
-			@RequestParam(defaultValue="10")String contentnum) {
+	public String boardfind(@RequestParam String type, @RequestParam String keyword, Model model, BoardDTO dto) {
 		
 		
 		List<BoardDTO> findlist = boardservice.findList(type, keyword);
 		
 		model.addAttribute("findlist", findlist);
-		boardservice.executefind(model, pagenum, contentnum);
+		model.addAttribute("method", "find");
 		
 		return "/board/boardlist";
 	}

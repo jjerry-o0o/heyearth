@@ -17,13 +17,11 @@ public class ZerokitController {
 	@Qualifier("zerokitservice")
 	ZerokitService zerokitservice = new ZerokitServiceImpl();
 	
-@RequestMapping(value = "/zerokit", method = RequestMethod.GET)
-public ModelAndView zerokit(ModelAndView mav) {
-	 mav.setViewName("zerokit/zerokit");
-     mav.addObject("zerokitlist", zerokitservice.zerokitlist()); 
-     return mav;  
-}
-
-
+	@RequestMapping(value = "/zerokit", method = RequestMethod.GET)
+	public ModelAndView zerokit(ModelAndView mav) {
+		mav.setViewName("zerokit/zerokit");
+		mav.addObject("zerokitlist", zerokitservice.zerokitlist());
+		return mav;
+	}
 
 }
