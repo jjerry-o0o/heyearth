@@ -100,6 +100,8 @@ function mymissiondetail(code){
 			$("#p_photo").val(mymission.p_photo); 
 			$("#p_completedate").val(mymission.p_completedate); 
 			$("#m_date").val(mymission.m_date); 
+			$("#p_point").val(mymission.m_point); 
+			$("#p_location").val(mymission.m_location); 
 		}
 	});
 }

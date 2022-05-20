@@ -25,6 +25,22 @@ public class ParticipationDTO {
 	String m_type;//미션 타입
 	String m_location;//미션 장소
 int redcard; //회원 레드카드
+String p_completedate;//완료 날짜
+MultipartFile image;
+public int getP_point() {
+	return p_point;
+}
+public void setP_point(int p_point) {
+	this.p_point = p_point;
+}
+public String getP_location() {
+	return p_location;
+}
+public void setP_location(String p_location) {
+	this.p_location = p_location;
+}
+int p_point;//참가미션 포인트
+String p_location;//참가미션 장소
 	
 	public int getRedcard() {
 		return redcard;
@@ -39,8 +55,6 @@ int redcard; //회원 레드카드
 	public void setP_completedate(String p_completedate) {
 		this.p_completedate = p_completedate;
 	}
-	String p_completedate;//완료 날짜
-	MultipartFile image;
 
 
 public String getM_location() {
