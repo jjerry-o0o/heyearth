@@ -2,6 +2,7 @@ package board;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
@@ -26,7 +27,6 @@ public interface BoardService {
 	
 	//페이징
 	public int execute(Model model, String pagenum, String contentnum);
-	public int executefind(Model model, String pagenum, String contentnum);
 	
 	//댓글
 	public boolean addComment(CommentDTO dto);
