@@ -7,12 +7,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import board.BoardDTO;
 import comment.CommentDTO;
@@ -51,10 +54,27 @@ public class AdminController {
 	// 제로샵 리스트 전송
 	@RequestMapping("/zeroshoplistadmin")
 	@ResponseBody
-	public List<ZeroshopDTO> zeroshoplistadmin(){
+	public List<JSONObject> zeroshoplistadmin(){
 		List<ZeroshopDTO> zeroshoplist = adminservice.adminzeroshoplist();
 		
-		return zeroshoplist;
+		List<JSONObject> list = new ArrayList<JSONObject>();
+		for(int i=0; i< zeroshoplist.size();i++) {
+			JSONObject jsonObj = new JSONObject();
+			jsonObj.put("s_code", zeroshoplist.get(i).getS_code());
+			jsonObj.put("s_name", zeroshoplist.get(i).getS_name());
+			//String jsonStr = gson.toJson(zeroshoplist.get(i));
+			list.add(jsonObj);
+		}
+		
+		//System.out.println(list);
+		return list;
+	}
+	
+	// 제로샵 삭제
+	@RequestMapping("/zeroshopdeladmin")
+	@ResponseBody
+	public void reactzeroshopdel(int s_code) {
+		adminservice.adminzeroshopdel(s_code);
 	}
 	
 	
@@ -137,7 +157,8 @@ public class AdminController {
 		
 		adminservice.updatezeroshop(dto);
 		
-		return "redirect:/adminzeroshop";
+		//return "redirect:/adminzeroshop";
+		return "redirect:http://localhost:3000/adminzeroshop";
 	}
 	
 	/* 제로샵 등록 페이지 띄우기*/
@@ -187,7 +208,8 @@ public class AdminController {
 		adminservice.insertzeroshop(dto);
 		
 		
-		return "redirect:/adminzeroshop";
+		//return "redirect:/adminzeroshop";
+		return "redirect:http://localhost:3000/adminzeroshop";
 	}
 	
 	
