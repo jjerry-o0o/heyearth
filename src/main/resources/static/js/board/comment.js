@@ -39,6 +39,19 @@
 		});
 	}
 	
+	function insert2() {
+		$.ajax({
+			type: "post",
+			url: "/insertcomment",
+			data: { "id": $(".id").val(), "c_comment": $("#c_comment").val(), "b_no": $(".b_no").val(), "c_order":$(".c_order").val()},
+			success: function() {
+				$("#c_comment").val("");
+				$("#comment_tb").empty();
+				selectlist();
+			}
+		});
+	}
+	
 	function alter(i){
 		$("#alter_div"+i).append("<form class='calter_div'><h3 class='comment_h'>'"+$("#c_comment"+i).val()+"'을<br>수정중입니다.</h3>"
 		+ "<textarea class='a_comment' id='a_comment"+i+"' name='c_comment' placeholder='"+ $("#c_comment"+i).val() +"' rows='3' cols='50'></textarea>"
