@@ -20,4 +20,5 @@
     <delete id="delete">
         delete from myguide where mg_code=#{mg_code}
     </delete>
+
   </mapper>

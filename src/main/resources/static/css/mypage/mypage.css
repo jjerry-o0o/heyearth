@@ -273,6 +273,16 @@ h3 {
 	border: 2px solid black;
 	width: 180px;
 }
+#couponbtn{
+	border: 2px solid black;
+	background-color : #f6f5f0;
+	display:inline-block;
+	margin-left: 10px;
+}
+#couponbtn:hover {
+	background-color: black;
+	color : #f6f5f0;
+}
 
 /* 현재 비밀번호 */
 #pw p{
@@ -474,5 +484,16 @@ h3 {
         .pop .layerBox .title {margin-bottom:10px; padding-bottom:10px; font-weight:600; border-bottom:1px solid #d9d9d9; text-align: left;}
         .pop .layerBox .cont {margin-bottom:40px;}
         .pop .layerBox p {line-height:20px; font-size:18px;}
-        .pop .layerBox .btnClose {display:inline-block; position:absolute; right:30px; top:40px; padding:6px 12px; color:#444; font-size:12px; text-decoration:underline;}
-        .pop .layerBox .btnTodayHide {font-size:13px; font-weight:600; text-decoration:underline;}
+        .pop .layerBox .btnClose {display:inline-block; position:absolute; right:30px; top:40px; padding:6px 12px; color:#444; font-size:15px; text-decoration:underline;}
+        .pop .layerBox .btnTodayHide {font-size:15px; font-weight:600; text-decoration:underline;}
+        
+.span{
+	color:red;
+	font-weight:600;
+	font-size:22px;
+}
+.name{
+	color:#1A271D;
+	font-weight:600;
+	font-size:22px;
+}

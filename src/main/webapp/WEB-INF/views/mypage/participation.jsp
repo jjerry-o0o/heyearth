@@ -39,7 +39,7 @@
 					type="hidden" name="m_code" id="m_code"> <input
 					type="hidden" name="id" id="id"> <input type="hidden"
 					name="point" id="point"> <input type="hidden"
-					name="m_point" id="m_point"> <input type="hidden"
+					name="p_point" id="m_point"> <input type="hidden"
 					name="carbon" id="carbon"> <input type="hidden"
 					name="m_carbon" id="m_carbon"> <input type="hidden"
 					name="m_personnel" id="m_personnel"> <input type="hidden"
