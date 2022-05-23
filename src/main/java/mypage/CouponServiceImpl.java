@@ -24,8 +24,10 @@ public class CouponServiceImpl implements CouponService {
 	  public int coupon_insert(CouponDTO dto) { //쿠폰 등록하기
 	  return dao.coupon_insert(dto); 
 	  }
-	 
-	
+	  @Override 
+	  public void coupon_point(CouponDTO dto) { //멤버 포인트 변경
+		  dao.coupon_point(dto);
+	  }
 }//ServiceImpl Class end
 	 
 

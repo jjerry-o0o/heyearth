@@ -96,6 +96,67 @@ public class AdminController {
 		return detail;
 	}
 	
+	// 미션 리스트 전송
+	@RequestMapping("/missionlistadmin")
+	@ResponseBody
+	public List<JSONObject> missionlistadmin(String m_type){
+		List<MissionDTO> result;
+		if(m_type.equals("group")) {
+			result= adminservice.adminmissionlist(m_type);
+		}else {
+			List<MissionDTO> solo = adminservice.adminmissionlist(m_type);
+			result = adminservice.adminmissionlist("zero");
+			result.addAll(solo);
+		}
+		
+		List<JSONObject> list = new ArrayList<JSONObject>();
+		for(int i=0; i< result.size();i++) {
+			JSONObject jsonObj = new JSONObject();
+			jsonObj.put("m_code", result.get(i).getM_code());
+			jsonObj.put("m_name", result.get(i).getM_name());
+			jsonObj.put("m_date", result.get(i).getM_date());
+			//String jsonStr = gson.toJson(zeroshoplist.get(i));
+			list.add(jsonObj);
+		}
+		
+		//System.out.println(list);
+		return list;
+	}
+	
+	// 제로샵 삭제
+	@RequestMapping("/missiondeladmin")
+	@ResponseBody
+	public void reactmissiondel(int m_code) {
+		adminservice.adminmissiondel(m_code);
+	}
+	
+	// 가이드 리스트 전송
+	@RequestMapping("/guidelistadmin")
+	@ResponseBody
+	public List<JSONObject> guidelistadmin(){
+		List<RecyclingDTO> guidelist = adminservice.adminguidelist();
+		
+		List<JSONObject> list = new ArrayList<JSONObject>();
+		for(int i=0; i< guidelist.size();i++) {
+			JSONObject jsonObj = new JSONObject();
+			jsonObj.put("r_class", guidelist.get(i).getR_class());
+			jsonObj.put("r_code", guidelist.get(i).getR_code());
+			jsonObj.put("r_name", guidelist.get(i).getR_name());
+			//String jsonStr = gson.toJson(zeroshoplist.get(i));
+			list.add(jsonObj);
+		}
+		
+		//System.out.println(list);
+		return list;
+	}
+	
+	/*가이드 삭제*/
+	@RequestMapping("/guidedeladmin")
+	@ResponseBody
+	public void reactguidedel(int code) {
+		adminservice.adminguidedel(code);
+	}
+	
 	
 	
 	/* 1.관리자 메인 */
@@ -249,7 +310,14 @@ public class AdminController {
 	@RequestMapping("/adminmissionlist")
 	@ResponseBody
 	public List<MissionDTO> adminmissionlist(String m_type){
-		return adminservice.adminmissionlist(m_type);
+		if(m_type.equals("group")) {
+			return adminservice.adminmissionlist(m_type);
+		}else {
+			List<MissionDTO> solo = adminservice.adminmissionlist(m_type);
+			List<MissionDTO> zero = adminservice.adminmissionlist("zero");
+			zero.addAll(solo);
+			return zero;
+		}
 	}
 	
 	/*미션 삭제*/
@@ -297,7 +365,7 @@ public class AdminController {
 		
 		adminservice.updatemission(dto);
 		
-		return "redirect:/adminmission";
+		return "redirect:http://localhost:3000/adminmission";
 	}
 	
 	/*미션 등록*/
@@ -321,7 +389,7 @@ public class AdminController {
 		
 		adminservice.insertmission(dto);
 		
-		return "redirect:/adminmission";
+		return "redirect:http://localhost:3000/adminmission";
 	}
 	
 	/*DB에 저장된 단체미션 이름 리스트 가져오기*/
@@ -355,7 +423,7 @@ public class AdminController {
 	
 	/*리뷰 삭제*/
 	@RequestMapping("/adminreviewdel")
-	public String reviewdel(int code) {
+	public String reviewdel(int code, int redcard) {
 		int m_code = adminservice.mcodetopcode(code);
 		// 멤버의 point 줄어들기
 		adminservice.adminmemberpoint(code);
@@ -363,9 +431,12 @@ public class AdminController {
 		adminservice.adminmembercarbon(code);
 		// 멤버의 redcard 증가
 				adminservice.adminreviewdel2(code);
+				
+				if(redcard == 1) {//레드카드가 1에서 2로 변할 때 포인트 소멸
 				adminservice.adminreviewdel3(code);
+				}
 		// 리뷰 삭제하기
-		/* adminservice.adminreviewdel(code); */
+		 adminservice.adminreviewdel(code); 
 		
 		
 		return "redirect:/adminmissionreview?code="+m_code;
@@ -479,7 +550,7 @@ public class AdminController {
 		
 		adminservice.insertguide(dto);
 		
-		return "redirect:/adminguide";
+		return "redirect:http://localhost:3000/adminguide";
 	}
 	
 	/*가이드 수정*/
@@ -503,7 +574,7 @@ public class AdminController {
 		
 		adminservice.updateguide(dto);
 		
-		return "redirect:/adminguide";
+		return "redirect:http://localhost:3000/adminguide";
 	}
 	
 	

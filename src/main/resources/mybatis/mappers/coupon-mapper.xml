@@ -14,7 +14,13 @@
 <!-- 쿠폰 등록하기 --> 
 	<insert id="coupon_insert" parameterType="coupondto">
         insert into coupon ( id, c_number, c_startdate, c_enddate, c_shop, c_point)
-        values(#{id}, #{c_number}, now(), DATE_ADD(now(), INTERVAL 1 WEEK), #{c_shop}, #{c_point})
-  
+        values(#{id}, #{c_number}, DATE_FORMAT(now(), '%Y-%m-%d'), DATE_FORMAT(DATE_ADD(now(), INTERVAL 1 WEEK), '%Y-%m-%d'), #{c_shop}, #{c_point}) 
     </insert>
+    
+<!-- 멤버 포인트 수정 -->
+	<update id="coupon_point" parameterType="coupondto">             
+        update member
+       set point = point - #{c_point}
+       where id = #{id};
+    </update> 
   </mapper>

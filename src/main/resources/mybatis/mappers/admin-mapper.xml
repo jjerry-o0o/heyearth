@@ -72,7 +72,7 @@
 	
 	
 	<select id="missionreviewlist" resultType="missiondto" parameterType="int">
-			select m.m_code as m_code, m_name, p_star,p_code, p_photo, p_review, p.id,p_redcard,mem.redcard
+			select m.m_code as m_code, m_name, p_star,p_code, p_photo, p_review, p.id,p_redcard, mem.redcard as redcard
     	from participation p, mission m, member mem 
     	where m.m_code = p.m_code and p.m_code = #{m_code} and p_complete = 1 and p.id = mem.id;
 		
@@ -116,13 +116,7 @@
 
 	<update id="adminreviewdel3" parameterType="int">	
 		 update member m, participation p 
-		<choose>
-			<when test="redcard != null and redcard == 2">
 		 set m.point = 0 
-		</when>
-		<otherwise>
-		</otherwise>
-		</choose>
 		 where p.id = m.id and p.p_code=#{p_code};
 	</update>
 	
