@@ -355,7 +355,7 @@ public class AdminController {
 	
 	/*리뷰 삭제*/
 	@RequestMapping("/adminreviewdel")
-	public String reviewdel(int code) {
+	public String reviewdel(int code, int redcard) {
 		int m_code = adminservice.mcodetopcode(code);
 		// 멤버의 point 줄어들기
 		adminservice.adminmemberpoint(code);
@@ -363,9 +363,12 @@ public class AdminController {
 		adminservice.adminmembercarbon(code);
 		// 멤버의 redcard 증가
 				adminservice.adminreviewdel2(code);
+				
+				if(redcard == 1) {//레드카드가 1에서 2로 변할 때 포인트 소멸
 				adminservice.adminreviewdel3(code);
+				}
 		// 리뷰 삭제하기
-		/* adminservice.adminreviewdel(code); */
+		 adminservice.adminreviewdel(code); 
 		
 		
 		return "redirect:/adminmissionreview?code="+m_code;

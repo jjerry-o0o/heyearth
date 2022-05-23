@@ -12,12 +12,14 @@ function profil_div() {
 			$("#myMissionDiv").empty();
 			$("#myboardlist_div").empty();
 			$("#myguidelist_div").empty();
+			$("#couponDiv").empty();
 
 			$("#updateDiv").html("<div id=gradeP><p>" + userdto.id + "님의 등급</p></div>");
 			$("#updateDiv").append("<div id=grade>" + userdto.grade + " 등급" + "</div><br>");
 
-			$("#updateDiv").append("<div id=pointP><p>보유 포인트</p></div>");
-			$("#updateDiv").append("<div id=point>" + userdto.point + " p" + "</div><button id=couponbtn onclick=mycoupon() value='포인트사용'>포인트사용</button><br>");
+			$("#updateDiv").append("<button type='button' id=couponbtn onclick=mycoupon() value='포인트사용'>포인트사용</button><div id=pointP><p>보유 포인트</p></div></div>");
+			$("#myPoint").val(userdto.point);
+			$("#updateDiv").append("<div id=point>" + userdto.point + " p<br>");
 			$("#updateDiv").append("<div id=carbonP><p>탄소 배출량</p></div>");
 			$("#updateDiv").append("<div id=carbon>" + userdto.carbon + " g</div><br>");
 			$("#updateDiv").append("<div id='updateId'><p>닉네임</p><p id=userid>&nbsp" + userdto.id + "</p></div>");
@@ -148,6 +150,7 @@ function mymission() {
 			//$("#myMissionDiv").empty();
 			$("#myboardlist_div").empty();
 			$("#myguidelist_div").empty();
+			$("#couponDiv").empty();
 			var complete = "";
 
 			$("#myMissionDiv").html("<table id='missionlist_tb'><tbody id='mission_tbody'><tr class='mission_tr'>"
@@ -192,6 +195,7 @@ function boardlist() {
 			$("#updateDiv").empty();
 			$("#myMissionDiv").empty();
 			$("#myguidelist_div").empty();
+			$("#couponDiv").empty();
 
 			if(data.length == 0) {
 				$("#myboardlist_div").html("<h3>작성한 게시물이 없습니다.</h3> <br><br> <a href='/boardlist'>게시물 작성하기</a>");
@@ -232,6 +236,7 @@ function commentlist() {
 			$("#updateDiv").empty();
 			$("#myMissionDiv").empty();
 			$("#myguidelist_div").empty();
+			$("#couponDiv").empty();
 
 			if (data.length == 0) {
 				$("#myboardlist_div").html("<h3>작성한 댓글이 없습니다.</h3>");
@@ -274,6 +279,7 @@ function myguide() {
 			$("#updateDiv").empty();
 			$("#myMissionDiv").empty();
 			$("#myboardlist_div").empty();
+			$("#couponDiv").empty();
 
 			$("#myguidelist_div").html("<table cellspacing=0 cellpadding=0 id='boardlist_tb'><tbody id='board_tbody'>"
 				+ "<th class='board_th'>사진</th><th class='board_th'>분류</th><th class='board_th' style=' width:50%;'>배출 방법</th><th class='board_th' style=' width:10%;'></th></tr>");
@@ -291,7 +297,6 @@ function myguide() {
 /*쿠폰 목록 기능*/
 function mycoupon() {
 	var id = document.getElementById("profil_div").name;
-
 	$.ajax({
 		url: "/mycoupon",
 		type: "post",
@@ -299,22 +304,48 @@ function mycoupon() {
 		success: function(data) {
 			$("#updateDiv").empty();
 			
-			$("#couponDiv").html();
-for (var i = 0; i < data.length; i++) {
-			$("#couponDiv").append(data[i].c_code);
-			$("#couponDiv").append(data[i].c_number);
-			$("#couponDiv").append(data[i].c_startdate);
-			$("#couponDiv").append(data[i].c_enddate);
-			$("#couponDiv").append(data[i].c_zeroshop);
-			$("#couponDiv").append(data[i].c_point+"<br>");
-			};
+			$("#couponDiv").css("display","");
+			$("#couponDiv").html("<div style='text-align:center'><h2>포인트 사용하기</h2>");
+			$("#couponDiv").append("나의 포인트 :<span class=name> "+$("#myPoint").val()+"</span><br>");
+			$("#couponDiv").append("포인트는 1000점 부터 1000단위로 사용할 수 있습니다.</div><br>");
+			if($("#myPoint").val() >= 1000){
+			$("#couponDiv").append("제휴매장과 사용할 포인트를 선택해주세요.<br>");
+			$("#couponDiv").append("<label for='c_shop'>제휴매장</label><select name='c_shop' id='c_shop'></select>");
+            $("#c_shop").append($("<option value='ThePicker' selected>The Picker</option><option value='지구별가게'>지구별가게</option><option value='덕분애'>덕분애</option><option value='담아가게'>담아가게</option><option value='zerothings'>zerothings</option><option value='알맹상점'>알맹상점</option><option value='지구샵'>지구샵</option><option value='ATOMOS'>ATOMOS</option><option value='organicpunk'>organicpunk</option><option value='동구밭'>동구밭</option>"));
+			$("#couponDiv").append("<input type=hidden name=c_number value='"+id + Math.floor((Math.random() * (10000 - 1) + 1) + 10000)+"'>");
+			$("#couponDiv").append("<label for='c_point'>사용포인트</label><input type=number id='c_point' name=c_point step=1000 value=1000 min=1000 max="+$("#myPoint").val()+">");
+			$("#couponDiv").append("<input type=hidden name=id value="+id+">");
+			$("#couponDiv").append("<input id='couponsm' type=submit value='쿠폰발급'><br>");
+			}
 			
-			$("#couponDiv").append("<input type=text name=c_number value='"+id + Math.floor((Math.random() * (10000 - 1) + 1) + 10000)
-+"'>");
-			$("#couponDiv").append("<input type=text name=c_shop value='어디'>");
-			$("#couponDiv").append("<input type=number name=c_point value=10>");
-			$("#couponDiv").append("<input type=text name=id value="+id+">");
-			$("#couponDiv").append("<input type=submit value='등록'>");
+			$("#couponDiv").append("<hr>");
+			$("#couponDiv").append("<div style='text-align:center;color:#1A271D;'><h3>매장의 로고를 클릭한 뒤 쿠폰번호를 입력해 포인트를 사용해보세요!</h3><div>");
+			/*$("#couponDiv").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;해당매장의 로고를 클릭한 뒤 쿠폰번호를 입력해 포인트를 사용해보세요!");*/
+			$("#couponDiv").append("<div id='myboardlist_div1'><table id='boardlist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>쿠폰번호</th>"
+					+ "<th class='board_th'>발급날짜</th><th class='board_th'>종료날짜</th><th class='board_th'>제로샵</th><th class='board_th'>포인트</th></tr>");
+				for (var i = 0; i < data.length; i++) {
+					$("#board_tbody").append("<tr><td class='board_td'>" + data[i].c_code + "</td>"
+						+ "<td class='board_td'>" + data[i].c_number + "</td>"
+						+ "<td class='board_td'>" + data[i].c_startdate + "</td>"
+						+ "<td class='board_td'>" + data[i].c_enddate + "</td>"
+						+ "<td class='board_td'>" + data[i].c_shop + "</td>"
+						+ "<td class='board_td'>" + data[i].c_point + "</td></tr>");
+				};
+				$("#couponDiv").append("</table> </div>");
+				
+				$("#couponDiv").append("<div id='aff-imges'>"
+		+ "<a target='_black' href='https://thepicker.net/'><img src='img/main-aff1.png' id='main-aff' ></a>"
+		+"<a target='_black' href='https://jigubyulstore.com/'><img src='img/main-aff8.png' id='main-aff' style='width: %; height: %;'></a>"
+		+"<a target='_black' href='https://www.thanksto.co.kr/'><img src='img/main-aff4.png' id='main-aff' style='width: 20%; height: 20%;'></a>"
+		+"<a target='_black' href='https://www.instagram.com/dam_a_store/'><img src='img/main-aff6.png' id='main-aff' style='width: 15%; height: 15%;'></a>"
+		+"<a target='_black' href='https://zerothings.co.kr/'><img src='img/main-aff7.png' id='main-aff' style='width: 20%; height: 20%;'></a>"
+		+"<a target='_black' href='https://almang.modoo.at/'><img src='img/main-aff2.png' id='main-aff' style='width: 10%; height: 10%;' ></a>"
+		+"<a target='_black' href='https://www.jigushop.co.kr/'><img src='img/main-aff3.png' id='main-aff' style='width: 15%; height: 20%;'></a>"
+		+"<a target='_black' href='https://www.atomos-store.kr/'><img src='img/main-aff9.png' id='main-aff' style='width: 20%; height: 20%;'></a>"
+		+"<a target='_black' href='https://brunch.co.kr/magazine/organicpunk'><img src='img/main-aff10.png' id='main-aff' style='width: 10%; height: 10%;'></a>"
+		+"<a target='_black' href='https://donggubat.com/'><img src='img/main-aff11.png' id='main-aff' style='width: 15%; height: 15%;'></a>"
+		+"</div>");
+			
 			}
 	}); //ajax end
 }
