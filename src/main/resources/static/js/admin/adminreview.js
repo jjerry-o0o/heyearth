@@ -10,5 +10,5 @@ function reviewdel(code){
 }
 
 function missionlist(){
-	location.href="adminmission";
+	location.href="http://localhost:3000/adminmission";
 }
