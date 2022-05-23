@@ -38,8 +38,9 @@
 					아직 리뷰가 없습니다.
 				</c:if>
 				</div><br>
+				<input type="hidden" name="redcard" value="${reviewlist.redcard }">
 				<input type="button" class="reviewbtn" value="수정하기" onclick='reviewmod(${reviewlist.p_code})'>
-				<input type="button" class="reviewbtn" value="삭제하기" onclick='reviewdel(${reviewlist.p_code})'>
+				<input type="button" class="reviewbtn" value="삭제하기" onclick='reviewdel(${reviewlist.p_code},${reviewlist.redcard})'>
 			</div>
 		</c:if>
 		<c:if test="${reviewlist.m_name == 'none' }">
