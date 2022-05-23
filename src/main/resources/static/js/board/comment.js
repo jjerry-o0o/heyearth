@@ -14,7 +14,8 @@
 						
 						if($(".id").val() == data[i].id){
 							$("#tr2"+i).append("<td class='td2'><button class='button' id='alter_btn"+i+"' onclick='alter("+i+")'>수정</button></td>"
-							 + "<td class='td2'><button class='button' id='delete_btn"+i+"' onclick='remove("+i+")'>삭제</button></td>");
+							 + "<td class='td2'><button class='button' id='delete_btn"+i+"' onclick='remove("+i+")'>삭제</button>"
+							 + "<button class='button' id='recom_btn"+i+"' onclick='insert2()'>댓글</button></td>");
 						}
 						
 						$("#list_div").append("<input type='hidden' id='c_index"+i+"' name='c_index' value='"+ data[i].c_index+"'><div class='alter_div' id='alter_div"+i+"'></div>");
@@ -32,6 +33,19 @@
 			url:"/insertcomment",
 			data : {"id" : $(".id").val(), "c_comment" : $("#c_comment").val(), "b_no" : $(".b_no").val()},
 			success:function(){
+				$("#c_comment").val("");
+				$("#comment_tb").empty();
+				selectlist();
+			}
+		});
+	}
+	
+	function insert2() {
+		$.ajax({
+			type: "post",
+			url: "/insertcomment",
+			data: { "id": $(".id").val(), "c_comment": $("#c_comment").val(), "b_no": $(".b_no").val(), "c_order":$(".c_order").val()},
+			success: function() {
 				$("#c_comment").val("");
 				$("#comment_tb").empty();
 				selectlist();
