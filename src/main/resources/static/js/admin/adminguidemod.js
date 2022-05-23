@@ -36,7 +36,7 @@ $(document).ready(function(){
 	});
 	
 	$("#guideback").on('click',function(){
-		location.href = "adminguide";
+		location.href = "http://localhost:3000/adminguide";
 	});
 	
 })

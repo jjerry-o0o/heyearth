@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	$("#missionback").one('click',function(){
-		location.href = "adminmission";
+		location.href = "http://localhost:3000/adminmission";
 	});
 	
 	const inputImage = document.getElementById("input-image")

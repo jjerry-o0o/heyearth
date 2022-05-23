@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$("#previewimg").hide();   // 이미지 미리보기창 안보이게
 	
 	$("#missionback").one('click',function(){   // 미션리스트 목록으로
-		location.href = "adminmission";
+		location.href = "http://localhost:3000/adminmission";
 	});
 	
 	const inputImage = document.getElementById("input-image")  // 이미지 띄우기
