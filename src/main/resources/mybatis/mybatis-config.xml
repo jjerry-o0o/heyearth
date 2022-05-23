@@ -18,6 +18,7 @@
 	<typeAlias type="comment.CommentDTO" alias="commentdto"/>
 	<typeAlias type="carbon.CarbonDTO" alias="carbondto"/>
 	<typeAlias type="mypage.MyguideDTO" alias="myguidedto"/>
+	<typeAlias type="mypage.CouponDTO" alias="coupondto"/>
 	<typeAlias type="grade.GradeDTO" alias="gradedto"/>
 	<typeAlias type="zerokit.ZerokitDTO" alias="zerokitdto"/>
 </typeAliases>
