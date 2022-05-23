@@ -73,7 +73,7 @@
 <!-- 메뉴바 목록 -->
 	<nav class='nav'>
 			<ul class="aheader_ul">
-				<li class="aheader_li"><a  class="aheader_a" href="${pageContext.request.contextPath}/adminzeroshop">지구를 돕는 가게 찾기 관리</a></li>
+				<li class="aheader_li"><a  class="aheader_a" href="http://localhost:3000/adminzeroshop">지구를 돕는 가게 찾기 관리</a></li>
 				<li class="aheader_li"><a class="aheader_a" href="${pageContext.request.contextPath}/adminmission">환경지킴이 모집중 관리</a></li>
 				<li class="aheader_li"><a class="aheader_a" href="${pageContext.request.contextPath}/adminguide">이건 어떻게 버릴까? 관리</a></li>
 				<li class="aheader_li"><a class="aheader_a" href="${pageContext.request.contextPath}/adminboard">게시판 관리</a></li>
