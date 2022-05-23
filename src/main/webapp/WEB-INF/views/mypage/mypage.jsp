@@ -91,6 +91,7 @@
 		</table>
 		
 		<div id="mymenu_div">
+				<input type='hidden' id='myPoint'>
 			<form action="/update" method="post">
 				<div style="display: grid; grid-template-columns: 50% auto; margin-left: auto; margin-right: auto;">
 				<div id="updateDiv"  style="display: inline-block;">
@@ -98,9 +99,9 @@
 				</div>
 			</form>
 			<form action="/couponinsert" method="post">
-				<div id="couponDiv">
+				<div id="couponDiv" style="display:none">
 				</div>
-				</form>
+			</form>
 				<div id="myMissionDiv">
 				</div>
 				<div id="myboardlist_div">

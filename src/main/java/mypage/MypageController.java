@@ -85,7 +85,7 @@ public class MypageController {
 						return list;
 					}
 					
-					// 상시 미션 등록&인증하기
+					// 쿠폰 등록하기
 					@RequestMapping("/couponinsert")
 					public String couponinsert(@ModelAttribute CouponDTO dto, HttpSession session) throws Exception {
 						String id = (String) session.getAttribute("session_id");
@@ -94,7 +94,8 @@ public class MypageController {
 						}
 						dto.setId(id);
 						couponservice.coupon_insert(dto); 
-						return "redirect:/myguide";
+						couponservice.coupon_point(dto); 
+						return "redirect:/mypage";
 					}
 					 
 					 
