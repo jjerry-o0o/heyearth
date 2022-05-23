@@ -2,8 +2,10 @@
 * { /*사이트 전체 폰트 통일*/
 	font-family: 'IBM Plex Sans KR', sans-serif;
 }
-body{
+html,body{
 	min-width: 1400px;
+	margin : 0;
+	padding : 0;
 }
 button { 
 	font-style: normal;
@@ -168,7 +170,7 @@ background: #F3EADF;
 hr {
 	size: 0.5;
 	color: black;
-	width: 2000px;
+	width: 1350px;
 	margin-top: 60px;
 }
 

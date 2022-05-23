@@ -2,6 +2,7 @@
 body{
 	min-width: 1400px;}
 
+/*제로키트 소개 텍스트*/
 .intro-text{
 	text-align: center;
 	padding-top : 100px;
@@ -9,24 +10,80 @@ body{
 	background-color: #F5EDE2;
 	margin-bottom : 60px;
 }
-.kit_section{
-	display : flex;
-}
+/* .kit_section{ */
+/* 	display : flex; */
+/* } */
 
+
+/*키트 상품 목록*/
 .kit_grid{
 text-align:center;	
 margin : auto;
+width : 80%; 
+padding-bottom : 100px;
 }
 
+/*ajax 상세이미지*/
+.eachimg{
+	cursor: pointer; 
+	padding : 10px 10px 10px 10px;
+}
 
 .detail{
-/* 	display : grid; */
-/* 	box-shadow: 1px 1px 1px 1px gray; */
-/* 	width : 90%; */
-	display : inline-block;
-	position :  relative;
 	margin-bottom : 30px;
-	box-shadow: 1px 1px 1px 1px gray;
+	border : 1px solid black;
+	width : 85%;
+	margin : auto;
 	
 }
+/*ajax 상세 정보 */
+#all{
+	display : flex;
+	align-items: center;
+
+}
+
+
+#kit_photo{
+vertical-align: middle;
+}
+
+/*닫힘버튼*/
+.close-area{
+	text-align : right;
+	padding : 10px 20px 0px 0px;
+	margin-left : auto;
+	float : right;
+	
+}
+
+/*구매 사이트 연결*/
+#kit_link{
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 40px;
+	color: #F6F5F0;
+	background-color: #1A271D;
+	border: 1px solid #1A271D;
+	margin-bottom: 80px;
+	display: inline-block;
+	text-decoration-line: none;
+	width : 120px;
+}
+
+#kit_link:hover{
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 40px;
+	color: #1A271D;
+	border: 1px solid #1A271D;
+	background-color: transparent;
+	text-decoration-line: none;
+	width : 120px;
+
+}
+
+
 
