@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage.CouponDAO">
+    
+<!-- 나의 쿠폰 목록 --> 
+	<select id="coupon_list" parameterType="String" resultType = "coupondto">
+		 select c_code, c.id as id, c_number, c_startdate, c_enddate, c_shop, c_point
+ 	 from member m, coupon c
+   		where m.id =c.id and c.id=#{id};
+	</select>	
+
+<!-- 쿠폰 등록하기 --> 
+	<insert id="coupon_insert" parameterType="coupondto">
+        insert into coupon ( id, c_number, c_startdate, c_enddate, c_shop, c_point)
+        values(#{id}, #{c_number}, now(), DATE_ADD(now(), INTERVAL 1 WEEK), #{c_shop}, #{c_point})
+  
+    </insert>
+  </mapper>

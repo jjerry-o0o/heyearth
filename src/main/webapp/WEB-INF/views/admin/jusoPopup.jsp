@@ -36,10 +36,10 @@ function init(){
 		document.form.action="https://www.juso.go.kr/addrlink/addrLinkUrl.do"; //인터넷망
 		//document.form.action="https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do"; //모바일 웹인 경우, 인터넷망
 		document.form.submit();
-	}else{
+	}else{		
 		opener.jusoCallBack("<%=roadFullAddr%>");
 		window.close();
-		}
+	}
 }
 </script>
 <body onload="init();">
