@@ -12,31 +12,21 @@
 <link rel="stylesheet" href="/css/mypage/mypage.css"/>
 
 <!-- js -->
-<script type="text/javascript" src="/js/mypage/mypage.js"></script>
 <script src="jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function(){
-	/* if($("#redcard").val() == 1){
-		alert("한 번의 레드카드를 받았습니다.");
-	}else if($("#redcard").val() == 2){
-		alert("두 번의 레드카드를 받아 모든 포인트가 소멸되었습니다.");
-	}
-	else if($("#redcard").val() == 3){
-		alert("세 번의 레드카드를 받아 강퇴 처리중입니다.");
-	}else{
-		
-	} */
-});
-</script>
-
+<script type="text/javascript" src="/js/mypage/mypage.js"></script>
 </head>
 <body>
 
+<c:if test="${userdto.redcard == 1}">
  <div id="pop" class="pop">
         <div class="layerBox">
-            <h1 class="title">미션 인증 사진 신고로 인해 레드카드를 받았습니다.</h1>
+            <h1 class="title">NOTICE</h1>
             <div class="cont">
-                <p>누적 레드카드 ${userdto.redcard } 회</p>
+                <p>미션 인증 사진 신고로 인해 레드카드를 받았습니다.<br>
+                <span class="name">${sessionScope.session_id}</span>님의 누적 레드카드 횟수는 <span class="span">${userdto.redcard } 회</span>입니다.<br><br>
+                <span class="span">레드카드 1회 : 경고</span><br>
+                레드카드 2회 : 모든 포인트 소멸<br>
+                레드카드 3회 : 회원 강퇴</p>
             </div>
             <div class="close">
                 <span id="check" class="btnTodayHide"><input type="checkbox" value="checkbox" name="chkbox" id="chkday"/><label for="chkday">일주일간 보지 않기</label></span>
@@ -44,47 +34,26 @@ $(document).ready(function(){
             </div>
         </div>
     </div>
-    <script>
-        // 쿠키 가져오기
-        var getCookie = function (cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for(var i=0; i<ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0)==' ') c = c.substring(1);
-                if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
-            }
-            return "";
-        }
-
-        // 일주일 쿠키 설정  
-        var setCookie = function (cname, cvalue, exdays) {
-            var todayDate = new Date();
-            todayDate.setTime(todayDate.getTime() + (exdays*24*60*60*1000));    
-            var expires = "expires=" + todayDate.toUTCString();
-            document.cookie = cname + "=" + cvalue + "; " + expires;
-        }
-
-        var couponClose = function(){
-            if($("input[name='chkbox']").is(":checked") == true){
-                setCookie("close","Y",7); //일주일
-            }
-            $("#pop").hide();
-        }
-        
-        $(document).ready(function(){
-            var cookiedata = document.cookie;
-            console.log(cookiedata);
-            if(cookiedata.indexOf("close=Y")<0){
-                $("#pop").show();
-            }else{
-                $("#pop").hide();
-            }
-            $("#close").click(function(){
-                couponClose();
-            });
-        });
-    </script>
+    </c:if>
+   
+    <c:if test="${userdto.redcard == 2}">
+     <div id="pop2" class="pop">
+        <div class="layerBox">
+            <h1 class="title">NOTICE</h1>
+            <div class="cont">
+                 <p>미션 인증 사진 신고로 인해 레드카드를 받았습니다.<br>
+                <span class="name">${sessionScope.session_id}</span>님의 누적 레드카드 횟수는 <span class="span">${userdto.redcard } 회</span>입니다.<br><br>
+                레드카드 1회 : 경고<br>
+                <span class="span">레드카드 2회 : 모든 포인트 소멸</span><br>
+                레드카드 3회 : 회원 강퇴</p>
+            </div>
+            <div class="close">
+                <span id="check2" class="btnTodayHide"><input type="checkbox" value="checkbox" name="chkbox2" id="chkday2"/><label for="chkday2">일주일간 보지 않기</label></span>
+                <span id="close2" class="btnClose"> <a href="#0">Close</a></span>
+            </div>
+        </div>
+    </div>
+    </c:if>
 <!-- Talk Talk Banner Script start -->
 	<script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
 	<div class="talk_banner_div" data-id="114553" style="position: fixed; right: 100px; bottom: 30px; z-index: 99;"></div>
@@ -123,9 +92,15 @@ $(document).ready(function(){
 		
 		<div id="mymenu_div">
 			<form action="/update" method="post">
-				<div id="updateDiv">
+				<div style="display: grid; grid-template-columns: 50% auto; margin-left: auto; margin-right: auto;">
+				<div id="updateDiv"  style="display: inline-block;">
+				</div>
 				</div>
 			</form>
+			<form action="/couponinsert" method="post">
+				<div id="couponDiv">
+				</div>
+				</form>
 				<div id="myMissionDiv">
 				</div>
 				<div id="myboardlist_div">

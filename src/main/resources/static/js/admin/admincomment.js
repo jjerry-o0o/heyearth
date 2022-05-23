@@ -113,48 +113,52 @@ $(document).ready(function(){
 	}
 	
 	function comment(i){
-		$("#c_recommentdiv"+i).show();
-		$("#alter_div"+i).hide();
-		$("#c_mod"+i).hide();
-		$.ajax({
-			type:"post",
-			url:"/adminrecomment",
-			data : {"c_index" : $("#c_index"+i).val()},
-			success:function(data){
-				$("#c_recommentdiv"+i).empty();
-				$("#c_recommentdiv"+i).html("<div class='recommentlist'>");
-				for(let k=0;k<data.length;k++){
-					$("#c_recommentdiv"+i).append("<div class='c_img'><img src='/img/commentarrow.png'></div>"+
-					"<div class='recomment' id='recomment"+k+"'>"+
-						"<div id='rec_writer"+k+"' class='rec_writer'>"+data[k].id+"</div>&nbsp; | &nbsp;"+
-						"<div id='rec_date+"+k+"' class='rec_date'>"+data[k].regdate + "</div>"+
-						"<div id='rec_btn"+k+"' class='rec_btn'>"+
-							"<button class='rebutton' id='realter_btn"+k+"' onclick='realter("+k+","+i+")'>수정</button>"+
-							"<button class='rebutton' id='redelete_btn"+k+"' onclick='reremove("+k+","+i+")'>삭제</button>"+
-						"</div>"+
-						"<div class='rec_content' id='rec_content"+k+"'>"+
-							"<input type='hidden' id='rec_comment"+k+"' value='"+data[k].c_comment+"'>"+ data[k].c_comment+
-						"</div>"+
-						"<div class='rec_mod' id='rec_mod"+k+"'></div>"+
-					"</div>");
+		if($("#c_recommentdiv"+i).css("display") == "none"){
+			$("#c_recommentdiv"+i).show();
+			$("#alter_div"+i).hide();
+			$("#c_mod"+i).hide();
+			$.ajax({
+				type:"post",
+				url:"/adminrecomment",
+				data : {"c_index" : $("#c_index"+i).val()},
+				success:function(data){
+					$("#c_recommentdiv"+i).empty();
+					$("#c_recommentdiv"+i).html("<div class='recommentlist'>");
+					for(let k=0;k<data.length;k++){
+						$("#c_recommentdiv"+i).append("<div class='c_img'><img src='/img/commentarrow.png'></div>"+
+						"<div class='recomment' id='recomment"+k+"'>"+
+							"<div id='rec_writer"+k+"' class='rec_writer'>"+data[k].id+"</div>&nbsp; | &nbsp;"+
+							"<div id='rec_date+"+k+"' class='rec_date'>"+data[k].regdate + "</div>"+
+							"<div id='rec_btn"+k+"' class='rec_btn'>"+
+								"<button class='rebutton' id='realter_btn"+k+"' onclick='realter("+k+","+i+")'>수정</button>"+
+								"<button class='rebutton' id='redelete_btn"+k+"' onclick='reremove("+k+","+i+")'>삭제</button>"+
+							"</div>"+
+							"<div class='rec_content' id='rec_content"+k+"'>"+
+								"<input type='hidden' id='rec_comment"+k+"' value='"+data[k].c_comment+"'>"+ data[k].c_comment+
+							"</div>"+
+							"<div class='rec_mod' id='rec_mod"+k+"'></div>"+
+						"</div>");
+						
+						$("#rec_mod"+k).append("<input type='hidden' id='rec_index"+k+"' name='c_index' value='"+ data[k].c_index+"'><div class='realter_div' id='realter_div"+k+"'></div>");
+						$("#realter_div"+k).hide();
+						$("#rec_mod"+k).hide();
+					}
+					$("#c_recommentdiv"+i).append("<hr id='recommenthr'>"+
+						"<div class='re_comment_title'>대댓글 작성중..</div>" +
+						"<div class='rec_insert'>"+
+						"<input class='rec_newcomment' type='text' id='rec_newcomment"+i+"' placeholder='대댓글을 입력해주세요' required='required'>"+
+						"<input class='reid type='id' type='hidden' id='reid"+i+"' value='"+$("#id").val()+"'>"+
+						"<input class='reb_no' type='hidden' id='reb_no"+i+"' value='"+$("#b_no").val()+"'>"+
+						"<input class='rec_order' type='hidden' id='rec_order"+i+"' value='" + $("#c_index"+i).val() +"'>"+
+						"<input class='rec_insertbtn' type='button' id='recinput_btn' value='작성' onclick=recinput("+i+")>"+
+					"</div>");			
 					
-					$("#rec_mod"+k).append("<input type='hidden' id='rec_index"+k+"' name='c_index' value='"+ data[k].c_index+"'><div class='realter_div' id='realter_div"+k+"'></div>");
-					$("#realter_div"+k).hide();
-					$("#rec_mod"+k).hide();
+					
 				}
-				$("#c_recommentdiv"+i).append("<hr id='recommenthr'>"+
-					"<div class='re_comment_title'>대댓글 작성중..</div>" +
-					"<div class='rec_insert'>"+
-					"<input class='rec_newcomment' type='text' id='rec_newcomment"+i+"' placeholder='대댓글을 입력해주세요' required='required'>"+
-					"<input class='reid type='id' type='hidden' id='reid"+i+"' value='"+$("#id").val()+"'>"+
-					"<input class='reb_no' type='hidden' id='reb_no"+i+"' value='"+$("#b_no").val()+"'>"+
-					"<input class='rec_order' type='hidden' id='rec_order"+i+"' value='" + $("#c_index"+i).val() +"'>"+
-					"<input class='rec_insertbtn' type='button' id='recinput_btn' value='작성' onclick=recinput("+i+")>"+
-				"</div>");			
-				
-				
-			}
-		});
+			});
+		}else{
+			$("#c_recommentdiv"+i).hide();
+		}
 	}
 	
 	function recinput(i){

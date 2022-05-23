@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface ZerokitDAO {
 	public ZerokitDTO zerokit (int k_code);
 	public List<ZerokitDTO> zerokitlist();
-	public List<ZerokitDTO> zerokitdetail();
+	
 
 }

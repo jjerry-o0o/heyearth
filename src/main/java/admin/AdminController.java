@@ -77,6 +77,26 @@ public class AdminController {
 		adminservice.adminzeroshopdel(s_code);
 	}
 	
+	// 제로샵 상세 정보
+	@RequestMapping("/zeroshopdetailadmin")
+	@ResponseBody
+	public JSONObject zeroshopdetailadmin(int s_code) {
+		ZeroshopDTO zeroshopinfo = adminservice.adminzeroshopinfo(s_code);
+		JSONObject detail = new JSONObject();
+		detail.put("s_code", zeroshopinfo.getS_code());
+		detail.put("s_name", zeroshopinfo.getS_name());
+		detail.put("s_url", zeroshopinfo.getS_url());
+		detail.put("s_inform", zeroshopinfo.getS_inform());
+		detail.put("s_location", zeroshopinfo.getS_location());
+		detail.put("s_call", zeroshopinfo.getS_call());
+		detail.put("s_close", zeroshopinfo.getS_close());
+		detail.put("s_hour", zeroshopinfo.getS_hour());
+		detail.put("s_photo", zeroshopinfo.getS_photo());
+		
+		return detail;
+	}
+	
+	
 	
 	/* 1.관리자 메인 */
 	@RequestMapping("/adminmain")

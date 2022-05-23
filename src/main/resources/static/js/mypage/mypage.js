@@ -11,15 +11,17 @@ function profil_div() {
 			//$("#updateDiv").empty();
 			$("#myMissionDiv").empty();
 			$("#myboardlist_div").empty();
+			$("#myguidelist_div").empty();
 
 			$("#updateDiv").html("<div id=gradeP><p>" + userdto.id + "님의 등급</p></div>");
 			$("#updateDiv").append("<div id=grade>" + userdto.grade + " 등급" + "</div><br>");
 
 			$("#updateDiv").append("<div id=pointP><p>보유 포인트</p></div>");
-			$("#updateDiv").append("<div id=point>" + userdto.point + " p" + "</div><br>");
+			$("#updateDiv").append("<div id=point>" + userdto.point + " p" + "</div><button id=couponbtn onclick=mycoupon() value='포인트사용'>포인트사용</button><br>");
 			$("#updateDiv").append("<div id=carbonP><p>탄소 배출량</p></div>");
 			$("#updateDiv").append("<div id=carbon>" + userdto.carbon + " g</div><br>");
 			$("#updateDiv").append("<div id='updateId'><p>닉네임</p><p id=userid>&nbsp" + userdto.id + "</p></div>");
+			$("#updateDiv").append("<div><p>누적 레드카드&nbsp&nbsp<span class='name'>" + userdto.redcard + "회</span></p></div>");
 			$("#updateDiv").append("<hr>");
 
 			$("#updateDiv").append("<div id=hidden><input type='hidden' id='hiddenUserId' name='userId' value='" + userdto.id + "'></div>");
@@ -36,6 +38,7 @@ function profil_div() {
 			$("#updateDiv").append("<div id=phone><p>전화번호</p><input id=phone2 type='text' name='phone' value='" + userdto.phone + "'></div>");
 			$("#updateDiv").append("<div id=update><input id='submit' type='submit' value='회원정보 수정'></div>");
 			$("#updateDiv").append("<div id=withdraw><input type='button' id='withdrawbtn' value='회원탈퇴' onclick='withdraw()'></div>");
+			
 
 			document.getElementById("pwckbtn").onclick = pwck;
 			document.getElementById("submit").onclick = pwUpdate(userdto);
@@ -285,4 +288,117 @@ function myguide() {
 	}); //ajax end
 }
 
+/*쿠폰 목록 기능*/
+function mycoupon() {
+	var id = document.getElementById("profil_div").name;
+
+	$.ajax({
+		url: "/mycoupon",
+		type: "post",
+		data: { "id": id },
+		success: function(data) {
+			$("#updateDiv").empty();
+			
+			$("#couponDiv").html();
+for (var i = 0; i < data.length; i++) {
+			$("#couponDiv").append(data[i].c_code);
+			$("#couponDiv").append(data[i].c_number);
+			$("#couponDiv").append(data[i].c_startdate);
+			$("#couponDiv").append(data[i].c_enddate);
+			$("#couponDiv").append(data[i].c_zeroshop);
+			$("#couponDiv").append(data[i].c_point+"<br>");
+			};
+			
+			$("#couponDiv").append("<input type=text name=c_number value='"+id + Math.floor((Math.random() * (10000 - 1) + 1) + 10000)
++"'>");
+			$("#couponDiv").append("<input type=text name=c_shop value='어디'>");
+			$("#couponDiv").append("<input type=number name=c_point value=10>");
+			$("#couponDiv").append("<input type=text name=id value="+id+">");
+			$("#couponDiv").append("<input type=submit value='등록'>");
+			}
+	}); //ajax end
+}
+  
+  // 레드카드 팝업 띄우기
+  if($("#redcard").val() == 1){//레드카드 1회 누적
+        // 쿠키 가져오기
+        var getCookie = function (cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
+         }
+        // 일주일 쿠키 설정  
+        var setCookie = function (cname, cvalue, exdays) {
+            var todayDate = new Date();
+            todayDate.setTime(todayDate.getTime() + (exdays*24*60*60*1000));    
+            var expires = "expires=" + todayDate.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        }       
+        var couponClose = function(){
+            if($("input[name='chkbox']").is(":checked") == true){
+                setCookie($("#profil_div").val()+1,"Y",7); //일주일
+            }
+            $("#pop").hide();
+        }
+        //쿠키 존재 하면 팝업 띄우지 않기
+        $(document).ready(function(){
+            var cookiedata = document.cookie;
+            console.log(cookiedata);
+            if(cookiedata.indexOf($("#profil_div").val()+1+"=Y")<0){
+                $("#pop").show();
+            }else{
+                $("#pop").hide();
+            }
+            $("#close").click(function(){
+                couponClose();
+            });
+        });
+        
+   if($("#redcard").val() == 2){ // 레드카드 2회
+    	// 쿠키 가져오기
+        var getCookie = function (cname) {
+            var name2 = cname + "=";
+            var ca2 = document.cookie.split(';');
+            for(var i=0; i<ca2.length; i++) {
+                var c2 = ca2[i];
+                while (c2.charAt(0)==' ') c2 = c2.substring(1);
+                if (c2.indexOf(name) != -1) return c2.substring(name.length,c2.length);
+            }
+            return "";
+        }
+     }
+        // 일주일 쿠키 설정 
+        var setCookie = function (cname, cvalue, exdays) {
+            var todayDate2 = new Date();
+            todayDate2.setTime(todayDate2.getTime() + (exdays*24*60*60*1000));    
+            var expires2 = "expires=" + todayDate2.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires2;
+        }
+
+        
+        var couponClose2 = function(){
+            if($("input[name='chkbox2']").is(":checked") == true){
+                setCookie($("#profil_div").val()+2,"Y",7); //일주일
+            }
+            $("#pop2").hide();
+        }
+        //쿠키 존재 하면 팝업 띄우지 않기
+        $(document).ready(function(){
+            var cookiedata2 = document.cookie;
+            console.log(cookiedata2);
+            if(cookiedata2.indexOf($("#profil_div").val()+2+"=Y")<0){
+                $("#pop2").show();
+            }else{
+                $("#pop2").hide();
+            }
+            $("#close2").click(function(){
+                couponClose2();
+            });
+        });
 

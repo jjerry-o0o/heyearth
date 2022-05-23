@@ -14,6 +14,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form>
+		<textarea id="c_comment2" name="c_comment" placeholder="댓글을 입력해주세요"></textarea>
+		<input type="hidden" class="id" name="id" value="${sessionScope.session_id }">
+		<input type="hidden" class="b_no" name="b_no" value="${dto.b_no }">
+		<input type="hidden" class="c_order" value="${dto.c_index }">
+	</form>
 
 </body>
 </html>
