@@ -40,7 +40,18 @@ function goPopup(){
 
 
 function jusoCallBack(roadFullAddr){
-		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+		/*System.out.println("jssocallback 실행");
+		method = 'post';
+		var form = document.createElement('form');
+		form.setAttribute('method',method);
+		form.setAttribute('action',"http://localhost:3000/adminzeroshopinsert");
+		var hiddenField = document.createElement('input');
+		hiddenField.setAttribute('type','hidden');
+		hiddenField.setAttribute('name','roadFullAddr');
+		hiddenField.setAttribute('value',roadFullAddr);
+		form.appendChild(hiddenField);
+		form.submit();*/
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.(react 사용안할때)
 		document.getElementById("s_location").value = roadFullAddr;
 		document.getElementById("s_locnotview").value = roadFullAddr;
 }
