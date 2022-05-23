@@ -32,14 +32,22 @@
 
 <!-- 제로키트 사진 리스트업 -->
 <div class="kit_section">
-<div class="kit_grid grid" style=" width : 60%;">
+<div class="kit_grid grid">
 	<c:forEach items="${zerokitlist }" var="zerokit" varStatus="status">
 		<div class="kit_img" style="display: inline-block;">
-			<img class="eachimg" id=${status.current } width=200px height=200px;
+			<img class="eachimg" id=${status.current } width=220px height=220px;
 				src="<%=request.getContextPath()%>/img/${zerokit.k_photo}"
-				style="cursor: pointer; padding : 10px 10px 10px 10px;" onClick=detail(${zerokit.k_code}) />
+				onClick=detail(${zerokit.k_code}) />
 			</div>
-			<div class = "detail" id='detail_div${zerokit.k_code}' style="margin-top:10px; "></div>
+			<div class = "detail" id='detail_div${zerokit.k_code}' style="  display : none; margin-top:10px;  ">
+				<div class='close-area' id='kit_close' style="display : none;">X</div>
+				<div id ='kit_photo'></div>
+				<div id = 'kit_t'>
+				<h2 id ='kit-title'></h2><br>
+				<p id='kit_text'></p><br>
+				<a class ="kit_link" style="display : none;"></a><br></div>
+				
+			</div>
 		
 	</c:forEach>
 
@@ -57,6 +65,9 @@ function detail(k_code){
 		$("#detail_div" + i).empty();
 	}
 	
+	for(var i =1; i<=16; i++ ){
+		$("#detail_div" + i).hide();
+	}
 	$.ajax({
 		url : "/zerokitdetail",
 		type : "get",
@@ -72,14 +83,17 @@ function detail(k_code){
 			}else if(list.k_code >12 && list.k_code  <= 16){
 				box = 16;}
 				
+			$('#detail_div'+box).show();
 			
-			$("#detail_div" + box).append("<div id ='kit_photo'style='float : left; width : 50%;'>" + "<img src='img/"+list.k_photo + "' style='width : 300px; height : 300px; padding : 30px 30px 30px 30px; display : block; position : aboslue; top:50%;  margin:auto;'></div>"
-			 + "<div id='kit_t'style='float : right; width : 50%; '><h2 id='kit_title' >" + list.k_name + "</h2><br>"
-			 + "<p id='kit_text' style='padding : 30px 30px 30px 30px;'>" + list.k_text + "</p><br><br>"  
-			 + "<a id ='kit_link' href=" + list.k_url + " target='_blank' style='padding : 5px 20px 5px 20px; text-decoration-line : none; color : black;'>" 
-					+ list.k_name + "</a><br></div>");
+			$("#detail_div" + box).append("<div class='close-area' id='kit_close' onClick='kitclose(" + box + ")'>X</div>"
+			 + "<div id='all'><div id ='kit_photo'style='float : left; width : 50%; height : 50%; '>" 
+			 + "<img src='img/"+list.k_photo + "'style='  width : 300px; height : 50%; display : block; margin:auto;'/></div>"
+			 + "<div id='kit_t'style=' float : right; width : 50%; margin-bottom : 30px; '><h2 id='kit_title' >" + list.k_name + "</h2><br>"
+			 + "<p id='kit_text' style='padding : 30px 30px 10px 30px;'>" + list.k_text + "</p><br>"  
+			 + "<a id ='kit_link' href=" + list.k_url + " target='_blank' >" 
+					+ list.k_name + "</a><br></div></div>");
 			
-			document.getElementById("kit_link").style.border = "2px solid black";
+			
 			document.getElementById("kit_photo").style.backgroundColor = "#F6F5F0;";
 
 		}
@@ -87,6 +101,14 @@ function detail(k_code){
 	
 	
 };
+
+
+function kitclose(i){
+		document.getElementById("detail_div"+i).style.display = "none";
+}
+
+
+
 
 
 </script>
