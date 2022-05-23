@@ -1,4 +1,6 @@
 @charset "UTF-8";
+body{
+	min-width: 1400px;}
 
 .intro-text{
 	text-align: center;
@@ -7,26 +9,24 @@
 	background-color: #F5EDE2;
 	margin-bottom : 60px;
 }
-
-.grid{
+.kit_section{
 	display : flex;
-	flex-wrap : wrap;
-	flex-direction : row;
-	justify-content: flex-start;
-	align-items: flex-start;
 }
 
-.kit_img img {
-	display : block;
+.kit_grid{
+text-align:center;	
+margin : auto;
+}
+
+
+.detail{
+/* 	display : grid; */
+/* 	box-shadow: 1px 1px 1px 1px gray; */
+/* 	width : 90%; */
+	display : inline-block;
+	position :  relative;
+	margin-bottom : 30px;
+	box-shadow: 1px 1px 1px 1px gray;
 	
 }
-.kit-section{
-/* 	text-align: center; */
-}
-.kitdetails{
-	box-shadow: 1px 1px 1px 1px gray;
-	width : 90%;
-	display : inline-block;
-}
-
 

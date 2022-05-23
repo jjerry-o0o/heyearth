@@ -6,7 +6,7 @@ public interface ZerokitService {
 
 	public ZerokitDTO zerokit (int k_code);
 	public List<ZerokitDTO> zerokitlist();
-	public List<ZerokitDTO> zerokitdetail();
+	
 
 	
 }
