@@ -193,28 +193,32 @@ function boardlist() {
 			$("#myMissionDiv").empty();
 			$("#myguidelist_div").empty();
 
-			if(data.length == 0) {
-				$("#myboardlist_div").html("<h3>작성한 게시물이 없습니다.</h3> <br><br> <a href='/boardlist'>게시물 작성하기</a>");
-			}
-			else {
-				$("#myboardlist_div").html("<div id='mb_btn_div'><input type='button' id='board_btn' class='mb_btns' value='작성 게시물' onclick='boardlist()' checked='checked'>"
-					+ "<input type='button' id='comment_btn' class='mb_btns' value='작성 댓글' onclick='commentlist()'></div> <br>"
-					+ "<div id='myboardlist_div1'><table id='boardlist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
-					+ "<th class='board_th'>제목</th><th class='board_th'>작성일</th><th class='board_th'>조회수</th></tr>");
-				for (var i = 0; i < data.length; i++) {
-					$("#board_tbody").append("<tr class='board_tr' onClick=location.href='/boardview?b_no=" + data[i].b_no + "'><td class='board_td'>" + data[i].b_no + "</td>"
-						+ "<td class='board_td'>" + data[i].b_type + "</td>"
-						+ "<td class='board_td'>" + data[i].b_title + "</td>"
-						+ "<td class='board_td'>" + data[i].regdate + "</td>"
-						+ "<td class='board_td'>" + data[i].b_view + "</td></tr>");
-				};
-				$("#myboardlist_div").append("</table> </div>");
 
-				document.getElementById("board_btn").style.backgroundColor = "#1A271D";
-				document.getElementById("comment_btn").style.backgroundColor = "#f6f5f0";
-				document.getElementById("board_btn").style.color = "#f6f5f0";
-				document.getElementById("comment_btn").style.color = "#1A271D";
-			}
+			$("#myboardlist_div").html("<div id='mb_btn_div'><input type='button' id='board_btn' class='mb_btns' value='작성 게시물' onclick='boardlist()' checked='checked'>"
+				+ "<input type='button' id='comment_btn' class='mb_btns' value='작성 댓글' onclick='commentlist()'></div> <br>");
+
+				if(data.length == 0){
+					$("#myboardlist_div").append("<div class='no_img_div'><img class='no_img' src='img/noboard.jpg' onclick=location.href='/boardlist'></div>");
+				}
+				else{
+					$("#myboardlist_div").append("<div id='myboardlist_div1'><table id='boardlist_tb'><tbody id='board_tbody'><tr class='board_tr'><th class='board_th'>번호</th><th class='board_th'>분류</th>"
+					+ "<th class='board_th'>제목</th><th class='board_th'>작성일</th><th class='board_th'>조회수</th></tr>");
+					
+					for (var i = 0; i < data.length; i++) {
+						$("#board_tbody").append("<tr class='board_tr' onClick=location.href='/boardview?b_no=" + data[i].b_no + "'><td class='board_td'>" + data[i].b_no + "</td>"
+							+ "<td class='board_td'>" + data[i].b_type + "</td>"
+							+ "<td class='board_td'>" + data[i].b_title + "</td>"
+							+ "<td class='board_td'>" + data[i].regdate + "</td>"
+							+ "<td class='board_td'>" + data[i].b_view + "</td></tr>");
+						};
+				}
+			
+			$("#myboardlist_div").append("</table> </div>");
+
+			document.getElementById("board_btn").style.backgroundColor = "#1A271D";
+			document.getElementById("comment_btn").style.backgroundColor = "#f6f5f0";
+			document.getElementById("board_btn").style.color = "#f6f5f0";
+			document.getElementById("comment_btn").style.color = "#1A271D";
 		}
 	}); //ajax end
 
@@ -233,28 +237,31 @@ function commentlist() {
 			$("#myMissionDiv").empty();
 			$("#myguidelist_div").empty();
 
-			if (data.length == 0) {
-				$("#myboardlist_div").html("<h3>작성한 댓글이 없습니다.</h3>");
+			$("#myboardlist_div").html("<div id='mb_btn_div'><input type='button' id='board_btn' class='mb_btns' value='작성 게시물' onclick='boardlist()'>"
+				+ "<input type='button' id='comment_btn' class='mb_btns' value='작성 댓글' onclick='commentlist()' checked='checked'></div> <br>");
+			
+			if(data.length == 0){
+				$("#myboardlist_div").append("<div class='no_img_div'><img class='no_img' src='img/nocomment.jpg' onclick=location.href='/boardlist'></div>");
 			}
-			else {
-				$("#myboardlist_div").html("<div id='mb_btn_div'><input type='button' id='board_btn' class='mb_btns' value='작성 게시물' onclick='boardlist()'>"
-					+ "<input type='button' id='comment_btn' class='mb_btns' value='작성 댓글' onclick='commentlist()' checked='checked'></div> <br>"
-					+ "<div id='myboardlist_div1'><table id='commentlist_tb'><tbody id='comment_tbody'><tr class='comment_tr'><th class='comment_th'>게시물</th><th class='comment_th'>댓글번호</th>"
-					+ "<th class='comment_th'>내용</th><th class='comment_th'>작성일</th><th class='comment_th'></th></tr>");
-				for (var i = 0; i < data.length; i++) {
+			else{
+				$("#myboardlist_div").append("<div id='myboardlist_div1'><table id='commentlist_tb'><tbody id='comment_tbody'><tr class='comment_tr'><th class='comment_th'>게시물</th><th class='comment_th'>댓글번호</th>"
+				+ "<th class='comment_th'>내용</th><th class='comment_th'>작성일</th><th class='comment_th'></th></tr>");
+				
+				for(var i = 0; i < data.length; i++) {
 					$("#comment_tbody").append("<tr class='comment_tr' onClick=location.href='/boardview?b_no=" + data[i].b_no + "'><td class='comment_td'>" + data[i].b_no + "</td>"
-						+ "<td class='comment_td'>" + data[i].c_index + "</td>"
-						+ "<td class='comment_td'>" + data[i].c_comment + "</td>"
-						+ "<td class='comment_td'>" + data[i].regdate + "</td>"
-						+ "<td class='comment_td'><button class='button' id='alter_btn"+i+"' onclick='remove("+i+")'>수정/삭제</button></td></tr>");
+					+ "<td class='comment_td'>" + data[i].c_index + "</td>"
+					+ "<td class='comment_td'>" + data[i].c_comment + "</td>"
+					+ "<td class='comment_td'>" + data[i].regdate + "</td>"
+					+ "<td class='comment_td'><button class='button' id='alter_btn" + i + "' onclick='remove(" + i + ")'>수정/삭제</button></td></tr>");
 				};
 				$("#myboardlist_div").append("</table> </div>");
-
-				document.getElementById("comment_btn").style.backgroundColor = "#1A271D";
-				document.getElementById("board_btn").style.backgroundColor = "#f6f5f0";
-				document.getElementById("comment_btn").style.color = "#f6f5f0";
-				document.getElementById("board_btn").style.color = "#1A271D";
 			}
+			
+
+			document.getElementById("comment_btn").style.backgroundColor = "#1A271D";
+			document.getElementById("board_btn").style.backgroundColor = "#f6f5f0";
+			document.getElementById("comment_btn").style.color = "#f6f5f0";
+			document.getElementById("board_btn").style.color = "#1A271D";
 		}
 	}); //ajax end
 
