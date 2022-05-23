@@ -67,7 +67,7 @@
 <!-- 2. member 테이블 변경(포인트, 탄소배출량) -->
     <update id="participation_complete2" parameterType="participationdto">             
         update member
-       set point = point + #{m_point} , carbon = carbon + #{m_carbon}
+       set point = point + #{p_point} , carbon = carbon + #{m_carbon}
        where id = #{id};
     </update>
 <!-- 3. 등급 변경(상시미션 코드와 중복) -->

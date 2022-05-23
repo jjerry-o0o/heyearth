@@ -1,5 +1,8 @@
 package mypage;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -31,10 +35,10 @@ public class MypageController {
 	@Autowired
 	@Qualifier("myguideservice")
 	MyguideService myguideservice = new MyguideServiceImpl();
-	
 
-	
-
+	@Autowired
+	@Qualifier("couponservice")
+	CouponService couponservice = new CouponServiceImpl();
 	
 	 
 	  //나의 가이드 스크랩
@@ -71,6 +75,26 @@ public class MypageController {
 						List<MyguideDTO> list = myguideservice.guide_list(id);
 				
 							return list;
+					}
+
+					//나의 쿠폰 목록
+					@RequestMapping(value="/mycoupon", method = RequestMethod.POST)
+					@ResponseBody
+					public List <CouponDTO> coupon_list(@RequestParam String id) {
+						List<CouponDTO> list = couponservice.coupon_list(id);				
+						return list;
+					}
+					
+					// 상시 미션 등록&인증하기
+					@RequestMapping("/couponinsert")
+					public String couponinsert(@ModelAttribute CouponDTO dto, HttpSession session) throws Exception {
+						String id = (String) session.getAttribute("session_id");
+						if (id == null) {
+							return "member/login";
+						}
+						dto.setId(id);
+						couponservice.coupon_insert(dto); 
+						return "redirect:/myguide";
 					}
 					 
 					 
