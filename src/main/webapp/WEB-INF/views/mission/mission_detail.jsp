@@ -75,10 +75,9 @@ $(document).ready(function(){
 				<input name="p_photo" type="hidden" id="p_photo">
 				<input name="id" type="hidden" id="id" value="${sessionScope.session_id}">
 				<input type="hidden" name="p_complete" value=1>
-				<input type="hidden" name="m_point" value="${group.m_point}">
+				<input type="hidden" name="p_point" value="${group.m_point}">
 				<input type="hidden" name="m_carbon" value="${group.m_carbon}">
 				<input type="hidden" name="p_location" value="${group.m_location}">
-				<input type="hidden" name="p_point" value="${group.m_point}">
 				<input name="image" id="input-image" type="file" accept="image/*"  required>
 					<br><br>
 				<input type='submit' id='register_complete' class="register" value='참가하기'>
