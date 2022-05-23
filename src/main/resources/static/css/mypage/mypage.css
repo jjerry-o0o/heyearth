@@ -74,8 +74,17 @@ h3 {
 	color : #f6f5f0;	
 }
 
-
 /* 작성게시물 테이블 */
+.no_img{
+	width : 80%;
+	margin : 0 auto;
+	
+}
+
+.no_img_div{
+	text-align: center;
+}
+
 #boardlist_tb, #guidelist_tb, #commentlist_tb{
 	border-collapse: collapse;
 	width : 90%;
